@@ -93,6 +93,20 @@ tr:hover td{background:#f8fafc}
 footer{margin-top:24px;text-align:center;font-size:12px;color:var(--muted);padding:16px 0 0}
 .disc{background:#f9fafb;border:1px solid var(--line);border-radius:12px;padding:14px 20px;font-size:12px;color:var(--muted);margin-top:20px;line-height:1.8}
 .disc b{color:#6b7280}
+details.cat{background:#f9fafb;border:1px solid var(--line);border-radius:12px;margin-top:14px;overflow:hidden}
+details.cat>summary{cursor:pointer;padding:12px 16px;font-size:13px;font-weight:600;color:#1e3a8a;list-style:none;display:flex;align-items:center;gap:8px;user-select:none}
+details.cat>summary::before{content:"▸";transition:transform .2s;color:var(--blue);font-size:12px}
+details.cat[open]>summary::before{transform:rotate(90deg)}
+details.cat>summary::-webkit-details-marker{display:none}
+.cat-body{padding:0 16px 14px}
+.cat-group{margin-top:12px}
+.cat-group-t{font-size:12px;font-weight:600;color:var(--purple);margin-bottom:6px;padding:4px 10px;background:var(--purple-l);border-radius:8px;display:inline-block}
+.cat-group.blue .cat-group-t{color:#1e3a8a;background:var(--blue-l)}
+.cat-group.green .cat-group-t{color:#059669;background:#ecfdf5}
+.cat-row{font-size:12.5px;color:#374151;line-height:1.75;padding-left:4px;margin-top:4px}
+.cat-row b{color:var(--txt)}
+.dl-btn{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,#1d4ed8,#7c3aed);color:#fff;text-decoration:none;font-size:12px;font-weight:600;padding:9px 18px;border-radius:20px;margin-top:14px;border:none;cursor:pointer}
+.dl-btn:hover{opacity:.92}
 @media(max-width:760px){
   .verdict,.flow-grid,.val-cards,.outlook{grid-template-columns:1fr}
   .hd-in{flex-direction:column;align-items:flex-start}
@@ -136,6 +150,26 @@ footer{margin-top:24px;text-align:center;font-size:12px;color:var(--muted);paddi
     <div class="vd-card amber">
       <div class="vd-t">③ 三催化共振</div>
       <div class="vd-d">英伟达 CPO 交换机量产 ｜ 中芯/华虹 Q2 超预期 ｜ 存储重估（长鑫科技重返 4 万亿）。资金一日回流超 600 亿。</div>
+      <details class="cat">
+        <summary>展开查看三大催化 · 相关板块新闻与资金（点击展开）</summary>
+        <div class="cat-body">
+          <div class="cat-group blue">
+            <div class="cat-group-t">催化一 · 英伟达 CPO 交换机全面量产 → 光模块 / CPO</div>
+            <div class="cat-row">太辰光 <b>20cm 涨停</b>（逾 6 万手封单，光通信龙头）；中石科技 <b>20cm 二连板</b>；共进股份、天洋新材涨停；仕佳光子 <b>+13.67%</b>（稀缺光芯片 IDM，AWG/MPO 直接受益）；天孚通信、长芯博创、长光华芯大幅跟涨。</div>
+            <div class="cat-row">板块表现：CPO 概念 <b class="up">+4.12%</b>，成交 4939 亿，10 日 +28.1%；主力净流入 <b class="up">+192.0 亿</b>（全市场板块排名第 12）。</div>
+          </div>
+          <div class="cat-group">
+            <div class="cat-group-t">催化二 · 晶圆双雄 Q2 业绩超预期 → 半导体 / 晶圆制造</div>
+            <div class="cat-row">中芯国际单季营收首破 <b>30 亿美元</b>，毛利率环比 +5.2pct 至 25.3%；华虹宏力营收创新高、归母净利 <b>同比 +385.9%</b>；两大晶圆厂 Q3 指引乐观，Omdia 上调 2026 全球半导体增长预测。盘面通富微电、有研新材涨停，中微半导、芯朋微涨超 13%。</div>
+            <div class="cat-row">板块表现：半导体（申万二级）<b class="up">+5.46%</b>，成交 3882 亿，10 日 +23.4%；主力净流入 <b class="up">+200.5 亿</b>，<b>全行业净流入排名第 1</b>。</div>
+          </div>
+          <div class="cat-group green">
+            <div class="cat-group-t">催化三 · 存储超级周期重估 → 存储链 / 材料设备</div>
+            <div class="cat-row">闪迪投资者日长期目标远超预期（FY28-30 收入年增中高双位数、毛利率约 80%），NAND 周期定价逻辑重估；A 股市值一哥长鑫科技 <b>+10%</b> 重返 <b>4 万亿</b> 市值；财信证券确认存储进入 AI 驱动超级景气周期、供需缺口持续扩大。</div>
+            <div class="cat-row">盘面联动：半导体设备 <b class="up">+4.12%</b>、半导体材料 <b class="up">+4.02%</b>；通富微电（封测）、有研新材（材料）涨停，中科飞测、普冉股份、国科微跟涨。</div>
+          </div>
+        </div>
+      </details>
     </div>
   </div>
 </section>
@@ -159,8 +193,8 @@ footer{margin-top:24px;text-align:center;font-size:12px;color:var(--muted);paddi
     </div>
     <div class="temp-items">
       <div class="ti"><div class="ti-t">板块普涨度</div><div class="ti-v up">17/17 全线上涨</div></div>
-      <div class="ti"><div class="ti-t">涨停潮</div><div class="ti-v up">20cm 涨停活跃</div></div>
-      <div class="ti"><div class="ti-t">资金共振</div><div class="ti-v up">半导体净流入全行业第 1</div></div>
+      <div class="ti"><div class="ti-t">涨停潮</div><div class="ti-v up">12+ 家涨停 · 20cm 6 家</div></div>
+      <div class="ti"><div class="ti-t">资金共振</div><div class="ti-v up">半导体 +200.5 亿 · 行业第 1</div></div>
       <div class="ti"><div class="ti-t">连板高度</div><div class="ti-v" style="color:#d97706">2 板（中石科技）</div></div>
       <div class="ti"><div class="ti-t">龙头强度</div><div class="ti-v up">旭创破千元 / 长鑫 +10%</div></div>
       <div class="ti"><div class="ti-t">趋势</div><div class="ti-v up">▲ 升温（连续两日走强）</div></div>
@@ -196,6 +230,27 @@ footer{margin-top:24px;text-align:center;font-size:12px;color:var(--muted);paddi
     <tr><td><div class="rank"><i>17</i></div></td><td><b>AI 智能体</b></td><td><span class="chip ap">模型应用</span></td><td class="num up">+0.28%</td><td class="num">133 亿</td><td class="num">3.48%</td><td class="num up">+5.0%</td><td><div class="bar"><div class="bar-fill" style="width:6%"></div></div></td></tr>
   </table>
   <div class="flow-note">注：板块成交额为成分股加总（存在跨板块重叠）；数据中心、CPO、半导体单板块成交居全市场前列，AI 链为本轮最拥挤方向。</div>
+  <details class="cat">
+    <summary>赛道分类口径说明 · 4 大分类 + 6 大核心赛道 + 成分股下载（点击展开）</summary>
+    <div class="cat-body">
+      <div class="cat-group blue">
+        <div class="cat-group-t">四大分类标准（按产业链位置划分）</div>
+        <div class="cat-row"><b>算力硬件</b>：AI 算力的物理基础设施——计算（AI算力芯片/服务器）· 互联（CPO光模块/PCB）· 散热供电（液冷）· 承载（数据中心/华为算力）。直接受益于 AI 资本开支，业绩兑现度最高。</div>
+        <div class="cat-row"><b>半导体</b>：AI 芯片的制造与上游——晶圆制造（半导体）· 设备 · 材料。国产替代 + 景气周期双重属性，本轮由晶圆双雄 Q2 超预期点燃。</div>
+        <div class="cat-row"><b>模型应用</b>：AI 软件与应用层——大模型 · AIGC · AI应用 · AI智能体 · AI语料。业绩兑现慢、主题属性强，与硬件端存在明显分化。</div>
+        <div class="cat-row"><b>AI 终端</b>：AI 落地的消费终端载体——AIPC · AI手机。由硬件迭代周期驱动，弹性随新品发布节奏波动。</div>
+      </div>
+      <div class="cat-group">
+        <div class="cat-group-t">六大核心赛道（资金动向章节固定观测口径）</div>
+        <div class="cat-row">半导体 / CPO 光模块 / PCB 概念 / 服务器 / AI 算力芯片 / 液冷——选取标准：<b>当日主力资金净流入规模 + 与 AI 算力主线关联度</b>最高的 6 个赛道，对应「资金动向」章节的 6 张资金卡。</div>
+      </div>
+      <div class="cat-group green">
+        <div class="cat-group-t">数据说明</div>
+        <div class="cat-row">板块代码与成分股来自腾讯自选股行情接口快照；概念板块成分股存在跨板块重叠，同一只股票可属于多个赛道，以最新快照为准。</div>
+      </div>
+      <a class="dl-btn" href="ai-track-stocks-20260817.xlsx" download>下载赛道成分股清单 Excel（2278 条 · 4 个 Sheet）</a>
+    </div>
+  </details>
 </section>
 
 <section>

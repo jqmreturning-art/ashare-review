@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>美股科技板块日度复盘 · 2026-08-14</title>
+<style>
+:root{--red:#ff4757;--green:#00d4aa;--bg:#f6f7fb;--card:#ffffff;--ink:#1a2333;--muted:#7a8499;--line:#e8eaf0;--blue:#1d4ed8;--purple:#7c3aed}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;padding:32px 16px 60px}
+.wrap{max-width:980px;margin:0 auto}
+.hd{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:6px}
+.hd h1{font-size:26px;font-weight:800;letter-spacing:.5px}
+.hd h1 span{background:linear-gradient(90deg,var(--blue),var(--purple));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hd .date{font-size:13px;color:var(--muted)}
+.sub{font-size:12.5px;color:var(--muted);margin-bottom:22px;display:flex;gap:10px;flex-wrap:wrap}
+.sub b{color:#5b6478}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin-bottom:18px}
+.card h2{font-size:16px;font-weight:800;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.card h2 .tag{font-size:11px;font-weight:600;color:#fff;background:linear-gradient(90deg,var(--blue),var(--purple));padding:2px 8px;border-radius:6px;letter-spacing:1px}
+.up{color:var(--red)}.dn{color:var(--green)}.flat{color:#b9c0cc}
+.grid{display:grid;gap:12px}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:720px){.g3,.g4{grid-template-columns:1fr 1fr}}
+.vd-card{border-radius:12px;padding:14px 16px;background:#f8f9fc;border:1px solid var(--line)}
+.vd-card.hot{background:linear-gradient(135deg,#fff5f5,#fff);border-color:#ffd9dc}
+.vd-card.blue{background:linear-gradient(135deg,#eff4ff,#fff);border-color:#d5e2ff}
+.vd-card.amber{background:linear-gradient(135deg,#fffaf0,#fff);border-color:#ffe9c7}
+.vd-t{font-size:13px;font-weight:800;margin-bottom:5px}
+.vd-d{font-size:12.5px;color:#4a5468}
+.kpi{display:flex;align-items:center;gap:10px;padding:12px 0;border-bottom:1px dashed var(--line)}
+.kpi:last-child{border-bottom:none}
+.kpi .nm{width:86px;font-size:12.5px;color:var(--muted);font-weight:600;flex-shrink:0}
+.kpi .bar{flex:1;height:8px;background:#eef0f5;border-radius:5px;overflow:hidden}
+.kpi .bar i{display:block;height:100%;border-radius:5px;background:linear-gradient(90deg,var(--blue),var(--purple))}
+.kpi .val{font-size:13px;font-weight:800;min-width:120px;text-align:right}
+.tbl{width:100%;border-collapse:collapse;font-size:12.5px}
+.tbl th{background:#f5f6fa;color:#5b6478;font-weight:700;padding:8px 10px;text-align:right;border-bottom:2px solid var(--line);white-space:nowrap}
+.tbl th:first-child,.tbl td:first-child{text-align:left}
+.tbl td{padding:8px 10px;border-bottom:1px solid #f0f2f7;text-align:right;white-space:nowrap}
+.tbl tr:hover td{background:#fafbfe}
+.tbl .gp td{background:#f0f2f8;color:#5b6478;font-weight:800;font-size:12px;padding:6px 10px;text-align:left}
+.mini-bar{display:inline-block;width:52px;height:6px;background:#eef0f5;border-radius:3px;vertical-align:middle;margin-left:6px;overflow:hidden}
+.mini-bar i{display:block;height:100%;border-radius:3px}
+.flow-note{font-size:12px;color:var(--muted);margin-top:12px;line-height:1.9}
+.flow-note b{color:#5b6478}
+details.cat{margin-top:12px;border:1px solid var(--line);border-radius:10px;background:#fafbfe;overflow:hidden}
+details.cat summary{cursor:pointer;padding:11px 16px;font-size:13px;font-weight:700;color:var(--blue);list-style:none;display:flex;align-items:center;gap:6px}
+details.cat summary::-webkit-details-marker{display:none}
+details.cat summary:before{content:"▸";transition:transform .2s;color:var(--purple)}
+details.cat[open] summary:before{transform:rotate(90deg)}
+details.cat .inner{padding:4px 16px 14px;font-size:12.5px;color:#4a5468}
+details.cat .inner h4{font-size:12.5px;color:var(--ink);margin:10px 0 4px}
+.disc{background:#f9fafb;border:1px solid var(--line);border-radius:12px;padding:14px 20px;font-size:12px;color:var(--muted);margin-top:20px;line-height:1.8}
+.disc b{color:#6b7280}
+.temp-wrap{display:flex;align-items:center;gap:26px;flex-wrap:wrap}
+.temp-svg{flex-shrink:0}
+.temp-side{flex:1;min-width:280px}
+.temp-score{font-size:46px;font-weight:900;line-height:1}
+.temp-lbl{font-size:13px;color:var(--muted);margin-top:4px}
+.pill{display:inline-block;font-size:11px;font-weight:700;padding:2px 9px;border-radius:20px}
+.pill.r{background:#ffe9ec;color:#e0243a}
+.pill.g{background:#e0faf3;color:#0a9c7c}
+.pill.b{background:#e8eefc;color:#1d4ed8}
+.pill.p{background:#f3e8ff;color:#7c3aed}
+.lk{font-size:12px;color:var(--blue);text-decoration:none;font-weight:700}
+.lk:hover{text-decoration:underline}
+.num-big{font-size:15px;font-weight:800}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="hd">
+    <h1>美股科技板块日度复盘 <span>US Tech Review</span></h1>
+    <div class="date">数据截至 美东 2026-08-14 收盘 ｜ 北京时间 2026-08-15 04:00</div>
+  </div>
+  <div class="sub"><b>口径</b>：纳指100成分 + 费城半导体 + 云与软件龙头 ｜ <b>定位</b>：全球科技定价锚，隔夜美股 → 今日 A股/QDII 映射</div>
+
+  <!-- ① 今日结论 -->
+  <div class="card">
+    <h2><span class="tag">VERDICT</span>今日结论</h2>
+    <div class="grid g3">
+      <div class="vd-card hot">
+        <div class="vd-t">① 指数窄幅回调 · 周线三连涨</div>
+        <div class="vd-d">纳指 -0.28%、标普 -0.17%，但两大指数均录得周线三连涨（4 月初以来最长连涨）。指数小跌 ≠ 科技走弱，是高位缩量休整。</div>
+      </div>
+      <div class="vd-card blue">
+        <div class="vd-t">② 存储强 · 融资链弱</div>
+        <div class="vd-d">闪迪 +7%、美光 +2.3%、AMD +6.5% 领涨；博通 -5.94%、应用材料 -5.12% 领跌。AI 算力"融资信用风险"成为当日定价核心。</div>
+      </div>
+      <div class="vd-card amber">
+        <div class="vd-t">③ 财报超预期反成利空</div>
+        <div class="vd-d">应用材料营收 +24.8% 超预期仍大跌 5.1%——市场从"业绩驱动"切换到"资产负债表风险"审慎模式，利好兑现即离场。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ② 隔夜全景 -->
+  <div class="card">
+    <h2><span class="tag">PANORAMA</span>隔夜全景</h2>
+    <table class="tbl">
+      <tr><th>指数</th><th>收盘</th><th>涨跌幅</th><th>周涨跌</th><th>20日</th><th>60日</th><th>信号</th></tr>
+      <tr><td>纳斯达克综合 (IXIC)</td><td>26,729.16</td><td class="dn">-0.28%</td><td class="up">+0.14%</td><td class="up">+4.74%</td><td class="up">+3.32%</td><td><span class="pill b">周线三连涨</span></td></tr>
+      <tr><td>纳斯达克100 (NDX)</td><td>30,046.14</td><td class="dn">-0.13%</td><td class="up">+1.09%</td><td class="up">+5.08%</td><td class="up">+4.26%</td><td><span class="pill p">科技宽基偏强</span></td></tr>
+      <tr><td>标普500 (SPX)</td><td>7,785.76</td><td class="dn">-0.17%</td><td class="up">+0.36%</td><td class="up">+4.40%</td><td class="up">+5.88%</td><td><span class="pill b">纪录高位附近</span></td></tr>
+      <tr><td>费城半导体 (SOX)</td><td>≈5,504</td><td class="dn">-0.06%</td><td class="up">+0.62%</td><td class="up">+4.30%</td><td class="up">+6.10%</td><td><span class="pill p">内部分化剧烈</span></td></tr>
+    </table>
+    <div class="flow-note"><b>解读</b>：三大指数集体小幅收跌，主因<b>应用材料拖累大盘</b>（财报超预期但获利了结）+ <b>博通债务疑虑</b>（美银测算 2027 年新增约 1500 亿美元融资债务）。道指收 53,732.41（-0.20%），周线 -0.56% 逆势收绿。整体呈"<b>指数高位休整、板块剧烈轮动</b>"格局。</div>
+  </div>
+
+  <!-- ③ 指数温度 -->
+  <div class="card">
+    <h2><span class="tag">TEMP</span>指数温度（美股版情绪模型）</h2>
+    <div class="temp-wrap">
+      <div class="temp-svg">
+        <svg width="150" height="150" viewBox="0 0 150 150">
+          <circle cx="75" cy="75" r="62" fill="none" stroke="#eef0f5" stroke-width="13"/>
+          <circle cx="75" cy="75" r="62" fill="none" stroke="url(#tg)" stroke-width="13" stroke-linecap="round"
+            stroke-dasharray="340" stroke-dashoffset="155" transform="rotate(-90 75 75)"/>
+          <defs>
+            <linearGradient id="tg" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#1d4ed8"/><stop offset="100%" stop-color="#7c3aed"/>
+            </linearGradient>
+          </defs>
+          <text x="75" y="72" text-anchor="middle" font-size="34" font-weight="900" fill="#1a2333">54</text>
+          <text x="75" y="94" text-anchor="middle" font-size="11" fill="#7a8499">中性偏暖</text>
+        </svg>
+      </div>
+      <div class="temp-side">
+        <div class="kpi"><div class="nm">周线趋势</div><div class="bar"><i style="width:72%"></i></div><div class="val up">三连涨·多头</div></div>
+        <div class="kpi"><div class="nm">市场广度</div><div class="bar"><i style="width:48%"></i></div><div class="val">分化·五五开</div></div>
+        <div class="kpi"><div class="nm">融资信用</div><div class="bar"><i style="width:36%"></i></div><div class="val dn">风险发酵</div></div>
+        <div class="kpi"><div class="nm">主线强度</div><div class="bar"><i style="width:66%"></i></div><div class="val up">存储主升</div></div>
+        <div class="kpi"><div class="nm">龙头动量</div><div class="bar"><i style="width:58%"></i></div><div class="val">英伟达企稳</div></div>
+        <div class="kpi"><div class="nm">宏观支撑</div><div class="bar"><i style="width:60%"></i></div><div class="val">降息预期</div></div>
+      </div>
+    </div>
+    <div class="flow-note"><b>模型说明</b>：美股无涨跌停，温度改用 6 项替代指标（周线趋势/广度/融资信用风险/主线强度/龙头动量/宏观流动性）加权，0-100 度。当前 <b>54°C 中性偏暖</b>：趋势与主线支撑 vs 融资信用风险压制。<b>风险点</b>：若博通债务担忧蔓延至英伟达担保敞口（3500 亿美元 OpenAI 采购担保已收缩），温度可能快速下探。</div>
+  </div>
+
+  <!-- ④ 龙头梯队 -->
+  <div class="card">
+    <h2><span class="tag">LEADERS</span>科技龙头梯队（20 只）</h2>
+    <table class="tbl">
+      <tr><th>公司</th><th>现价</th><th>涨跌幅</th><th>成交额</th><th>5日</th><th>20日</th><th>60日</th><th>PE</th><th>强度</th></tr>
+      <tr class="gp"><td colspan="9">七巨头 Mag7</td></tr>
+      <tr><td>英伟达 NVDA</td><td>225.16</td><td class="dn">-0.06%</td><td>171亿</td><td class="up">+0.54%</td><td class="up">+11.02%</td><td class="up">+2.19%</td><td>34.5</td><td><span class="mini-bar"><i style="width:62%;background:var(--red)"></i></span></td></tr>
+      <tr><td>苹果 AAPL</td><td>305.93</td><td class="up">+0.22%</td><td>86亿</td><td class="dn">-2.27%</td><td class="dn">-8.25%</td><td class="up">+2.42%</td><td>35.1</td><td><span class="mini-bar"><i style="width:30%;background:var(--green)"></i></span></td></tr>
+      <tr><td>微软 MSFT</td><td>495.40</td><td class="dn">-0.30%</td><td>81亿</td><td class="dn">-0.92%</td><td class="up">+25.79%</td><td class="up">+18.94%</td><td>27.6</td><td><span class="mini-bar"><i style="width:88%;background:var(--red)"></i></span></td></tr>
+      <tr><td>谷歌 GOOGL</td><td>345.90</td><td class="dn">-0.13%</td><td>62亿</td><td class="dn">-2.37%</td><td class="dn">-0.25%</td><td class="dn">-10.72%</td><td>17.4</td><td><span class="mini-bar"><i style="width:34%;background:var(--green)"></i></span></td></tr>
+      <tr><td>亚马逊 AMZN</td><td>262.65</td><td class="dn">-0.94%</td><td>72亿</td><td class="dn">-4.31%</td><td class="up">+6.24%</td><td class="up">+1.28%</td><td>21.1</td><td><span class="mini-bar"><i style="width:40%;background:var(--green)"></i></span></td></tr>
+      <tr><td>Meta</td><td>589.85</td><td class="dn">-0.86%</td><td>52亿</td><td class="dn">-0.38%</td><td class="dn">-8.69%</td><td class="dn">-2.03%</td><td>22.2</td><td><span class="mini-bar"><i style="width:32%;background:var(--green)"></i></span></td></tr>
+      <tr><td>特斯拉 TSLA</td><td>342.27</td><td class="up">+0.68%</td><td>156亿</td><td class="up">+4.17%</td><td class="dn">-10.13%</td><td class="dn">-15.30%</td><td>316.9</td><td><span class="mini-bar"><i style="width:38%;background:var(--green)"></i></span></td></tr>
+      <tr class="gp"><td colspan="9">半导体 & 算力硬件</td></tr>
+      <tr><td>博通 AVGO</td><td>392.99</td><td class="dn">-5.94%</td><td>117亿</td><td class="dn">-8.13%</td><td class="up">+5.98%</td><td class="dn">-4.25%</td><td>65.4</td><td><span class="mini-bar"><i style="width:18%;background:var(--green)"></i></span></td></tr>
+      <tr><td>AMD</td><td>514.39</td><td class="up">+6.50%</td><td>129亿</td><td class="up">+6.42%</td><td class="up">+3.76%</td><td class="up">+24.23%</td><td>131.9</td><td><span class="mini-bar"><i style="width:95%;background:var(--red)"></i></span></td></tr>
+      <tr><td>台积电 TSM</td><td>426.35</td><td class="dn">-0.96%</td><td>27亿</td><td class="up">+1.50%</td><td class="up">+7.02%</td><td class="up">+8.85%</td><td>31.8</td><td><span class="mini-bar"><i style="width:55%;background:var(--red)"></i></span></td></tr>
+      <tr><td>美光 MU</td><td>971.66</td><td class="up">+2.30%</td><td>270亿</td><td class="up">+10.72%</td><td class="up">+14.45%</td><td class="up">+39.09%</td><td>22.0</td><td><span class="mini-bar"><i style="width:98%;background:var(--red)"></i></span></td></tr>
+      <tr><td>迈威尔 MRVL</td><td>222.02</td><td class="dn">-0.07%</td><td>32亿</td><td class="up">+1.51%</td><td class="up">+17.67%</td><td class="up">+25.98%</td><td>76.3</td><td><span class="mini-bar"><i style="width:80%;background:var(--red)"></i></span></td></tr>
+      <tr><td>ARM</td><td>279.44</td><td class="up">+0.28%</td><td>6亿</td><td class="dn">-1.11%</td><td class="up">+4.58%</td><td class="up">+25.23%</td><td>285.1</td><td><span class="mini-bar"><i style="width:52%;background:var(--red)"></i></span></td></tr>
+      <tr><td>阿斯麦 ASML</td><td>1,844.08</td><td class="dn">-0.21%</td><td>17亿</td><td class="up">+5.92%</td><td class="up">+5.64%</td><td class="up">+26.49%</td><td>63.7</td><td><span class="mini-bar"><i style="width:60%;background:var(--red)"></i></span></td></tr>
+      <tr><td>应用材料 AMAT</td><td>507.18</td><td class="dn">-5.12%</td><td>67亿</td><td class="dn">-5.93%</td><td class="dn">-4.24%</td><td class="up">+24.79%</td><td>43.8</td><td><span class="mini-bar"><i style="width:20%;background:var(--green)"></i></span></td></tr>
+      <tr><td>高通 QCOM</td><td>165.79</td><td class="up">+0.61%</td><td>10亿</td><td class="dn">-1.23%</td><td class="dn">-3.49%</td><td class="dn">-14.93%</td><td>19.0</td><td><span class="mini-bar"><i style="width:28%;background:var(--green)"></i></span></td></tr>
+      <tr class="gp"><td colspan="9">云 & 软件</td></tr>
+      <tr><td>甲骨文 ORCL</td><td>150.52</td><td class="dn">-3.65%</td><td>33亿</td><td class="up">+2.38%</td><td class="up">+19.07%</td><td class="dn">-16.76%</td><td>25.8</td><td><span class="mini-bar"><i style="width:26%;background:var(--green)"></i></span></td></tr>
+      <tr><td>赛富时 CRM</td><td>196.21</td><td class="dn">-2.56%</td><td>17亿</td><td class="up">+1.80%</td><td class="up">+14.90%</td><td class="up">+9.64%</td><td>22.7</td><td><span class="mini-bar"><i style="width:46%;background:var(--green)"></i></span></td></tr>
+      <tr><td>Adobe</td><td>264.02</td><td class="dn">-2.39%</td><td>8亿</td><td class="dn">-0.45%</td><td class="up">+11.28%</td><td class="up">+3.54%</td><td>15.1</td><td><span class="mini-bar"><i style="width:44%;background:var(--green)"></i></span></td></tr>
+      <tr><td>ServiceNow</td><td>124.00</td><td class="dn">-2.55%</td><td>19亿</td><td class="dn">-0.70%</td><td class="up">+20.11%</td><td class="up">+21.77%</td><td>77.5</td><td><span class="mini-bar"><i style="width:58%;background:var(--red)"></i></span></td></tr>
+    </table>
+    <div class="flow-note"><b>结构信号</b>：<span class="up">存储三剑客（美光/闪迪/西部数据）</span>持续主升，AMD 单日 +6.5% 放量 129 亿，英伟达缩量企稳（-0.06%）；<span class="dn">博通 -5.94%、AMAT -5.12%</span> 是当日最大拖累——<b>AI 融资依赖度高的公司</b>被集中抛售，而<b>现金流强、债务轻的存储与 CPU 链</b>受追捧。</div>
+  </div>
+
+  <!-- ⑤ 利率流动性 -->
+  <div class="card">
+    <h2><span class="tag">FLOW</span>利率与流动性</h2>
+    <div class="grid g4" style="margin-bottom:14px">
+      <div class="vd-card"><div class="vd-t">零售销售</div><div class="vd-d num-big dn">弱于预期</div><div class="vd-d" style="margin-top:3px">7 月零售数据不及预期，<b>宽松预期升温</b>，利率敏感科技获支撑</div></div>
+      <div class="vd-card"><div class="vd-t">美债 10Y</div><div class="vd-d num-big">≈4.2%</div><div class="vd-d" style="margin-top:3px">回落至中性区间，前期加息担忧显著缓解</div></div>
+      <div class="vd-card"><div class="vd-t">油价</div><div class="vd-d num-big up">WTI 82+</div><div class="vd-d" style="margin-top:3px">中东局势（霍尔木兹海峡）推升油价 +1%，通胀扰动需跟踪</div></div>
+      <div class="vd-card"><div class="vd-t">宏观事件</div><div class="vd-d num-big">本周纪要</div><div class="vd-d" style="margin-top:3px">美联储 8/17 当周公布货币政策会议纪要，关注政策路径表述</div></div>
+    </div>
+    <table class="tbl">
+      <tr><th>ETF</th><th>收盘</th><th>涨跌幅</th><th>成交额</th><th>量比</th><th>信号</th></tr>
+      <tr><td>纳指100ETF (QQQ)</td><td>731.07</td><td class="dn">-0.14%</td><td>174亿</td><td>0.81</td><td><span class="pill p">缩量整理</span></td></tr>
+      <tr><td>半导体ETF (SMH)</td><td>587.82</td><td class="dn">-0.22%</td><td>32亿</td><td>0.86</td><td><span class="pill b">高位换手</span></td></tr>
+      <tr><td>费半ETF (SOXX)</td><td>550.42</td><td class="dn">-0.06%</td><td>24亿</td><td>0.62</td><td><span class="pill b">缩量</span></td></tr>
+      <tr><td>标普500ETF (SPY)</td><td>776.34</td><td class="dn">-0.20%</td><td>244亿</td><td>0.83</td><td><span class="pill b">高位</span></td></tr>
+    </table>
+    <div class="flow-note"><b>解读</b>：四大 ETF 全线缩量微跌（量比 0.6-0.9），未现恐慌抛售。国内 QDII 侧：<b>标普500ETF博时(513500) 8/14 涨 2.47%、规模 253.35 亿元创近 1 年新高</b>，近 30 日连续净流入——渠道端对美股科技 ETF 的配置需求仍在高位。</div>
+  </div>
+
+  <!-- ⑥ 龙头与财报 -->
+  <div class="card">
+    <h2><span class="tag">EARNINGS</span>龙头与财报事件</h2>
+    <div class="grid g4">
+      <div class="vd-card">
+        <div class="vd-t">英伟达 NVDA</div>
+        <div class="vd-d">评级：60 家机构 <b>57 买入 / 6 持有 / 1 卖出</b>，买入占比 <b>90.5%</b>（本月上调 10 家）</div>
+        <div class="vd-d" style="margin-top:6px">空头：ShortRatio 1.21 天、回补天数 2.23 天 —— <b>空头极轻</b>，无轧空风险也说明筹码高度一致看多</div>
+      </div>
+      <div class="vd-card">
+        <div class="vd-t">应用材料 AMAT</div>
+        <div class="vd-d">Q2 营收 91.2 亿美元 <b>+24.8% 超预期</b>，EPS 3.50 超预期 3.1%</div>
+        <div class="vd-d dn" style="margin-top:6px">股价 -5.12% —— 业绩利好兑现即离场，市场转向担忧设备端资本开支持续性</div>
+      </div>
+      <div class="vd-card">
+        <div class="vd-t">博通 AVGO</div>
+        <div class="vd-d dn">-5.94% 放量 117 亿，<b>当日最大利空</b></div>
+        <div class="vd-d" style="margin-top:6px">美银测算：其芯片融资项目 2029 年中将形成约 <b>3700 亿美元</b>高级债务（为 20GW 算力融资），仅 2027 年新增约 1500 亿美元 —— 融资扩张的信用风险被重新定价</div>
+      </div>
+      <div class="vd-card">
+        <div class="vd-t">闪迪 SNDK</div>
+        <div class="vd-d up">+7% 领涨存储</div>
+        <div class="vd-d" style="margin-top:6px">投资者日指引：2028-2030 财年营收中高双位数增长、毛利率约 <b>80%</b>、调整后自由现金流利润率约 50% —— 存储周期景气度获公司侧背书</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑦ 产业催化 -->
+  <div class="card">
+    <h2><span class="tag">CATALYST</span>产业催化</h2>
+    <div class="grid g3">
+      <div class="vd-card">
+        <div class="vd-t">🔺 英伟达 5000 亿美元算力融资平台</div>
+        <div class="vd-d">8/10 黄仁勋宣布与阿波罗、黑石、贝莱德、KKR 等六大机构共建独立算力融资平台，长期动员 <b>超 5000 亿美元</b>第三方资本（约 3.37 万亿人民币）投入 AI 基建。当日 NVDA -2.86%、费半 -3% —— 市场对"资产负债表豪赌"投出复杂一票。</div>
+      </div>
+      <div class="vd-card">
+        <div class="vd-t">🔻 英伟达收缩 OpenAI 融资担保</div>
+        <div class="vd-d">据披露，英伟达正<b>大幅收缩对 OpenAI 数据中心（3500 亿美元芯片采购）的融资担保</b>，以缓释自身风险敞口。此前市场担忧巨额担保抬升资产负债表风险（消息时 NVDA 一度 -5%）。</div>
+      </div>
+      <div class="vd-card">
+        <div class="vd-t">🔼 存储超级周期确认</div>
+        <div class="vd-d">闪迪 +7%、希捷 +5%、西部数据 +4%、美光 +2.3%、SK 海力士走强；闪迪投资者日给出 80% 毛利率指引。存储成为 AI 硬件链中<b>现金流最扎实</b>的细分。</div>
+      </div>
+      <div class="vd-card">
+        <div class="vd-t">🔺 AMD +6.5% 领涨</div>
+        <div class="vd-d">60 日 +24.23%，放量 129 亿。AI 加速卡竞争格局改善预期 + 存储链联动，资金从"融资重资产"切向"产品与现金流"标的。</div>
+      </div>
+      <div class="vd-card">
+        <div class="vd-t">🔻 中东地缘扰动</div>
+        <div class="vd-d">特朗普警告对伊朗经济打击、涉霍尔木兹海峡言论，WTI/布伦特均涨超 1% —— 油价上行对通胀与利率敏感的科技估值构成潜在压制。</div>
+      </div>
+      <div class="vd-card">
+        <div class="vd-t">🔼 弱零售数据 → 宽松预期</div>
+        <div class="vd-d">7 月零售销售弱于预期，市场对"加息担忧"进一步降温，<b>高估值科技获得分母端支撑</b>；本周美联储会议纪要将验证宽松路径。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑧ 估值拥挤 -->
+  <div class="card">
+    <h2><span class="tag">VALUATION</span>估值与拥挤度</h2>
+    <div class="grid g4">
+      <div class="vd-card blue"><div class="vd-t">英伟达</div><div class="vd-d num-big">PE 34.5</div><div class="vd-d">20 日 +11% 修复后仍低于年初高位，AI 算力链中<b>估值相对合理</b></div></div>
+      <div class="vd-card"><div class="vd-t">AMD</div><div class="vd-d num-big">PE 131.9</div><div class="vd-d">60 日 +24.2% 估值扩张快于盈利，<b>拥挤度上升</b></div></div>
+      <div class="vd-card amber"><div class="vd-t">ARM</div><div class="vd-d num-big">PE 285.1</div><div class="vd-d">全板块最高，60 日 +25.2%，<b>高位估值需业绩兑现</b></div></div>
+      <div class="vd-card amber"><div class="vd-t">特斯拉</div><div class="vd-d num-big">PE 316.9</div><div class="vd-d">高估值+60 日 -15.3%，<b>动量与估值背离</b></div></div>
+    </div>
+    <div class="flow-note"><b>拥挤度警示</b>：<br>
+    ① <b>AI 融资债务警戒</b>：博通 3700 亿美元债务 + 英伟达 5000 亿融资平台 + 3500 亿 OpenAI 采购，AI 基建正从"股权融资"转向"债务杠杆"——历史上（如 2000 年电信债）融资结构恶化往往是周期顶部先行信号；<br>
+    ② <b>资金拥挤</b>：存储/算力链 60 日涨幅 25-39%，成交占比高企，任何财报 miss 都可能引发踩踏；<br>
+    ③ <b>相对洼地</b>：微软 20 日 +25.8% 但 PE 仅 27.6、谷歌 PE 17.4（60 日 -10.7%）、Adobe PE 15.1 —— 软件与云估值显著低于硬件，若硬件回调，资金可能切向"软件补涨"。</div>
+  </div>
+
+  <!-- ⑨ A股映射 -->
+  <div class="card">
+    <h2><span class="tag">CN-MAP</span>A股映射与 QDII 联动</h2>
+    <div class="grid g3">
+      <div class="vd-card blue">
+        <div class="vd-t">① 存储链 → A股联动（最直接）</div>
+        <div class="vd-d">美光/闪迪/西数/海力士集体主升 + 闪迪 80% 毛利率指引，利好 A股存储链（长鑫生态/模组/接口芯片）。<b>映射强度 ★★★</b>，关注 A股存储板块竞价与封板强度。</div>
+      </div>
+      <div class="vd-card amber">
+        <div class="vd-t">② 融资链风险 → 算力租赁压制</div>
+        <div class="vd-d">博通债务疑虑 + 英伟达缩担保，对 A股<b>算力租赁/IDC/融资依赖型</b>公司构成情绪压制；但<b>设备（AMAT 财报超预期）与存储</b>基本面不受影响，注意区分"情绪错杀"与"实质利空"。</div>
+      </div>
+      <div class="vd-card">
+        <div class="vd-t">③ QDII 产品影响（渠道视角）</div>
+        <div class="vd-d">纳指 QQQ -0.14%、标普 SPY -0.2%，短期 QDII 净值波动有限；国内 <b>标普500ETF(513500) 规模创新高、连续净流入</b>，科技主题 QDII 仍是渠道高热度品类。若博通风险扩散至费半，纳指ETF 或有 1-2% 回撤窗口，是定投/申购的观察点而非恐慌点。</div>
+      </div>
+    </div>
+    <details class="cat">
+      <summary>展开：隔夜美股 → 今日 A股联动推演</summary>
+      <div class="inner">
+        <h4>利好传导（存储/CPU）</h4>
+        <p>A股存储（模组、接口、封测）、CPU/加速卡链受美光+2.3%、AMD+6.5%、闪迪+7% 提振；存储涨价逻辑获美企指引背书，关注存储板块竞价高开及领涨股封板情况。</p>
+        <h4>利空传导（算力融资/设备情绪）</h4>
+        <p>博通 -5.94% 可能压制 A股算力租赁、IDC、高负债算力公司；应用材料业绩超预期却大跌，A股半导体设备板块或出现"利好兑现"式震荡，不建议追高。</p>
+        <h4>大盘联动</h4>
+        <p>纳指/标普周线三连涨，隔夜未现系统性风险，A股科技情绪大概率延续，但需防"美股科技内部高低切"映射为 A股"存储/应用强、算力租赁弱"的轮动格局。</p>
+      </div>
+    </details>
+  </div>
+
+  <!-- ⑩ 展望清单 -->
+  <div class="card">
+    <h2><span class="tag">OUTLOOK</span>展望清单</h2>
+    <div class="grid g3">
+      <div class="vd-card blue">
+        <div class="vd-t">🎯 关注（5 条）</div>
+        <div class="vd-d">
+        ① <b>美联储会议纪要</b>（8/17 当周）—— 验证宽松路径，利率敏感科技的核心变量；<br>
+        ② 存储链（美光/闪迪）能否延续主升 —— 周期景气持续性；<br>
+        ③ AMD 放量后能否站稳 —— 市场对"非英伟达算力"的定价态度；<br>
+        ④ 英伟达担保收缩的后续披露 —— 对 OpenAI 采购节奏的影响；<br>
+        ⑤ 油价与中东局势 —— 通胀预期的短期扰动。
+        </div>
+      </div>
+      <div class="vd-card amber">
+        <div class="vd-t">⚠️ 风险（5 条）</div>
+        <div class="vd-d">
+        ① <b>AI 融资信用风险扩散</b>：博通 3700 亿债务若引发评级下调，可能拖累整个算力链估值；<br>
+        ② 高位获利了结：AMAT"利好兑现即跌"或蔓延至其他财报标的；<br>
+        ③ 估值拥挤：ARM/特斯拉 PE 280-317，动量反转风险大；<br>
+        ④ 零售数据走弱若过度解读为衰退，反而压制风险偏好；<br>
+        ⑤ 地缘事件升级导致油价快速上行。
+        </div>
+      </div>
+      <div class="vd-card">
+        <div class="vd-t">🧭 分场景预案</div>
+        <div class="vd-d">
+        <b>乐观</b>（纪要偏鸽 + 存储续涨）：纳指续创阶段新高，A股科技跟涨，QDII 持有不动；<br>
+        <b>中性</b>（纪要中性 + 分化延续）：硬件高位震荡，关注软件补涨（微软/Adobe）；<br>
+        <b>谨慎</b>（融资风险发酵 + 费半破位）：减配算力租赁类 QDII，存储/软件防御，A股映射谨慎。
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="disc">
+    <b>数据口径</b>：指数与个股行情、评级、卖空数据来自 westock-data 结构化接口（美东 2026-08-14 收盘快照）；费城半导体指数以 SOXX 收盘折算（SOX≈5504）；新闻催化来自妙想资讯检索（财联社/证券时报/路透等）。<br>
+    <b>免责声明</b>：本报告为收盘静态快照与量化分析，不构成任何投资建议。市场有风险，投资需谨慎。
+  </div>
+
+</div>
+</body>
+</html>

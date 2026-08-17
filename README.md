@@ -1,2 +1,24 @@
-# ashare-review
-A-share daily close review report (auto-updated)
+# ashare-review · A股每日收盘复盘
+
+A股每个交易日收盘后的「主线与情绪复盘」报告，由定时任务自动生成并推送。
+
+## 永久访问地址
+
+👉 **https://jqmreturning-art.github.io/ashare-review/**
+
+地址永久不变，内容在每个交易日 15:01 后自动更新为当日最新报告。
+
+## 报告内容
+
+- 市场情绪温度（0-100°）
+- 涨停/跌停、连板梯队、封板率、晋级率
+- 指数表现（上证/创业板/科创50）
+- 板块强弱、资金流向
+- 主线研判与明日观察锚
+
+## 文件说明
+
+- `index.html` — 最新一期报告（每日覆盖）
+- `market-review-YYYYMMDD.html` — 按日期归档的历史报告
+
+> 本报告为收盘静态快照，数据仅供参考研究，不构成任何投资建议。市场有风险，决策需独立判断。

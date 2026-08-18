@@ -6,52 +6,56 @@
 <title>A股 AI产业链 · 日度复盘 2026-08-17</title>
 <style>
 :root{
-  --bg:#f4f6fa; --card:#ffffff; --line:#e3e8f0;
-  --txt:#1f2937; --sub:#6b7280; --muted:#9ca3af;
-  --blue:#1d4ed8; --blue-l:#eef2ff; --purple:#6d28d9; --purple-l:#f5f3ff;
-  --up:#ff4757; --dn:#00d4aa; --amber:#d97706; --amber-l:#fef3c7;
-  --radius:14px;
+  --red:#ff4757;--up:#ff4757;--green:#00d4aa;--dn:#00d4aa;--flat:#b9c0cc;
+  --bg:#f4f6fa;--card:#ffffff;--line:#e3e8f0;
+  --txt:#1f2937;--sub:#6b7280;--muted:#9ca3af;
+  --blue:#1d4ed8;--blue-l:#eef2ff;--purple:#6d28d9;--purple-l:#f5f3ff;
+  --amber:#d97706;--amber-l:#fef3c7;--green-l:#ecfdf5;--green-d:#059669;
+  --grad:linear-gradient(135deg,#1e3a8a,#4f46e5 60%,#7c3aed);
+  --radius:14px;--radius-s:10px;
+  --shadow:0 1px 3px rgba(16,24,40,.05);
 }
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--txt);line-height:1.6;padding-bottom:60px}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--txt);line-height:1.6;padding-bottom:60px}
 .wrap{max-width:1000px;margin:0 auto;padding:0 20px}
-header{background:linear-gradient(135deg,#1e3a8a,#4f46e5 60%,#7c3aed);color:#fff;padding:40px 0 32px;border-radius:0 0 24px 24px}
+header{background:var(--grad);color:#fff;padding:32px 0 26px;border-radius:0 0 24px 24px}
 .hd-in{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px}
 .hd-tag{font-size:12px;letter-spacing:2px;opacity:.85;background:rgba(255,255,255,.15);display:inline-block;padding:4px 12px;border-radius:20px;margin-bottom:12px}
-h1{font-size:26px;font-weight:600;letter-spacing:1px}
-.hd-date{font-size:14px;opacity:.9;margin-top:6px}
-.temp-badge{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);border-radius:16px;padding:12px 22px;text-align:center;backdrop-filter:blur(4px)}
-.temp-num{font-size:34px;font-weight:700;line-height:1.1}
+h1{font-size:26px;font-weight:700;letter-spacing:1px}
+.hd-date{font-size:13px;opacity:.9;margin-top:6px}
+.temp-badge{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);border-radius:16px;padding:10px 20px;text-align:center;backdrop-filter:blur(4px)}
+.temp-num{font-size:32px;font-weight:700;line-height:1.1}
 .temp-lbl{font-size:12px;opacity:.9;margin-top:2px}
-section{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:26px 28px;margin-top:20px;box-shadow:0 1px 3px rgba(16,24,40,.04)}
+section{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px;margin-top:18px;box-shadow:var(--shadow)}
 .sec-head{display:flex;align-items:center;gap:10px;margin-bottom:16px}
-.sec-ico{width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;color:#fff;flex-shrink:0}
-h2{font-size:17px;font-weight:600}
+.sec-ico{width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;color:#fff;flex-shrink:0;background:var(--grad)}
+h2{font-size:16px;font-weight:700}
 .sec-sub{font-size:12px;color:var(--sub);margin-left:auto}
 .verdict{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:6px}
-.vd-card{background:var(--blue-l);border-radius:12px;padding:14px 16px}
-.vd-card.purple{background:var(--purple-l)}
-.vd-card.amber{background:var(--amber-l)}
-.vd-t{font-size:13px;font-weight:600;color:#1e3a8a;margin-bottom:4px}
+.vd-card{background:var(--blue-l);border:1px solid #c7d7fe;border-radius:12px;padding:14px 16px}
+.vd-card.purple{background:var(--purple-l);border-color:#ddd6fe}
+.vd-card.amber{background:var(--amber-l);border-color:#fde68a}
+.vd-t{font-size:13px;font-weight:700;color:#1e3a8a;margin-bottom:4px}
 .vd-card.purple .vd-t{color:var(--purple)}.vd-card.amber .vd-t{color:var(--amber)}
 .vd-d{font-size:13px;color:#374151;line-height:1.55}
 .temp-wrap{display:flex;align-items:center;gap:34px;flex-wrap:wrap}
 .temp-gauge{width:170px;height:170px;position:relative;flex-shrink:0}
 .temp-gauge svg{transform:rotate(-90deg)}
 .temp-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
-.temp-big{font-size:40px;font-weight:700;color:var(--up)}
+.temp-big{font-size:40px;font-weight:700;color:var(--red)}
 .temp-small{font-size:12px;color:var(--sub)}
 .temp-items{flex:1;min-width:280px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .ti{background:#f9fafb;border:1px solid var(--line);border-radius:10px;padding:10px 14px}
 .ti-t{font-size:12px;color:var(--sub)}
 .ti-v{font-size:15px;font-weight:600;margin-top:2px}
-.ti-v.up{color:var(--up)}.ti-v.dn{color:var(--dn)}
+.ti-v.up{color:var(--red)}.ti-v.dn{color:var(--green)}
 table{width:100%;border-collapse:collapse;font-size:13px}
-th{font-size:12px;color:var(--sub);font-weight:500;text-align:left;padding:9px 10px;border-bottom:1px solid var(--line);white-space:nowrap}
+th{font-size:12px;color:#5b6478;font-weight:700;background:#f5f6fa;text-align:left;padding:9px 10px;border-bottom:2px solid var(--line);white-space:nowrap}
+th.num{text-align:right}
 td{padding:10px;border-bottom:1px solid #f0f2f6;vertical-align:middle}
 tr:last-child td{border-bottom:none}
 tr:hover td{background:#f8fafc}
-.up{color:var(--up)}.dn{color:var(--dn)}
+.up{color:var(--red)}.dn{color:var(--green)}
 .num{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
 .rank{display:inline-flex;align-items:center;gap:6px}
 .rank i{width:22px;height:22px;border-radius:6px;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-style:normal;font-weight:600;background:var(--blue-l);color:#1e3a8a}
@@ -59,10 +63,10 @@ tr:hover td{background:#f8fafc}
 .chip.hw{background:var(--blue-l);color:#1e3a8a}
 .chip.sc{background:#fce7f3;color:#be185d}
 .chip.ap{background:var(--purple-l);color:var(--purple)}
-.chip.term{background:#ecfdf5;color:#059669}
+.chip.term{background:var(--green-l);color:var(--green-d)}
 .bar{height:7px;border-radius:4px;background:#eef1f6;overflow:hidden;min-width:70px}
-.bar-fill{height:100%;border-radius:4px;background:var(--up)}
-.bar-fill.dn{background:var(--dn)}
+.bar-fill{height:100%;border-radius:4px;background:var(--red)}
+.bar-fill.dn{background:var(--green)}
 .flow-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 .flow-item{background:#f9fafb;border:1px solid var(--line);border-radius:12px;padding:14px}
 .flow-name{font-size:13px;font-weight:600}
@@ -81,14 +85,14 @@ tr:hover td{background:#f8fafc}
 .val-n{font-size:22px;font-weight:700}
 .val-n.hot{color:var(--amber)}
 .val-t{font-size:12px;color:var(--sub);margin-top:2px}
-.warn{background:#fff7ed;border:1px solid #fed7aa;border-radius:12px;padding:14px 18px;margin-top:16px;font-size:13px;color:#9a3412}
-.warn b{color:#c2410c}
+.warn{background:var(--amber-l);border:1px solid #fde68a;border-radius:12px;padding:14px 18px;margin-top:16px;font-size:13px;color:#92400e}
+.warn b{color:#b45309}
 .outlook{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 .ol-card{border:1px solid var(--line);border-radius:12px;padding:16px}
 .ol-card.focus{border-color:#bfdbfe;background:#eff6ff}
 .ol-card.risk{border-color:#fecaca;background:#fef2f2}
 .ol-t{font-size:14px;font-weight:600;margin-bottom:10px}
-.ol-card.focus .ol-t{color:#1d4ed8}.ol-card.risk .ol-t{color:#dc2626}
+.ol-card.focus .ol-t{color:var(--blue)}.ol-card.risk .ol-t{color:#dc2626}
 .ol-list{font-size:13px;color:#374151;padding-left:18px;line-height:1.9}
 footer{margin-top:24px;text-align:center;font-size:12px;color:var(--muted);padding:16px 0 0}
 .disc{background:#f9fafb;border:1px solid var(--line);border-radius:12px;padding:14px 20px;font-size:12px;color:var(--muted);margin-top:20px;line-height:1.8}
@@ -102,10 +106,10 @@ details.cat>summary::-webkit-details-marker{display:none}
 .cat-group{margin-top:12px}
 .cat-group-t{font-size:12px;font-weight:600;color:var(--purple);margin-bottom:6px;padding:4px 10px;background:var(--purple-l);border-radius:8px;display:inline-block}
 .cat-group.blue .cat-group-t{color:#1e3a8a;background:var(--blue-l)}
-.cat-group.green .cat-group-t{color:#059669;background:#ecfdf5}
+.cat-group.green .cat-group-t{color:var(--green-d);background:var(--green-l)}
 .cat-row{font-size:12.5px;color:#374151;line-height:1.75;padding-left:4px;margin-top:4px}
 .cat-row b{color:var(--txt)}
-.dl-btn{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,#1d4ed8,#7c3aed);color:#fff;text-decoration:none;font-size:12px;font-weight:600;padding:9px 18px;border-radius:20px;margin-top:14px;border:none;cursor:pointer}
+.dl-btn{display:inline-flex;align-items:center;gap:6px;background:var(--grad);color:#fff;text-decoration:none;font-size:12px;font-weight:600;padding:9px 18px;border-radius:20px;margin-top:14px;border:none;cursor:pointer}
 .dl-btn:hover{opacity:.92}
 @media(max-width:760px){
   .verdict,.flow-grid,.val-cards,.outlook{grid-template-columns:1fr}
@@ -113,6 +117,7 @@ details.cat>summary::-webkit-details-marker{display:none}
   .temp-items{grid-template-columns:1fr}
   section{padding:20px 16px}
 }
+
 </style>
 </head>
 <body>
@@ -134,7 +139,7 @@ details.cat>summary::-webkit-details-marker{display:none}
 
 <section>
   <div class="sec-head">
-    <div class="sec-ico" style="background:#1d4ed8">结</div>
+    <div class="sec-ico" style="background:var(--grad)">结</div>
     <h2>今日结论</h2>
     <span class="sec-sub">硬件主升 · 应用分化 · 资金大举回流</span>
   </div>
@@ -176,7 +181,7 @@ details.cat>summary::-webkit-details-marker{display:none}
 
 <section>
   <div class="sec-head">
-    <div class="sec-ico" style="background:#7c3aed">温</div>
+    <div class="sec-ico" style="background:var(--grad)">温</div>
     <h2>产业链情绪温度</h2>
     <span class="sec-sub">科技专属情绪模型 · 满分 100</span>
   </div>
@@ -184,7 +189,12 @@ details.cat>summary::-webkit-details-marker{display:none}
     <div class="temp-gauge">
       <svg width="170" height="170" viewBox="0 0 170 170">
         <circle cx="85" cy="85" r="72" fill="none" stroke="#eef1f6" stroke-width="14"/>
-        <circle cx="85" cy="85" r="72" fill="none" stroke="#ff4757" stroke-width="14" stroke-linecap="round" stroke-dasharray="377" stroke-dashoffset="75.4"/>
+        <circle cx="85" cy="85" r="72" fill="none" stroke="url(#tg)" stroke-width="14" stroke-linecap="round" stroke-dasharray="377" stroke-dashoffset="75.4"/>
+        <defs>
+          <linearGradient id="tg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#00d4aa"/><stop offset="50%" stop-color="#ffa502"/><stop offset="100%" stop-color="#ff4757"/>
+          </linearGradient>
+        </defs>
       </svg>
       <div class="temp-center">
         <div class="temp-big">80</div>
@@ -205,7 +215,7 @@ details.cat>summary::-webkit-details-marker{display:none}
 
 <section>
   <div class="sec-head">
-    <div class="sec-ico" style="background:#0ea5e9">道</div>
+    <div class="sec-ico" style="background:var(--grad)">道</div>
     <h2>细分赛道排行</h2>
     <span class="sec-sub">17 个 AI 产业链赛道 · 按涨幅排序</span>
   </div>
@@ -255,7 +265,7 @@ details.cat>summary::-webkit-details-marker{display:none}
 
 <section>
   <div class="sec-head">
-    <div class="sec-ico" style="background:#059669">金</div>
+    <div class="sec-ico" style="background:var(--grad)">金</div>
     <h2>资金动向</h2>
     <span class="sec-sub">主力净流入 · 全行业排名</span>
   </div>
@@ -283,7 +293,7 @@ details.cat>summary::-webkit-details-marker{display:none}
 
 <section>
   <div class="sec-head">
-    <div class="sec-ico" style="background:#d97706">龙</div>
+    <div class="sec-ico" style="background:var(--grad)">龙</div>
     <h2>龙头梯队</h2>
     <span class="sec-sub">各细分赛道代表龙头 · 当日表现</span>
   </div>
@@ -305,7 +315,7 @@ details.cat>summary::-webkit-details-marker{display:none}
 
 <section>
   <div class="sec-head">
-    <div class="sec-ico" style="background:#7c3aed">催</div>
+    <div class="sec-ico" style="background:var(--grad)">催</div>
     <h2>产业催化 · 今日驱动</h2>
     <span class="sec-sub">为什么今天涨</span>
   </div>
@@ -344,7 +354,7 @@ details.cat>summary::-webkit-details-marker{display:none}
 
 <section>
   <div class="sec-head">
-    <div class="sec-ico" style="background:#dc2626">估</div>
+    <div class="sec-ico" style="background:var(--grad)">估</div>
     <h2>估值与拥挤度</h2>
     <span class="sec-sub">涨高了没有</span>
   </div>
@@ -361,7 +371,7 @@ details.cat>summary::-webkit-details-marker{display:none}
 
 <section>
   <div class="sec-head">
-    <div class="sec-ico" style="background:#1d4ed8">望</div>
+    <div class="sec-ico" style="background:var(--grad)">望</div>
     <h2>展望清单</h2>
     <span class="sec-sub">关注什么 · 提防什么</span>
   </div>

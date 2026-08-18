@@ -5,38 +5,55 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>美股科技板块日度复盘 · 2026-08-17</title>
 <style>
-:root{--red:#ff4757;--green:#00d4aa;--bg:#f6f7fb;--card:#ffffff;--ink:#1a2333;--muted:#7a8499;--line:#e8eaf0;--blue:#1d4ed8;--purple:#7c3aed}
+:root{
+  --red:#ff4757;--up:#ff4757;--green:#00d4aa;--dn:#00d4aa;--flat:#b9c0cc;
+  --bg:#f4f6fa;--card:#ffffff;--line:#e3e8f0;
+  --txt:#1f2937;--sub:#6b7280;--muted:#9ca3af;
+  --blue:#1d4ed8;--blue-l:#eef2ff;--purple:#6d28d9;--purple-l:#f5f3ff;
+  --amber:#d97706;--amber-l:#fef3c7;--green-l:#ecfdf5;--green-d:#059669;
+  --grad:linear-gradient(135deg,#1e3a8a,#4f46e5 60%,#7c3aed);
+  --radius:14px;--radius-s:10px;
+  --shadow:0 1px 3px rgba(16,24,40,.05);
+}
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;padding:32px 16px 60px}
-.wrap{max-width:980px;margin:0 auto}
-.hd{display:flex;align-items:baseline;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:6px}
-.hd h1{font-size:26px;font-weight:800;letter-spacing:.5px}
-.hd h1 span{background:linear-gradient(90deg,var(--blue),var(--purple));-webkit-background-clip:text;background-clip:text;color:transparent}
-.hd .date{font-size:13px;color:var(--muted)}
-.sub{font-size:12.5px;color:var(--muted);margin-bottom:22px;display:flex;gap:10px;flex-wrap:wrap}
+body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;padding:0 0 60px}
+.wrap{max-width:1000px;margin:0 auto;padding:0 20px}
+/* 页头 banner（统一渐变）*/
+header{background:var(--grad);color:#fff;padding:32px 0 26px;border-radius:0 0 24px 24px}
+.hd-in{max-width:1000px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px}
+.hd-tag{font-size:12px;letter-spacing:2px;opacity:.85;background:rgba(255,255,255,.15);display:inline-block;padding:4px 12px;border-radius:20px;margin-bottom:12px}
+.hd-in h1{font-size:26px;font-weight:700;letter-spacing:1px}
+.hd-date{font-size:13px;opacity:.9;margin-top:6px}
+.temp-badge{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);border-radius:16px;padding:10px 20px;text-align:center;backdrop-filter:blur(4px)}
+.temp-num{font-size:32px;font-weight:700;line-height:1.1}
+.temp-lbl{font-size:12px;opacity:.9;margin-top:2px}
+/* 口径条 */
+.sub{font-size:12.5px;color:var(--muted);margin:18px 0 20px;display:flex;gap:10px;flex-wrap:wrap}
 .sub b{color:#5b6478}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin-bottom:18px}
-.card h2{font-size:16px;font-weight:800;margin-bottom:14px;display:flex;align-items:center;gap:8px}
-.card h2 .tag{font-size:11px;font-weight:600;color:#fff;background:linear-gradient(90deg,var(--blue),var(--purple));padding:2px 8px;border-radius:6px;letter-spacing:1px}
-.up{color:var(--red)}.dn{color:var(--green)}.flat{color:#b9c0cc}
+/* 卡片 */
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px;margin-bottom:18px;box-shadow:var(--shadow)}
+.card h2{font-size:16px;font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.card h2 .tag{font-size:11px;font-weight:700;color:#fff;background:var(--grad);padding:3px 9px;border-radius:7px;letter-spacing:1px}
+.up{color:var(--red)}.dn{color:var(--green)}.flat{color:var(--flat)}
 .grid{display:grid;gap:12px}
 .g3{grid-template-columns:repeat(3,1fr)}
 .g4{grid-template-columns:repeat(4,1fr)}
-@media(max-width:720px){.g3,.g4{grid-template-columns:1fr 1fr}}
-.vd-card{border-radius:12px;padding:14px 16px;background:#f8f9fc;border:1px solid var(--line)}
-.vd-card.hot{background:linear-gradient(135deg,#fff5f5,#fff);border-color:#ffd9dc}
-.vd-card.blue{background:linear-gradient(135deg,#eff4ff,#fff);border-color:#d5e2ff}
-.vd-card.amber{background:linear-gradient(135deg,#fffaf0,#fff);border-color:#ffe9c7}
-.vd-card.green{background:linear-gradient(135deg,#f0fff9,#fff);border-color:#c8f7e6}
-.vd-t{font-size:13px;font-weight:800;margin-bottom:5px}
+@media(max-width:760px){.g3,.g4{grid-template-columns:1fr 1fr}}
+.vd-card{border-radius:12px;padding:14px 16px;background:var(--blue-l);border:1px solid #c7d7fe}
+.vd-card.hot{background:#fee2e2;border-color:#fecaca}
+.vd-card.blue{background:var(--blue-l);border-color:#c7d7fe}
+.vd-card.amber{background:var(--amber-l);border-color:#fde68a}
+.vd-card.green{background:var(--green-l);border-color:#a7f3d0}
+.vd-card.purple{background:var(--purple-l);border-color:#ddd6fe}
+.vd-t{font-size:13px;font-weight:700;margin-bottom:5px}
 .vd-d{font-size:12.5px;color:#4a5468}
 .kpi{display:flex;align-items:center;gap:10px;padding:12px 0;border-bottom:1px dashed var(--line)}
 .kpi:last-child{border-bottom:none}
-.kpi .nm{width:86px;font-size:12.5px;color:var(--muted);font-weight:600;flex-shrink:0}
+.kpi .nm{width:86px;font-size:12.5px;color:var(--sub);font-weight:600;flex-shrink:0}
 .kpi .bar{flex:1;height:8px;background:#eef0f5;border-radius:5px;overflow:hidden}
-.kpi .bar i{display:block;height:100%;border-radius:5px;background:linear-gradient(90deg,var(--blue),var(--purple))}
-.kpi .bar i.warn{background:linear-gradient(90deg,#ff9f43,#ff4757)}
-.kpi .val{font-size:13px;font-weight:800;min-width:120px;text-align:right}
+.kpi .bar i{display:block;height:100%;border-radius:5px;background:var(--grad)}
+.kpi .bar i.warn{background:linear-gradient(90deg,#ffa502,#ff4757)}
+.kpi .val{font-size:13px;font-weight:700;min-width:120px;text-align:right}
 .tbl{width:100%;border-collapse:collapse;font-size:12.5px}
 .tbl th{background:#f5f6fa;color:#5b6478;font-weight:700;padding:8px 10px;text-align:right;border-bottom:2px solid var(--line);white-space:nowrap}
 .tbl th:first-child,.tbl td:first-child{text-align:left}
@@ -47,13 +64,13 @@ body{background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSys
 .mini-bar i{display:block;height:100%;border-radius:3px}
 .flow-note{font-size:12px;color:var(--muted);margin-top:12px;line-height:1.9}
 .flow-note b{color:#5b6478}
-details.cat{margin-top:12px;border:1px solid var(--line);border-radius:10px;background:#fafbfe;overflow:hidden}
+details.cat{margin-top:12px;border:1px solid var(--line);border-radius:var(--radius-s);background:#fafbfe;overflow:hidden}
 details.cat summary{cursor:pointer;padding:11px 16px;font-size:13px;font-weight:700;color:var(--blue);list-style:none;display:flex;align-items:center;gap:6px}
 details.cat summary::-webkit-details-marker{display:none}
 details.cat summary:before{content:"▸";transition:transform .2s;color:var(--purple)}
 details.cat[open] summary:before{transform:rotate(90deg)}
 details.cat .inner{padding:4px 16px 14px;font-size:12.5px;color:#4a5468}
-details.cat .inner h4{font-size:12.5px;color:var(--ink);margin:10px 0 4px}
+details.cat .inner h4{font-size:12.5px;color:var(--txt);margin:10px 0 4px}
 .disc{background:#f9fafb;border:1px solid var(--line);border-radius:12px;padding:14px 20px;font-size:12px;color:var(--muted);margin-top:20px;line-height:1.8}
 .disc b{color:#6b7280}
 .temp-wrap{display:flex;align-items:center;gap:26px;flex-wrap:wrap}
@@ -62,22 +79,33 @@ details.cat .inner h4{font-size:12.5px;color:var(--ink);margin:10px 0 4px}
 .temp-score{font-size:46px;font-weight:900;line-height:1}
 .temp-lbl{font-size:13px;color:var(--muted);margin-top:4px}
 .pill{display:inline-block;font-size:11px;font-weight:700;padding:2px 9px;border-radius:20px}
-.pill.r{background:#ffe9ec;color:#e0243a}
-.pill.g{background:#e0faf3;color:#0a9c7c}
-.pill.b{background:#e8eefc;color:#1d4ed8}
-.pill.p{background:#f3e8ff;color:#7c3aed}
+.pill.r{background:#fee2e2;color:#dc2626}
+.pill.g{background:var(--green-l);color:var(--green-d)}
+.pill.b{background:var(--blue-l);color:var(--blue)}
+.pill.p{background:var(--purple-l);color:var(--purple)}
 .lk{font-size:12px;color:var(--blue);text-decoration:none;font-weight:700}
 .lk:hover{text-decoration:underline}
 .num-big{font-size:15px;font-weight:800}
+@media(max-width:760px){.hd-in{flex-direction:column;align-items:flex-start}.temp-badge{align-self:flex-start}}
+
 </style>
 </head>
 <body>
 <div class="wrap">
 
-  <div class="hd">
-    <h1>美股科技板块日度复盘 <span>US Tech Review</span></h1>
-    <div class="date">数据截至 美东 2026-08-17 收盘 ｜ 北京时间 2026-08-18 06:55</div>
-  </div>
+  <header>
+    <div class="hd-in">
+      <div>
+        <span class="hd-tag">US TECH REVIEW</span>
+        <h1>美股科技板块日度复盘</h1>
+        <div class="hd-date">数据截至 美东 2026-08-17 收盘 ｜ 北京时间 2026-08-18 06:55</div>
+      </div>
+      <div class="temp-badge">
+        <div class="temp-num">49<span style="font-size:16px">°C</span></div>
+        <div class="temp-lbl">指数温度 · 中性偏弱</div>
+      </div>
+    </div>
+  </header>
   <div class="sub"><b>口径</b>：纳指100成分 + 费城半导体 + 云与软件龙头 ｜ <b>定位</b>：全球科技定价锚，隔夜美股 → 今日 A股/QDII 映射</div>
 
   <!-- ① 今日结论 -->
@@ -123,11 +151,11 @@ details.cat .inner h4{font-size:12.5px;color:var(--ink);margin:10px 0 4px}
             stroke-dasharray="340" stroke-dashoffset="173" transform="rotate(-90 75 75)"/>
           <defs>
             <linearGradient id="tg" x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stop-color="#1d4ed8"/><stop offset="100%" stop-color="#7c3aed"/>
+              <stop offset="0%" stop-color="#00d4aa"/><stop offset="50%" stop-color="#ffa502"/><stop offset="100%" stop-color="#ff4757"/>
             </linearGradient>
           </defs>
-          <text x="75" y="72" text-anchor="middle" font-size="34" font-weight="900" fill="#1a2333">49</text>
-          <text x="75" y="94" text-anchor="middle" font-size="11" fill="#7a8499">中性偏弱</text>
+          <text x="75" y="72" text-anchor="middle" font-size="34" font-weight="900" fill="#1f2937">49</text>
+          <text x="75" y="94" text-anchor="middle" font-size="11" fill="#6b7280">中性偏弱</text>
         </svg>
       </div>
       <div class="temp-side">

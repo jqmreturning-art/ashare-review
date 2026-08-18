@@ -6,31 +6,41 @@
 <title>A股收盘主线与情绪复盘 2026-08-17</title>
 <style>
 :root{
-  --red:#ff4757;--green:#00d4aa;--flat:#b9c0cc;
-  --bg:#f0f2f5;--card:#fff;--text:#1a1a2e;--sub:#6b7280;
-  --border:#e5e7eb;--accent:#5f6caf;--warn:#ffa502;
-  --shadow:0 1px 3px rgba(0,0,0,.08);--radius:12px;
+  --red:#ff4757;--up:#ff4757;--green:#00d4aa;--dn:#00d4aa;--flat:#b9c0cc;
+  --bg:#f4f6fa;--card:#ffffff;--line:#e3e8f0;
+  --txt:#1f2937;--sub:#6b7280;--muted:#9ca3af;
+  --blue:#1d4ed8;--blue-l:#eef2ff;--purple:#6d28d9;--purple-l:#f5f3ff;
+  --amber:#d97706;--amber-l:#fef3c7;--green-l:#ecfdf5;--green-d:#059669;
+  --grad:linear-gradient(135deg,#1e3a8a,#4f46e5 60%,#7c3aed);
+  --radius:14px;--radius-s:10px;
+  --shadow:0 1px 3px rgba(16,24,40,.05);
 }
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);line-height:1.6;padding:20px;max-width:1200px;margin:0 auto}
-.header{text-align:center;padding:24px 0 16px}
-.header h1{font-size:22px;font-weight:700;letter-spacing:.5px}
-.header .date{font-size:13px;color:var(--sub);margin-top:4px}
-.verdict{background:linear-gradient(135deg,#fff8f0,#fff);border:1px solid #ffe0b2;border-radius:var(--radius);padding:16px 20px;margin:12px 0 20px;text-align:center}
-.verdict .label{font-size:12px;color:var(--sub);text-transform:uppercase;letter-spacing:1px}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--txt);line-height:1.6;max-width:1000px;margin:0 auto;padding:0 20px 60px}
+/* 页头 banner（统一渐变）*/
+header{background:var(--grad);color:#fff;margin:0 -20px;padding:30px 24px 26px;border-radius:0 0 24px 24px;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px}
+.hd-tag{font-size:12px;letter-spacing:2px;opacity:.85;background:rgba(255,255,255,.15);display:inline-block;padding:4px 12px;border-radius:20px;margin-bottom:12px}
+header h1{font-size:26px;font-weight:700;letter-spacing:1px}
+header .date{font-size:13px;opacity:.9;margin-top:6px}
+.temp-badge{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);border-radius:16px;padding:10px 20px;text-align:center;backdrop-filter:blur(4px)}
+.temp-num{font-size:32px;font-weight:700;line-height:1.1}
+.temp-lbl{font-size:12px;opacity:.9;margin-top:2px}
+/* 定性 verdict（渐变蓝紫呼应 banner）*/
+.verdict{background:var(--grad);color:#fff;border-radius:var(--radius);padding:18px 22px;margin:18px 0 20px;text-align:center;box-shadow:var(--shadow)}
+.verdict .label{font-size:12px;color:rgba(255,255,255,.8);text-transform:uppercase;letter-spacing:1px}
 .verdict .text{font-size:18px;font-weight:700;margin-top:4px}
-.verdict .tag{display:inline-block;padding:2px 12px;border-radius:20px;font-size:13px;font-weight:600;margin-left:8px}
-.tag-hot{background:#ffe0e0;color:#c62828}
-.tag-warn{background:#fff3e0;color:#e65100}
-.section-title{font-size:14px;font-weight:700;color:var(--sub);margin:20px 0 10px;padding-left:8px;border-left:3px solid var(--accent)}
+.verdict .tag{display:inline-block;padding:2px 12px;border-radius:20px;font-size:13px;font-weight:600;margin-left:8px;background:rgba(255,255,255,.18);color:#fff;border:1px solid rgba(255,255,255,.4)}
+.tag-hot{background:#fee2e2;color:#dc2626}
+.tag-warn{background:var(--amber-l);color:#b45309}
+.section-title{font-size:14px;font-weight:700;color:var(--sub);margin:20px 0 10px;padding-left:8px;border-left:3px solid var(--blue)}
 .kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:8px}
-.kpi{background:var(--card);border-radius:var(--radius);padding:16px 12px;text-align:center;box-shadow:var(--shadow)}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px 12px;text-align:center;box-shadow:var(--shadow)}
 .kpi .val{font-size:28px;font-weight:800;line-height:1.2}
 .kpi .lbl{font-size:11px;color:var(--sub);margin-top:4px}
 .kpi .sub{font-size:10px;color:var(--sub);margin-top:2px}
 .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:8px}
-.card{background:var(--card);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow)}
-.card h3{font-size:13px;font-weight:700;margin-bottom:12px;color:var(--text)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;box-shadow:var(--shadow)}
+.card h3{font-size:13px;font-weight:700;margin-bottom:12px;color:var(--txt)}
 .bar-row{display:flex;align-items:center;gap:8px;margin:6px 0;font-size:12px}
 .bar-row .name{width:90px;text-align:right;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .bar-row .bar-wrap{flex:1;height:18px;background:#f5f5f5;border-radius:4px;overflow:hidden;position:relative}
@@ -47,7 +57,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Micr
 .idx-row .bar-fill{display:flex;align-items:center;justify-content:flex-end;padding-right:6px;color:#fff;font-size:11px;font-weight:600}
 .idx-row .pct{width:60px;font-weight:700;font-size:12px}
 .sector-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.mini-card{background:#fafbfc;border-radius:8px;padding:12px;border:1px solid var(--border)}
+.mini-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-s);padding:12px}
 .mini-card h4{font-size:12px;font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:4px}
 .mini-card .item{display:flex;justify-content:space-between;align-items:center;padding:4px 0;border-bottom:1px solid #f0f0f0;font-size:12px}
 .mini-card .item:last-child{border-bottom:none}
@@ -68,36 +78,50 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Micr
 .ladder{display:flex;flex-direction:column;gap:6px;padding:8px 0}
 .ladder-row{display:flex;align-items:center;gap:8px;font-size:12px}
 .ladder-row .lvl{width:60px;font-weight:700;text-align:center;padding:2px 6px;border-radius:4px;color:#fff;font-size:11px}
-.ladder-row .lvl-5{background:#c62828}
-.ladder-row .lvl-4{background:#e65100}
-.ladder-row .lvl-3{background:#f9a825}
-.ladder-row .lvl-2{background:#7cb342}
+.ladder-row .lvl-5{background:#dc2626}
+.ladder-row .lvl-4{background:#ea580c}
+.ladder-row .lvl-3{background:#f59e0b}
+.ladder-row .lvl-2{background:#10b981}
 .ladder-row .stocks{flex:1;display:flex;flex-wrap:wrap;gap:4px}
-.ladder-row .stock-tag{background:#f0f0f0;padding:2px 8px;border-radius:10px;font-size:11px}
-.ladder-row .stock-tag.hot{background:#ffe0e0;color:#c62828;font-weight:600}
+.ladder-row .stock-tag{background:var(--blue-l);color:var(--blue);padding:2px 8px;border-radius:10px;font-size:11px}
+.ladder-row .stock-tag.hot{background:#fee2e2;color:#dc2626;font-weight:600}
 .judgment-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.j-card{background:var(--card);border-radius:var(--radius);padding:14px;box-shadow:var(--shadow);border-left:4px solid var(--accent)}
+.j-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:14px;box-shadow:var(--shadow);border-left:4px solid var(--blue)}
 .j-card.strong{border-left-color:var(--red)}
 .j-card.weak{border-left-color:var(--green)}
-.j-card.risk{border-left-color:var(--warn)}
-.j-card.alive{border-left-color:#7cb342}
+.j-card.risk{border-left-color:var(--amber)}
+.j-card.alive{border-left-color:var(--green-d)}
 .j-card h4{font-size:13px;font-weight:700;margin-bottom:8px}
 .j-card .desc{font-size:12px;color:var(--sub);line-height:1.5}
 .j-card .tag{display:inline-block;padding:1px 8px;border-radius:10px;font-size:10px;font-weight:600;margin-top:6px}
-.observe{background:var(--card);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow);margin-top:8px}
+.observe{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow);margin-top:8px}
 .observe ul{list-style:none;padding-left:0}
 .observe li{padding:6px 0;font-size:13px;border-bottom:1px solid #f5f5f5;display:flex;align-items:flex-start;gap:8px}
 .observe li:last-child{border-bottom:none}
-.observe li::before{content:"\25B8";color:var(--accent);font-weight:700;flex-shrink:0}
-.footer{text-align:center;padding:20px 0;font-size:11px;color:var(--sub);line-height:1.8}
+.observe li::before{content:"\\25B8";color:var(--blue);font-weight:700;flex-shrink:0}
+.footer{background:#f9fafb;border:1px solid var(--line);border-radius:12px;padding:14px 20px;font-size:12px;color:var(--muted);margin-top:20px;line-height:1.8;text-align:left}
+.footer p{margin:2px 0}
 .flow-val{color:var(--red);font-weight:600}
+@media(max-width:760px){
+  .kpi-row,.grid-2,.sector-grid,.judgment-grid{grid-template-columns:1fr}
+  .temp-section{grid-template-columns:1fr}
+  header{flex-direction:column;align-items:flex-start}
+}
+
 </style>
 </head>
 <body>
-<div class="header">
+<header>
+<div>
+<span class="hd-tag">ASHARE REVIEW</span>
 <h1>A股收盘主线与情绪复盘</h1>
 <div class="date">2026-08-17 周一 · 收盘静态快照</div>
 </div>
+<div class="temp-badge">
+<div class="temp-num">83<span style="font-size:16px">°C</span></div>
+<div class="temp-lbl">情绪温度 · 高温</div>
+</div>
+</header>
 
 <div class="verdict">
 <div class="label">定性 VERDICT</div>
@@ -125,10 +149,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Micr
 <stop offset="0" stop-color="#00d4aa"/>
 <stop offset=".35" stop-color="#ffa502"/>
 <stop offset=".65" stop-color="#ff6b6b"/>
-<stop offset="1" stop-color="#c62828"/>
+<stop offset="1" stop-color="#ff4757"/>
 </linearGradient>
 </defs>
-<text x="100" y="90" text-anchor="middle" font-size="42" font-weight="900" fill="#c62828">83</text>
+<text x="100" y="90" text-anchor="middle" font-size="42" font-weight="900" fill="#ff4757">83</text>
 <text x="100" y="108" text-anchor="middle" font-size="11" fill="#6b7280">高温</text>
 <text x="20" y="118" text-anchor="middle" font-size="9" fill="#9ca3af">0</text>
 <text x="100" y="16" text-anchor="middle" font-size="9" fill="#9ca3af">50</text>
@@ -266,7 +290,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Micr
 资金: 半导体+200亿 通信+59.8亿 电子化品+31.8亿<br>
 三维共振确认, 真主线成立
 </div>
-<span class="tag" style="background:#ffe0e0;color:#c62828">共振确认</span>
+<span class="tag" style="background:#fee2e2;color:#dc2626">共振确认</span>
 </div>
 <div class="j-card weak">
 <h4>退潮确认: 白酒/电力防御退潮</h4>
@@ -276,7 +300,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Micr
 防御资金转向科技进攻, 风格切换明确<br>
 昨日连板概念+5.68% 接力情绪修复
 </div>
-<span class="tag" style="background:#e8f5e9;color:#2e7d32">防御退潮</span>
+<span class="tag" style="background:#ecfdf5;color:#059669">防御退潮</span>
 </div>
 <div class="j-card risk">
 <h4>高风险: 极低风险</h4>
@@ -287,7 +311,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Micr
 放量2446亿 量价齐升<br>
 唯一隐忧: 一鸣食品15天10板 高位累计风险
 </div>
-<span class="tag" style="background:#fff3e0;color:#e65100">风险极低</span>
+<span class="tag" style="background:#fef3c7;color:#b45309">风险极低</span>
 </div>
 <div class="j-card alive">
 <h4>活口: 医药反复活跃</h4>
@@ -297,7 +321,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Micr
 神奇制药 2连板 博济医药 2连板<br>
 医药作为支线持续活跃 但非主攻方向
 </div>
-<span class="tag" style="background:#e8f5e9;color:#2e7d32">支线活口</span>
+<span class="tag" style="background:#ecfdf5;color:#059669">支线活口</span>
 </div>
 </div>
 

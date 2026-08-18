@@ -101,8 +101,8 @@ details.cat .inner h4{font-size:12.5px;color:var(--txt);margin:10px 0 4px}
         <div class="hd-date">数据截至 美东 2026-08-17 收盘 ｜ 北京时间 2026-08-18 06:55</div>
       </div>
       <div class="temp-badge">
-        <div class="temp-num">49<span style="font-size:16px">°C</span></div>
-        <div class="temp-lbl">指数温度 · 中性偏弱</div>
+        <div class="temp-num">55<span style="font-size:16px">°C</span></div>
+        <div class="temp-lbl">科技指数温度 · 中性</div>
       </div>
     </div>
   </header>
@@ -142,32 +142,32 @@ details.cat .inner h4{font-size:12.5px;color:var(--txt);margin:10px 0 4px}
 
   <!-- ③ 指数温度 -->
   <div class="card">
-    <h2><span class="tag">TEMP</span>指数温度（美股版情绪模型）</h2>
+    <h2><span class="tag">TEMP</span>科技指数温度（纳指100锚定）</h2>
     <div class="temp-wrap">
       <div class="temp-svg">
         <svg width="150" height="150" viewBox="0 0 150 150">
           <circle cx="75" cy="75" r="62" fill="none" stroke="#eef0f5" stroke-width="13"/>
           <circle cx="75" cy="75" r="62" fill="none" stroke="url(#tg)" stroke-width="13" stroke-linecap="round"
-            stroke-dasharray="340" stroke-dashoffset="173" transform="rotate(-90 75 75)"/>
+            stroke-dasharray="340" stroke-dashoffset="153" transform="rotate(-90 75 75)"/>
           <defs>
             <linearGradient id="tg" x1="0" y1="0" x2="1" y2="1">
               <stop offset="0%" stop-color="#00d4aa"/><stop offset="50%" stop-color="#ffa502"/><stop offset="100%" stop-color="#ff4757"/>
             </linearGradient>
           </defs>
-          <text x="75" y="72" text-anchor="middle" font-size="34" font-weight="900" fill="#1f2937">49</text>
-          <text x="75" y="94" text-anchor="middle" font-size="11" fill="#6b7280">中性偏弱</text>
+          <text x="75" y="72" text-anchor="middle" font-size="34" font-weight="900" fill="#1f2937">55</text>
+          <text x="75" y="94" text-anchor="middle" font-size="11" fill="#6b7280">中性</text>
         </svg>
       </div>
       <div class="temp-side">
-        <div class="kpi"><div class="nm">周线趋势</div><div class="bar"><i style="width:58%"></i></div><div class="val up">费半强劲·宽基整理</div></div>
-        <div class="kpi"><div class="nm">市场广度</div><div class="bar"><i style="width:30%" class="warn"></i></div><div class="val dn">133涨/367跌·极弱</div></div>
-        <div class="kpi"><div class="nm">融资信用</div><div class="bar"><i style="width:28%" class="warn"></i></div><div class="val dn">担保风险+长债新高</div></div>
-        <div class="kpi"><div class="nm">主线强度</div><div class="bar"><i style="width:78%"></i></div><div class="val up">存储/光通信主升</div></div>
-        <div class="kpi"><div class="nm">龙头动量</div><div class="bar"><i style="width:52%"></i></div><div class="val">Mag7分化·硬件强</div></div>
-        <div class="kpi"><div class="nm">宏观支撑</div><div class="bar"><i style="width:32%" class="warn"></i></div><div class="val dn">30Y美债>5.3%</div></div>
+        <div class="kpi"><div class="nm">纳指100 趋势</div><div class="bar"><i style="width:65%"></i></div><div class="val up">高位整理·距高-2.5%</div></div>
+        <div class="kpi"><div class="nm">科技广度</div><div class="bar"><i style="width:40%" class="warn"></i></div><div class="val dn">26龙头 9涨/17跌·分化</div></div>
+        <div class="kpi"><div class="nm">半导体链</div><div class="bar"><i style="width:78%"></i></div><div class="val up">费半5日+5.6%·主升</div></div>
+        <div class="kpi"><div class="nm">龙头动量</div><div class="bar"><i style="width:55%"></i></div><div class="val">硬件强·Mag7弱</div></div>
+        <div class="kpi"><div class="nm">量能活跃</div><div class="bar"><i style="width:55%"></i></div><div class="val">SMH放量·QQQ缩量</div></div>
+        <div class="kpi"><div class="nm">宏观压制</div><div class="bar"><i style="width:35%" class="warn"></i></div><div class="val dn">30Y美债&gt;5.3%</div></div>
       </div>
     </div>
-    <div class="flow-note"><b>模型说明</b>：美股无涨跌停，温度改用 6 项替代指标（周线趋势/广度/融资信用风险/主线强度/龙头动量/宏观流动性）加权，0-100 度。当前 <b>49°C 中性偏弱</b>：主线与部分龙头仍强，但<b>市场广度极弱+长债收益率创 18 年新高+融资担保风险</b>压制整体情绪。<b>风险点</b>：若 30 年期美债收益率持续上行或英伟达担保敞口引发信用担忧，温度可能快速下探至 35°C 以下。</div>
+    <div class="flow-note"><b>模型说明</b>：温度以 <b>纳指100 为核心锚</b>（距52周高点 -2.5%、20日 +4.86%），叠加科技广度/半导体链/龙头动量/量能活跃/宏观压制 6 项加权，0-100 度，衡量<b>美股科技板块自身热度</b>（区别于全市场情绪模型）。当前 <b>55°C 中性</b>：纳指100 高位整理、存储/光通信/半导体设备链主升（费半 5日 +5.6%），但科技内部分化（软件与部分 Mag7 走弱、26 龙头仅 9 家上涨）+ 30Y 美债创 18 年新高压制成长估值。<b>风险点</b>：若纳指100 跌破 20 日线或美债收益率续升，温度或回落至 45°C 以下。</div>
   </div>
 
   <!-- ④ 龙头梯队 -->

@@ -52,7 +52,10 @@ header .date{font-size:13px;opacity:.9;margin-top:6px}
 .idx-row .idx-name{width:80px;font-weight:600}
 .idx-row .idx-price{width:80px;color:var(--sub);font-size:12px}
 .idx-row .bar-wrap{flex:1;height:22px;background:#f5f5f5;border-radius:4px;overflow:hidden;position:relative}
-.idx-row .bar-fill{display:flex;align-items:center;justify-content:flex-end;padding-right:6px;color:#fff;font-size:11px;font-weight:600}
+.idx-row .bar-wrap::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:1px;background:#cbd5e1;z-index:1}
+.idx-row .bar-fill{position:absolute;top:0;bottom:0;display:flex;align-items:center;color:#fff;font-size:11px;font-weight:600}
+.idx-row .bar-fill.up{background:var(--red);left:50%;justify-content:flex-start;padding-left:6px;border-radius:0 4px 4px 0}
+.idx-row .bar-fill.dn{background:var(--green);right:50%;justify-content:flex-end;padding-right:6px;border-radius:4px 0 0 4px}
 .idx-row .pct{width:60px;font-weight:700;font-size:12px}
 .sector-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .mini-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-s);padding:12px}
@@ -184,19 +187,19 @@ header .date{font-size:13px;opacity:.9;margin-top:6px}
 <div class="idx-row">
 <span class="idx-name">上证指数</span>
 <span class="idx-price">3990.84</span>
-<div class="bar-wrap"><div class="bar-fill up" style="width:4%">+0.21%</div></div>
+<div class="bar-wrap"><div class="bar-fill up" style="width:4%"></div></div>
 <span class="pct up">+0.21%</span>
 </div>
 <div class="idx-row">
 <span class="idx-name">创业板指</span>
 <span class="idx-price">3705.86</span>
-<div class="bar-wrap"><div class="bar-fill dn" style="width:18%">-0.92%</div></div>
+<div class="bar-wrap"><div class="bar-fill dn" style="width:18%"></div></div>
 <span class="pct dn">-0.92%</span>
 </div>
 <div class="idx-row">
 <span class="idx-name">科创50</span>
 <span class="idx-price">1790.69</span>
-<div class="bar-wrap"><div class="bar-fill up" style="width:2%">+0.10%</div></div>
+<div class="bar-wrap"><div class="bar-fill up" style="width:2%"></div></div>
 <span class="pct up">+0.10%</span>
 </div>
 </div>

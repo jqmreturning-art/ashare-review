@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A股收盘主线与情绪复盘 20260821</title>
+<title>A股收盘主线与情绪复盘 2026-08-21</title>
 <style>
 :root{
   --red:#ff4757;--up:#ff4757;--green:#00d4aa;--dn:#00d4aa;--flat:#b9c0cc;
@@ -108,6 +108,7 @@ header .date{font-size:13px;opacity:.9;margin-top:6px}
   .temp-section{grid-template-columns:1fr}
   header{flex-direction:column;align-items:flex-start}
 }
+
 </style>
 </head>
 <body>
@@ -115,68 +116,175 @@ header .date{font-size:13px;opacity:.9;margin-top:6px}
 <div>
 <span class="hd-tag">ASHARE REVIEW</span>
 <h1>A股收盘主线与情绪复盘</h1>
-<div class="date">2026-08-21 周五 · 收盘静态快照</div>
+<div class="date">2026年8月21日 周五 · 收盘静态快照</div>
 </div>
 <div class="temp-badge">
-<div class="temp-num">5<span style="font-size:16px">°C</span></div>
-<div class="temp-lbl">情绪温度 · 冰点</div>
+<div class="temp-num">50<span style="font-size:16px">°C</span></div>
+<div class="temp-lbl">情绪温度 · 弱修复</div>
 </div>
 </header>
 
 <div class="verdict">
-<div class="label">MARKET VERDICT</div>
-<div class="text">市场情绪中性：涨停11家、跌停2家，多空基本均衡，题材轮动加快，宜聚焦确定性主线。<span class="tag">冰点</span></div>
+<div class="label">定性 VERDICT</div>
+<div class="text">指数微红但情绪弱修复，科技活口与资源股并存<span class="tag tag-warn">情绪 50</span></div>
+<div style="font-size:12px;color:var(--sub);margin-top:6px">涨停54只(不含ST) 跌停15只 红盘45.18% 成交1.88万亿缩量2001亿 | 贵金属/通信设备/CPO领涨，化学制药/高位股负反馈</div>
 </div>
 
-<div class="section-title">情绪四指标 KPI（财联社收盘口径）</div>
-<div class="kpi-row"><div class="kpi"><div class="val" style="color:var(--red)">11</div><div class="lbl">涨停家数</div><div class="sub">财联社收盘口径</div></div><div class="kpi"><div class="val" style="color:var(--amber)">--</div><div class="lbl">封板率</div><div class="sub">收盘口径</div></div><div class="kpi"><div class="val" style="color:var(--amber)">0板</div><div class="lbl">连板股总数</div><div class="sub">收盘口径</div></div><div class="kpi"><div class="val" style="color:var(--green)">--</div><div class="lbl">连板晋级率</div><div class="sub">收盘口径</div></div></div>
+<div class="section-title">情绪四指标 KPI</div>
+<div class="kpi-row">
+<div class="kpi"><div class="val" style="color:var(--red)">54</div><div class="lbl">涨停家数</div><div class="sub">不含ST; 全市场58只含ST</div></div>
+<div class="kpi"><div class="val" style="color:var(--green)">75%</div><div class="lbl">封板率</div><div class="sub">财联社收盘口径 18股炸板</div></div>
+<div class="kpi"><div class="val" style="color:var(--red)">3<span style="font-size:16px">板</span></div><div class="lbl">连板高度</div><div class="sub">汉森制药 医药</div></div>
+<div class="kpi"><div class="val" style="color:var(--green)">11<span style="font-size:16px">只</span></div><div class="lbl">连板股总数</div><div class="sub">晋级率25% 高度受限</div></div>
+</div>
 
-<div class="card" style="margin-top:12px">
-<h3>情绪温度计</h3>
+<div class="section-title">情绪温度计 + 市场广度</div>
+<div class="card" style="margin-bottom:8px">
 <div class="temp-section">
-<div class="temp-gauge"><svg viewBox="0 0 200 120" width="200" height="120"><defs><linearGradient id="gauge-grad" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#00d4aa"/><stop offset="50%" stop-color="#ffa502"/><stop offset="100%" stop-color="#ff4757"/></linearGradient></defs><path d="M20 100 A80 80 0 0 1 180 100" fill="none" stroke="#eef0f5" stroke-width="14" stroke-linecap="round"/><path d="M20 100 A80 80 0 0 1 180 100" fill="none" stroke="url(#gauge-grad)" stroke-width="14" stroke-linecap="round" stroke-dasharray="251.3" stroke-dashoffset="238.7"/><text x="100" y="88" text-anchor="middle" font-size="36" font-weight="900" fill="#ff4757">5</text><text x="125" y="88" font-size="16" fill="#6b7280">°C</text><text x="100" y="112" text-anchor="middle" font-size="11" fill="#9ca3af">冰点</text></svg></div>
+<div class="temp-gauge">
+<svg viewBox="0 0 200 120" width="200" height="120">
+<path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="#e5e7eb" stroke-width="14" stroke-linecap="round"/>
+<path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="url(#grad)" stroke-width="14" stroke-linecap="round" stroke-dasharray="251.3" stroke-dashoffset="125.65" transform="rotate(180 100 100)"/>
+<defs>
+<linearGradient id="grad" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0" stop-color="#00d4aa"/>
+<stop offset=".35" stop-color="#ffa502"/>
+<stop offset=".65" stop-color="#ff6b6b"/>
+<stop offset="1" stop-color="#ff4757"/>
+</linearGradient>
+</defs>
+<text x="100" y="90" text-anchor="middle" font-size="42" font-weight="900" fill="#ffa502">50</text>
+<text x="100" y="108" text-anchor="middle" font-size="11" fill="#6b7280">弱修复</text>
+<text x="20" y="118" text-anchor="middle" font-size="9" fill="#9ca3af">0</text>
+<text x="100" y="16" text-anchor="middle" font-size="9" fill="#9ca3af">50</text>
+<text x="180" y="118" text-anchor="middle" font-size="9" fill="#9ca3af">100</text>
+</svg>
+</div>
 <div class="temp-info">
-<div class="temp-val" style="color:var(--red)">5°C</div>
-<div class="temp-label">冰点（冰点）</div>
-<div class="temp-trend">基于涨停 11 家 / 封板率 -- / 连板股 0 只 / 晋级率 -- 综合计算，红盘占比 13.8%</div>
+<div class="temp-val">50<span style="font-size:20px"></span></div>
+<div class="temp-label" style="color:var(--amber)">弱修复区间 (35-50)</div>
+<div class="temp-trend">趋势: → 与上日基本持平</div>
 <div style="margin-top:12px">
-<div style="font-size:12px;color:var(--sub);margin-bottom:4px">市场广度</div>
-<div class="breadth-bar"><div class="seg-up" style="width:13.8%"></div><div class="seg-flat" style="width:5.7%"></div><div class="seg-dn" style="width:80.5%"></div></div><div class="breadth-labels"><span style="color:var(--red)">红盘 765 (13.8%)</span><span style="color:var(--flat)">平 315</span><span style="color:var(--green)">绿盘 4469 (80.5%)</span></div>
+<div style="font-size:12px;font-weight:600;margin-bottom:4px">市场广度</div>
+<div class="breadth-bar">
+<div class="seg-up" style="width:45.18%"></div>
+<div class="seg-flat" style="width:3.18%"></div>
+<div class="seg-dn" style="width:51.65%"></div>
+</div>
+<div class="breadth-labels">
+<span style="color:var(--red)">上涨 2504 (45.18%)</span>
+<span style="color:var(--flat)">平 176</span>
+<span style="color:var(--green)">下跌 2862 (51.65%)</span>
+</div>
+<div style="font-size:11px;color:var(--sub);margin-top:6px">成交额 1.88万亿 (缩量2001亿) | 跌停15只 高位股负反馈严重</div>
 </div>
 </div>
 </div>
 </div>
 
-<div class="card" style="margin-top:12px">
-<h3>指数表现</h3>
-<div class="idx-row"><span class="idx-name">上证指数</span><span class="idx-price">3891.18</span><div class="bar-wrap"><div class="bar-fill dn" style="width:13.44%"></div></div><span class="pct dn">-0.32%</span></div><div class="idx-row"><span class="idx-name">创业板指</span><span class="idx-price">3495.11</span><div class="bar-wrap"><div class="bar-fill dn" style="width:0.42%"></div></div><span class="pct dn">-0.01%</span></div><div class="idx-row"><span class="idx-name">科创50</span><span class="idx-price">1649.28</span><div class="bar-wrap"><div class="bar-fill dn" style="width:9.24%"></div></div><span class="pct dn">-0.22%</span></div>
-<div style="font-size:11px;color:var(--muted);margin-top:8px">红盘 765 / 绿盘 4469 · 涨跌分布来自行情接口</div>
+<div class="section-title">指数表现</div>
+<div class="card" style="margin-bottom:8px">
+<div class="idx-row">
+<span class="idx-name">上证指数</span>
+<span class="idx-price">3905.20</span>
+<div class="bar-wrap"><div class="bar-fill up" style="width:2%">+0.04%</div></div>
+<span class="pct up">+0.04%</span>
+</div>
+<div class="idx-row">
+<span class="idx-name">创业板指</span>
+<span class="idx-price">3545.58</span>
+<div class="bar-wrap"><div class="bar-fill up" style="width:28%">+1.43%</div></div>
+<span class="pct up">+1.43%</span>
+</div>
+<div class="idx-row">
+<span class="idx-name">科创50</span>
+<span class="idx-price">1653.56</span>
+<div class="bar-wrap"><div class="bar-fill up" style="width:2%">+0.04%</div></div>
+<span class="pct up">+0.04%</span>
+</div>
 </div>
 
 <div class="section-title">板块强弱</div>
-<div class="sector-grid"><div class="mini-card"><h4>🏆 行业涨幅居前</h4><div class="item"><span class="nm">贵金属</span><span class="vl  dn">--</span></div><div class="item"><span class="nm">保险Ⅱ</span><span class="vl  dn">--</span></div><div class="item"><span class="nm">饰品</span><span class="vl  dn">--</span></div><div class="item"><span class="nm">油服工程</span><span class="vl  dn">--</span></div><div class="item"><span class="nm">通信设备</span><span class="vl  dn">--</span></div></div><div class="mini-card"><h4>🔥 概念涨幅居前</h4><div class="item"><span class="nm">昨日连板</span><span class="vl  dn">--</span></div><div class="item"><span class="nm">肿瘤疫苗</span><span class="vl  dn">--</span></div><div class="item"><span class="nm">稳定币概念</span><span class="vl  dn">--</span></div><div class="item"><span class="nm">有色(锡)</span><span class="vl  dn">--</span></div><div class="item"><span class="nm">保险概念</span><span class="vl  dn">--</span></div></div><div class="mini-card"><h4>💴 主力资金流入</h4><div class="item"><span class="nm">通信设备</span><span class="vl flow-val ">+0.0亿</span></div><div class="item"><span class="nm">医疗服务</span><span class="vl flow-val ">+0.0亿</span></div><div class="item"><span class="nm">化学制药</span><span class="vl flow-val ">+0.0亿</span></div></div><div class="mini-card"><h4>📉 跌幅居前</h4><div class="item"><span class="nm">（今日行业普涨，无显著领跌板块）</span><span class="vl">--</span></div></div></div>
+<div class="sector-grid">
+<div class="mini-card">
+<h4>🔥 行业涨幅居前</h4>
+<div class="item"><span class="nm">贵金属</span><span class="vl up">+4.64%</span><span class="lead">湖南白银</span></div>
+<div class="item"><span class="nm">能源金属</span><span class="vl up">+4.60%</span><span class="lead">融捷股份</span></div>
+<div class="item"><span class="nm">通信设备</span><span class="vl up">+2.98%</span><span class="lead">星网锐捷</span></div>
+<div class="item"><span class="nm">元件</span><span class="vl up">+2.80%</span><span class="lead">江海股份</span></div>
+<div class="item"><span class="nm">工业金属</span><span class="vl up">+2.42%</span><span class="lead">湖南白银</span></div>
+</div>
+<div class="mini-card">
+<h4>🚀 概念涨幅居前</h4>
+<div class="item"><span class="nm">肿瘤疫苗</span><span class="vl up">+6.24%</span><span class="lead">康希诺</span></div>
+<div class="item"><span class="nm">白银概念</span><span class="vl up">+4.57%</span><span class="lead">湖南白银</span></div>
+<div class="item"><span class="nm">铅锌概念</span><span class="vl up">+4.13%</span><span class="lead">湖南白银</span></div>
+<div class="item"><span class="nm">陶瓷基板</span><span class="vl up">+3.80%</span><span class="lead">中瓷电子</span></div>
+<div class="item"><span class="nm">锂矿</span><span class="vl up">+3.77%</span><span class="lead">*ST威领</span></div>
+</div>
+<div class="mini-card">
+<h4>💰 主力净流入</h4>
+<div class="item"><span class="nm">通信设备</span><span class="vl up">+88.9亿</span></div>
+<div class="item"><span class="nm">元件</span><span class="vl up">+46.8亿</span></div>
+<div class="item"><span class="nm">工业金属</span><span class="vl up">+44.4亿</span></div>
+<div class="item"><span class="nm">CPO光模块</span><span class="vl up">+154.9亿</span></div>
+<div class="item"><span class="nm">液冷概念</span><span class="vl up">+59.6亿</span></div>
+</div>
+<div class="mini-card">
+<h4>📉 跌幅居前</h4>
+<div class="item"><span class="nm">化学制药</span><span class="vl dn">-4.33%</span></div>
+<div class="item"><span class="nm">白酒Ⅱ</span><span class="vl dn">-1.47%</span></div>
+<div class="item"><span class="nm">电力</span><span class="vl dn">-0.57%</span></div>
+<div class="item"><span class="nm">农业种植</span><span class="vl dn">调整</span><span class="lead">神农种业下挫</span></div>
+<div class="item"><span class="nm">高位股</span><span class="vl dn">多股跌停</span><span class="lead">一鸣/红四方</span></div>
+</div>
+</div>
 
 <div class="section-title">涨停梯队（财联社收盘口径）</div>
 <div class="card">
-<h3>涨停梯队 · 收盘口径 <span style="font-size:11px;color:var(--muted);font-weight:400">11 股涨停 / 封板率 -- / 连板股 0 只 / 晋级率 --（财联社口径待补充，涨停家数为行情接口口径）</span></h3>
 <div class="ladder">
-<div class="ladder-row"><span class="lvl lvl-2">连板股</span><div class="stocks"><span class="stock-tag">连板股 0 只（明细以财联社收盘复盘为准）</span></div></div>
-<div class="ladder-row"><span class="lvl lvl-3">20cm涨停</span><div class="stocks"><span class="stock-tag hot">以财联社收盘复盘名单为准</span></div></div>
+<div class="ladder-row"><span class="lvl lvl-3">3连板</span><div class="stocks"><span class="stock-tag hot">汉森制药</span></div></div>
+<div class="ladder-row"><span class="lvl lvl-2">8天5板</span><div class="stocks"><span class="stock-tag hot">天洋新材</span><span class="stock-tag">(光通信/CPO)</span></div></div>
+<div class="ladder-row"><span class="lvl lvl-2">6天4板</span><div class="stocks"><span class="stock-tag hot">旭光电子</span><span class="stock-tag">(光通信/CPO)</span></div></div>
+<div class="ladder-row"><span class="lvl lvl-2">5天4板</span><div class="stocks"><span class="stock-tag hot">哈森股份</span><span class="stock-tag">(消费电子)</span></div></div>
 </div>
-<div style="font-size:11.5px;color:var(--muted);margin-top:6px;line-height:1.7">
-跌停 2 只 · 单票数据经日K线复核（主板≈+10%、创业板/科创板≈+20%）。
-</div>
+<div style="font-size:11px;color:var(--muted);margin-top:10px">注：收盘数据 54股涨停(不含ST)、连板股11只、封板率75%、炸板18只；连板高度降至3板，晋级率25%，高位股负反馈严重。</div>
 </div>
 
 <div class="section-title">主线研判</div>
-<div class="judgment-grid"><div class="j-card strong"><h4>相对强势 · 贵金属</h4><div class="desc">今日相对强势方向：贵金属领涨；资金主要流入：通信设备。需结合涨停梯队与量能确认是否形成主线共振。</div><span class="tag" style="background:#fee2e2;color:#dc2626">数据驱动</span></div><div class="j-card weak"><h4>退潮确认 / 弱势方向</h4><div class="desc">跌停 2 只、封板率 --，接力强度不足，高位题材股警惕退潮风险。</div><span class="tag" style="background:#ecfdf5;color:#059669">谨慎</span></div><div class="j-card risk"><h4>高风险 · 接力与监管</h4><div class="desc">连板晋级率 -- 处于低位，短线接力资金匮乏，追高风险大。</div><span class="tag" style="background:#fef3c7;color:#b45309">情绪未确认</span></div><div class="j-card alive"><h4>活口 · 热点延续</h4><div class="desc">热搜方向：通信设备、化学制药、昨日连板、半导体、贵金属、医药生物。关注是否走出持续性。</div><span class="tag" style="background:#ecfdf5;color:#059669">观察</span></div></div>
+<div class="judgment-grid">
+<div class="j-card strong">
+<h4>相对强势：贵金属 + 能源金属 + 通信设备</h4>
+<div class="desc">贵金属涨4.64%、能源金属涨4.60%，金银有色受商品价格上涨带动；通信设备涨2.98%，CPO/光模块集体反弹。</div>
+</div>
+<div class="j-card alive">
+<h4>科技活口：CPO/光模块 + 液冷</h4>
+<div class="desc">CPO概念涨1.48%，瑞斯康达、星网锐捷、可川科技涨停；液冷涨1.36%，飞龙股份、金富科技涨停。SK海力士CPO论文与液冷放量预期形成催化。</div>
+</div>
+<div class="j-card weak">
+<h4>退潮确认：化学制药 + 高位股</h4>
+<div class="desc">化学制药大跌4.33%，哈药股份竞价跌停，一鸣食品、红四方跌停；医药板块昨日高潮后兑现明显，高位股负反馈严重。</div>
+</div>
+<div class="j-card risk">
+<h4>风险信号：量能跌破2万亿 + 连板高度受限</h4>
+<div class="desc">两市成交1.88万亿，较上日缩量2001亿；连板高度降至3板，晋级率仅25%，短线接力容错率下降。</div>
+</div>
+</div>
 
-<div class="section-title">隔夜 / 明日观察锚</div>
-<div class="observe"><ul><li><b>主线延续性</b>：贵金属 能否保持涨停梯队完整，谨防单日过热后高低切。</li><li><b>量能配合</b>：关注成交额是否放大，缩量反弹高度有限。</li><li><b>接力强度</b>：连板晋级率 --、封板率 -- 处低位，情绪修复待确认。</li><li><b>高位股风险</b>：监管收紧背景下回避无基本面高位纯题材股。</li><li><b>热点扩散</b>：通信设备、化学制药、昨日连板、半导体、贵金属、医药生物 板块的持续性决定赚钱效应能否外溢。</li></ul></div>
+<div class="section-title">隔夜或明日观察锚</div>
+<div class="observe">
+<ul>
+<li>量能能否重回2万亿，决定科技主线反弹持续性。</li>
+<li>高位股（一鸣食品、红四方、哈药股份）次日竞价是否继续核按钮。</li>
+<li>CPO/液冷涨停股（瑞斯康达、星网锐捷、飞龙股份）能否延续。</li>
+<li>贵金属/能源金属受商品期货影响的持续性。</li>
+<li>创业板指3500点与上证指数3890点支撑的防守效果。</li>
+</ul>
+</div>
 
 <div class="footer">
-<p><b>数据口径</b>：涨停家数/封板率/连板股总数/晋级率 采用财联社收盘复盘口径；板块/个股行情来自腾讯自选股行情接口；指数点位为收盘值。涨停梯队个股经日K线复核为收盘真实封板。</p>
-<p><b>免责声明</b>：本报告为收盘静态快照，仅供研究参考，不构成任何投资建议。市场有风险，投资需谨慎。</p>
+<p><b>数据来源：</b>腾讯自选股行情接口 / 财联社 / 妙想资讯</p>
+<p><b>口径说明：</b>涨停/封板率取自财联社8月21日收盘涨停分析；指数/板块/资金流向为收盘快照；本报告为静态复盘，不构成任何投资建议。</p>
 </div>
 </body>
 </html>

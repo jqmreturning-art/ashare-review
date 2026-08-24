@@ -48,19 +48,65 @@ def parse_sections(sr):
 
 
 def parse_cls(text):
-    """从财联社文本提取 涨停家数/封板率/连板股/晋级率"""
+    """从财联社文本提取 涨停家数/封板率/连板股/晋级率
+    优先匹配完整句式（如「共46股涨停」「连板股总数10只」），
+    避免从标题「48股涨停11股跌停」误抓出 11 这类错误数字。
+    """
     out = {'limit': 0, 'seal': '', 'lianban': 0, 'jinsheng': ''}
     if not text:
         return out
-    m = re.search(r'涨停\s*(\d+)', text)
+    # 涨停家数：优先财联社标准句式「共46股涨停」；备选「涨停46只/家」
+    m = (re.search(r'共\s*(\d+)\s*股涨停', text)
+         or re.search(r'涨停\s*(\d+)\s*[只家]', text))
     if m: out['limit'] = int(m.group(1))
+    # 封板率
     m = re.search(r'封板率[^\d]*(\d+(?:\.\d+)?)%', text)
     if m: out['seal'] = m.group(1) + '%'
-    m = re.search(r'连板股[^\d]*(\d+)', text)
+    # 连板股：优先「连板股总数10只」，避免误抓「连板股晋级率36」
+    m = (re.search(r'连板股总数\s*(\d+)', text)
+         or re.search(r'连板股[^\d]{0,4}(\d+)\s*只', text))
     if m: out['lianban'] = int(m.group(1))
+    # 晋级率
     m = re.search(r'晋级率[^\d]*(\d+(?:\.\d+)?)%', text)
     if m: out['jinsheng'] = m.group(1) + '%'
     return out
+
+
+def parse_ladder(text):
+    """从财联社文本解析涨停梯队个股（如「汉森制药晋级4连板」「天洋新材走出9天6板」）
+    返回 [(label, [股票名...]), ...] 按板数降序；解析不到返回 []
+    """
+    rows = {}
+    if not text:
+        return []
+    # 规则1: 「X晋级N连板」
+    for m in re.finditer(
+            r'([\u4e00-\u9fa5]{2,4}?)(?:高开秒板|反包涨停|涨停)?\s*晋级\s*(\d+)\s*连板', text):
+        rows.setdefault('%s连板' % m.group(2), []).append(m.group(1))
+    # 规则2: 「XX(、XX)(双双/均)(反包涨停)走出/录得(20cm)N天M板」
+    for m in re.finditer(
+            r'([\u4e00-\u9fa5]{2,4})(?:、([\u4e00-\u9fa5]{2,4}))?\s*(?:双双|均)?\s*(?:反包涨停)?\s*(?:走出|录得)\s*(?:20cm)?(\d+)天(\d+)板',
+            text):
+        stocks = [s for s in (m.group(1), m.group(2)) if s]
+        rows.setdefault('%s天%s板' % (m.group(3), m.group(4)), []).extend(stocks)
+    # 规则3: 「XX直接N天M板」（如 哈森股份6天5板），排除动词结尾的误抓
+    for m in re.finditer(
+            r'([\u4e00-\u9fa5]{2,4})(?<!走出)(?<!录得)(?<!涨停)(?<!双双)(?<!均)(?<!反包)(?:20cm)?(\d+)天(\d+)板',
+            text):
+        rows.setdefault('%s天%s板' % (m.group(2), m.group(3)), []).append(m.group(1))
+    # 去重（保留出现顺序）
+    for k in rows:
+        seen, kept = set(), []
+        for s in rows[k]:
+            if s not in seen:
+                seen.add(s)
+                kept.append(s)
+        rows[k] = kept
+    # 按板数降序
+    def key_fn(item):
+        m = re.search(r'(\d+)', item[0])
+        return -(int(m.group(1)) if m else 0)
+    return sorted(rows.items(), key=key_fn)
 
 
 def calc_temp(d):
@@ -113,7 +159,7 @@ def sec_pct(s):
 
 
 # ---------- HTML 生成 ----------
-def build_html(d, date_str, out_path):
+def build_html(d, date_str, out_path, ladder=None):
     date_cn = df.today_cn()
     wd = df.weekday_cn()
     cd = d.get('changedist') or {}
@@ -151,6 +197,26 @@ def build_html(d, date_str, out_path):
         limit, seal, lianban, jinsheng)
     if not cls.get('seal'):
         ladder_sub += '（财联社口径待补充，涨停家数为行情接口口径）'
+
+    # ---- 涨停梯队个股（财联社文本解析，解析不到用占位） ----
+    ladder_rows = []
+    if ladder:
+        for label, stocks in ladder:
+            lvl = 'lvl-3' if '连板' in label else 'lvl-2'
+            tags = ''.join(
+                '<span class="stock-tag hot">%s</span>' % s for s in stocks[:6])
+            ladder_rows.append(
+                '<div class="ladder-row"><span class="lvl %s">%s</span>'
+                '<div class="stocks">%s</div></div>' % (lvl, label, tags))
+    if not ladder_rows:
+        ladder_rows.append(
+            '<div class="ladder-row"><span class="lvl lvl-2">连板股</span>'
+            '<div class="stocks"><span class="stock-tag">连板股 %d 只（明细以财联社收盘复盘为准）</span></div></div>'
+            % lianban)
+        ladder_rows.append(
+            '<div class="ladder-row"><span class="lvl lvl-3">20cm涨停</span>'
+            '<div class="stocks"><span class="stock-tag hot">以财联社收盘复盘名单为准</span></div></div>')
+    ladder_html = ''.join(ladder_rows)
 
     # ---- KPI ----
     kpi_html = (
@@ -333,8 +399,7 @@ def build_html(d, date_str, out_path):
 <div class="card">
 <h3>涨停梯队 · 收盘口径 <span style="font-size:11px;color:var(--muted);font-weight:400">{{LADDERS}}</span></h3>
 <div class="ladder">
-<div class="ladder-row"><span class="lvl lvl-2">连板股</span><div class="stocks"><span class="stock-tag">连板股 {{LIANBAN2}} 只（明细以财联社收盘复盘为准）</span></div></div>
-<div class="ladder-row"><span class="lvl lvl-3">20cm涨停</span><div class="stocks"><span class="stock-tag hot">以财联社收盘复盘名单为准</span></div></div>
+{{LADDERROWS}}
 </div>
 <div style="font-size:11.5px;color:var(--muted);margin-top:6px;line-height:1.7">
 跌停 {{DOWNLIMIT}} 只 · 单票数据经日K线复核（主板≈+10%、创业板/科创板≈+20%）。
@@ -369,6 +434,7 @@ def build_html(d, date_str, out_path):
         '{{SECTORGRID}}': sector_grid,
         '{{LADDERN}}': ladder_note,
         '{{LADDERS}}': ladder_sub,
+        '{{LADDERROWS}}': ladder_html,
         '{{LIANBAN2}}': str(lianban),
         '{{DOWNLIMIT}}': str(down_limit),
         '{{JCARDS}}': j_cards,
@@ -386,8 +452,9 @@ def main(date_str=None):
     date_str = date_str or df.date_compact()
     d = fetch_all()
     d['cls_parsed'] = parse_cls(d.get('cls') or '')
+    ladder = parse_ladder(d.get('cls') or '')
     out = os.path.join(BASE, 'market-review-%s.html' % date_str)
-    temp, lbl = build_html(d, date_str, out)
+    temp, lbl = build_html(d, date_str, out, ladder)
     # 校验
     h = io.open(out, encoding='utf-8').read()
     checks = {

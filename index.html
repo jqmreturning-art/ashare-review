@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>A股 & 美股 每日复盘 · 四合一 Tab</title>
+<title>A股 & 美股 每日复盘 · 专题导航</title>
 <style>
 :root{
   --red:#ff4757;--green:#00d4aa;
@@ -15,7 +15,7 @@
 }
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;color:var(--txt)}
-header{background:var(--grad);color:#fff;padding:30px 0 0;border-radius:0 0 0 0}
+header{background:var(--grad);color:#fff;padding:30px 0 26px;border-radius:0 0 24px 24px}
 .hd-in{max-width:1200px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px}
 .hd-tag{font-size:12px;letter-spacing:2px;opacity:.85;background:rgba(255,255,255,.15);display:inline-block;padding:4px 12px;border-radius:20px;margin-bottom:12px}
 .brand h1{font-size:26px;font-weight:700;letter-spacing:1px}
@@ -23,38 +23,22 @@ header{background:var(--grad);color:#fff;padding:30px 0 0;border-radius:0 0 0 0}
 .badge{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);border-radius:16px;padding:10px 20px;text-align:center;backdrop-filter:blur(4px)}
 .badge .num{font-size:32px;font-weight:700;line-height:1.1}
 .badge .lbl{font-size:12px;opacity:.9;margin-top:2px}
-
-/* ---- 吸顶 Tab 栏 ---- */
-.tabbar{position:sticky;top:0;z-index:99;background:rgba(244,246,250,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
-.tab-in{max-width:1200px;margin:0 auto;padding:10px 20px;display:flex;gap:10px;overflow-x:auto;scrollbar-width:none}
-.tab-in::-webkit-scrollbar{display:none}
-.tab{flex:1;min-width:128px;border:1px solid var(--line);background:#fff;border-radius:12px;padding:8px 12px;cursor:pointer;text-align:center;transition:all .18s;box-shadow:var(--shadow);line-height:1.3}
-.tab b{display:block;font-size:14px;font-weight:700;color:var(--txt);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.tab i{display:block;font-style:normal;font-size:10px;color:var(--muted);margin-top:2px}
-.tab:hover{border-color:#a5b4fc;transform:translateY(-1px)}
-.tab.on{background:var(--grad);border-color:transparent;box-shadow:0 4px 12px rgba(79,70,229,.28)}
-.tab.on b{color:#fff}
-.tab.on i{color:rgba(255,255,255,.85)}
-
+.quick{max-width:1200px;margin:18px auto 0;padding:0 20px;display:flex;gap:8px;flex-wrap:wrap}
+.quick a{font-size:12px;color:#fff;text-decoration:none;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);border-radius:20px;padding:6px 14px;transition:all .15s;white-space:nowrap}
+.quick a:hover{background:rgba(255,255,255,.28)}
 main{max-width:1200px;margin:0 auto;padding:22px 20px 10px}
-.sec{display:none}
-.sec.on{display:block;animation:fade .25s ease}
-@keyframes fade{from{opacity:.2;transform:translateY(4px)}to{opacity:1;transform:none}}
-.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
-.sec-hd{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 18px;border-bottom:1px solid var(--line);background:#fbfcfe}
+.sec{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:26px;overflow:hidden}
+.sec-hd{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 18px;border-bottom:1px solid var(--line);background:#fbfcfe}
 .sec-hd .lft{display:flex;align-items:center;gap:10px;min-width:0}
 .sec-ico{width:26px;height:26px;border-radius:8px;background:var(--grad);color:#fff;font-size:13px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .sec-hd h2{font-size:15px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .sec-hd .tm{font-size:11px;color:var(--muted);white-space:nowrap}
 .sec-hd a.open{font-size:12px;color:var(--blue);text-decoration:none;white-space:nowrap;border:1px solid var(--line);border-radius:16px;padding:4px 12px;background:#fff;transition:all .15s}
 .sec-hd a.open:hover{border-color:var(--blue);background:#eef2ff}
-.frame-wrap{overflow:hidden}
-.frame-wrap iframe{width:100%;border:none;display:block;min-height:420px}
+.sec iframe{width:100%;border:none;display:block;min-height:400px}
 footer{border-top:1px solid var(--line);padding:14px 20px 26px;text-align:center;font-size:11px;color:var(--muted)}
 @media(max-width:640px){
 .hd-in{flex-direction:column;align-items:flex-start}
-.tab{min-width:112px;padding:6px 8px}
-.tab b{font-size:12px}
 .sec-hd{flex-wrap:wrap}
 }
 </style>
@@ -65,98 +49,67 @@ footer{border-top:1px solid var(--line);padding:14px 20px 26px;text-align:center
     <div class="brand">
       <span class="hd-tag">DAILY REVIEW · 每日复盘导航</span>
       <h1>A股 & 美股 每日复盘</h1>
-      <p>美股科技 · A股大盘 · A股AI产业链 · 市场大V观点 · 每交易日自动更新 · 同页 Tab 切换</p>
+      <p>隔夜美股 · A股大盘 · A股AI产业链 · 市场大V观点 · 每交易日自动更新</p>
     </div>
     <div class="badge">
       <div class="num">4</div>
-      <div class="lbl">份日报 · Tab 切换</div>
+      <div class="lbl">份日报 · 全部展示</div>
     </div>
   </div>
-  <nav class="tabbar">
-    <div class="tab-in" id="tabbar">
-      <button class="tab on" data-i="0"><b>🇺🇸 美股科技</b><i>每日 07:00 更新</i></button>
-      <button class="tab" data-i="1"><b>📊 A股大盘</b><i>交易日 16:00 更新</i></button>
-      <button class="tab" data-i="2"><b>🤖 A股AI产业链</b><i>交易日 16:00 更新</i></button>
-      <button class="tab" data-i="3"><b>📰 市场观点</b><i>每日 10:30 更新</i></button>
-    </div>
-  </nav>
+  <div class="quick">
+    <a href="#sec-us">↓ 美股科技</a>
+    <a href="#sec-market">↓ A股大盘</a>
+    <a href="#sec-ai">↓ A股AI产业链</a>
+    <a href="#sec-digest">↓ 市场观点</a>
+  </div>
 </header>
 <main>
-  <section class="sec on" id="sec-us">
-    <div class="panel">
-      <div class="sec-hd">
-        <div class="lft"><div class="sec-ico">🇺🇸</div><h2>美股科技板块日度复盘</h2><span class="tm">每日 07:00 更新</span></div>
-        <a class="open" href="./us-review/" target="_blank" rel="noopener">新窗口打开 ↗</a>
-      </div>
-      <div class="frame-wrap"><iframe data-src="./us-review/" title="美股科技板块日度复盘"></iframe></div>
+  <section class="sec" id="sec-us">
+    <div class="sec-hd">
+      <div class="lft"><div class="sec-ico">🇺🇸</div><h2>美股科技板块日度复盘</h2><span class="tm">每日 07:00 更新</span></div>
+      <a class="open" href="./us-review/" target="_blank">新窗口打开 ↗</a>
     </div>
+    <iframe src="./us-review/" title="美股科技板块日度复盘" loading="lazy"></iframe>
   </section>
   <section class="sec" id="sec-market">
-    <div class="panel">
-      <div class="sec-hd">
-        <div class="lft"><div class="sec-ico">📊</div><h2>A股收盘主线与情绪复盘</h2><span class="tm">每交易日 16:00 更新</span></div>
-        <a class="open" href="./market-review/" target="_blank" rel="noopener">新窗口打开 ↗</a>
-      </div>
-      <div class="frame-wrap"><iframe data-src="./market-review/" title="A股收盘主线与情绪复盘"></iframe></div>
+    <div class="sec-hd">
+      <div class="lft"><div class="sec-ico">📊</div><h2>A股收盘主线与情绪复盘</h2><span class="tm">每交易日 16:00 更新</span></div>
+      <a class="open" href="./market-review/" target="_blank">新窗口打开 ↗</a>
     </div>
+    <iframe src="./market-review/" title="A股收盘主线与情绪复盘" loading="lazy"></iframe>
   </section>
   <section class="sec" id="sec-ai">
-    <div class="panel">
-      <div class="sec-hd">
-        <div class="lft"><div class="sec-ico">🤖</div><h2>A股AI产业链日度复盘</h2><span class="tm">每交易日 16:00 更新</span></div>
-        <a class="open" href="./ai-review/" target="_blank" rel="noopener">新窗口打开 ↗</a>
-      </div>
-      <div class="frame-wrap"><iframe data-src="./ai-review/" title="A股AI产业链日度复盘"></iframe></div>
+    <div class="sec-hd">
+      <div class="lft"><div class="sec-ico">🤖</div><h2>A股AI产业链日度复盘</h2><span class="tm">每交易日 16:00 更新</span></div>
+      <a class="open" href="./ai-review/" target="_blank">新窗口打开 ↗</a>
     </div>
+    <iframe src="./ai-review/" title="A股AI产业链日度复盘" loading="lazy"></iframe>
   </section>
   <section class="sec" id="sec-digest">
-    <div class="panel">
-      <div class="sec-hd">
-        <div class="lft"><div class="sec-ico">📰</div><h2>昨日市场大V观点整理</h2><span class="tm">每日 10:30 更新</span></div>
-        <a class="open" href="./market-digest/" target="_blank" rel="noopener">新窗口打开 ↗</a>
-      </div>
-      <div class="frame-wrap"><iframe data-src="./market-digest/" title="昨日市场大V观点整理"></iframe></div>
+    <div class="sec-hd">
+      <div class="lft"><div class="sec-ico">📰</div><h2>昨日市场大V观点整理</h2><span class="tm">每日 10:30 更新</span></div>
+      <a class="open" href="./market-digest/" target="_blank">新窗口打开 ↗</a>
     </div>
+    <iframe src="./market-digest/" title="昨日市场大V观点整理" loading="lazy"></iframe>
   </section>
 </main>
-<footer>收盘静态快照，仅供参考，不构成任何投资建议 ｜ 更新时段：美股 07:00 ｜ 市场观点 10:30 ｜ A股 16:00 ｜ 同页 Tab 切换，无需跳转</footer>
+<footer>收盘静态快照，仅供参考，不构成任何投资建议 ｜ 更新时段：市场观点 10:30 ｜ 美股 07:00 ｜ A股 16:00</footer>
 <script>
 (function(){
-  var tabs=[].slice.call(document.querySelectorAll('.tab'));
-  var secs=[].slice.call(document.querySelectorAll('.sec'));
-  var STORE='ashare-active-tab';
   function fit(f){
-    if(!f)return;
     try{
-      var d=f.contentWindow.document;
-      var h=Math.max(d.body.scrollHeight,d.documentElement.scrollHeight);
-      if(h>200)f.style.height=h+'px';
+      var doc=f.contentWindow.document;
+      var h=Math.max(doc.body.scrollHeight,doc.documentElement.scrollHeight);
+      if(h>200) f.style.height=h+'px';
     }catch(e){}
   }
-  function bindLoad(f){
-    if(f._bound)return;f._bound=true;
-    f.addEventListener('load',function(){fit(f);setTimeout(function(){fit(f)},350);setTimeout(function(){fit(f)},1200)});
-  }
-  function show(i){
-    tabs.forEach(function(t,x){t.classList.toggle('on',x===i)});
-    secs.forEach(function(s,x){s.classList.toggle('on',x===i)});
-    var f=secs[i].querySelector('iframe');
-    if(f){
-      bindLoad(f);
-      if(!f.getAttribute('src'))f.setAttribute('src',f.getAttribute('data-src'));
-      setTimeout(function(){fit(f)},60);
-      setTimeout(function(){fit(f)},400);
-    }
-    try{localStorage.setItem(STORE,String(i))}catch(e){}
-  }
-  tabs.forEach(function(t,x){t.addEventListener('click',function(){show(x)})});
-  var init=0;
-  try{init=parseInt(localStorage.getItem(STORE)||'0',10)||0}catch(e){}
-  if(isNaN(init)||init<0||init>3)init=0;
-  show(init);
+  document.querySelectorAll('iframe').forEach(function(f){
+    f.addEventListener('load',function(){fit(f);setTimeout(function(){fit(f)},300)});
+    f.style.height='1200px';
+    setTimeout(function(){fit(f)},800);
+  });
   window.addEventListener('resize',function(){
-    var on=document.querySelector('.sec.on');
-    if(on)fit(on.querySelector('iframe'));
+    document.querySelectorAll('iframe').forEach(fit);
   });
 })();
 </script>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A股收盘主线与情绪复盘 2026-09-01</title>
+<style>
+:root{
+  --red:#ff4757;--up:#ff4757;--green:#00d4aa;--dn:#00d4aa;--flat:#b9c0cc;
+  --bg:#f4f6fa;--card:#ffffff;--line:#e3e8f0;
+  --txt:#1f2937;--sub:#6b7280;--muted:#9ca3af;
+  --blue:#1d4ed8;--blue-l:#eef2ff;--purple:#6d28d9;--purple-l:#f5f3ff;
+  --amber:#d97706;--amber-l:#fef3c7;--green-l:#ecfdf5;--green-d:#059669;
+  --grad:linear-gradient(135deg,#1e3a8a,#4f46e5 60%,#7c3aed);
+  --radius:14px;--radius-s:10px;
+  --shadow:0 1px 3px rgba(16,24,40,.05);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--txt);line-height:1.6;max-width:1000px;margin:0 auto;padding:0 20px 60px}
+header{background:var(--grad);color:#fff;margin:0 -20px;padding:30px 24px 26px;border-radius:0 0 24px 24px;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px}
+.hd-tag{font-size:12px;letter-spacing:2px;opacity:.85;background:rgba(255,255,255,.15);display:inline-block;padding:4px 12px;border-radius:20px;margin-bottom:12px}
+header h1{font-size:26px;font-weight:700;letter-spacing:1px}
+header .date{font-size:13px;opacity:.9;margin-top:6px}
+.temp-badge{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);border-radius:16px;padding:10px 20px;text-align:center;backdrop-filter:blur(4px)}
+.temp-num{font-size:32px;font-weight:700;line-height:1.1}
+.temp-lbl{font-size:12px;opacity:.9;margin-top:2px}
+.verdict{background:var(--grad);color:#fff;border-radius:var(--radius);padding:18px 22px;margin:18px 0 20px;text-align:center;box-shadow:var(--shadow)}
+.verdict .label{font-size:12px;color:rgba(255,255,255,.8);text-transform:uppercase;letter-spacing:1px}
+.verdict .text{font-size:18px;font-weight:700;margin-top:4px}
+.verdict .tag{display:inline-block;padding:2px 12px;border-radius:20px;font-size:13px;font-weight:600;margin-left:8px;background:rgba(255,255,255,.18);color:#fff;border:1px solid rgba(255,255,255,.4)}
+.section-title{font-size:14px;font-weight:700;color:var(--sub);margin:20px 0 10px;padding-left:8px;border-left:3px solid var(--blue)}
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:8px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px 12px;text-align:center;box-shadow:var(--shadow)}
+.kpi .val{font-size:28px;font-weight:800;line-height:1.2}
+.kpi .lbl{font-size:11px;color:var(--sub);margin-top:4px}
+.kpi .sub{font-size:10px;color:var(--sub);margin-top:2px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;box-shadow:var(--shadow)}
+.card h3{font-size:13px;font-weight:700;margin-bottom:12px;color:var(--txt)}
+.idx-row{display:flex;align-items:center;gap:8px;margin:8px 0;font-size:13px}
+.idx-row .idx-name{width:80px;font-weight:600}
+.idx-row .idx-price{width:80px;color:var(--sub);font-size:12px}
+.idx-row .bar-wrap{flex:1;height:22px;background:#f5f5f5;border-radius:4px;overflow:hidden;position:relative}
+.idx-row .bar-wrap::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:1px;background:#cbd5e1;z-index:1}
+.idx-row .bar-fill{position:absolute;top:0;bottom:0;display:flex;align-items:center;color:#fff;font-size:11px;font-weight:600}
+.idx-row .bar-fill.up{background:var(--red);left:50%;justify-content:flex-start;padding-left:6px;border-radius:0 4px 4px 0}
+.idx-row .bar-fill.dn{background:var(--green);right:50%;justify-content:flex-end;padding-right:6px;border-radius:4px 0 0 4px}
+.idx-row .pct{width:60px;font-weight:700;font-size:12px}
+.sector-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.mini-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-s);padding:12px}
+.mini-card h4{font-size:12px;font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:4px}
+.mini-card .item{display:flex;justify-content:space-between;align-items:center;padding:4px 0;border-bottom:1px solid #f0f0f0;font-size:12px}
+.mini-card .item:last-child{border-bottom:none}
+.mini-card .item .nm{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mini-card .item .vl{font-weight:600;margin-left:8px;flex-shrink:0}
+.mini-card .item .lead{font-size:10px;color:var(--sub);margin-left:4px}
+.temp-section{display:grid;grid-template-columns:200px 1fr;gap:20px;align-items:center}
+.temp-gauge{position:relative;width:200px;height:120px;margin:0 auto}
+.temp-info .temp-val{font-size:48px;font-weight:900;color:var(--red);line-height:1}
+.temp-info .temp-label{font-size:14px;font-weight:700;margin-top:4px}
+.temp-info .temp-trend{font-size:12px;color:var(--sub);margin-top:6px}
+.breadth-bar{display:flex;height:24px;border-radius:6px;overflow:hidden;margin:8px 0}
+.breadth-bar .seg-up{background:var(--red)}
+.breadth-bar .seg-flat{background:var(--flat)}
+.breadth-bar .seg-dn{background:var(--green)}
+.breadth-labels{display:flex;justify-content:space-between;font-size:11px;color:var(--sub)}
+.ladder{display:flex;flex-direction:column;gap:6px;padding:8px 0}
+.ladder-row{display:flex;align-items:center;gap:8px;font-size:12px}
+.ladder-row .lvl{width:60px;font-weight:700;text-align:center;padding:2px 6px;border-radius:4px;color:#fff;font-size:11px}
+.ladder-row .lvl-7{background:#9333ea}.ladder-row .lvl-6{background:#dc2626}.ladder-row .lvl-5{background:#ea580c}
+.ladder-row .lvl-4{background:#f59e0b}.ladder-row .lvl-3{background:#64748b}
+.ladder-row .stocks{flex:1;display:flex;flex-wrap:wrap;gap:4px}
+.ladder-row .stock-tag{background:var(--blue-l);color:var(--blue);padding:2px 8px;border-radius:10px;font-size:11px}
+.ladder-row .stock-tag.hot{background:#fee2e2;color:#dc2626;font-weight:600}
+.judgment-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.j-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:14px;box-shadow:var(--shadow);border-left:4px solid var(--blue)}
+.j-card.strong{border-left-color:var(--red)}
+.j-card.weak{border-left-color:var(--green)}
+.j-card.risk{border-left-color:var(--amber)}
+.j-card.alive{border-left-color:var(--green-d)}
+.j-card h4{font-size:13px;font-weight:700;margin-bottom:8px}
+.j-card .desc{font-size:12px;color:var(--sub);line-height:1.5}
+.observe{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow);margin-top:8px}
+.observe ul{list-style:none;padding-left:0}
+.observe li{padding:6px 0;font-size:13px;border-bottom:1px solid #f5f5f5;display:flex;align-items:flex-start;gap:8px}
+.observe li:last-child{border-bottom:none}
+.observe li::before{content:"\25b8";color:var(--blue);font-weight:700;flex-shrink:0}
+.footer{background:#f9fafb;border:1px solid var(--line);border-radius:12px;padding:14px 20px;font-size:12px;color:var(--muted);margin-top:20px;line-height:1.8;text-align:left}
+.footer p{margin:2px 0}
+@media(max-width:760px){
+  .kpi-row,.grid-2,.sector-grid,.judgment-grid{grid-template-columns:1fr}
+  .temp-section{grid-template-columns:1fr}
+  header{flex-direction:column;align-items:flex-start}
+}
+</style>
+</head>
+<body>
+<header>
+<div>
+<span class="hd-tag">ASHARE REVIEW</span>
+<h1>A股收盘主线与情绪复盘</h1>
+<div class="date">2026年9月1日 周二 · 收盘静态快照 · 农业强势+AI硬件回调</div>
+</div>
+<div class="temp-badge">
+<div class="temp-num">55<span style="font-size:16px">°C</span></div>
+<div class="temp-lbl">情绪温度 · 中温偏弱</div>
+</div>
+</header>
+
+<div class="verdict">
+<div class="label">定性 VERDICT</div>
+<div class="text">农业种植爆发+AI硬件集体回调，情绪中温偏弱<span class="tag" style="background:rgba(255,165,2,.25);border-color:rgba(255,165,2,.5)">情绪 55</span></div>
+<div style="font-size:12px;color:rgba(255,255,255,.7);margin-top:6px">涨停83只(财联社不含ST) 跌停0只 红盘60% 成交2.03万亿(缩量976亿) | 农业/消费领涨 算力硬件全线承压</div>
+</div>
+
+<div class="section-title">情绪四指标 KPI</div>
+<div class="kpi-row">
+<div class="kpi"><div class="val" style="color:var(--red)">83</div><div class="lbl">涨停家数</div><div class="sub">财联社不含ST口径; 全市场含ST 86只</div></div>
+<div class="kpi"><div class="val" style="color:var(--red)">93%</div><div class="lbl">封板率</div><div class="sub">财联社收盘口径 6股炸板</div></div>
+<div class="kpi"><div class="val" style="color:var(--red)">7<span style="font-size:16px">板</span></div><div class="lbl">连板高度</div><div class="sub">海鸥住工 7连板 实控人变更</div></div>
+<div class="kpi"><div class="val" style="color:var(--amber)">18<span style="font-size:16px">只</span></div><div class="lbl">连板股总数</div><div class="sub">农业/消费电子高标持续</div></div></div>
+
+<div class="section-title">情绪温度计 + 市场广度</div>
+<div class="card" style="margin-bottom:8px">
+<div class="temp-section">
+<div class="temp-gauge">
+<svg viewBox="0 0 200 120" width="200" height="120">
+<path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="#e5e7eb" stroke-width="14" stroke-linecap="round"/>
+<path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="url(#grad)" stroke-width="14" stroke-linecap="round" stroke-dasharray="251.3" stroke-dashoffset="113.1" transform="rotate(180 100 100)"/>
+<defs><linearGradient id="grad" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0" stop-color="#00d4aa"/><stop offset=".35" stop-color="#ffa502"/>
+<stop offset=".65" stop-color="#ff6b6b"/><stop offset="1" stop-color="#ff4757"/>
+</linearGradient></defs>
+<text x="100" y="90" text-anchor="middle" font-size="42" font-weight="900" fill="#ffa502">55</text>
+<text x="100" y="108" text-anchor="middle" font-size="11" fill="#6b7280">中温偏弱</text>
+<text x="20" y="118" text-anchor="middle" font-size="9" fill="#9ca3af">0</text>
+<text x="100" y="16" text-anchor="middle" font-size="9" fill="#9ca3af">50</text>
+<text x="180" y="118" text-anchor="middle" font-size="9" fill="#9ca3af">100</text>
+</svg></div>
+<div class="temp-info">
+<div class="temp-val">55<span style="font-size:20px"></span></div>
+<div class="temp-label" style="color:#ffa502">中温偏弱区间 (50-65)</div>
+<div class="temp-trend">趋势: ↓ 较上日60°C降温5°C，缩量976亿+硬件资金流出</div>
+<div style="margin-top:12px">
+<div style="font-size:12px;font-weight:600;margin-bottom:4px">市场广度</div>
+<div class="breadth-bar">
+<div class="seg-up" style="width:61.0%"></div>
+<div class="seg-flat" style="width:2.3%"></div>
+<div class="seg-dn" style="width:36.7%"></div>
+</div>
+<div class="breadth-labels">
+<span style="color:var(--red)">上涨 3387 (61.0%)</span>
+<span style="color:var(--flat)">平 126</span>
+<span style="color:var(--green)">下跌 2040 (36.7%)</span>
+</div>
+<div style="font-size:11px;color:var(--sub);margin-top:6px">成交额 2.03万亿 (缩量976亿) | 跌停0只(含ST) | 沪指收3979点跌-0.16%</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="section-title">指数表现</div>
+<div class="card" style="margin-bottom:8px">
+
+<div class="idx-row">
+<span class="idx-name">上证指数</span>
+<span class="idx-price">3979.89</span><span style="font-size:10px;color:var(--muted)">PE 17.30</span>
+<div class="bar-wrap"><div class="bar-fill dn" style="width:3.2%"></div></div>
+<span class="pct dn">-0.16%</span>
+</div>
+<div class="idx-row">
+<span class="idx-name">深证成指</span>
+<span class="idx-price">13872.38</span><span style="font-size:10px;color:var(--muted)">PE 42.71</span>
+<div class="bar-wrap"><div class="bar-fill dn" style="width:20.4%"></div></div>
+<span class="pct dn">-1.02%</span>
+</div>
+<div class="idx-row">
+<span class="idx-name">创业板指</span>
+<span class="idx-price">3393.43</span><span style="font-size:10px;color:var(--muted)">PE 56.36</span>
+<div class="bar-wrap"><div class="bar-fill dn" style="width:26.4%"></div></div>
+<span class="pct dn">-1.32%</span>
+</div>
+<div class="idx-row">
+<span class="idx-name">科创50</span>
+<span class="idx-price">1647.53</span><span style="font-size:10px;color:var(--muted)">PE 142.92</span>
+<div class="bar-wrap"><div class="bar-fill dn" style="width:43.8%"></div></div>
+<span class="pct dn">-2.19%</span>
+</div>
+<div class="idx-row">
+<span class="idx-name">沪深300</span>
+<span class="idx-price">4611.44</span><span style="font-size:10px;color:var(--muted)">PE 13.79</span>
+<div class="bar-wrap"><div class="bar-fill dn" style="width:6.0%"></div></div>
+<span class="pct dn">-0.30%</span>
+</div>
+</div>
+
+<div class="section-title">板块强弱</div>
+<div class="sector-grid">
+<div class="mini-card"><h4>📈 行业涨幅榜</h4><div class="item"><span class="nm">种植业</span><span class="vl up">+7.19%</span><span class="lead">神农种业(20.03)</span></div><div class="item"><span class="nm">数字媒体</span><span class="vl up">+5.60%</span><span class="lead">芒果超媒(20.02)</span></div><div class="item"><span class="nm">一般零售</span><span class="vl up">+3.87%</span><span class="lead">茂业商业(10.08)</span></div><div class="item"><span class="nm">渔业</span><span class="vl up">+3.52%</span><span class="lead">国联水产(5.88)</span></div><div class="item"><span class="nm">地面兵装Ⅱ</span><span class="vl up">+3.28%</span><span class="lead">内蒙一机(10.02)</span></div><div class="item"><span class="nm">农产品加工</span><span class="vl up">+2.75%</span><span class="lead">深粮控股(10.00)</span></div></div>
+<div class="mini-card"><h4>📉 行业跌幅榜</h4><div class="item"><span class="nm">元件</span><span class="vl dn">-3.85%</span><span class="lead">南亚新材(-8.12)</span></div><div class="item"><span class="nm">电子化学品</span><span class="vl dn">-3.42%</span><span class="lead">方邦股份(-10.21)</span></div><div class="item"><span class="nm">光伏设备</span><span class="vl dn">-2.82%</span><span class="lead">微导纳米(-4.15)</span></div><div class="item"><span class="nm">通信设备</span><span class="vl dn">-2.67%</span><span class="lead">*ST西旅(10.07)</span></div><div class="item"><span class="nm">贵金属</span><span class="vl dn">-2.42%</span><span class="lead">山东黄金</span></div><div class="item"><span class="nm">乘用车</span><span class="vl dn">-2.41%</span><span class="lead">上汽集团</span></div></div>
+<div class="mini-card"><h4>🌱 概念涨幅榜</h4><div class="item"><span class="nm">转基因</span><span class="vl up">+8.07%</span></div><div class="item"><span class="nm">玉米</span><span class="vl up">+7.06%</span></div><div class="item"><span class="nm">粮食概念</span><span class="vl up">+6.27%</span></div><div class="item"><span class="nm">西安自贸区</span><span class="vl up">+5.79%</span></div><div class="item"><span class="nm">昨日连板</span><span class="vl up">+5.65%</span></div><div class="item"><span class="nm">棉花</span><span class="vl up">+4.91%</span></div></div>
+<div class="mini-card"><h4>🔥 涨停分析(财联社收盘口径)</h4>
+<div class="item"><span class="nm">涨停(财联社不含ST)</span><span class="vl">83只 / 全市场含ST 86只</span></div>
+<div class="item"><span class="nm">连板股 / 炸板</span><span class="vl">18只 / 6股</span></div>
+<div class="item"><span class="nm">封板率(收盘)</span><span class="vl">93%</span></div>
+<div class="item"><span class="nm">跌停(含ST)</span><span class="vl dn">0只</span></div></div>
+</div>
+
+<div class="section-title">涨停梯队（财联社收盘口径）· 83股涨停(不含ST)｜连板18 · 封板率93%</div>
+<div class="card" style="margin-bottom:8px">
+<div class="ladder">
+<div class="ladder-row">
+<span class="lvl lvl-7">7连板</span>
+<div class="stocks"><span class="stock-tag hot">海鸥住工</span><span class="stock-tag" style="background:#f5f5f5;color:var(--sub)">7连板·实控人变更+厨卫</span></div>
+</div>
+<div class="ladder-row">
+<span class="lvl lvl-6">6连板</span>
+<div class="stocks"><span class="stock-tag">捷荣技术</span><span class="stock-tag" style="background:#f5f5f5;color:var(--sub)">6连板·消费电子</span></div>
+</div>
+<div class="ladder-row">
+<span class="lvl lvl-6">6连板</span>
+<div class="stocks"><span class="stock-tag">万向德农</span><span class="stock-tag" style="background:#f5f5f5;color:var(--sub)">11天8板 6连板·农业种业</span></div>
+</div>
+<div class="ladder-row">
+<span class="lvl lvl-4">4连板</span>
+<div class="stocks"><span class="stock-tag">新赛股份</span><span class="stock-tag" style="background:#f5f5f5;color:var(--sub)">4连板·农业棉花</span></div>
+</div>
+<div class="ladder-row">
+<span class="lvl lvl-3">3连板</span>
+<div class="stocks"><span class="stock-tag">花溪科技</span><span class="stock-tag" style="background:#f5f5f5;color:var(--sub)">30CM 4天3板</span></div>
+</div>
+<div style="font-size:11px;color:var(--sub);margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)">
+连板18只 · 炸板6股 · 封板率93% · 跌停0只(含ST) · 焦点股：海鸥住工7连板(实控人变更)，捷荣技术6连板(消费电子)，万向德农11天8板6连板(农业)，新赛股份4连板(农业)
+</div>
+</div>
+</div>
+
+<div class="section-title">主线研判</div>
+<div class="judgment-grid">
+<div class="j-card strong">
+<h4>强势主线：农业种植 + 消费零售 + AI应用端</h4>
+<div class="desc">种植业+7.19%/数字媒体+5.60%/一般零售+3.87%行业领涨，转基因+8.07%/玉米+7.06%/粮食概念+6.27%概念爆发——农业股万向德农11天8板6连板/新赛股份4连板持续强势；AI应用端AI智能体+2.48%/AIGC+2.08%/AI语料+2.20%逆势上涨，应用层与硬件分化明显。</div>
+</div>
+<div class="j-card weak">
+<h4>承压方向：算力硬件集体回调 + 资金大幅流出</h4>
+<div class="desc">PCB-2.90%/半导体设备-2.84%/半导体-2.75%/CPO-2.52%/服务器-2.10%全线回调，6大核心AI板块主力合计净流出-54.71亿（CPO-12.73亿/PCB-12.45亿/半导体-11.99亿领衔）；北方华创-4.59%/沪电股份-3.35%/中微公司-3.17%龙头领跌——硬件端进入获利回吐期。</div>
+</div>
+<div class="j-card risk">
+<h4>风险提示：硬件退潮确认 + 量能萎缩</h4>
+<div class="desc">全市场成交2.03万亿（缩量976亿），算力硬件6大板块全部净流出；科创50-2.19%领跌指数，创业板-1.32%同步走弱；中际旭创回购40-80亿仅支撑个股微涨+0.87%，未能带动CPO板块止跌。硬件端高低切换信号明确，谨防追高风险。</div>
+</div>
+<div class="j-card alive">
+<h4>韧性方向：AI应用端 + 中际旭创回购催化</h4>
+<div class="desc">AI应用端6赛道上涨（智能体+2.48%/语料+2.20%/AIGC+2.08%），应用层独立于硬件回调走出逆势行情；中际旭创公告40-80亿回购后股价+0.87%/成交额246亿居A股第一，新易盛+0.23%跟涨——光模块龙头抗跌性显现，但板块整体仍承压。</div>
+</div></div>
+
+<div class="section-title">隔夜观察</div>
+<div class="observe"><ul>
+<li>中际旭创40-80亿回购：拟以不超过1200元/股回购0.28%-0.57%股份用于股权激励——CPO龙头抗跌信号，但板块整体仍-2.52%，关注回购实施进度与业绩兑现节奏</li>
+<li>上海科委"智算光网"项目申报：2026年度关键技术研发计划发布，光通信技术获财政经费支持——政策端持续加码光互联，CPO中长期景气度不变</li>
+<li>AI应用《后西游记》定档效应延续：AIGC+2.08%/AI智能体+2.48%逆势上涨，应用端与硬件端分化加剧——关注AI应用能否从主题催化转向业绩验证</li>
+<li>农业种植持续强势：转基因+8.07%/玉米+7.06%概念爆发，万向德农11天8板/新赛股份4连板——粮食安全主题独立于科技主线，资金避险属性明显</li>
+<li>美联储9月降息预期升温：美债收益率下行利好成长股估值修复，但A股AI硬件端仍受获利盘压制——关注外部流动性宽松能否带动科技板块情绪回暖</li></ul></div>
+
+<div class="footer">
+<p>数据来源： westock-data MCP(行情/资金流) + 财联社收盘涨停分析(收盘口径) + mx-search(催化新闻)</p>
+<p>生成时间：2026-09-01 16:00 · 收盘静态快照 · 永久网址 https://jqmreturning-art.github.io/ashare-review/</p>
+<p>口径说明：涨停/封板率/连板梯队一律用财联社收盘口径(非午盘)，个股涨跌幅以收盘为准</p>
+</div>
+</body>
+</html>

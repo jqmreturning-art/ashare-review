@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>昨日市场大V观点整理 · 2026-08-29</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif;
+    background: #f5f6fa; color: #1e293b; line-height: 1.7; padding: 24px;
+  }
+  .page { max-width: 960px; margin: 0 auto; }
+
+  /* Banner */
+  .banner {
+    background: linear-gradient(135deg, #1e3a8a 0%, #4f46e5 55%, #7c3aed 100%);
+    border-radius: 24px; padding: 40px 44px; color: #fff; margin-bottom: 24px;
+  }
+  .banner .tag { display: inline-block; font-size: 13px; letter-spacing: 2px; opacity: .85; margin-bottom: 10px; }
+  .banner h1 { font-size: 30px; font-weight: 700; letter-spacing: 1px; }
+  .banner .date { margin-top: 8px; font-size: 15px; opacity: .9; }
+  .banner .kpis { display: flex; gap: 28px; margin-top: 22px; flex-wrap: wrap; }
+  .banner .kpi b { display: block; font-size: 18px; font-weight: 700; }
+  .banner .kpi span { font-size: 12px; opacity: .85; }
+
+  /* Sections */
+  .card {
+    background: #fff; border-radius: 16px; padding: 28px 32px; margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(30, 58, 138, .05); border: 1px solid #eef0f5;
+  }
+  .sec-title {
+    display: flex; align-items: center; gap: 10px; font-size: 19px; font-weight: 700;
+    color: #1e3a8a; margin-bottom: 18px;
+  }
+  .sec-title .num {
+    width: 26px; height: 26px; border-radius: 8px; background: linear-gradient(135deg, #4f46e5, #7c3aed);
+    color: #fff; font-size: 14px; display: flex; align-items: center; justify-content: center;
+  }
+
+  /* Overview */
+  .overview { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .ov-item { background: #f8f9ff; border-radius: 12px; padding: 16px 18px; border-left: 4px solid #4f46e5; }
+  .ov-item h4 { font-size: 14px; color: #4f46e5; margin-bottom: 6px; }
+  .ov-item p { font-size: 14px; color: #334155; }
+
+  /* News blocks */
+  .news-block { margin-bottom: 18px; }
+  .news-block:last-child { margin-bottom: 0; }
+  .news-block h4 { font-size: 15px; color: #1e293b; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+  .news-block h4 .dot { width: 8px; height: 8px; border-radius: 50%; background: #4f46e5; flex-shrink: 0; }
+  .news-block p, .news-block li { font-size: 14px; color: #475569; }
+  .news-block ul { padding-left: 20px; }
+  .news-block li { margin-bottom: 4px; }
+  .src { font-size: 12px; color: #94a3b8; }
+
+  /* Views */
+  .view-item {
+    border: 1px solid #eef0f5; border-radius: 12px; padding: 16px 20px; margin-bottom: 14px;
+    background: #fcfcff;
+  }
+  .view-item:last-child { margin-bottom: 0; }
+  .view-item .v-title { font-size: 15px; font-weight: 600; color: #1e293b; margin-bottom: 6px; }
+  .view-item .v-title .v-idx { color: #7c3aed; font-weight: 700; margin-right: 6px; }
+  .view-item .v-core { font-size: 14px; color: #475569; margin-bottom: 10px; }
+  .view-item .v-from { font-size: 12px; color: #64748b; }
+  .view-item .v-from b { color: #4f46e5; font-weight: 600; }
+
+  /* Category blocks in views */
+  .cat-block { margin-bottom: 24px; }
+  .cat-block:last-child { margin-bottom: 0; }
+  .cat-title {
+    display: flex; align-items: baseline; gap: 10px;
+    font-size: 15px; font-weight: 700; color: #1e3a8a;
+    padding: 9px 14px; margin-bottom: 12px;
+    background: linear-gradient(90deg, #eef2ff, rgba(238,242,255,0));
+    border-left: 4px solid #7c3aed; border-radius: 0 8px 8px 0;
+  }
+  .cat-title .cat-sub { font-size: 12px; color: #64748b; font-weight: 400; }
+
+  /* Consensus / Divergence */
+  .cd-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .cd-col { border-radius: 12px; padding: 18px 20px; }
+  .cd-col.consensus { background: #f0fdf4; border: 1px solid #dcfce7; }
+  .cd-col.divergence { background: #fff7ed; border: 1px solid #ffedd5; }
+  .cd-col h4 { font-size: 15px; margin-bottom: 10px; }
+  .cd-col.consensus h4 { color: #15803d; }
+  .cd-col.divergence h4 { color: #c2410c; }
+  .cd-col li { font-size: 13.5px; color: #374151; margin-bottom: 8px; margin-left: 18px; }
+  .cd-col li:last-child { margin-bottom: 0; }
+
+  /* Attachments table */
+  table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+  th { background: #f1f5f9; color: #334155; text-align: left; padding: 10px 12px; font-weight: 600; }
+  td { padding: 10px 12px; border-bottom: 1px solid #f1f5f9; color: #475569; }
+  tr:last-child td { border-bottom: none; }
+  .down { color: #16a34a; font-weight: 600; }
+  .up { color: #dc2626; font-weight: 600; }
+
+  .footer { text-align: center; font-size: 12px; color: #94a3b8; padding: 12px 0 4px; }
+
+  @media (max-width: 720px) {
+    .overview, .cd-grid { grid-template-columns: 1fr; }
+    .banner { padding: 28px 24px; }
+    .banner h1 { font-size: 24px; }
+    .card { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Banner -->
+  <div class="banner">
+    <div class="tag">每日市场大V观点整理 · 自动生成</div>
+    <h1>昨日市场大V观点整理</h1>
+    <div class="date">2026 年 8 月 29 日（周六） · 数据来源：全市场新闻热点解读 + 全市场共性观点解读</div>
+    <div class="kpis">
+      <div class="kpi"><b>美元放水主线</b><span>美债 40 万亿 · 实物资产跑赢现金</span></div>
+      <div class="kpi"><b>沃什鹰派</b><span>黄金大跌 · 芯片巨头重挫</span></div>
+      <div class="kpi"><b>独角兽榜单</b><span>人形机器人营收 <span class="up">+1445%</span> · 国产 GPU 创投爆发</span></div>
+      <div class="kpi"><b>化工景气反转</b><span>产能出清 + 美国放水双重驱动</span></div>
+      <div class="kpi"><b>工程师红利</b><span>中高端制造业转型 <span class="up">20 年</span> 红利窗口</span></div>
+    </div>
+  </div>
+
+  <!-- ① 昨日概览 -->
+  <div class="card">
+    <div class="sec-title"><span class="num">1</span>昨日概览</div>
+    <div class="overview">
+      <div class="ov-item">
+        <h4>核心矛盾</h4>
+        <p>市场讨论已从"科技 vs 顺周期"的板块切换问题转向更底层的问题——<b>"美元放水 → 通胀长期化"</b>是否是贯穿所有资产定价的共同主线。化工、黄金、大宗、康波周期，4 个维度收束到同一逻辑链：政府逆周期调节只会让衰退越来越短、通胀越来越高，衰退后喊"现金为王"反而是典型的韭菜思维。实物资产与权益资产长期跑赢现金是结构性结论，不是周期判断。</p>
+      </div>
+      <div class="ov-item">
+        <h4>海外节点</h4>
+        <p>美联储新主席沃什首秀的涟漪扩散：讲话后黄金大跌、芯片巨头重挫，市场对"看数据、少承诺"的反应偏鹰。但多家公众号同时指出，美债已飙至 40 万亿美元、市场担心美国政府债务信用风险，最终仍需靠美联储超发货币解决——短期波动与长期方向并不一致，9 月 FOMC 之前是关键观察窗口。</p>
+      </div>
+      <div class="ov-item">
+        <h4>板块风向</h4>
+        <p>化工景气延续：产能出清叠加美国放水双轮驱动；独角兽榜单透出硬科技景气——人形机器人龙头上半年营收同比 +1445%，国产 GPU 四小龙单家累计获腾讯 200 亿 / 6 轮投资。AI、机器人、芯片赛道在估值榜单上"集体出镜"，结构性繁荣仍是创投与一级半共识。</p>
+      </div>
+      <div class="ov-item">
+        <h4>配置策略</h4>
+        <p>高波动弱趋势阶段的"胜出方案"被反复论证：低回撤基金持有人盈利占比（80%+）远超高弹性成长组合（约 1/3）；低估值买入可同时赚"企业盈利增长 + 估值修复 + 打新"三部分收益。防守型策略、回撤控制、低估值买入，被多个公众号交叉佐证为当下最优方案——"少亏比多赚更重要"是穿越周期的共识。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ② 新闻要点 -->
+  <div class="card">
+    <div class="sec-title"><span class="num">2</span>新闻要点（全市场新闻热点解读）</div>
+
+    <div class="news-block">
+      <h4><span class="dot"></span>海外市场 · 美联储新主席沃什放鹰：黄金大跌、芯片巨头重挫</h4>
+      <p>美联储新主席沃什在杰克逊霍尔会议首秀，"看数据、少承诺"表态偏鹰，PCE 通胀 3.7% 远高于 2% 目标，AI 资本开支一年超 5000 亿美元但对生产率与就业影响仍是未知数。讲话后黄金大跌、芯片巨头重挫，市场对 9 月 FOMC 的鹰派定价明显回升。多位公众号同时指出，美债规模飙升至 40 万亿美元、信用风险加剧，最终仍要靠美联储超发货币解决，短期波动与长期方向存在张力。</p>
+      <div class="src">来源：政信三公子《唱双簧的两面人》、泽平宏观《沃什放"鹰"，美联储会加息吗？》、证券时报·e公司 / 新浪财经 2026-08-28</div>
+    </div>
+
+    <div class="news-block">
+      <h4><span class="dot"></span>板块与个股 · 化工景气反转再强化：产能出清 + 美国放水双轮驱动</h4>
+      <p>化工景气反转逻辑链被市场接受度抬升：海外化工产能因成本高企陆续关厂、国内企业迎出海机会、2026 年细分化工利润增速预期高达 365%；产业层面 2025 年化工品价格创历史新低、全行业亏损正是买点，2026 年价格提前反转。盘面化工三连阳，资金从科技高位持续外溢至化工等低位方向。但需注意：化工贝塔虽然上行，品种分化会很大，重点看供给约束品种。</p>
+      <div class="src">来源：Mask 的小酒馆《轻舟没过万重山，化工依然看好》《化工投资的底层逻辑》、FX168 化工ETF跟踪报道 2026-08-28</div>
+    </div>
+
+    <div class="news-block">
+      <h4><span class="dot"></span>板块与个股 · 中国独角兽榜单 2026：人形机器人 +1445%、国产 GPU 四小龙创投爆发</h4>
+      <p>2026 年中国独角兽榜单出炉，人工智能、芯片、机器人三大领域估值爆发。人形机器人龙头优必选 2026 上半年总营收 12.7 亿元，全尺寸具身智能人形机器人收入同比增长 1445%，卫冕全球第一；芯片侧腾讯连投 6 轮共 200 亿，"国产 GPU 四小龙"最后一家即将上市。榜单体现出 AI 算力国产化、人形机器人商业化两条主线齐头并进，是当前硬科技景气的代表性注脚。</p>
+      <div class="src">来源：泽平宏观《中国独角兽排行榜 2026》、上海证券报 2026-08-29、中科研究 2026-08-29</div>
+    </div>
+
+    <div class="news-block">
+      <h4><span class="dot"></span>资金面/科技股波动 · 抱团瓦解信号 vs 周期再平衡</h4>
+      <p>"科技抱团瓦解"、"芯片巨头重挫"、"科技暴雷"成为当日高频共词。市场层面呈现典型的资金再平衡特征：高位科技（芯片巨头、存储、AI 算力）遭遇重挫，低位化工、农产品、资源等顺周期方向接力上涨。这一切换本质是风险偏好阶段性回落叠加"利差损驱动类债券配置"的双重结果，而非科技景气趋势的终结。</p>
+      <div class="src">来源：懒人养基、政信三公子、Mask 的小酒馆交叉印证，2026-08-29</div>
+    </div>
+  </div>
+
+  <!-- ③ 大V观点 -->
+  <div class="card">
+    <div class="sec-title"><span class="num">3</span>大V观点（按品类梳理 · 12 条共识）</div>
+
+    <!-- C1 -->
+    <div class="cat-block">
+      <div class="cat-title">美元放水周期与通胀长期化<span class="cat-sub">核心矛盾：货币超发是化工 / 黄金 / 康波视角的共同支撑——衰退越来越短、通胀越来越高，实物资产跑赢现金是结构性结论</span></div>
+
+      <div class="view-item">
+        <div class="v-title"><span class="v-idx">01</span>衰退→货币超发→权益/实物资产跑赢现金，是穿越周期的底层结论</div>
+        <div class="v-core">经济衰退时政府必然通过赤字创造购买力，这导致衰退越来越短、通胀越来越高——巴菲特后期转变所体现的正是这一逻辑。危机后货币超发是必然路径，现金只有在泡沫末期才值得持有，衰退后喊"现金为王"反而是典型的韭菜思维。能持续创造价值的股权资产与实物资产，长期跑赢现金和存款，这才是反脆弱的资产配置锚。</div>
+        <div class="v-from">持此观点：<b>齐俊杰看财经</b>（文章1 巴菲特后期转变）</div>
+      </div>
+
+      <div class="view-item">
+        <div class="v-title"><span class="v-idx">02</span>化工产能出清 + 美国放水 = 周期品上涨的双重驱动</div>
+        <div class="v-core">化工品价格在 2025 年创历史新低、全行业亏损，但全行业亏损正是买点。美国印钱速度史无前例，直接推动 2026 年化工品价格提前反转。从配置角度看，供给侧出清（产能关停、行业洗牌）与需求侧货币宽松（美元放水）双重共振，是周期股走出底部最可靠的信号。化工三连阳的资金外溢 + 产品涨价格局短期不会改变，但需聚焦供给约束品种而非全行业普涨。</div>
+        <div class="v-from">持此观点：<b>Mask 的小酒馆</b>（文章5 轻舟没过万重山）</div>
+      </div>
+
+      <div class="view-item">
+        <div class="v-title"><span class="v-idx">03</span>化工投资的底层逻辑：亏损即买点 + 2026 盈利可期</div>
+        <div class="v-core">化工不是普涨行情，盈利分化的关键在供给约束。化工ETF 跟踪细分化工指数（PE 19 倍 / 历史分位 23%）、对应龙头股估值仍处低位；2025 年是行业最难的年份但盈利底已经探明，2026 年在"价格反转 + 美元放水"双重作用下利润端将明显修复。但需特别注意：化工贝塔虽在，品种分化大，ETF 是普通投资者分散风险的最优工具，个股层面必须聚焦供给约束品种。</div>
+        <div class="v-from">持此观点：<b>Mask 的小酒馆</b>（文章7 化工投资的底层逻辑）</div>
+      </div>
+
+      <div class="view-item">
+        <div class="v-title"><span class="v-idx">04</span>美债飙至 40 万亿美元，黄金 / 大宗 / 人民币趋势性上涨</div>
+        <div class="v-core">美债规模飙升至 40 万亿美元，市场普遍担心美国政府债务信用风险，最终仍要靠美联储超发货币解决，美元购买力持续被稀释。货币超发周期中黄金、大宗商品、比特币、人民币等美元替代资产趋势性上涨。沃什新主席讲话引发短期黄金大跌反而是观察窗口——长期看央行储备多元化与去美元化背景下的美元替代资产，方向没有改变。</div>
+        <div class="v-from">持此观点：<b>泽平宏观</b>（文章8 沃什放"鹰"会加息吗）</div>
+      </div>
+    </div>
+
+    <!-- C2 -->
+    <div class="cat-block">
+      <div class="cat-title">海外宏观与美联储新主席<span class="cat-sub">核心矛盾：短期鹰派冲击 vs 长期货币超发底色 —— 9 月 FOMC 之前的黄金 / 美元指数反应是关键风向</span></div>
+
+      <div class="view-item">
+        <div class="v-title"><span class="v-idx">05</span>沃什鹰派讲话，黄金大跌、芯片巨头重挫</div>
+        <div class="v-core">美联储新主席沃什"看数据、少承诺"表态偏鹰，加息预期短暂回升，市场立即反应为黄金大跌、芯片巨头重挫——这是高估值科技资产对利率敏感性的又一次典型展示。短期看 9 月 FOMC 之前的鹰派 / 鸽派定价分歧将主导资产波动。但 V 文章4 已指出，长期底色不会改变——美债超限倒逼货币超发，金银与人民币仍是趋势性配置。</div>
+        <div class="v-from">持此观点：<b>政信三公子</b>（文章4 唱双簧的两面人）</div>
+      </div>
+
+      <div class="view-item">
+        <div class="v-title"><span class="v-idx">06</span>沃什"鹰"派 = 短期鹰，长期偏鸽，美元替代资产仍是长期趋势</div>
+        <div class="v-core">沃什讲话表面鹰派（加息预期升温、PCE 3.7% 顽固），本质仍是延续"数据依赖 + 灵活反应"的框架；但美债 40 万亿的债务现实约束决定了美联储的腾挪空间有限，长期不得不通过货币宽松化解债务压力。沃什首秀后短期资产价格更敏感于数据波动，但中长期配置逻辑锚依然是"美元稀释 → 美元替代资产上涨"。</div>
+        <div class="v-from">持此观点：<b>泽平宏观</b>（文章8 沃什放"鹰"会加息吗）</div>
+      </div>
+    </div>
+
+    <!-- C3 -->
+    <div class="cat-block">
+      <div class="cat-title">防守型策略与回撤控制<span class="cat-sub">核心矛盾：高波动弱趋势阶段，回撤的非对称性让"少亏比多赚更重要"成为可量化的胜利方案</span></div>
+
+      <div class="view-item">
+        <div class="v-title"><span class="v-idx">07</span>闪避比暴击性价比高：低回撤基金持有人盈利占比 80%+，远超高弹性组合约 1/3</div>
+        <div class="v-core">用 Dota 游戏实验类比：闪避（低回撤）的胜率远超暴击（高弹性），延伸到投资则同样成立。回撤的非对称性要求极高的风险补偿——亏损 20% 需要涨 25% 回本，亏损 50% 需要翻倍。历史持有人数据显示，低波固收+组合的盈利占比 80%+，而高波动成长组合仅约 1/3，回撤控制是筛选基金的一票否决项。"少亏比多赚更重要"不是口号，是穿越周期的统计事实。</div>
+        <div class="v-from">持此观点：<b>民工看市</b>（文章13 蝴蝶还是大炮）</div>
+      </div>
+
+      <div class="view-item">
+        <div class="v-title"><span class="v-idx">08</span>凭运气赚的钱凭实力亏回去：固收+是普通人的长期归宿</div>
+        <div class="v-core">投资要敬畏价值规律：运气所得不可复制，凭运气赚来的钱最终会凭实力亏回去。多数人追求短期高收益却忽视了回撤的非对称杀伤。长期稳健的"固收+"才是大多数普通人的投资归宿——通过付出耐心与纪律，沉淀真正属于自己的复利价值。这与文章7 在数据上完全互证：低回撤组合持有人盈利占比远超成长组合。</div>
+        <div class="v-from">持此观点：<b>懒人养基</b>（文章3 你得到的并不是你的）</div>
+      </div>
+    </div>
+
+    <!-- C4 -->
+    <div class="cat-block">
+      <div class="cat-title">经济转型与指数基金方法论<span class="cat-sub">核心矛盾：人口红利退潮 → 工程师红利崛起 ~20 年窗口期，指数基金是普通人分享国家转型红利的核心工具</span></div>
+
+      <div class="view-item">
+        <div class="v-title"><span class="v-idx">09</span>老龄化时代工程师红利支撑中高端制造业转型 20 年</div>
+        <div class="v-core">2000-2020 中国依赖中低端制造业 + 房地产 + 低劳动力成本的人口红利；2020 年后东南亚更低成本竞争与房地产长熊终结旧模式。2026-2050 年理工科毕业生规模全球第一，工程师红利将持续约 20 年，奠定中高端制造业转型优势。普通人无法分享个股 α，但通过指数基金可以低成本分享国家转型红利——这是长期资产配置的"底层权益"。</div>
+        <div class="v-from">持此观点：<b>银行螺丝钉</b>（文章10 老龄化时代）</div>
+      </div>
+
+      <div class="view-item">
+        <div class="v-title"><span class="v-idx">10</span>低估区域买入 = 盈利增长 + 估值修复 + 打新三部分收益</div>
+        <div class="v-core">在低估值区域买入，可以同时赚到"企业盈利增长 + 估值修复 + 打新"三部分收益。低估值本身提供了安全边际——下跌空间有限、上行赔率较大，回撤风险可控。这是普通投资者长期获取稳健回报的核心方法，与文章9 的"工程师红利"窗口互为补充：前者锁定国家转型 α、后者提供入场择时参考。两者叠加即"国家 β + 低估择时"双轮。</div>
+        <div class="v-from">持此观点：<b>银行螺丝钉</b>（文章11 在低估买入）</div>
+      </div>
+    </div>
+
+    <!-- C5 -->
+    <div class="cat-block">
+      <div class="cat-title">产业趋势与硬科技景气<span class="cat-sub">核心矛盾：2026 独角兽榜单与一线公司业绩双印证，AI / 机器人 / 国产芯片赛道结构性景气延续</span></div>
+
+      <div class="view-item">
+        <div class="v-title"><span class="v-idx">11</span>互联网龙头价值修复：本地生活平台拐点信号被多家验证</div>
+        <div class="v-core">港股 / 中概互联网龙头在多重压力测试后迎来阶段性拐点信号：股东结构出清、回购增多、竞争格局从烧钱扩张转向存量优化。一旦基本面修复预期与现金流改善共振，平台型龙头的估值修复弹性较大。短期催化剂与中长期价值修复不冲突，"小股东兴奋"更多是情绪映射而非全要素反转——但确实是值得跟踪的方向。</div>
+        <div class="v-from">持此观点：<b>兵哥事务所</b>（文章9 美团小股东又开始兴奋了）</div>
+      </div>
+
+      <div class="view-item">
+        <div class="v-title"><span class="v-idx">12</span>2026 独角兽榜单：人形机器人 +1445%、国产 GPU 创投爆发，硬科技景气延续</div>
+        <div class="v-core">中国 2026 独角兽榜单：人形机器人龙头优必选 2026 上半年总营收 12.7 亿元，全尺寸具身智能人形机器人收入同比 +1445%，卫冕全球第一；芯片侧腾讯连投 6 轮共 200 亿，"国产 GPU 四小龙"最后一家即将上市。两条主线——AI 算力国产化、人形机器人商业化——齐头并进，是当前硬科技景气的代表性注脚；榜单估值爆发反映一级市场对结构性赛道的共识收敛。</div>
+        <div class="v-from">持此观点：<b>泽平宏观</b>（文章14 中国独角兽排行榜 2026）</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ④ 分歧与共识 -->
+  <div class="card">
+    <div class="sec-title"><span class="num">4</span>共识与分歧</div>
+    <div class="cd-grid">
+      <div class="cd-col consensus">
+        <h4>✓ 市场共识</h4>
+        <ul>
+          <li>货币超发周期下权益/实物资产长期跑赢现金，多角度交叉印证（化工景气 + 黄金趋势 + 康波周期 + 沃什讲话反应）</li>
+          <li>美元放水 + 化工产能出清是周期反转的双重驱动，景气未结束但分化大；ETF 是普通投资者分散风险的最优工具</li>
+          <li>回撤的非对称杀伤使低回撤策略长期胜出——持有人盈利占比 80%+ vs 高弹性组合约 1/3，"少亏比多赚更重要"</li>
+          <li>老龄化时代工程师红利支撑中高端制造业转型 20 年窗口期，指数基金是普通人分享国家 β 的核心工具</li>
+          <li>硬科技景气延续：人形机器人龙头营收 +1445%、国产 GPU 四小龙创投爆发，AI 算力国产化与人形机器人商业化齐头并进</li>
+        </ul>
+      </div>
+      <div class="cd-col divergence">
+        <h4>✗ 主要分歧</h4>
+        <ul>
+          <li><b>美联储政策短期 vs 长期：</b>政信三公子从沃什讲话看到短期鹰派冲击（黄金大跌、芯片巨头重挫、加息预期回暖）；泽平宏观认为美债 40 万亿倒逼美联储超发货币、长期金银 / 人民币趋势不变。短期波动与长期方向存在张力，9 月 FOMC 是关键观察窗口</li>
+          <li><b>化工配置方式：</b>Mask 的小酒馆强调 ETF 跟踪细分化工指数是普通投资者最优工具（PE 19 倍 / 历史分位 23% / 2026 利润增速 365%）；另一视角认为化工贝塔虽在但品种分化大，个股层面必须聚焦供给约束品种。工具选择 vs 品种选择存在路径差</li>
+          <li><b>互联网龙头修复节奏：</b>兵哥事务所看到平台型公司催化剂出现，与基本面修复预期共振；但"小股东兴奋"更多是情绪映射而非全要素反转，落地节奏与持续性仍待观察，与硬科技景气的延续性形成赛道选择判断差</li>
+          <li><b>防守策略的工具选择：</b>懒人养基建议通过"固收+"投顾组合沉淀复利；银行螺丝钉强调"低估值宽基 + 择时"，跌出机会买入、涨出机会卖出。两种方法各有偏好，方向一致但工具分歧明显</li>
+          <li><b>沃什"看数据少承诺"的解读：</b>短期被市场解读为鹰派（加息预期抬升），但实质是更灵活的反应函数框架，与历史前瞻指引式管理形成风格切换；市场对"灵活性 = 鹰"的解读需要时间修正，资产价格可能存在超调</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ⑤ 原始附件清单 -->
+  <div class="card">
+    <div class="sec-title"><span class="num">5</span>原始附件清单</div>
+    <table>
+      <tr><th>来源邮件</th><th>附件</th><th>内容概要</th></tr>
+      <tr>
+        <td>全市场新闻热点解读<br><span class="src">2026-08-30 10:06</span></td>
+        <td>news_全市场新闻热点解读20260830.md</td>
+        <td>4 篇文章 + 4 项高频热点统计（沃什鹰派讲话 / 化工景气 / 独角兽榜单 / 科技抱团再平衡）</td>
+      </tr>
+      <tr>
+        <td>全市场共性观点解读<br><span class="src">2026-08-30 10:07</span></td>
+        <td>views_全市场共性观点解读20260830.md</td>
+        <td>16 篇文章 + 3 条共性观点归纳（按品类分 5 组，含核心逻辑与公众号明细）</td>
+      </tr>
+    </table>
+    <p class="src" style="margin-top:12px;">注：本报告覆盖市场日期为 <b>2026-08-29（周六）</b>；邮件实际推送时间为 2026-08-30 10:06–10:07（cronjob@sogood360.com 渠道系统服务通知），内容为 8/29 前后市场要点的次日汇总整理。<b style="color:#c2410c">筛除说明：</b>已剔除与投资市场无直接关联的内容（含农村高额彩礼社会话题 / 周金涛人生感悟 / 沪深300 指数科普 / 9月上海站及 1 月美西站活动宣传等共 5 篇文章）。</p>
+  </div>
+
+  <div class="footer">本报告由每日市场大V观点整理自动化任务生成 · 内容基于当日邮件附件原文归纳</div>
+</div>
+</body>
+</html>

@@ -31,8 +31,9 @@ td{padding:6px;border-bottom:1px solid #f1f5f9}
 .bar-fill.dn{right:50%;background:var(--green);border-radius:4px 0 0 4px;justify-content:flex-end}
 .bar-fill.flat{left:50%;background:#b9c0cc;border-radius:0 4px 4px 0}
 .idx-row{display:flex;align-items:center;gap:8px;margin-bottom:8px}
-.idx-row .name{width:70px;font-size:12px;font-weight:600}
-.idx-row .bar-wrap{height:14px}
+.idx-row .idx-name{width:70px;font-size:12px;font-weight:600}
+.idx-row .idx-price{width:70px;font-size:12px;text-align:right;font-weight:600}
+.idx-row .bar-wrap{height:14px;flex:1}
 .idx-row .pct{width:60px;text-align:right;font-size:12px;font-weight:600}
 .pill{display:inline-block;padding:2px 8px;border-radius:12px;font-size:11px;font-weight:600}
 .pill-red{background:#fee2e2;color:#dc2626}.pill-green{background:#ecfdf5;color:#059669}
@@ -97,17 +98,20 @@ footer{text-align:center;padding:20px;font-size:11px;color:#94a3b8}
 <div class="card">
 <h2><span class="sec-ico"></span>指数表现</h2>
 <div class="idx-row">
-<span class="name">上证指数</span>
+<span class="idx-name">上证指数</span>
+<span class="idx-price">3942.09</span>
 <div class="bar-wrap"><div class="bar-fill up" style="width:0.3%"></div></div>
 <span class="pct up">+0.02%</span>
 </div>
 <div class="idx-row">
-<span class="name">创业板指</span>
+<span class="idx-name">创业板指</span>
+<span class="idx-price">3312.54</span>
 <div class="bar-wrap"><div class="bar-fill up" style="width:0.15%"></div></div>
 <span class="pct up">+0.01%</span>
 </div>
 <div class="idx-row">
-<span class="name">科创50</span>
+<span class="idx-name">科创50</span>
+<span class="idx-price">1611.17</span>
 <div class="bar-wrap"><div class="bar-fill dn" style="width:6.0%"></div></div>
 <span class="pct dn">-0.40%</span>
 </div>

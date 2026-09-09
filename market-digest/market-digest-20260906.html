@@ -53,7 +53,29 @@ table th{background:#f9fafb;font-weight:600;color:#374151}
 .note{background:#fffbeb;border:1px solid #fde68a;border-radius:8px;padding:10px 14px;font-size:13px;color:#92400e;margin:10px 0}
 .footer{margin-top:48px;padding-top:18px;border-top:1px solid var(--line);color:var(--muted);font-size:12px;text-align:center}
 @media (max-width:780px){.kpi-grid{grid-template-columns:repeat(2,1fr)}.banner h1{font-size:22px}}
+
+/* ===== 大V观点 Tab 切换 ===== */
+.vtab-bar{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 18px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.vtab{display:inline-flex;align-items:center;gap:7px;padding:9px 14px;border:1px solid var(--line);background:#fff;color:#374151;border-radius:10px;font-size:13.5px;font-weight:600;cursor:pointer;font-family:inherit;line-height:1.3;transition:all .15s}
+.vtab:hover{border-color:var(--primary);color:var(--primary);background:var(--primary-soft)}
+.vtab.active{background:linear-gradient(135deg,#4f46e5 0%,#7c3aed 100%);color:#fff;border-color:transparent;box-shadow:0 3px 10px rgba(79,70,229,.25)}
+.vtab .vtab-k{display:inline-flex;align-items:center;justify-content:center;min-width:20px;height:20px;padding:0 4px;border-radius:6px;background:var(--primary-soft);color:var(--primary);font-size:11.5px;font-weight:700}
+.vtab.active .vtab-k{background:rgba(255,255,255,.26);color:#fff}
+.vtab .vtab-n{font-size:11px;padding:1px 7px;border-radius:999px;background:#f3f4f6;color:var(--muted);font-weight:600}
+.vtab.active .vtab-n{background:rgba(255,255,255,.22);color:#fff}
+.vpanel{display:none}
+.vpanel.active{display:block;animation:vfade .22s ease}
+@keyframes vfade{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:none}}
+.vpanel-head{background:linear-gradient(135deg,#eef2ff 0%,#faf5ff 100%);border:1px solid #e0e7ff;border-left:4px solid var(--accent);border-radius:10px;padding:12px 16px;margin:0 0 14px}
+.vpanel-head .vpanel-title{font-size:15.5px;font-weight:700;color:var(--accent);line-height:1.45}
+.vpanel-head .vpanel-sub{font-size:12.5px;color:var(--muted);margin-top:3px;line-height:1.5}
+.vpanel .card:first-of-type{margin-top:0}
+@media (max-width:780px){
+  .vtab-bar{flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:14px}
+  .vtab{flex:0 0 auto;font-size:12.5px;padding:8px 11px}
+}
 </style>
+<noscript><style>.vpanel{display:block!important}.vtab-bar{display:none}</style></noscript>
 </head>
 <body>
 <div class="wrap">
@@ -118,8 +140,18 @@ table th{background:#f9fafb;font-weight:600;color:#374151}
 <section class="section" id="view">
 <h2>③ 大V观点（按品类分组）</h2>
 
-<h3>品类 A · GPT-6 跨代与 AI 产业格局重塑<span class="muted"> — 从"工具"到"自主智能体"，定价逻辑重写</span></h3>
+<div class="vtab-bar" id="vtab-bar" role="tablist">
+  <button type="button" class="vtab active" data-tab="vp-A"><span class="vtab-k">A</span><span class="vtab-t">GPT-6 跨代与 AI …</span><span class="vtab-n">2</span></button>
+  <button type="button" class="vtab" data-tab="vp-B"><span class="vtab-k">B</span><span class="vtab-t">算力自主可控与国产芯片</span><span class="vtab-n">2</span></button>
+  <button type="button" class="vtab" data-tab="vp-C"><span class="vtab-k">C</span><span class="vtab-t">A 股科技触底反弹与节奏</span><span class="vtab-n">2</span></button>
+  <button type="button" class="vtab" data-tab="vp-D"><span class="vtab-k">D</span><span class="vtab-t">银行 3600 亿增资与红…</span><span class="vtab-n">2</span></button>
+  <button type="button" class="vtab" data-tab="vp-E"><span class="vtab-k">E</span><span class="vtab-t">美联储议息与政治化定价</span><span class="vtab-n">2</span></button>
+  <button type="button" class="vtab" data-tab="vp-F"><span class="vtab-k">F</span><span class="vtab-t">农产品涨价与大宗周期尾段</span><span class="vtab-n">2</span></button>
+  <button type="button" class="vtab" data-tab="vp-G"><span class="vtab-k">G</span><span class="vtab-t">全球配置与跨市场比较</span><span class="vtab-n">1</span></button>
+</div>
 
+<div class="vpanel active" id="vp-A">
+  <div class="vpanel-head"><div class="vpanel-title">品类 A · GPT-6 跨代与 AI 产业格局重塑</div><div class="vpanel-sub">从"工具"到"自主智能体"，定价逻辑重写</div></div>
 <div class="card">
   <h4>01｜GPT-6 Astra 已从"问答工具"跨越为"自主智能体"，商业定价逻辑转向"按任务总成本"</h4>
   <p><strong>核心逻辑：</strong>上一代模型需人类不断拆解指令，GPT-6 只需接收目标即可自主拆分步骤、选择工具、执行并自我纠错；ARC-AGI 从 7.8% 跳到 99.9%、越权操作率降至 0%、任务时间压缩 47%，能力曲线"换物种式"跃升。OpenAI API 定价 2.5×，但按"单任务总成本"算反而更低，AI 从"增强工具"升级为替代执行的"数字员工"。</p>
@@ -131,9 +163,10 @@ table th{background:#f9fafb;font-weight:600;color:#374151}
   <p><strong>核心逻辑：</strong>Astra 零人工干预五天自动把数万封邮件整理成知识库并自动运行每日简报；能自己下载软件、自定分类策略。同时 AI 自主做研究虽出现"学术灌水"问题，也反向证明执行能力已经溢出——真正稀缺的不再是"动手能力"，而是"目标定义"与"审美判断"。</p>
   <div class="tag-row"><span class="t">搬砖小组</span></div>
 </div>
+</div>
 
-<h3>品类 B · 算力自主可控与国产芯片<span class="muted"> — "芯片-模型"生态进入越用越强的窗口期</span></h3>
-
+<div class="vpanel" id="vp-B">
+  <div class="vpanel-head"><div class="vpanel-title">品类 B · 算力自主可控与国产芯片</div><div class="vpanel-sub">"芯片-模型"生态进入越用越强的窗口期</div></div>
 <div class="card">
   <h4>03｜GPT-6 跨代领先让"算力自主可控"成为中美 AI 竞赛胜负手</h4>
   <p><strong>核心逻辑：</strong>Astra 能力建立在 10 万卡级以上训练集群之上，AGI 竞争首先是算力基础设施的竞争。中国模型/芯片绝对能力仍有代差，但可通过架构创新、极致性价比和生态适配走出差异化路径；国产芯片只有在大模型商用场景中大规模验证，才能实现"用进废退"式迭代。</p>
@@ -145,9 +178,10 @@ table th{background:#f9fafb;font-weight:600;color:#374151}
   <p><strong>核心逻辑：</strong>DeepSeek V4 发布首日即全量适配华为昇腾、寒武纪、海光等八大国产芯片，证明国产算力可支撑万亿参数大模型训练；国产 GPU 凭借产业链、规模化和成本优势，有望复制新能源车、光伏的国产替代路径。</p>
   <div class="tag-row"><span class="t">泽平宏观</span></div>
 </div>
+</div>
 
-<h3>品类 C · A 股科技触底反弹与节奏<span class="muted"> — 要信早信，吃完就跑</span></h3>
-
+<div class="vpanel" id="vp-C">
+  <div class="vpanel-head"><div class="vpanel-title">品类 C · A 股科技触底反弹与节奏</div><div class="vpanel-sub">要信早信，吃完就跑</div></div>
 <div class="card">
   <h4>05｜科技板块数月调整后，短期"触底反弹"窗口临近；筹码结构改善，叠加 GPT-6 与议息催化</h4>
   <p><strong>核心逻辑：</strong>市场一致看空时空方力量接近衰竭；前期拥挤的科技筹码经过调整已经局部出清，科创 50 估值分位回到年内低位。但 A 股成交额跌破 2 万亿、大盘新股持续发行、增量资金有限，反弹更可能是"要信早信、吃完就跑"的交易性机会，而非简单反转。</p>
@@ -159,9 +193,10 @@ table th{background:#f9fafb;font-weight:600;color:#374151}
   <p><strong>核心逻辑：</strong>银行股交易资金拿不到筹码，科技股筹码结构反而改善；科创 50 估值分位跌至年内低位、成交量萎缩，前期被压得很惨的存储、国产算力等方向可能弹性更大；但大筹码结构被破坏后难以快速修复，机构做反弹的纪律是"要信早信，吃完就跑"。</p>
   <div class="tag-row"><span class="t">民工看市</span></div>
 </div>
+</div>
 
-<h3>品类 D · 银行 3600 亿增资与红利策略<span class="muted"> — 既定任务收尾，摊薄股息率</span></h3>
-
+<div class="vpanel" id="vp-D">
+  <div class="vpanel-head"><div class="vpanel-title">品类 D · 银行 3600 亿增资与红利策略</div><div class="vpanel-sub">既定任务收尾，摊薄股息率</div></div>
 <div class="card">
   <h4>07｜银行保险 3600 亿资本补充是 2024 年"924"政策的既定任务收尾，而非新一轮行情发令枪</h4>
   <p><strong>核心逻辑：</strong>增资计划本身是"924"政策的既定步骤，市场早已有所预期；与上一轮银行溢价增发不同，本轮银行股已累计较大涨幅、发行定价缺乏溢价空间，增发会对股息率形成摊薄。不应把该消息当作银行股"利好兑现后再起一波"的催化剂，对稳定吃息资金是边际利空。</p>
@@ -173,9 +208,10 @@ table th{background:#f9fafb;font-weight:600;color:#374151}
   <p><strong>核心逻辑：</strong>好的一面是注入资本、提高银行保险杠杆率，间接利好固收、信贷和股市，为房地产之外的新池子扩张做准备；坏的一面是摊薄股息率，对想稳定拿分红的人是利空。银行各路新高只是短期现象，不应把慢牛叙事寄托在银行股上。</p>
   <div class="tag-row"><span class="t">laoduo</span></div>
 </div>
+</div>
 
-<h3>品类 E · 美联储议息与政治化定价<span class="muted"> — 数据可信度钝化，市场已给"水分"定价</span></h3>
-
+<div class="vpanel" id="vp-E">
+  <div class="vpanel-head"><div class="vpanel-title">品类 E · 美联储议息与政治化定价</div><div class="vpanel-sub">数据可信度钝化，市场已给"水分"定价</div></div>
 <div class="card">
   <h4>09｜美国行政当局以罕见方式干预美联储决策，利率路径政治化使资产反应钝化</h4>
   <p><strong>核心逻辑：</strong>非农大超预期后，特朗普喊话"不降息就切断贸易"、要求利率降到 1% 甚至更低，财长贝森特、副总统万斯公开配合施压；非农公布后随即便下修 6/7 月数据，使市场怀疑数据本身在服务政治叙事。于是出现"超预期非农→加息概率上升→美股科技反而大涨"的背离。</p>
@@ -187,9 +223,10 @@ table th{background:#f9fafb;font-weight:600;color:#374151}
   <p><strong>核心逻辑：</strong>市场机构普遍认为非农只是单月数据，CPI 才是决定方向的"一锤定音"信号。若本周通胀数据符合预期，加息概率下降，叠加议息窗口，A 股科技触底反弹概率较大；但没有量能依然带不动行情，量能恢复可能需要类似暂停 IPO 级别的大信号。</p>
   <div class="tag-row"><span class="t">laoduo</span></div>
 </div>
+</div>
 
-<h3>品类 F · 农产品涨价与大宗周期尾段<span class="muted"> — 五阶段轮动最后一环，脉冲强、持续弱</span></h3>
-
+<div class="vpanel" id="vp-F">
+  <div class="vpanel-head"><div class="vpanel-title">品类 F · 农产品涨价与大宗周期尾段</div><div class="vpanel-sub">五阶段轮动最后一环，脉冲强、持续弱</div></div>
 <div class="card">
   <h4>11｜农产品涨价是"大宗元年"五阶段轮动的第四、五阶段；脉冲强、持续弱</h4>
   <p><strong>核心逻辑：</strong>在"贵金属→基本金属→能源→农产品→消费品"的周期框架下，农产品通常滞后于贵金属和能源，由同一轮流动性宽松 + 供给约束 + 地缘冲突依次带动；8 月国际谷物、油脂、橡胶全面大涨正是周期轮动到农产品阶段的体现。各国保供意愿强 + 现代化农业供给弹性大，历史经验显示供给冲击型涨价"来得快、去得也快"。</p>
@@ -201,13 +238,15 @@ table th{background:#f9fafb;font-weight:600;color:#374151}
   <p><strong>核心逻辑：</strong>化工涨价会比农产品更快；橡胶、白糖、小麦、玉米、大豆等品种已经快速涨价。农业养殖 ETF 在 6-7 月就已布局，因此吃到了这波上涨；但 A 股种业短期涨幅已大，需要防范情绪退潮。</p>
   <div class="tag-row"><span class="t">泽平宏观</span><span class="t">Mask的小酒馆</span></div>
 </div>
+</div>
 
-<h3>品类 G · 全球配置与跨市场比较<span class="muted"> — 美股估值锚 + 印度股市降温</span></h3>
-
+<div class="vpanel" id="vp-G">
+  <div class="vpanel-head"><div class="vpanel-title">品类 G · 全球配置与跨市场比较</div><div class="vpanel-sub">美股估值锚 + 印度股市降温</div></div>
 <div class="card">
   <h4>13｜美股财报更新：标普/纳指 Q2 盈利增长验证；可关注德/法/英/日/东证指数及 VT 等全球配置工具</h4>
   <p><strong>核心逻辑：</strong>银行螺丝钉更新美股指数估值数据，对比科创 50、沪深 300、中证 500 等 A 股指数，并梳理德/法/英/日/东证等海外宽基及全球指数基金 VT 的配置价值；同时提示印度股市表现变差，对海外单一国家敞口需谨慎。</p>
   <div class="tag-row"><span class="t">银行螺丝钉</span></div>
+</div>
 </div>
 </section>
 
@@ -316,5 +355,30 @@ table th{background:#f9fafb;font-weight:600;color:#374151}
 </div>
 
 </div>
+
+<script>
+(function(){
+  var bar=document.getElementById('vtab-bar');
+  if(!bar)return;
+  var btns=Array.prototype.slice.call(bar.querySelectorAll('.vtab'));
+  var panels=Array.prototype.slice.call(document.querySelectorAll('.vpanel'));
+  if(!btns.length||!panels.length)return;
+  var KEY='md-vtab-active';
+  function valid(id){var el=document.getElementById(id);return el&&el.classList.contains('vpanel');}
+  function activate(id,persist){
+    btns.forEach(function(b){b.classList.toggle('active',b.getAttribute('data-tab')===id);});
+    panels.forEach(function(p){p.classList.toggle('active',p.id===id);});
+    if(persist){try{localStorage.setItem(KEY,id);}catch(e){}}
+  }
+  btns.forEach(function(b){
+    b.addEventListener('click',function(){activate(b.getAttribute('data-tab'),true);});
+  });
+  var init=null;
+  try{init=localStorage.getItem(KEY);}catch(e){}
+  if(!init||!valid(init))init=btns[0].getAttribute('data-tab');
+  activate(init,false);
+})();
+</script>
+
 </body>
 </html>

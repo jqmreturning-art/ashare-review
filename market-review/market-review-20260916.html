@@ -1,0 +1,187 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>A股主线与情绪复盘 2026-09-16</title><style>
+:root{--bg:#f4f6fa;--card:#ffffff;--border:#e3e8f0;--text:#1f2937;--red:#ff4757;--green:#00d4aa;--orange:#ffa502;--blue:#1d4ed8;--purple:#7c3aed;--grad:linear-gradient(135deg,#1e3a8a,#4f46e5 60%,#7c3aed)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;color:var(--text);line-height:1.6;font-size:14px}
+.container{max-width:900px;margin:0 auto;padding:16px}
+header{background:var(--grad);border-radius:0 0 24px 24px;padding:28px 24px 20px;color:#fff;position:relative;overflow:hidden}
+header::after{content:'';position:absolute;top:0;right:0;width:200px;height:200px;background:rgba(255,255,255,.06);border-radius:50%;transform:translate(80px,-80px)}
+.hd-tag{display:inline-block;background:rgba(255,255,255,.18);padding:4px 12px;border-radius:20px;font-size:12px;margin-bottom:8px}
+header h1{font-size:24px;font-weight:700;margin-bottom:4px}
+header .date{font-size:13px;opacity:.85}
+.temp-badge{position:absolute;top:20px;right:24px;text-align:center}
+.temp-num{font-size:36px;font-weight:800;line-height:1}
+.temp-lbl{font-size:11px;opacity:.85;margin-top:2px}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:16px;margin-bottom:12px;box-shadow:0 1px 3px rgba(16,24,40,.05)}
+.card h2{font-size:16px;font-weight:600;margin-bottom:12px;display:flex;align-items:center;gap:6px}
+.card h2 .ico{width:4px;height:18px;background:var(--grad);border-radius:2px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.kpi{text-align:center;padding:10px 6px;background:#f8fafc;border-radius:10px}
+.kpi .val{font-size:22px;font-weight:700}
+.kpi .lbl{font-size:11px;color:#64748b;margin-top:2px}
+.kpi .val.red{color:var(--red)}.kpi .val.green{color:var(--green)}.kpi .val.orange{color:var(--orange)}
+table{width:100%;border-collapse:collapse;font-size:12px}
+th{background:#f1f5f9;padding:8px 6px;text-align:left;font-weight:600;color:#475569;border-bottom:2px solid #e2e8f0}
+td{padding:6px;border-bottom:1px solid #f1f5f9}
+.up{color:var(--red)}.dn{color:var(--green)}.flat{color:#94a3b8}
+.bar-wrap{position:relative;flex:1;height:16px;background:#f1f5f9;border-radius:8px;overflow:hidden}
+.bar-wrap::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:1px;background:#cbd5e1;z-index:1}
+.bar-fill{position:absolute;top:0;bottom:0;display:flex;align-items:center;min-width:2px}
+.bar-fill.up{left:50%;background:var(--red);border-radius:0 4px 4px 0;justify-content:flex-start}
+.bar-fill.dn{right:50%;background:var(--green);border-radius:4px 0 0 4px;justify-content:flex-end}
+.bar-fill.flat{left:50%;background:#b9c0cc;border-radius:0 4px 4px 0}
+.idx-row{display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.idx-row .idx-name{width:70px;font-size:12px;font-weight:600}
+.idx-row .idx-price{width:70px;font-size:12px;text-align:right;font-weight:600}
+.idx-row .bar-wrap{height:14px;flex:1}
+.idx-row .pct{width:60px;text-align:right;font-size:12px;font-weight:600}
+.pill{display:inline-block;padding:2px 8px;border-radius:12px;font-size:11px;font-weight:600}
+.pill-red{background:#fee2e2;color:#dc2626}.pill-green{background:#ecfdf5;color:#059669}
+.pill-blue{background:#eef2ff;color:#1d4ed8}.pill-purple{background:#f5f3ff;color:#6d28d9}
+.temp-bar{height:8px;border-radius:4px;background:linear-gradient(90deg,var(--green),var(--orange),var(--red));position:relative;margin:8px 0}
+.temp-bar .marker{position:absolute;top:-4px;width:4px;height:16px;background:#1f2937;border-radius:2px;transform:translateX(-50%)}
+.temp-bar .marker::after{content:'';position:absolute;top:-6px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-bottom:6px solid #1f2937}
+.verdict{padding:14px;border-radius:10px;font-size:13px;line-height:1.7}
+.verdict.warm{background:#fef3c7;border-left:3px solid #f59e0b}
+.verdict.cold{background:#dbeafe;border-left:3px solid #3b82f6}
+.verdict.hot{background:#fee2e2;border-left:3px solid #ef4444}
+.sec-ico{width:4px;height:18px;background:var(--grad);border-radius:2px;display:inline-block}
+details.cat{margin:8px 0;padding:8px 12px;background:#f8fafc;border-radius:8px;border:1px solid #e3e8f0}
+details.cat summary{font-size:12px;font-weight:600;cursor:pointer;color:#475569}
+details.cat[open] summary{margin-bottom:8px}
+.dl-btn{display:inline-block;padding:6px 14px;background:var(--grad);color:#fff;border-radius:8px;font-size:12px;font-weight:600;text-decoration:none}
+footer{text-align:center;padding:20px;font-size:11px;color:#94a3b8}
+@media(max-width:600px){.grid4{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}.container{padding:8px}}
+</style></head><body>
+<div class="container">
+<header>
+<span class="hd-tag">A股收盘主线与情绪复盘</span>
+<h1>A股市场日报</h1>
+<div class="date">2026-09-16 星期三</div>
+<div class="temp-badge"><div class="temp-num">72°C</div><div class="temp-lbl">强修复</div></div>
+</header>
+
+<!-- 1. Verdict -->
+<div class="card">
+<h2><span class="sec-ico"></span>市场定性</h2>
+<div class="verdict hot">
+<strong>增量资金回流·硬科技主线全面爆发：指数共振走强、放量普涨</strong><br>
+沪指+0.71%收3891.60点、创业板指+1.96%、科创50+4.14%领涨全场——指数间共振上行。两市成交1.84万亿，较上日放量2264亿，终结连续缩量、重回1.8万亿上方。全市场4170家上涨、1189家下跌（红盘占比77.8%），89股涨停（不含ST，含ST为91只）、跌停仅4家。连板高度升至6板（闽东电力），晋级率42.85%、封板率89%。资金主线全面集中于算力硬件——半导体主力净流入+136亿居行业第1、通信设备+108亿第2，CPO/PCB/半导体材料全线爆发。情绪温度72°C，<strong>强修复区间</strong>，增量资金回流、赚钱效应显著回升，由分歧期转入主升期。
+</div>
+</div>
+
+<!-- 2. KPI -->
+<div class="card">
+<h2><span class="sec-ico"></span>情绪四指标</h2>
+<div class="grid4">
+<div class="kpi"><div class="val red">89</div><div class="lbl">涨停家数(收盘)</div></div>
+<div class="kpi"><div class="val red">89%</div><div class="lbl">封板率</div></div>
+<div class="kpi"><div class="val red">12</div><div class="lbl">连板股总数</div></div>
+<div class="kpi"><div class="val red">42.85%</div><div class="lbl">连板晋级率</div></div>
+</div>
+</div>
+
+<!-- 3. Temperature + Breadth -->
+<div class="card">
+<h2><span class="sec-ico"></span>情绪温度计与市场广度</h2>
+<div class="temp-bar"><div class="marker" style="left:72%"></div></div>
+<div style="display:flex;justify-content:space-between;font-size:10px;color:#64748b;margin-bottom:12px"><span>冰点&lt;35</span><span>弱修复35-50</span><span>中性50-65</span><span>高温&gt;65</span></div>
+<div class="grid4">
+<div class="kpi"><div class="val red">4170</div><div class="lbl">上涨家数</div></div>
+<div class="kpi"><div class="val green">1189</div><div class="lbl">下跌家数</div></div>
+<div class="kpi"><div class="val green">4</div><div class="lbl">跌停家数(不含ST)</div></div>
+<div class="kpi"><div class="val red">77.8%</div><div class="lbl">红盘占比</div></div>
+</div>
+<div style="font-size:11px;color:#64748b;margin-top:8px">对比9/15（32涨停/57%封板/7连板/晋级36.36%/红盘20%/跌停27）：涨停增加57只、红盘占比由20%跃升至77.8%、跌停由27只骤降至4只、晋级率回升约6.5个百分点、空间板由5板抬升至6板。温度由冰点（28°C）快速拉升至强修复（72°C），市场由缩量分化切换为放量普涨。</div>
+</div>
+
+<!-- 4. Index Performance -->
+<div class="card">
+<h2><span class="sec-ico"></span>指数表现</h2>
+<div class="idx-row">
+<span class="idx-name">上证指数</span>
+<span class="idx-price">3891.60</span>
+<div class="bar-wrap"><div class="bar-fill up" style="width:10.649999999999999%"></div></div>
+<span class="pct up">+0.71%</span>
+</div>
+<div class="idx-row">
+<span class="idx-name">创业板指</span>
+<span class="idx-price">3311.47</span>
+<div class="bar-wrap"><div class="bar-fill up" style="width:29.4%"></div></div>
+<span class="pct up">+1.96%</span>
+</div>
+<div class="idx-row">
+<span class="idx-name">科创50</span>
+<span class="idx-price">1616.19</span>
+<div class="bar-wrap"><div class="bar-fill up" style="width:45%"></div></div>
+<span class="pct up">+4.14%</span>
+</div>
+<div style="font-size:11px;color:#64748b;margin-top:8px">成交额：沪市8711.41亿 / 创业板4616.81亿 / 科创板954.62亿；全市场成交1.84万亿，较上日放量2264亿，终结连续缩量、重回1.8万亿上方。科创50+4.14%领涨全场，硬科技赛道放量，与权重蓝筹（银行/保险/白酒）拖累上证形成结构分化。</div>
+</div>
+
+<!-- 5. Sector Strength -->
+<div class="card">
+<h2><span class="sec-ico"></span>板块强弱</h2>
+<div class="grid2">
+<div>
+<h3 style="font-size:12px;color:#475569;margin-bottom:6px">行业涨幅居前</h3>
+<table><thead><tr><th>板块</th><th>涨幅</th><th>龙头</th></tr></thead><tbody><tr><td>通信设备</td><td class="up">+5.18%</td><td>长芯博创 <span class="up">+12.9%</span></td></tr><tr><td>半导体</td><td class="up">+4.44%</td><td>有研硅 <span class="up">+20.0%</span></td></tr><tr><td>电子化学品Ⅱ</td><td class="up">+3.84%</td><td>德邦科技 <span class="up">+10.1%</span></td></tr><tr><td>贵金属</td><td class="up">+3.51%</td><td>四川黄金 <span class="up">+6.4%</span></td></tr><tr><td>非金属材料Ⅱ</td><td class="up">+3.51%</td><td>金博股份 <span class="up">+6.9%</span></td></tr><tr><td>光学光电子</td><td class="up">+3.40%</td><td>福光股份 <span class="up">+14.3%</span></td></tr></tbody></table></div><div><h3 style="font-size:12px;color:#475569;margin-bottom:6px">行业跌幅居前</h3><table><thead><tr><th>板块</th><th>跌幅</th></tr></thead><tbody><tr><td>工程机械</td><td class="dn">-4.17%</td></tr><tr><td>养殖业</td><td class="dn">-2.43%</td></tr><tr><td>白色家电</td><td class="dn">-1.96%</td></tr><tr><td>商用车</td><td class="dn">-1.65%</td></tr><tr><td>航海装备Ⅱ</td><td class="dn">-1.52%</td></tr><tr><td>城商行Ⅱ</td><td class="dn">-1.42%</td></tr></tbody></table></div></div>
+<div style="margin-top:10px">
+<h3 style="font-size:12px;color:#475569;margin-bottom:6px">概念涨幅与主力净流入</h3>
+<div class="grid2">
+<div><table><thead><tr><th>概念</th><th>涨幅</th><th>领涨股</th></tr></thead><tbody><tr><td>黄酒概念</td><td class="up">+7.65%</td><td>古越龙山 <span class="up">+10.0%</span></td></tr><tr><td>大硅片</td><td class="up">+6.87%</td><td>有研硅 <span class="up">+20.0%</span></td></tr><tr><td>光芯片</td><td class="up">+5.64%</td><td>光迅科技 <span class="up">+10.0%</span></td></tr><tr><td>26三季报预增</td><td class="up">+5.50%</td><td>贝特利 <span class="up">+5.5%</span></td></tr></tbody></table></div>
+<div><table><thead><tr><th>行业</th><th>主力净流入</th><th>涨跌家数</th></tr></thead><tbody><tr><td>半导体</td><td class="up">+135.96亿</td><td>178/180</td></tr><tr><td>通信设备</td><td class="up">+107.54亿</td><td>76/85</td></tr><tr><td>元件</td><td class="up">+28.85亿</td><td>53/61</td></tr></tbody></table></div></div>
+<div style="font-size:11px;color:#64748b;margin-top:6px">大硅片+6.87%、光芯片+5.64%领涨概念（有研硅20cm、光迅科技涨停）；半导体主力净流入+135.96亿居申万行业第1（178/180家上涨），通信设备+107.54亿第2、元件+28.85亿第3；黄酒概念+7.65%（古越龙山涨停）属题材炒作，福建本地股受闽东电力6板带动批量涨停。</div>
+</div>
+</div>
+
+<!-- 6. Limit-up Ladder -->
+<div class="card">
+<h2><span class="sec-ico"></span>涨停梯队（财联社收盘口径）</h2>
+<div style="font-size:12px;margin-bottom:8px">共<strong style="color:var(--red)">89股</strong>涨停（不含ST），连板股<strong style="color:var(--red)">12只</strong>，封板率<strong style="color:var(--orange)">89%</strong>，连板晋级率<strong style="color:var(--orange)">42.85%</strong>（昨7只连板→今12只，高度6板）</div>
+<table><thead><tr><th>连板高度</th><th>个股</th><th>板块/题材</th></tr></thead><tbody><tr><td><span class="pill pill-red">6连板</span></td><td>闽东电力</td><td>电力 / 福建本地股（超预期晋级6板，带动福建本地股炒作）</td></tr><tr><td><span class="pill pill-red">4连板</span></td><td>澳弘电子</td><td>PCB / 覆铜板涨价链</td></tr><tr><td><span class="pill pill-red">3连板</span></td><td>博汇科技</td><td>AI安全 / 网络安全（20cm）</td></tr><tr><td><span class="pill pill-red">2连板</span></td><td>西陇科学、北自科技、中晶科技、德尔未来、通鼎互联</td><td>电子化学品 / PCB / 半导体材料 / 光通信</td></tr><tr><td><span class="pill pill-red">首板亮点</span></td><td>平潭发展、漳州发展、福建金森（福建本地股）；长芯博创(通信设备+12.95%)、有研硅(半导体+20.00%)</td><td>福建本地股 / 算力硬件</td></tr></tbody></table>
+<div style="margin-top:10px">
+<h3 style="font-size:12px;color:#dc2626;margin-bottom:4px">高位股退潮与负反馈</h3><div style="font-size:12px"><span class="pill pill-green">2连跌停</span> <strong>国芳集团 / 桂林旅游</strong> 旧周期高位股继续A杀，消费/旅游链退潮</div><div style="font-size:12px"><span class="pill pill-green">跌停</span> <strong>中新赛克</strong> 前AI安全高度股反包失败，资金切换</div><div style="font-size:12px"><span class="pill pill-green">跌超9% / 跌超7%</span> <strong>龙版传媒 / 金健米业</strong> 前期人气股集体出清，跌停家数仅4只、负反馈局部可控</div></div>
+<div style="margin-top:8px;font-size:11px;color:#64748b">口径：财联社收盘涨停分析（15:08发布）+连板股分析（15:44发布），不含ST股/退市股；梯队个股均已用kline验证收盘真实封板（主板≈+10%、科创/创业板20cm），闽东电力+10.02%、澳弘电子+10.04%、博汇科技+19.98%、有研硅+20.00%均核验通过。跌停4家（不含ST，含ST为4只）。</div>
+</div>
+
+<!-- 7. Main Line Assessment -->
+<div class="card">
+<h2><span class="sec-ico"></span>主线研判</h2>
+<div class="grid2">
+<div class="kpi" style="text-align:left;padding:12px">
+<div style="font-size:12px;color:#059669;font-weight:600;margin-bottom:6px">✅ 相对强势</div>
+<div style="font-size:12px"><strong>算力硬件 · PCB涨价链 · 福建本地股</strong>：半导体+4.44%、主力净流入+135.96亿居行业第1（178/180只上涨，有研硅20cm、中晶科技/德尔未来涨停）；通信设备+5.18%领涨行业（长芯博创+12.95%）；CPO光模块+4.14%、半导体材料+4.20%、半导体设备+4.08%；PCB概念+3.16%、澳弘电子4连板、PCB 5日净流入+142亿最具持续性；福建本地股受闽东电力6板带动（平潭发展/漳州发展/福建金森涨停）。</div>
+</div>
+<div class="kpi" style="text-align:left;padding:12px">
+<div style="font-size:12px;color:#dc2626;font-weight:600;margin-bottom:6px">⚠️ 局部退潮</div>
+<div style="font-size:12px"><strong>旧周期高位股A杀，但范围收窄、影响可控</strong>：国芳集团、桂林旅游2连跌停，中新赛克（前AI安全高度股）跌停，龙版传媒/金健米业跌超7-9%；工程机械-4.17%、养殖业-2.43%、白色家电-1.96%等权重/周期板块拖累。跌停仅4只（不含ST），负反馈显著弱于9/15（27只跌停），属旧题材出清而非系统性退潮。</div>
+</div>
+<div class="kpi" style="text-align:left;padding:12px">
+<div style="font-size:12px;color:#dc2626;font-weight:600;margin-bottom:6px">🚨 需留意</div>
+<div style="font-size:12px"><strong>指数分化与量能持续性</strong>：大市值权重（银行/保险/白酒）拖累上证，上证仅+0.71%而科创50+4.14%、剪刀差超3.3个百分点，资金高度集中于硬科技；成交1.84万亿虽放量但仍需观察能否持续站稳1.8万亿上方。连板12只、高度6板，追高容错率回升但中位股分化仍存。</div>
+</div>
+<div class="kpi" style="text-align:left;padding:12px">
+<div style="font-size:12px;color:#1d4ed8;font-weight:600;margin-bottom:6px">👀 主线</div>
+<div style="font-size:12px"><strong>硬科技主线明确，增量资金回流</strong>：半导体+136亿、通信设备+108亿双主线获板块级大额净流入，科创50+4.14%领涨；国产替代逻辑强化（《电子信息制造业"十五五"规划》加快先进存力/高带宽闪存）+台积电先进制程/CoWoS供不应求（8月营收同比+53.3%）；半导体设备ETF+5.58%、通信ETF+3.86%、创业板人工智能ETF+3.8%~4.1%，资金借道ETF加仓硬科技。</div>
+</div>
+</div>
+</div>
+
+<!-- 8. Observation -->
+<div class="card">
+<h2><span class="sec-ico"></span>明日观察锚</h2>
+<table><thead><tr><th>方向</th><th>观察要点</th></tr></thead><tbody>
+<tr><td><span class="pill pill-red">半导体/国产替代</span></td><td>科创50+4.14%能否延续？半导体+136亿净流入能否连续第二日？关注存储、设备、材料能否同步扩散至全半导体链</td></tr>
+<tr><td><span class="pill pill-purple">PCB/覆铜板</span></td><td>澳弘电子4连板能否晋级5板？PCB 5日+142亿、20日+304亿资金是否延续，涨价函能否继续落地</td></tr>
+<tr><td><span class="pill pill-blue">福建本地股/新题材</span></td><td>闽东电力6板带动的福建本地股（平潭发展/漳州发展/福建金森）能否走出持续性，低位新题材能否接力</td></tr>
+<tr><td><span class="pill pill-green">量能与分化</span></td><td>成交能否站稳1.8万亿以上？大市值权重（银行/保险/白酒）能否止跌，指数分化能否收敛</td></tr>
+</tbody></table>
+</div>
+
+<footer>
+<p>口径：财联社收盘涨停分析（15:08发布）与连板股分析（15:44发布）· westock-data 实时行情 · 申万行业分类</p>
+<p>本报告为收盘静态快照，不构成任何投资建议</p>
+</footer>
+</div>
+</body></html>

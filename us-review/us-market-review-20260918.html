@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>美股科技板块日度复盘 · 2026-09-18</title>
+<style>
+:root{
+  --red:#ff4757;--up:#ff4757;--green:#00d4aa;--dn:#00d4aa;--flat:#b9c0cc;
+  --bg:#f4f6fa;--card:#ffffff;--line:#e3e8f0;
+  --txt:#1f2937;--sub:#6b7280;--muted:#9ca3af;
+  --blue:#1d4ed8;--blue-l:#eef2ff;--purple:#6d28d9;--purple-l:#f5f3ff;
+  --amber:#d97706;--amber-l:#fef3c7;--green-l:#ecfdf5;--green-d:#059669;
+  --grad:linear-gradient(135deg,#1e3a8a,#4f46e5 60%,#7c3aed);
+  --radius:14px;--radius-s:10px;
+  --shadow:0 1px 3px rgba(16,24,40,.05);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.6;padding:0 0 60px}
+.wrap{max-width:1000px;margin:0 auto;padding:0 20px}
+header{background:var(--grad);color:#fff;padding:32px 0 26px;border-radius:0 0 24px 24px}
+.hd-in{max-width:1000px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px}
+.hd-tag{font-size:12px;letter-spacing:2px;opacity:.85;background:rgba(255,255,255,.15);display:inline-block;padding:4px 12px;border-radius:20px;margin-bottom:12px}
+.hd-in h1{font-size:26px;font-weight:700;letter-spacing:1px}
+.hd-date{font-size:13px;opacity:.9;margin-top:6px}
+.temp-badge{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);border-radius:16px;padding:10px 20px;text-align:center;backdrop-filter:blur(4px)}
+.temp-num{font-size:32px;font-weight:700;line-height:1.1}
+.temp-lbl{font-size:12px;opacity:.9;margin-top:2px}
+.sub{font-size:12.5px;color:var(--muted);margin:18px 0 20px;display:flex;gap:10px;flex-wrap:wrap}
+.sub b{color:#5b6478}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px;margin-bottom:18px;box-shadow:var(--shadow)}
+.card h2{font-size:16px;font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.card h2 .tag{font-size:11px;font-weight:700;color:#fff;background:var(--grad);padding:3px 9px;border-radius:7px;letter-spacing:1px}
+.up{color:var(--red)}.dn{color:var(--green)}.flat{color:var(--flat)}
+.grid{display:grid;gap:12px}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:760px){.g3,.g4{grid-template-columns:1fr 1fr}}
+.vd-card{border-radius:12px;padding:14px 16px;background:var(--blue-l);border:1px solid #c7d7fe}
+.vd-card.hot{background:#fee2e2;border-color:#fecaca}
+.vd-card.blue{background:var(--blue-l);border-color:#c7d7fe}
+.vd-card.amber{background:var(--amber-l);border-color:#fde68a}
+.vd-card.green{background:var(--green-l);border-color:#a7f3d0}
+.vd-card.purple{background:var(--purple-l);border-color:#ddd6fe}
+.vd-t{font-size:13px;font-weight:700;margin-bottom:5px}
+.vd-d{font-size:12.5px;color:#4a5468}
+.kpi{display:flex;align-items:center;gap:10px;padding:12px 0;border-bottom:1px dashed var(--line)}
+.kpi:last-child{border-bottom:none}
+.kpi .nm{width:86px;font-size:12.5px;color:var(--sub);font-weight:600;flex-shrink:0}
+.kpi .bar{flex:1;height:8px;background:#eef0f5;border-radius:5px;overflow:hidden}
+.kpi .bar i{display:block;height:100%;border-radius:5px;background:var(--grad)}
+.kpi .bar i.warn{background:linear-gradient(90deg,#ffa502,#ff4757)}
+.kpi .val{font-size:13px;font-weight:700;min-width:180px;text-align:right}
+.tbl{width:100%;border-collapse:collapse;font-size:12.5px}
+.tbl th{background:#f5f6fa;color:#5b6478;font-weight:700;padding:8px 10px;text-align:right;border-bottom:2px solid var(--line);white-space:nowrap}
+.tbl th:first-child,.tbl td:first-child{text-align:left}
+.tbl td{padding:8px 10px;border-bottom:1px solid #f0f2f7;text-align:right;white-space:nowrap}
+.tbl tr:hover td{background:#fafbfe}
+.tbl .gp td{background:#f0f2f8;color:#5b6478;font-weight:800;font-size:12px;padding:6px 10px;text-align:left}
+.mini-bar{display:inline-block;width:52px;height:6px;background:#eef0f5;border-radius:3px;vertical-align:middle;margin-left:6px;overflow:hidden}
+.mini-bar i{display:block;height:100%;border-radius:3px}
+.flow-note{font-size:12px;color:var(--muted);margin-top:12px;line-height:1.9}
+.flow-note b{color:#5b6478}
+details.cat{margin-top:12px;border:1px solid var(--line);border-radius:var(--radius-s);background:#fafbfe;overflow:hidden}
+details.cat summary{cursor:pointer;padding:11px 16px;font-size:13px;font-weight:700;color:var(--blue);list-style:none;display:flex;align-items:center;gap:6px}
+details.cat summary::-webkit-details-marker{display:none}
+details.cat summary:before{content:"▸";transition:transform .2s;color:var(--purple)}
+details.cat[open] summary:before{transform:rotate(90deg)}
+details.cat .inner{padding:4px 16px 14px;font-size:12.5px;color:#4a5468}
+details.cat .inner h4{font-size:12.5px;color:var(--txt);margin:10px 0 4px}
+.disc{background:#f9fafb;border:1px solid var(--line);border-radius:12px;padding:14px 20px;font-size:12px;color:var(--muted);margin-top:20px;line-height:1.8}
+.disc b{color:#6b7280}
+.temp-wrap{display:flex;align-items:center;gap:26px;flex-wrap:wrap}
+.temp-svg{flex-shrink:0}
+.temp-side{flex:1;min-width:280px}
+.temp-score{font-size:46px;font-weight:900;line-height:1}
+.pill{display:inline-block;font-size:11px;font-weight:700;padding:2px 9px;border-radius:20px}
+.pill.r{background:#fee2e2;color:#dc2626}
+.pill.g{background:var(--green-l);color:var(--green-d)}
+.pill.b{background:var(--blue-l);color:var(--blue)}
+.pill.p{background:var(--purple-l);color:var(--purple)}
+.lk{font-size:12px;color:var(--blue);text-decoration:none;font-weight:700}
+.lk:hover{text-decoration:underline}
+.num-big{font-size:15px;font-weight:800}
+@media(max-width:760px){.hd-in{flex-direction:column;align-items:flex-start}.temp-badge{align-self:flex-start}}
+
+</style>
+</head>
+<body>
+<header>
+  <div class="hd-in">
+    <div>
+      <span class="hd-tag">US TECH REVIEW</span>
+      <h1>美股科技板块日度复盘</h1>
+      <div class="hd-date">数据截至 美东 2026-09-18 收盘 ｜ 北京时间 2026-09-19 07:00</div>
+    </div>
+    <div class="temp-badge">
+      <div class="temp-num">54<span style="font-size:16px">°C</span></div>
+      <div class="temp-lbl">科技指数温度 · 中性回暖</div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+<div class="sub"><b>数据来源</b> westock-data 实时接口 ｜ <b>覆盖</b> 纳斯达克100 / 费城半导体 / 27只科技龙头 / 4只ETF ｜ <b>声明</b> 收盘静态快照，不构成投资建议</div>
+
+<!-- ①今日结论 -->
+<div class="card">
+  <h2><span class="tag">01</span>今日结论</h2>
+    <div class="grid g3">
+      <div class="vd-card hot">
+        <div class="vd-t">指数表现</div>
+        <div class="vd-d">美东周五（9/18）美股高位整固、涨跌不一。纳指微涨+0.39%报26522.55，纳指100 +0.67%报29644.17，标普500 +0.17%报7650.5，道指-0.18%报51682.64。加息靴子落地后市场连续第二日修复但动能明显减弱（前一日9/17纳指+1.69%），指数进入高位整理，科技内部结构性分化加剧。</div>
+      </div>
+      <div class="vd-card blue">
+        <div class="vd-t">内部结构</div>
+        <div class="vd-d">27只科技龙头18涨9跌=66.7%上涨占比（前一日85.2%回落）。硬件链全面领涨——费半SOXX +2.69%、AMAT +6.51%、COHR +7.22%、AAOI +7.25%、IREN +7.36%、MU +3.92%、ARM +4.04%、LITE +4.17%、ASML +3.08%；但Mag7与软件云分化走弱（META -2.43%、CRM -2.03%、ADBE -1.48%、NOW -2.17%、QCOM -5.82%），呈"强硬件、弱软件/Mag7"的高低切。</div>
+      </div>
+      <div class="vd-card purple">
+        <div class="vd-t">当日核心矛盾</div>
+        <div class="vd-d">加息落地后10Y收益率仍在5%附近（9/17报5.00%），利率中枢上移构成中期约束；但产业景气驱动资金从软件/Mag7切换至半导体硬件链。费半SOXX +2.69%领涨、纳指100距52周高-3.65%，反弹处于高位整固而非主升，持续性取决于费半动量与利率回落。</div>
+      </div>
+    </div>
+</div>
+
+<!-- ②隔夜全景 -->
+<div class="card">
+  <h2><span class="tag">02</span>隔夜全景 · 五大指数</h2>
+  <table class="tbl">
+    <tr><th>指数</th><th>收盘</th><th>涨跌</th><th>5日</th><th>20日</th><th>60日</th><th>信号</th></tr>
+    <tr><td><b>纳斯达克综合</b> (usIXIC)</td><td>26522.55</td><td class="up">+0.39%</td><td class="up">+0.72%</td><td class="up">+1.75%</td><td class="up">+4.11%</td><td><span class="pill r">高位整固</span></td></tr>
+    <tr><td><b>纳斯达克100</b> (usNDX)</td><td>29644.17</td><td class="up">+0.67%</td><td class="up">+0.94%</td><td class="up">+1.48%</td><td class="up">+1.45%</td><td><span class="pill b">距100日高 -3.63%</span></td></tr>
+    <tr><td><b>标普500</b> (usINX)</td><td>7650.50</td><td class="up">+0.17%</td><td class="dn">-0.08%</td><td class="up">+0.12%</td><td class="up">+3.97%</td><td><span class="pill g">微涨跟随</span></td></tr>
+    <tr><td><b>道琼斯工业</b> (usDJI)</td><td>51682.64</td><td class="dn">-0.18%</td><td class="dn">-1.69%</td><td class="dn">-2.04%</td><td class="dn">-0.32%</td><td><span class="pill g">能源权重拖累</span></td></tr>
+    <tr><td><b>费城半导体</b> (usSOXX×10)</td><td>5330.70</td><td class="up">+2.69%</td><td class="up">+1.14%</td><td class="up">+2.05%</td><td class="dn">-11.38%</td><td><span class="pill r">主线延续</span></td></tr>
+  </table>
+  <div class="flow-note"><b>注：</b> 费城半导体SOX指数当日+2.69%，表中为SOXX ETF价格×10（5330.70），涨跌幅为SOXX ETF口径。9/18 纳指仅微涨+0.39%、道指小跌-0.18%，指数高位整固；费半以+2.69%延续主线，是内部结构中最强的方向，但纳指100距52周高仍-3.65%，反弹尚未进入主升。</div>
+</div>
+
+<!-- ③科技指数温度 -->
+<div class="card">
+  <h2><span class="tag">03</span>科技指数温度（纳指100锚定）</h2>
+  <div class="temp-wrap">
+    <div class="temp-svg">
+      <svg width="160" height="160" viewBox="0 0 160 160">
+        <circle cx="80" cy="80" r="68" fill="none" stroke="#eef0f5" stroke-width="12"/>
+        <circle cx="80" cy="80" r="68" fill="none" stroke="url(#tg)" stroke-width="12" stroke-linecap="round" stroke-dasharray="427" stroke-dashoffset="196" transform="rotate(-90 80 80)"/>
+        <defs><linearGradient id="tg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#00d4aa"/><stop offset="50%" stop-color="#ffa502"/><stop offset="100%" stop-color="#ff4757"/></linearGradient></defs>
+        <text x="80" y="75" text-anchor="middle" font-size="36" font-weight="700" fill="#1f2937">54</text>
+        <text x="80" y="95" text-anchor="middle" font-size="12" fill="#6b7280">°C 中性回暖</text>
+      </svg>
+    </div>
+    <div class="temp-side">
+      <div class="kpi"><div class="nm">纳指100 趋势</div><div class="bar"><i style="width:65%%" class></i></div><div class="val">距高-3.63% / 20D+1.48%</div></div>
+      <div class="kpi"><div class="nm">科技广度</div><div class="bar"><i style="width:60%%" class></i></div><div class="val">27只18涨9跌=66.7%</div></div>
+      <div class="kpi"><div class="nm">半导体链</div><div class="bar"><i style="width:60%%" class></i></div><div class="val">SOXX +2.69% / 5D+1.14%</div></div>
+      <div class="kpi"><div class="nm">龙头动量</div><div class="bar"><i style="width:60%%" class></i></div><div class="val">硬件+1.72% vs Mag7-0.15%</div></div>
+      <div class="kpi"><div class="nm">量能活跃</div><div class="bar"><i style="width:55%%" class warn></i></div><div class="val">SMH 5D+0.79% / QQQ 348亿$</div></div>
+      <div class="kpi"><div class="nm">宏观压制</div><div class="bar"><i style="width:25%%" class warn></i></div><div class="val">10Y≈5.0% / FOMC加息后利率中枢上移</div></div>
+    </div>
+  </div>
+  <div class="flow-note"><b>判读：</b> 温度 54°C（中性回暖区间），较 9/17 的 58°C 回落 4°C。积极信号：费半SOXX 5日转正至 +1.14%、纳指100距100日高收窄至 -3.63%、硬件龙头相对Mag7显著走强（hw +1.72% vs Mag7 -0.15%）。压制因素：科技广度回落至66.7%（18涨9跌）、10Y收益率仍在5%附近、Mag7与软件云分化走弱（META/CRM/NOW/QCOM齐跌），反弹动能较9/17减弱，呈高位整固。</div>
+</div>
+
+<!-- ④科技龙头梯队 -->
+<div class="card">
+  <h2><span class="tag">04</span>科技龙头梯队（27 只）</h2>
+  <table class="tbl">
+    <tr><th>龙头</th><th>现价</th><th>涨跌</th><th>成交额(亿$)</th><th>5日</th><th>20日</th><th>60日</th><th>PE</th><th>强度</th></tr>
+<tr class="gp"><td colspan="9">七巨头 Mag7</td></tr>
+    <tr><td><b>NVDA</b> 英伟达</td><td>222.27</td><td class="up">+1.34%</td><td>420.6亿</td><td class="up">+1.82%</td><td class="up">+2.50%</td><td class="up">+11.69%</td><td>28.10</td><td><span class="mini-bar"><i style="width:56%;background:#ff4757"></i></span></td></tr>
+    <tr><td><b>AAPL</b> 苹果</td><td>336.13</td><td class="dn">-0.26%</td><td>291.0亿</td><td class="up">+1.16%</td><td class="up">+7.98%</td><td class="up">+14.69%</td><td>38.55</td><td><span class="mini-bar"><i style="width:48%;background:#00d4aa"></i></span></td></tr>
+    <tr><td><b>MSFT</b> 微软</td><td>493.78</td><td class="dn">-0.80%</td><td>196.0亿</td><td class="dn">-0.37%</td><td class="up">+2.62%</td><td class="up">+35.11%</td><td>27.51</td><td><span class="mini-bar"><i style="width:46%;background:#00d4aa"></i></span></td></tr>
+    <tr><td><b>GOOGL</b> 谷歌-A</td><td>349.54</td><td class="up">+0.64%</td><td>167.7亿</td><td class="up">+3.26%</td><td class="up">+2.60%</td><td class="up">+1.23%</td><td>17.54</td><td><span class="mini-bar"><i style="width:53%;background:#ff4757"></i></span></td></tr>
+    <tr><td><b>AMZN</b> 亚马逊</td><td>253.71</td><td class="up">+1.00%</td><td>132.5亿</td><td class="dn">-1.20%</td><td class="dn">-2.46%</td><td class="up">+8.30%</td><td>20.41</td><td><span class="mini-bar"><i style="width:55%;background:#ff4757"></i></span></td></tr>
+    <tr><td><b>META</b> Meta</td><td>665.75</td><td class="dn">-2.43%</td><td>185.5亿</td><td class="up">+2.73%</td><td class="up">+21.97%</td><td class="up">+19.38%</td><td>25.08</td><td><span class="mini-bar"><i style="width:37%;background:#00d4aa"></i></span></td></tr>
+    <tr><td><b>TSLA</b> 特斯拉</td><td>364.27</td><td class="dn">-0.53%</td><td>189.5亿</td><td class="dn">-0.32%</td><td class="up">+5.55%</td><td class="dn">-3.00%</td><td>337.29</td><td><span class="mini-bar"><i style="width:47%;background:#00d4aa"></i></span></td></tr>
+<tr class="gp"><td colspan="9">半导体 &amp; 算力硬件</td></tr>
+    <tr><td><b>AVGO</b> 博通</td><td>357.61</td><td class="up">+2.97%</td><td>157.3亿</td><td class="dn">-1.21%</td><td class="dn">-1.76%</td><td class="dn">-6.40%</td><td>45.61</td><td><span class="mini-bar"><i style="width:64%;background:#ff4757"></i></span></td></tr>
+    <tr><td><b>AMD</b> 超威半导体</td><td>559.82</td><td class="up">+2.70%</td><td>176.0亿</td><td class="up">+8.46%</td><td class="up">+19.25%</td><td class="up">+7.71%</td><td>143.54</td><td><span class="mini-bar"><i style="width:63%;background:#ff4757"></i></span></td></tr>
+    <tr><td><b>TSM</b> 台积电</td><td>434.67</td><td class="up">+1.02%</td><td>55.9亿</td><td class="up">+0.33%</td><td class="up">+4.49%</td><td class="dn">-1.40%</td><td>32.37</td><td><span class="mini-bar"><i style="width:55%;background:#ff4757"></i></span></td></tr>
+    <tr><td><b>MU</b> 美光</td><td>1015.80</td><td class="up">+3.92%</td><td>358.5亿</td><td class="up">+4.16%</td><td class="up">+4.26%</td><td class="dn">-3.12%</td><td>22.96</td><td><span class="mini-bar"><i style="width:69%;background:#ff4757"></i></span></td></tr>
+    <tr><td><b>MRVL</b> 迈威尔</td><td>244.25</td><td class="up">+1.45%</td><td>57.2亿</td><td class="up">+3.45%</td><td class="dn">-2.69%</td><td class="dn">-11.73%</td><td>80.88</td><td><span class="mini-bar"><i style="width:57%;background:#ff4757"></i></span></td></tr>
+    <tr><td><b>ARM</b> 安谋</td><td>275.61</td><td class="up">+4.04%</td><td>18.9亿</td><td class="up">+4.09%</td><td class="up">+9.93%</td><td class="dn">-23.25%</td><td>281.23</td><td><span class="mini-bar"><i style="width:70%;background:#ff4757"></i></span></td></tr>
+    <tr><td><b>ASML</b> 阿斯麦</td><td>1679.92</td><td class="up">+3.08%</td><td>42.1亿</td><td class="dn">-1.08%</td><td class="dn">-4.02%</td><td class="dn">-4.70%</td><td>52.68</td><td><span class="mini-bar"><i style="width:65%;background:#ff4757"></i></span></td></tr>
+    <tr><td><b>AMAT</b> 应用材料</td><td>444.57</td><td class="up">+6.51%</td><td>62.7亿</td><td class="dn">-2.61%</td><td class="dn">-10.41%</td><td class="dn">-24.52%</td><td>38.36</td><td><span class="mini-bar"><i style="width:80%;background:#ff4757"></i></span></td></tr>
+    <tr><td><b>QCOM</b> 高通</td><td>177.72</td><td class="dn">-5.82%</td><td>97.4亿</td><td class="dn">-2.34%</td><td class="up">+10.56%</td><td class="dn">-9.97%</td><td>20.31</td><td><span class="mini-bar"><i style="width:25%;background:#00d4aa"></i></span></td></tr>
+<tr class="gp"><td colspan="9">光通信 &amp; 光学</td></tr>
+    <tr><td><b>COHR</b> 相干</td><td>317.36</td><td class="up">+7.22%</td><td>31.8亿</td><td class="up">+3.93%</td><td class="up">+9.42%</td><td class="dn">-19.14%</td><td>77.03</td><td><span class="mini-bar"><i style="width:80%;background:#ff4757"></i></span></td></tr>
+    <tr><td><b>AAOI</b> 应用光电</td><td>105.17</td><td class="up">+7.25%</td><td>10.2亿</td><td class="dn">-0.18%</td><td class="dn">-18.54%</td><td class="dn">-28.44%</td><td>亏损</td><td><span class="mini-bar"><i style="width:80%;background:#ff4757"></i></span></td></tr>
+    <tr><td><b>LITE</b> 朗美通</td><td>930.91</td><td class="up">+4.17%</td><td>85.8亿</td><td class="up">+0.42%</td><td class="up">+5.87%</td><td class="up">+10.49%</td><td>亏损</td><td><span class="mini-bar"><i style="width:70%;background:#ff4757"></i></span></td></tr>
+<tr class="gp"><td colspan="9">云 &amp; 软件与 AI 云</td></tr>
+    <tr><td><b>ORCL</b> 甲骨文</td><td>147.61</td><td class="dn">-1.98%</td><td>57.8亿</td><td class="dn">-1.78%</td><td class="up">+3.90%</td><td class="dn">-6.30%</td><td>23.14</td><td><span class="mini-bar"><i style="width:40%;background:#00d4aa"></i></span></td></tr>
+    <tr><td><b>CRM</b> 赛富时</td><td>237.92</td><td class="dn">-2.03%</td><td>52.4亿</td><td class="dn">-3.96%</td><td class="up">+15.82%</td><td class="up">+55.75%</td><td>21.79</td><td><span class="mini-bar"><i style="width:39%;background:#00d4aa"></i></span></td></tr>
+    <tr><td><b>ADBE</b> Adobe</td><td>248.92</td><td class="dn">-1.48%</td><td>25.4亿</td><td class="dn">-1.31%</td><td class="dn">-8.56%</td><td class="up">+26.63%</td><td>13.90</td><td><span class="mini-bar"><i style="width:42%;background:#00d4aa"></i></span></td></tr>
+    <tr><td><b>NOW</b> ServiceNow</td><td>135.47</td><td class="dn">-2.17%</td><td>26.2亿</td><td class="up">+2.22%</td><td class="up">+4.41%</td><td class="up">+44.42%</td><td>84.67</td><td><span class="mini-bar"><i style="width:39%;background:#00d4aa"></i></span></td></tr>
+    <tr><td><b>NBIS</b> Nebius</td><td>223.54</td><td class="up">+2.55%</td><td>46.7亿</td><td class="dn">-0.45%</td><td class="up">+1.56%</td><td class="dn">-13.91%</td><td>亏损</td><td><span class="mini-bar"><i style="width:62%;background:#ff4757"></i></span></td></tr>
+    <tr><td><b>IREN</b> IREN</td><td>46.68</td><td class="up">+7.36%</td><td>20.7亿</td><td class="up">+6.50%</td><td class="up">+9.58%</td><td class="dn">-7.20%</td><td>亏损</td><td><span class="mini-bar"><i style="width:80%;background:#ff4757"></i></span></td></tr>
+    <tr><td><b>PLTR</b> Palantir</td><td>177.64</td><td class="up">+0.79%</td><td>69.4亿</td><td class="up">+6.22%</td><td class="up">+2.12%</td><td class="up">+56.51%</td><td>151.83</td><td><span class="mini-bar"><i style="width:53%;background:#ff4757"></i></span></td></tr>
+    <tr><td><b>CRWV</b> CoreWeave</td><td>81.36</td><td class="up">+1.85%</td><td>53.5亿</td><td class="dn">-8.57%</td><td class="dn">-9.36%</td><td class="dn">-19.35%</td><td>亏损</td><td><span class="mini-bar"><i style="width:59%;background:#ff4757"></i></span></td></tr>
+  </table>
+  <div class="flow-note"><b>PE口径：</b> 当日MCP行情通道不可用，PE取自westock本地行情快照（pe_ratio实时值，亏损股显示「亏损」）。成交额/涨跌幅/5-60日均为当日实时数据。强度条以当日涨跌幅映射（红涨绿跌），宽度随幅度缩放。</div>
+</div>
+
+<!-- ⑤利率与流动性 -->
+<div class="card">
+  <h2><span class="tag">05</span>利率与流动性</h2>
+    <div class="grid g4">
+      <div class="vd-card hot">
+        <div class="vd-t">美债收益率</div>
+        <div class="vd-d">10Y美债收益率在5%附近徘徊（9/17报5.00%），FOMC加息后利率中枢上移仍是中期约束；但9/18风险偏好温和、指数仅微涨，利率对成长股的即期压制暂缓，市场进入"靴子落地+高位整固"阶段。</div>
+      </div>
+      <div class="vd-card amber">
+        <div class="vd-t">货币政策</div>
+        <div class="vd-d">FOMC 9/16 全票（12-0）通过加息25bp，联邦基金利率升至3.75%-4.00%（2023年7月以来首次）。市场将其解读为"鹰派但已定价"，9/17-9/18连续两日温和修复，但利率上移的中期约束未消。</div>
+      </div>
+      <div class="vd-card blue">
+        <div class="vd-t">油价</div>
+        <div class="vd-d">WTI原油9/17收101.09美元/桶（跌1.31%），自高位回落趋稳，缓解通胀预期；能源板块小幅波动，未再拖累大盘。油价回吐为风险资产高位整固提供温和背景。</div>
+      </div>
+      <div class="vd-card purple">
+        <div class="vd-t">宏观事件</div>
+        <div class="vd-d">Generac与亚马逊签下数据中心备用发电机长期供货协议（累计采购或达80亿美元）；Nebius宣布上调英伟达GPU租赁价格；亚马逊获购买Generac股票权利。AI算力需求刚性、数据中心资本开支持续，硬件链景气获订单支撑。</div>
+      </div>
+    </div>
+  <table class="tbl" style="margin-top:14px">
+    <tr><th>ETF</th><th>收盘</th><th>涨跌</th><th>5日</th><th>成交额(亿$)</th><th>信号</th></tr>
+    <tr><td>QQQ (纳指100)</td><td>721.45</td><td class="up">+0.63%</td><td class="up">+0.92%</td><td>348.4亿</td><td><span class="pill r">高位整固</span></td></tr>
+    <tr><td>SMH (半导体)</td><td>573.00</td><td class="up">+2.21%</td><td class="up">+0.79%</td><td>35.7亿</td><td><span class="pill r">硬件领涨</span></td></tr>
+    <tr><td>SOXX (费城半导体)</td><td>533.07</td><td class="up">+2.69%</td><td class="up">+1.14%</td><td>33.4亿</td><td><span class="pill r">主线延续</span></td></tr>
+    <tr><td>SPY (标普500)</td><td>761.69</td><td class="up">+0.13%</td><td class="dn">-0.34%</td><td>497.3亿</td><td><span class="pill g">微涨跟随</span></td></tr>
+  </table>
+  <div class="flow-note"><b>QDII渠道解读：</b> 加息落地后纳指两连修复（+1.69%→+0.39%）、费半+2.69%延续主线，半导体/算力硬件类QDII修复弹性最大；但指数动能减弱、10Y仍在5%附近、Mag7与软件云（META/CRM/NOW）分化走弱，结构分化未消。建议结合利率路径评估，重仓硬件链的可顺势持有、回避高估值融资重资产标的。</div>
+</div>
+
+<!-- ⑥龙头与财报 -->
+<div class="card">
+  <h2><span class="tag">06</span>龙头与财报</h2>
+    <div class="grid g4">
+      <div class="vd-card blue">
+        <div class="vd-t">英伟达评级</div>
+        <div class="vd-d">74家机构覆盖，买入/增持占比93.2%，仅1家卖出。NVDA +1.34% 报222.27，黄仁勋"芯片销量翻倍"预期提振；评级面仍处强势区间，一致目标价隐含约+37%上行空间。</div>
+      </div>
+      <div class="vd-card amber">
+        <div class="vd-t">英伟达卖空</div>
+        <div class="vd-d">Short Ratio 1.24，回补天数2.33天，卖空股份2.98亿股（8/31口径）。卖空压力温和，筹码结构稳定，反弹日空头回补或贡献部分涨幅。</div>
+      </div>
+      <div class="vd-card green">
+        <div class="vd-t">应用材料领涨设备</div>
+        <div class="vd-d">AMAT +6.51% 领涨半导体设备链，20日跌幅收窄、动能修复；ASML +3.08% 同步走强。财报季临近，设备龙头在AI资本开支刚性下被资金重新定价，但距52周高仍深，修复持续性待验。</div>
+      </div>
+      <div class="vd-card hot">
+        <div class="vd-t">博通与软件云分化</div>
+        <div class="vd-d">AVGO +2.97% 跟随硬件链反弹、债务压力可控；但软件云（CRM -2.03% / ADBE -1.48% / NOW -2.17%）与Mag7（META -2.43%）获利回吐，云软件内部分化延续高低切，硬件强、软件弱的格局固化。</div>
+      </div>
+    </div>
+</div>
+
+<!-- ⑦产业催化 -->
+<div class="card">
+  <h2><span class="tag">07</span>产业催化</h2>
+    <div class="grid g3">
+      <div class="vd-card hot">
+        <div class="vd-t">加息落地后高位整固</div>
+        <div class="vd-d">FOMC 9/16 加息25bp至3.75%-4.00%（2023年来首次），市场解读为"鹰派但已定价"。9/17 纳指+1.69%、9/18 微涨+0.39%，科技股连续两日修复但动能减弱，指数进入高位整理。</div>
+      </div>
+      <div class="vd-card amber">
+        <div class="vd-t">黄仁勋芯片销量翻倍</div>
+        <div class="vd-d">英伟达CEO黄仁勋称明年芯片销量将达今年两倍，下一财年营收或增约70%（规模约6730亿美元）。NVDA +1.34% 报222.27，AI算力叙事再获强催化，机构一致目标价约304美元（+37%空间）。</div>
+      </div>
+      <div class="vd-card blue">
+        <div class="vd-t">资金回流半导体硬件</div>
+        <div class="vd-d">ARM +4.04%、ASML +3.08%、AVGO +2.97%、AMD +2.70%、AMAT +6.51% 领涨；费城半导体SOXX +2.69%。加息利空落地叠加行业高景气，资金从防御板块转向AI算力、半导体等高景气赛道。</div>
+      </div>
+      <div class="vd-card purple">
+        <div class="vd-t">光通信接力</div>
+        <div class="vd-d">COHR +7.22% / AAOI +7.25% / LITE +4.17% / IREN +7.36% 强势领涨，光通信与算力租赁弹性释放，硬件链行情从GPU/设备扩散至光模块与IDC，资金高低切向低位硬件分支。</div>
+      </div>
+      <div class="vd-card hot">
+        <div class="vd-t">软件云/Mag7分化</div>
+        <div class="vd-d">META -2.43% / CRM -2.03% / ADBE -1.48% / NOW -2.17% / QCOM -5.82% 逆势下跌，Mag7仅NVDA/AMZN/GOOGL收涨。前一日领涨的软件云获利回吐，资金从软件切向硬件，云软件内部分化延续。</div>
+      </div>
+      <div class="vd-card green">
+        <div class="vd-t">AI算力需求刚性</div>
+        <div class="vd-d">Nebius宣布上调英伟达GPU租赁价格；Generac与亚马逊签数据中心备用发电机长期协议（累计或达80亿美元）。AI数据中心资本开支持续，算力租赁/供电链订单支撑硬件景气，强化"硬件强"主线。</div>
+      </div>
+    </div>
+</div>
+
+<!-- ⑧估值与拥挤度 -->
+<div class="card">
+  <h2><span class="tag">08</span>估值与拥挤度</h2>
+    <div class="grid g3">
+      <div class="vd-card blue">
+        <div class="vd-t">核心股PE</div>
+        <div class="vd-d">Mag7估值带17-38x（NVDA约28x、AAPL 38x、MSFT 28x、GOOGL 18x、AMZN 20x），ARM约281x、PLTR约152x、COHR约77x为高估值敏感区；AAOI/LITE/NBIS/IREN/CRWV仍处亏损期。10Y≈5%后高PE标的压缩弹性最大，但当日风险偏好温和、硬件链反弹。</div>
+      </div>
+      <div class="vd-card hot">
+        <div class="vd-t">拥挤度警示</div>
+        <div class="vd-d">①QCOM -5.82% 高位回撤，半导体内部出现分化；②软件云（META -2.43% / CRM -2.03% / NOW -2.17%）连续走弱，前序领涨品种交易拥挤；③Mag7内部仅NVDA/AMZN/GOOGL强，AAPL/MSFT/META/TSLA齐跌，权重股支撑弱化。</div>
+      </div>
+      <div class="vd-card green">
+        <div class="vd-t">相对洼地</div>
+        <div class="vd-d">半导体硬件（AMAT +6.51% / MU +3.92% / ARM +4.04% / MRVL +1.45%）动量最强；光通信COHR/AAOI/IREN弹性大；GOOGL 17.5x PE为Mag7估值洼地。硬件/算力敞口强+估值相对合理的品种是反弹弹性与相对洼地交集。</div>
+      </div>
+    </div>
+</div>
+
+<!-- ⑨A股映射与QDII联动 -->
+<div class="card">
+  <h2><span class="tag">09</span>A股映射与QDII联动</h2>
+    <div class="grid g3">
+      <div class="vd-card hot">
+        <div class="vd-t">半导体映射</div>
+        <div class="vd-d">费半+2.69%、AMAT +6.51% / MU +3.92% / ARM +4.04% 领涨，或提振A股半导体设备/AI芯片/存储链情绪（中际旭创/北方华创/寒武纪等）；但纳指100距高-3.65%、硬件链处反弹中段，A股设备股或分化跟涨。</div>
+      </div>
+      <div class="vd-card hot">
+        <div class="vd-t">融资链风险</div>
+        <div class="vd-d">QCOM -5.82% 高位回撤、软件云（META/CRM/NOW）分化走弱，映射A股AI应用/算力租赁相关标的短期波动加大；FOMC后利率上行，重资产AI算力融资模式再承压，需关注高位回撤风险。</div>
+      </div>
+      <div class="vd-card purple">
+        <div class="vd-t">QDII渠道</div>
+        <div class="vd-d">全球科技互联网QDII重仓Mag7+半导体硬件，硬件链（NVDA/MU/AMD/AMAT）弹性大；创新科技类QDII硬件/算力敞口大、修复弹性与波动并存。加息落地后建议结合10Y路径评估，优先硬件动量强的结构性品种。</div>
+      </div>
+    </div>
+  <details class="cat">
+    <summary>隔夜推演（点击展开）</summary>
+    <div class="inner">
+      <h4>情景一：整固后延续反弹+利率回稳（概率45%）</h4>
+      <p>费半动量延续、10Y回落至5%下方 → 科技股修复扩散，半导体/算力硬件（AMAT/MU/ARM）弹性最大，温度或维持55°C上方；关注光通信（COHR/AAOI/LITE）能否延续接力。</p>
+      <h4>情景二：高位获利了结+10Y再上（概率35%）</h4>
+      <p>指数进入高位后获利盘涌出、10Y维持5%上方 → 成长股二次探底，防御转向AAPL/MSFT/GOOGL，回避高估值AI云（PLTR/CRWV/NBIS）与软件云（CRM/NOW）。</p>
+      <h4>情景三：通胀证伪/利率回落（概率20%）</h4>
+      <p>利率回落 → 全面反弹，AI硬件链修复力度最大，温度或快速回到60°C上方；关注存储（MU）与光通信超跌修复、设备链（AMAT/ASML）趋势延续。</p>
+    </div>
+  </details>
+</div>
+
+<!-- ⑩展望清单 -->
+<div class="card">
+  <h2><span class="tag">10</span>展望清单</h2>
+    <div class="grid g3">
+      <div class="vd-card blue">
+        <div class="vd-t">关注（5条）</div>
+        <div class="vd-d">1. 费半能否延续主线（SOXX 5日已转正++1.14%）<br>2. 10Y美债收益率能否回落至5%下方<br>3. 半导体/AI硬件动量（AMAT +6.51% / MU +3.92%）<br>4. 软件云是否止跌（CRM/NOW 分化走弱）<br>5. 光通信接力强度（COHR +7.22% / AAOI +7.25%）</div>
+      </div>
+      <div class="vd-card hot">
+        <div class="vd-t">风险（5条）</div>
+        <div class="vd-d">1. 10Y持续≈5%对成长估值的持续压缩<br>2. 利率中枢上移压制高估值AI云（PLTR/CRWV）<br>3. 软件云/Mag7分化（META -2.43% / QCOM -5.82%）<br>4. 纳指100距高-3.65%高位整固后的回撤风险<br>5. 半导体内部QCOM高位回撤的扩散信号</div>
+      </div>
+      <div class="vd-card green">
+        <div class="vd-t">分场景预案</div>
+        <div class="vd-d"><b>中性整固（50-65°C，当前54°C）：</b>保留半导体硬件动量标的（AMAT/MU/ARM）、Mag7核心，光通信观望不追高。<br><b>若反弹延续（温度回升至65°C+）：</b>顺势加仓费半/AI硬件弹性品种，关注存储（MU）与光通信接力。<br><b>若利率再上（温度跌破50°C）：</b>纯防御AAPL/MSFT/GOOGL，回避高估值AI云与软件云获利盘。</div>
+      </div>
+    </div>
+</div>
+
+<!-- footer -->
+<div class="disc">
+  <p><b>口径说明</b> 数据源自westock-data实时接口（收盘静态快照）。指数温度模型以纳指100为核心锚，综合6项指标加权计算。PE列取自westock本地行情快照（pe_ratio实时值，亏损股显示「亏损」）。本报告为9/18收盘日度复盘，于9/21补生成。</p>
+  <p><b>免责声明</b> 本报告仅供信息参考，不构成任何投资建议。市场有风险，投资需谨慎。</p>
+</div>
+
+</div>
+</body>
+</html>

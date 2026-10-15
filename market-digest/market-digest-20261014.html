@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>昨日市场大V观点整理 · 2026-10-14</title>
+<style>
+  :root{
+    --blue:#1e3a8a; --indigo:#4f46e5; --purple:#7c3aed;
+    --ink:#1f2937; --sub:#6b7280; --line:#e5e7eb;
+    --bg:#f7f8fb; --card:#ffffff; --red:#dc2626; --green:#16a34a;
+    --up:#dc2626; --down:#16a34a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.7;font-size:15px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:960px;margin:0 auto;padding:0 18px 64px}
+  /* Banner */
+  .banner{background:linear-gradient(135deg,#1e3a8a 0%,#4f46e5 55%,#7c3aed 100%);
+    border-radius:24px;padding:34px 32px;color:#fff;margin:22px 0 26px;box-shadow:0 12px 30px rgba(79,70,229,.22)}
+  .banner .tag{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);
+    padding:3px 12px;border-radius:999px;font-size:12.5px;letter-spacing:.5px;margin-bottom:14px}
+  .banner h1{font-size:30px;font-weight:800;letter-spacing:1px;margin-bottom:10px}
+  .banner .date{font-size:14px;opacity:.92}
+  .kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:22px}
+  .kpi{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);border-radius:14px;padding:12px 10px;text-align:center}
+  .kpi .num{font-size:21px;font-weight:800;line-height:1.2}
+  .kpi .cap{font-size:11.5px;opacity:.9;margin-top:4px}
+  @media(max-width:780px){.kpis{grid-template-columns:repeat(2,1fr)}.banner h1{font-size:23px}.banner{padding:26px 20px}.kpi .num{font-size:18px}}
+  /* Sections */
+  section{background:var(--card);border-radius:18px;padding:24px 26px;margin-bottom:20px;box-shadow:0 3px 12px rgba(17,24,39,.05);border:1px solid var(--line)}
+  h2{font-size:21px;font-weight:800;margin-bottom:4px;display:flex;align-items:center;gap:10px}
+  h2 .idx{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:9px;
+    background:linear-gradient(135deg,#4f46e5,#7c3aed);color:#fff;font-size:15px;font-weight:800;flex:0 0 auto}
+  h2 .sub{font-size:13px;font-weight:500;color:var(--sub);margin-left:2px}
+  .lead{color:var(--sub);font-size:14px;margin:10px 0 16px}
+  /* Overview grid */
+  .ov-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .ov-card{border-left:4px solid var(--indigo);background:#f5f6ff;border-radius:10px;padding:14px 16px}
+  .ov-card h3{font-size:15px;font-weight:700;margin-bottom:6px;color:var(--blue)}
+  .ov-card p{font-size:13.5px;color:#374151}
+  @media(max-width:780px){.ov-grid{grid-template-columns:1fr}}
+  /* News */
+  .news-cat{margin-bottom:18px}
+  .news-cat h3{font-size:15.5px;font-weight:700;color:var(--purple);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+  .news-cat h3::before{content:"";width:8px;height:8px;border-radius:2px;background:linear-gradient(135deg,#4f46e5,#7c3aed)}
+  .news-item{background:#fafafe;border:1px solid var(--line);border-radius:10px;padding:11px 14px;margin-bottom:9px;font-size:14px}
+  .news-item b{color:var(--ink)}
+  .news-item .src{color:var(--sub);font-size:12.5px;margin-top:4px}
+  .news-item .num{display:inline-block;background:var(--indigo);color:#fff;font-size:11px;font-weight:700;border-radius:6px;padding:1px 7px;margin-right:7px;vertical-align:middle}
+  /* View tabs */
+  .vtab-bar{display:flex;gap:8px;flex-wrap:nowrap;overflow-x:auto;padding:4px 2px 12px;border-bottom:1px solid var(--line);margin-bottom:18px}
+  .vtab{flex:0 0 auto;border:1px solid var(--indigo);background:#fff;color:var(--indigo);font-weight:700;
+    font-size:13px;padding:8px 14px;border-radius:10px;cursor:pointer;transition:.15s;white-space:nowrap}
+  .vtab:hover{background:#eef0ff}
+  .vtab.active{background:linear-gradient(135deg,#4f46e5 0%,#7c3aed 100%);color:#fff;border-color:transparent;box-shadow:0 4px 12px rgba(124,58,237,.32)}
+  .vpanel{display:none}
+  .vpanel.active{display:block}
+  .cat-head{background:linear-gradient(135deg,#eef0ff,#f5f0ff);border-left:5px solid var(--purple);
+    border-radius:12px;padding:14px 18px;margin-bottom:16px}
+  .cat-head h3{font-size:17px;font-weight:800;color:var(--blue)}
+  .cat-head .cap{font-size:13px;color:var(--sub);margin-top:4px}
+  .vp-card{border:1px solid var(--line);border-radius:12px;padding:15px 18px;margin-bottom:13px;background:#fff}
+  .vp-card .vno{display:inline-block;font-size:12px;font-weight:800;color:#fff;background:var(--indigo);border-radius:6px;padding:1px 8px;margin-right:8px}
+  .vp-card h4{font-size:15.5px;font-weight:750;display:inline;color:var(--ink)}
+  .vp-card .log{margin-top:8px;font-size:14px;color:#374151}
+  .vp-card .who{margin-top:8px;font-size:12.5px;color:var(--purple);font-weight:600}
+  /* Consensus/divergence */
+  .cd-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .cd-box{border-radius:12px;padding:16px 18px}
+  .cd-box.cons{background:#eefaf3;border:1px solid #c8e6d2}
+  .cd-box.div{background:#fff5f2;border:1px solid #f3cfc4}
+  .cd-box h3{font-size:15px;font-weight:800;margin-bottom:10px}
+  .cd-box.cons h3{color:#15803d}.cd-box.div h3{color:#c2410c}
+  .cd-box li{font-size:13.5px;margin:0 0 9px 16px}
+  @media(max-width:780px){.cd-grid{grid-template-columns:1fr}}
+  /* Attachment list */
+  .att{font-size:13px;color:#374151}
+  .att table{width:100%;border-collapse:collapse;font-size:12.8px;margin-top:8px}
+  .att th,.att td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+  .att th{background:#f3f4f8;font-weight:700;color:var(--blue)}
+  .att .ok{color:var(--green);font-weight:700}
+  .att .del{color:var(--red);font-weight:700}
+  .note{background:#fffaf0;border:1px solid #f3e0b5;border-radius:10px;padding:10px 14px;font-size:12.8px;color:#7a5a00;margin-top:12px}
+  .foot{text-align:center;color:var(--sub);font-size:12px;margin-top:24px}
+  .up{color:var(--up);font-weight:700}.down{color:var(--down);font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="banner">
+    <span class="tag">每日市场大V观点整理 · 自动生成</span>
+    <h1>昨日市场大V观点整理</h1>
+    <div class="date">2026-10-14（周三） · 数据来源：全市场新闻热点解读 + 全市场共性观点解读</div>
+    <div class="kpis">
+      <div class="kpi"><div class="num down">&gt;20%</div><div class="cap">中证全指回撤·技术性熊市</div></div>
+      <div class="kpi"><div class="num">2.5万亿</div><div class="cap">融资余额（峰值3万亿·去杠杆中）</div></div>
+      <div class="kpi"><div class="num">3.7%</div><div class="cap">美国9月CPI（能源驱动·加息至3.75-4%）</div></div>
+      <div class="kpi"><div class="num">1288元</div><div class="cap">贵州茅台重夺A股股王</div></div>
+      <div class="kpi"><div class="num up">+35%</div><div class="cap">煤炭开采价格同比（PPI超预期）</div></div>
+    </div>
+  </div>
+
+  <!-- ① 昨日概览 -->
+  <section>
+    <h2><span class="idx">①</span>昨日概览<span class="sub">2026-10-14 周三市场</span></h2>
+    <p class="lead">当日市场核心矛盾：<b>A股进入技术性熊市</b>（中证全指自5-6月高点回撤超20%）、缩量阴跌磨底，核心风险是<b>融资融券杠杆尚未完全出清</b>（科创创业集中） vs <b>结构牛熊</b>下低位有业绩方向（煤炭/红利）逆势长牛、场外无风险收益降至2%后资金聚焦低位细分；叠加国内政策"以我为主"（降准预期高于降息）、海外能源驱动通胀与美联储预防性加息的外部压制。茅台重回股王与年轻人对"老登资产"的抛弃，折射消费与风险偏好的深层切换。</p>
+    <div class="ov-grid">
+      <div class="ov-card"><h3>定性：技术性熊市磨底</h3><p>中证全指回撤超20%；融资余额降至约2.5万亿仍高于合理2万亿；沪深300周线连跌10周但周均跌幅仅-0.93%，属缩量阴跌而非急跌。</p></div>
+      <div class="ov-card"><h3>结构：熊市中的结构牛</h3><p>金道人"全面牛熊让位于结构牛熊"；煤炭、红利等低位有业绩方向逆势长牛，资金在2%无风险收益下聚焦细分。</p></div>
+      <div class="ov-card"><h3>科技：AI退潮与硬科技细分</h3><p>科技退潮后回微盘+红利防御；AI下一轮看ROI与资本开支可持续性；功率半导体缺货涨价、AI语音终端近量产构成细分亮点。</p></div>
+      <div class="ov-card"><h3>宏观：内外分化</h3><p>美国能源通胀（CPI 3.7%）→美联储预防性加息至3.75-4%；国内核心CPI仅1.0%、内需弱、政策以我为主，降准概率高于降息。</p></div>
+    </div>
+  </section>
+
+  <!-- ② 新闻要点 -->
+  <section>
+    <h2><span class="idx">②</span>新闻要点<span class="sub">全市场新闻热点解读 · 2篇均市场相关</span></h2>
+    <p class="lead">按 政策与宏观 / 资金面 / 板块与个股 / 海外市场 分类提炼，每条标注来源。</p>
+
+    <div class="news-cat">
+      <h3>政策与宏观</h3>
+      <div class="news-item"><span class="num">1</span><b>人口结构与消费偏好迁移，正在重定价"代际接力型"资产</b>：2025年出生人口792万、结婚登记676.5万对，老龄化上升使高端白酒、翡翠玉石、钻石名表、陈年普洱虫草等"老登资产"终值买家减少；A股20家酒企存货周转天数从929天拉长至1469天；年轻人62.5%为情绪价值买单、盲盒销售额同比+207%，悦己消费扩张。<div class="src">来源：全市场新闻热点·热点4（贵州茅台重回股王、茅台重夺股王、A股股王易主等，2026-10-12）</div></div>
+    </div>
+
+    <div class="news-cat">
+      <h3>资金面</h3>
+      <div class="news-item"><span class="num">2</span><b>稳健低波与固收类资产成"压舱石"，险资等长期资金偏好高股息、类债防御资产</b>：三季度近半数纯固收理财实现零回撤；债券ETF总规模企稳万亿元上方（年内新增近2000亿元）；险资逆势新进白酒，看重低估值、高股息、现金流和类债防御。<div class="src">来源：全市场新闻热点·热点2（21世纪经济报道/证券日报/同花顺财经等，2026-10-12~14）</div></div>
+      <div class="news-item"><span class="num">3</span><b>宽基指数、均衡策略与基金投顾受关注，资金借ETF、组合做分散配置和逆向布局</b>：沪深300ETF成交显著放量，A500ETF逆势获超1亿份净申购；均衡策略基金接连上新，震荡中承接防御型配置需求。<div class="src">来源：全市场新闻热点·热点5（有连云/21财经APP/证券日报网/券商中国，2026-10-12~14）</div></div>
+    </div>
+
+    <div class="news-cat">
+      <h3>板块与个股</h3>
+      <div class="news-item"><span class="num">4</span><b>A股缩量震荡与风格轮动，红利、传媒、白酒等防御性资产阶段性占优，科技成长回撤</b>：机构认为短期或有修复窗口，但科技股高估值回撤、资金风险偏好下降推动风格切换。<div class="src">来源：全市场新闻热点·热点1（中国证券网/21财经APP/新华财经/澎湃新闻等，2026-10-12~14）</div></div>
+      <div class="news-item"><span class="num">5</span><b>贵州茅台重回A股股王（1288元/股），白酒与科技成长轮动，机构分歧加剧</b>：股王易主由科技股回撤、资金避险推动；公募白酒仓位降至0.97%与险资逆势新进形成分歧，长期仍受年轻人不喝白酒、需求收缩压制。<div class="src">来源：全市场新闻热点·热点3（新华财经/中国新闻网/京报网/同花顺财经，2026-10-12）</div></div>
+    </div>
+
+    <div class="news-cat">
+      <h3>海外市场</h3>
+      <div class="news-item"><span class="num">—</span><b>本日新闻源未单列海外市场独立热点</b>：海外 CPI、美联储加息与能源通胀议题见下方「大V观点 · C 宏观政策与通胀利率」品类。<div class="src">来源：全市场新闻热点解读（2026-10-14）仅含2篇国内视角文章</div></div>
+    </div>
+  </section>
+
+  <!-- ③ 大V观点（按品类分组 · Tab切换） -->
+  <section>
+    <h2><span class="idx">③</span>大V观点<span class="sub">按品类分组 · 共 10 条</span></h2>
+    <p class="lead">以下观点来自「全市场共性观点解读」附件，按当日核心矛盾归类至 5 个品类，点击标签切换查看。</p>
+
+    <div class="vtab-bar" id="vtab-bar">
+      <button type="button" class="vtab" data-tab="vp-A">A 市场定性与熊市磨底 2</button>
+      <button type="button" class="vtab" data-tab="vp-B">B 科技成长与AI硬科技 4</button>
+      <button type="button" class="vtab" data-tab="vp-C">C 宏观政策与通胀利率 1</button>
+      <button type="button" class="vtab" data-tab="vp-D">D 消费周期与资产重定价 2</button>
+      <button type="button" class="vtab" data-tab="vp-E">E 红利与稳健配置方法论 1</button>
+    </div>
+
+    <!-- A -->
+    <div class="vpanel" id="vp-A">
+      <div class="cat-head">
+        <h3>A 市场定性与熊市磨底</h3>
+        <div class="cap">核心矛盾所在：中证全指回撤超20%进入技术性熊市，融资杠杆未出清是最大风险，但磨底属缩量阴跌而非急跌；结构牛熊下低位方向仍可长牛。</div>
+      </div>
+      <div class="vp-card">
+        <span class="vno">01</span><h4>A股已进入技术性熊市，核心风险是融资融券杠杆尚未出清；去杠杆集中在科创创业，红利价值防御更强，星级策略4星定投、5星重投</h4>
+        <div class="log">中证全指从5-6月高点回撤超20%，按国际标准进入技术性熊市；融资余额从超3万亿元降至约2.5万亿元、仍高于合理约2万亿元，剩余4000-5000亿杠杆风险主要在科技、科创、创业板。沪深300周线连跌10周破纪录，但周均跌幅仅-0.93%，为7轮中最小，属缩量阴跌磨底而非2008式恐慌。国家队低买高卖，策略上3星不投、4星定投、5星重投。</div>
+        <div class="who">公众号：银行螺丝钉 · 民工看市 · 政信三公子</div>
+      </div>
+      <div class="vp-card">
+        <span class="vno">02</span><h4>A股全面牛熊已让位于结构牛熊，场外无风险收益降至2%后，资金会持续聚焦有业绩支撑的低位细分方向</h4>
+        <div class="log">2018年后经济结构多元化、产业周期错位，地产单一驱动弱化；同时存款、债券、理财等场外主流资产收益率降至2%左右，只要股市里有个别方向有业绩支撑且长期回报不错，资金就会集中。即使大盘走熊，煤炭、红利等低位方向也能逆势长牛。普通投资者需要放平心态、放低预期。</div>
+        <div class="who">公众号：金道人识财</div>
+      </div>
+    </div>
+
+    <!-- B -->
+    <div class="vpanel" id="vp-B">
+      <div class="cat-head">
+        <h3>B 科技成长与AI硬科技</h3>
+        <div class="cap">产业主线：富豪榜印证创富主线切至AI硬科技；科技退潮后AI下一轮看ROI与资本开支；功率半导体缺货涨价、AI语音终端近量产构成细分景气。</div>
+      </div>
+      <div class="vp-card">
+        <span class="vno">03</span><h4>富豪榜是产业革命的刻度，创富主线已从地产、互联网切换至AI与硬科技</h4>
+        <div class="log">十年富豪榜前十变化论证财富主线随产业革命切换：土地→流量→先进制造/新能源→AI硬科技。2026年TMT上榜114人、持股市值4.6万亿元、占上榜者总财富26.9%，达到历史极值。富豪地域从北京一枝独秀变为沪深京三足鼎立，长三角、粤港澳大湾区集群效应突出。</div>
+        <div class="who">公众号：泽平宏观</div>
+      </div>
+      <div class="vp-card">
+        <span class="vno">04</span><h4>科技退潮后市场回到微盘+红利防御；AI下一轮估值扩张的关键不是模型发布，而是模型层ROI、规模化工作负载落地和资本开支可持续性</h4>
+        <div class="log">科技退潮后市场缩量回到微盘+红利老套路。AI基建需要看到编程之外真正规模化的工作负载和投资回报率，否则难获新估值：美国云厂自由现金流转负、资本开支持续性受考验，博通CEO警告AI融资能力、英伟达表外担保超5300亿美元、MIT显示企业AI项目落地转化率低。中国超大规模厂商2026年资本开支预计9950亿元、同比+121%，应用用量赶超，但短期美国AI硬件需求放缓和套牢盘仍限制反弹，补仓只能当交易不是配置。</div>
+        <div class="who">公众号：硬核姬老板 · 政信三公子 · 价值发现者 · 复利无声</div>
+      </div>
+      <div class="vp-card">
+        <span class="vno">05</span><h4>AI高压机柜推动功率半导体高端料号进入结构性缺货和涨价周期，IDM厂商利润弹性优于纯设计厂商</h4>
+        <div class="log">英伟达下一代AI机房可能上800V高压，机柜功率从200-300千瓦向1兆瓦提升，低压方案遇物理天花板；高压方案需要能扛高压、耐高温、低损耗的高端功率半导体。2026年全球功率大厂已三轮提价，高端料号交期延长10周以上、价格上涨10%-38%，低端料号反而下跌。IDM有一体化晶圆和封测、成本刚性，产能利用率上升时利润弹性大；Fabless先承受代工封测涨价，提价修复力度较弱。</div>
+        <div class="who">公众号：网叔点财</div>
+      </div>
+      <div class="vp-card">
+        <span class="vno">06</span><h4>实时语音模型降价和开源开发板使AI语音终端接近可量产节点，语音正成为新入口，但爆款仍取决于场景</h4>
+        <div class="log">实时语音模型体验提升，云厂价格战使千问轻量版实时语音成本较豆包降90%以上；ESP32等廉价开发板加开源固件，让手搓AI语音设备重新可行；国内开源框架已接入超130万台设备，AI玩具热闹。但大多仍处尝鲜阶段，真正爆款需要全新体验和应用场景。另提及PPI超预期、煤炭开采价格同比+35%，煤炭表现强。</div>
+        <div class="who">公众号：搬砖小组</div>
+      </div>
+    </div>
+
+    <!-- C -->
+    <div class="vpanel" id="vp-C">
+      <div class="cat-head">
+        <h3>C 宏观政策与通胀利率</h3>
+        <div class="cap">内外分化：美国能源驱动通胀、美联储预防性加息难连续；国内核心通胀低、内需弱、政策以我为主，降准概率高于降息。</div>
+      </div>
+      <div class="vp-card">
+        <span class="vno">07</span><h4>美国通胀是能源驱动的阶段性压力，美联储加息偏预防性且难连续；国内核心通胀仍低、内需偏弱，政策以我为主，降准概率高于降息</h4>
+        <div class="log">美国9月CPI同比3.7%、核心2.6%全面超预期，汽油环比+9.1%、能源同比+20%以上是主因；美联储预防性加息至3.75%-4.00%，10月加息预期升温，但高债务、经济K型分化使连续大幅加息基础不足。国内核心CPI仅1.0%、居民贷款净增接近零、M1回落至3.2%，全面通胀基础不足；9月出口同比36.3%，集成电路、自动数据处理设备出口高增，外需强、内需弱分化。政策财政货币协同宽松，四季度降准概率高于降息。</div>
+        <div class="who">公众号：泽平宏观 · 大橘养基桶</div>
+      </div>
+    </div>
+
+    <!-- D -->
+    <div class="vpanel" id="vp-D">
+      <div class="cat-head">
+        <h3>D 消费、周期与资产重定价</h3>
+        <div class="cap">结构性主题：人口结构变化重定价"老登资产"、悦己消费扩张；猪周期被效率改写转为"又矮又平"的慢周期，养殖股转向成本竞争。</div>
+      </div>
+      <div class="vp-card">
+        <span class="vno">08</span><h4>依赖"下一代接棒"的高端消费与收藏资产正被重新定价，年轻人把消费转向小额即时悦己</h4>
+        <div class="log">高端白酒、翡翠玉石、钻石名表、红木字画、陈年普洱虫草等资产不产生现金流、实际效用低，过去靠信息不透明、圈层抬价和稀缺故事维持溢价；鉴定溯源、培育钻石替代、人口出生下降（2025年792万）、结婚登记减半（676.5万对）、老龄化上升，使"代际接力资产"的终值买家减少。年轻人转向潮玩盲盒等即时情绪消费（盲盒销售额同比+207%），资产价值由下一代支付意愿决定；A股20家酒企存货周转天数从929天拉长至1469天。</div>
+        <div class="who">公众号：泽平宏观</div>
+      </div>
+      <div class="vp-card">
+        <span class="vno">09</span><h4>本轮猪周期被效率提升和规模化改写，未来更可能是"又矮又平"的慢周期，反转更晚、涨幅更小，养殖股从周期博弈转向成本竞争</h4>
+        <div class="log">能繁母猪数量下降，但PSY和出栏效率提升使猪肉产量创新高；规模化大厂融资能力强、成本刚性，亏损仍可扩产；二次育肥把退出拆成多轮，反复托底又砸价；猪肉消费占比下降。猪价下跌时间已超40个月、行业接近制造业逻辑，拼成本而非等暴涨；预计2027年才可能明显好转且高度更低。</div>
+        <div class="who">公众号：Mask的小酒馆 · 泽平宏观</div>
+      </div>
+    </div>
+
+    <!-- E -->
+    <div class="vpanel" id="vp-E">
+      <div class="cat-head">
+        <h3>E 红利与稳健配置方法论</h3>
+        <div class="cap">熊市磨底中的配置纪律：红利策略更适合指数化，规则化"新陈代谢"可解决单只高股息股的寿命、行业集中和股息率漂移问题。</div>
+      </div>
+      <div class="vp-card">
+        <span class="vno">10</span><h4>红利策略更适合指数化，红利指数的规则化"新陈代谢"可解决单只高股息股的寿命、行业集中和股息率漂移问题</h4>
+        <div class="log">单只高股息股票可能经营恶化、分红下降，也可能短期大涨后股息率被摊薄；红利指数按规则定期调出低股息、调入新高股息公司，自带分散、透明、低成本和纪律性，适合没有精力持续跟踪个股的投资者，避免单只股票和单行业风险，纪律不受情绪影响。</div>
+        <div class="who">公众号：银行螺丝钉</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ④ 分歧与共识 -->
+  <section>
+    <h2><span class="idx">④</span>分歧与共识<span class="sub">当日多空焦点</span></h2>
+    <div class="cd-grid">
+      <div class="cd-box cons">
+        <h3>共识</h3>
+        <ul>
+          <li>A股已技术性熊市、缩量阴跌磨底，融资杠杆未出清（科创创业集中）是核心风险，这是当日最强共识。</li>
+          <li>结构牛熊替代全面牛熊，低位有业绩支撑方向（煤炭/红利）能逆势长牛，2%无风险收益下资金聚焦细分。</li>
+          <li>熊市磨底中红利/价值防御占优，红利指数化优于单只高股息个股。</li>
+          <li>科技退潮后AI下一轮估值扩张关键在ROI与资本开支可持续性，短期反弹受限、宜当交易而非配置。</li>
+        </ul>
+      </div>
+      <div class="cd-box div">
+        <h3>分歧</h3>
+        <ul>
+          <li><b>去杠杆是否充分：</b>银行螺丝钉指融资余额仍有4000-5000亿杠杆风险；政信三公子认为当前是稳市必保生命线、需再买1-2周，态度相对积极。</li>
+          <li><b>AI是否还有机会：</b>价值发现者/硬核姬偏谨慎（AI板块三个月跌40%、泡沫、ROI未兑现）；政信三公子/搬砖小组看中国资本开支扩张（9950亿+121%）与AI语音终端新入口。</li>
+          <li><b>美联储加息持续性：</b>泽平宏观认为预防性、难连续；大橘养基桶提示能源通胀（汽油环比+9.1%）带来的阶段性压力。</li>
+          <li><b>"老登资产"是否真崩：</b>新闻显示茅台重夺股王（1288元）、险资逆势新进白酒，与"年轻人不玩了"的叙事形成直接分歧。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑤ 原始附件清单 -->
+  <section>
+    <h2><span class="idx">⑤</span>原始附件清单<span class="sub">邮件实际发送时间：2026-10-15 10:07（北京时间）</span></h2>
+    <div class="att">
+      <table>
+        <tr><th>附件</th><th>文件名日期</th><th>字数</th><th>状态</th></tr>
+        <tr><td>全市场新闻热点解读</td><td>20261015</td><td>3,578</td><td class="ok">已解析</td></tr>
+        <tr><td>全市场共性观点解读</td><td>20261015</td><td>17,081</td><td class="ok">已解析</td></tr>
+      </table>
+      <div class="note">
+        <b>剔除篇目（非直接投资市场内容，未进入报告）：</b><br>
+        · 泽平宏观《2026 AI科技与未来产业论坛——全球财富汇10月深圳站》(文章23) —— 活动宣传（论坛推广）<br>
+        · 泽平宏观《1月美西站——AI智驭浪潮：2027 CES &amp; 硅谷前沿科技探索之旅》(文章24) —— 活动宣传（游学推广）<br>
+        · Mask的小酒馆《ber，法国第一个爆吗》(文章4)、《搅吧搅吧，你们就搅吧！》(文章14) —— 未进入共性观点汇总、无法确认直接投资相关性，按非核心篇目不单列<br>
+        · 懒人养基《投资这件事，聪明人都在下笨功夫》(文章2) —— 泛理财投教（固收+/均衡配置方法论），其分散化与均衡配置思想已并入新闻资金面与观点10/熊市策略，不单列核心观点<br>
+        <span style="color:#7a5a00">注：以上均按任务筛选规则第⑤条排除；其余均为直接投资市场相关内容，已纳入报告（新闻2篇 + 观点10条）。</span>
+      </div>
+      <p style="margin-top:12px;font-size:12.5px;color:var(--sub)">邮件真实日期：20261015（周四）｜邮件主题：全市场新闻热点解读 / 全市场共性观点解读｜发件人：cronjob@sogood360.com｜本报告市场日期按"邮件日期前一天"规则取 2026-10-14（周三）。</p>
+    </div>
+  </section>
+
+  <div class="foot">本报告由自动化任务每日生成 · 数据来源为公开自媒体观点聚合，仅供研究参考，不构成投资建议</div>
+
+</div>
+
+<noscript><style>.vpanel{display:block!important}.vtab-bar{display:none}</style></noscript>
+<script>
+(function(){
+  var bar=document.getElementById('vtab-bar');
+  if(!bar)return;
+  var tabs=bar.querySelectorAll('.vtab');
+  function activate(id){
+    tabs.forEach(function(t){t.classList.toggle('active', t.getAttribute('data-tab')===id);});
+    document.querySelectorAll('.vpanel').forEach(function(p){p.classList.toggle('active', p.id===id);});
+    try{localStorage.setItem('md-vtab-active', id);}catch(e){}
+  }
+  tabs.forEach(function(t){
+    t.addEventListener('click', function(){activate(t.getAttribute('data-tab'));});
+  });
+  var saved=null;
+  try{saved=localStorage.getItem('md-vtab-active');}catch(e){}
+  var valid=saved && document.getElementById(saved);
+  activate(valid?saved:tabs[0].getAttribute('data-tab'));
+})();
+</script>
+</body>
+</html>

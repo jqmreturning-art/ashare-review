@@ -65,7 +65,7 @@ footer{border-top:1px solid var(--line);padding:14px 20px 26px;text-align:center
     <div class="brand">
       <span class="hd-tag">DAILY REVIEW · 每日复盘导航</span>
       <h1>每日复盘 & 三类资产观察</h1>
-      <p>美股科技 · A股大盘 · A股AI产业链 · 市场大V观点 · 黄金 · 国内债券 · 红利资产 · 同页 Tab 切换</p>
+      <p>市场大V观点 · A股大盘 · A股AI产业链 · 美股科技 · 国内债券 · 红利资产 · 黄金 · 同页 Tab 切换</p>
     </div>
     <div class="badge">
       <div class="num">7</div>
@@ -74,24 +74,24 @@ footer{border-top:1px solid var(--line);padding:14px 20px 26px;text-align:center
   </div>
   <nav class="tabbar">
     <div class="tab-in" id="tabbar">
-      <button class="tab on" data-i="0"><b>🇺🇸 美股科技</b><i>每日 07:00 更新</i></button>
+      <button class="tab on" data-i="0"><b>📰 市场观点</b><i>每日 10:30 更新</i></button>
       <button class="tab" data-i="1"><b>📊 A股大盘</b><i>交易日 16:00 更新</i></button>
       <button class="tab" data-i="2"><b>🤖 A股AI产业链</b><i>交易日 16:00 更新</i></button>
-      <button class="tab" data-i="3"><b>📰 市场观点</b><i>每日 10:30 更新</i></button>
-      <button class="tab" data-i="4"><b>🥇 黄金观察</b><i>交易日 16:00 更新</i></button>
-      <button class="tab" data-i="5"><b>📜 债券观察</b><i>交易日 16:00 更新</i></button>
-      <button class="tab" data-i="6"><b>🛡️ 红利观察</b><i>交易日 16:00 更新</i></button>
+      <button class="tab" data-i="3"><b>🇺🇸 美股科技</b><i>每日 07:00 更新</i></button>
+      <button class="tab" data-i="4"><b>📜 债券观察</b><i>交易日 16:00 更新</i></button>
+      <button class="tab" data-i="5"><b>🛡️ 红利观察</b><i>交易日 16:00 更新</i></button>
+      <button class="tab" data-i="6"><b>🥇 黄金观察</b><i>交易日 16:00 更新</i></button>
     </div>
   </nav>
 </header>
 <main>
-  <section class="sec on" id="sec-us">
+  <section class="sec on" id="sec-digest">
     <div class="panel">
       <div class="sec-hd">
-        <div class="lft"><div class="sec-ico">🇺🇸</div><h2>美股科技板块日度复盘</h2><span class="tm">每日 07:00 更新</span></div>
-        <a class="open" href="./us-review/" target="_blank" rel="noopener">新窗口打开 ↗</a>
+        <div class="lft"><div class="sec-ico">📰</div><h2>昨日市场大V观点整理</h2><span class="tm">每日 10:30 更新</span></div>
+        <a class="open" href="./market-digest/" target="_blank" rel="noopener">新窗口打开 ↗</a>
       </div>
-      <div class="frame-wrap"><iframe data-src="./us-review/" title="美股科技板块日度复盘"></iframe></div>
+      <div class="frame-wrap"><iframe data-src="./market-digest/" title="昨日市场大V观点整理"></iframe></div>
     </div>
   </section>
   <section class="sec" id="sec-market">
@@ -112,22 +112,13 @@ footer{border-top:1px solid var(--line);padding:14px 20px 26px;text-align:center
       <div class="frame-wrap"><iframe data-src="./ai-review/" title="A股AI产业链日度复盘"></iframe></div>
     </div>
   </section>
-  <section class="sec" id="sec-digest">
+  <section class="sec" id="sec-us">
     <div class="panel">
       <div class="sec-hd">
-        <div class="lft"><div class="sec-ico">📰</div><h2>昨日市场大V观点整理</h2><span class="tm">每日 10:30 更新</span></div>
-        <a class="open" href="./market-digest/" target="_blank" rel="noopener">新窗口打开 ↗</a>
+        <div class="lft"><div class="sec-ico">🇺🇸</div><h2>美股科技板块日度复盘</h2><span class="tm">每日 07:00 更新</span></div>
+        <a class="open" href="./us-review/" target="_blank" rel="noopener">新窗口打开 ↗</a>
       </div>
-      <div class="frame-wrap"><iframe data-src="./market-digest/" title="昨日市场大V观点整理"></iframe></div>
-    </div>
-  </section>
-  <section class="sec" id="sec-gold">
-    <div class="panel">
-      <div class="sec-hd">
-        <div class="lft"><div class="sec-ico">🥇</div><h2>黄金观察日报 · 双重属性跟踪</h2><span class="tm">每交易日 16:00 更新</span></div>
-        <a class="open" href="./gold-review/" target="_blank" rel="noopener">新窗口打开 ↗</a>
-      </div>
-      <div class="frame-wrap"><iframe data-src="./gold-review/" title="黄金观察日报"></iframe></div>
+      <div class="frame-wrap"><iframe data-src="./us-review/" title="美股科技板块日度复盘"></iframe></div>
     </div>
   </section>
   <section class="sec" id="sec-bond">
@@ -148,13 +139,22 @@ footer{border-top:1px solid var(--line);padding:14px 20px 26px;text-align:center
       <div class="frame-wrap"><iframe data-src="./dividend-review/" title="红利资产观察日报"></iframe></div>
     </div>
   </section>
+  <section class="sec" id="sec-gold">
+    <div class="panel">
+      <div class="sec-hd">
+        <div class="lft"><div class="sec-ico">🥇</div><h2>黄金观察日报 · 双重属性跟踪</h2><span class="tm">每交易日 16:00 更新</span></div>
+        <a class="open" href="./gold-review/" target="_blank" rel="noopener">新窗口打开 ↗</a>
+      </div>
+      <div class="frame-wrap"><iframe data-src="./gold-review/" title="黄金观察日报"></iframe></div>
+    </div>
+  </section>
 </main>
-<footer>收盘静态快照，仅供参考，不构成任何投资建议 ｜ 更新时段：美股 07:00 ｜ 市场观点 10:30 ｜ A股与三类资产 16:00 ｜ 同页 Tab 切换，无需跳转</footer>
+<footer>收盘静态快照，仅供参考，不构成任何投资建议 ｜ 更新时段：美股 07:00 ｜ 市场观点 10:30 ｜ A股与三类资产 16:00 ｜ 同页 Tab 切换，无需跳转 ｜ 默认定位：市场观点</footer>
 <script>
 (function(){
   var tabs=[].slice.call(document.querySelectorAll('.tab'));
   var secs=[].slice.call(document.querySelectorAll('.sec'));
-  var STORE='ashare-active-tab';
+  var STORE='ashare-active-tab-v2';
   function fit(f){
     if(!f)return;
     try{

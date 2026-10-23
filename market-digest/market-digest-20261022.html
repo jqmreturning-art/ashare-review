@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>昨日市场大V观点整理 · 2026-10-21</title>
+<style>
+  :root{
+    --blue:#1e3a8a; --indigo:#4f46e5; --purple:#7c3aed;
+    --ink:#1f2937; --sub:#6b7280; --line:#e5e7eb;
+    --bg:#f7f8fb; --card:#ffffff; --red:#dc2626; --green:#16a34a;
+    --up:#dc2626; --down:#16a34a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.7;font-size:15px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:960px;margin:0 auto;padding:0 18px 64px}
+  .banner{background:linear-gradient(135deg,#1e3a8a 0%,#4f46e5 55%,#7c3aed 100%);
+    border-radius:24px;padding:34px 32px;color:#fff;margin:22px 0 26px;box-shadow:0 12px 30px rgba(79,70,229,.22)}
+  .banner .tag{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);
+    padding:3px 12px;border-radius:999px;font-size:12.5px;letter-spacing:.5px;margin-bottom:14px}
+  .banner h1{font-size:30px;font-weight:800;letter-spacing:1px;margin-bottom:10px}
+  .banner .date{font-size:14px;opacity:.92}
+  .kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:22px}
+  .kpi{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);border-radius:14px;padding:12px 10px;text-align:center}
+  .kpi .num{font-size:21px;font-weight:800;line-height:1.2}
+  .kpi .cap{font-size:11.5px;opacity:.9;margin-top:4px}
+  @media(max-width:780px){.kpis{grid-template-columns:repeat(2,1fr)}.banner h1{font-size:23px}.banner{padding:26px 20px}.kpi .num{font-size:18px}}
+  section{background:var(--card);border-radius:18px;padding:24px 26px;margin-bottom:20px;box-shadow:0 3px 12px rgba(17,24,39,.05);border:1px solid var(--line)}
+  h2{font-size:21px;font-weight:800;margin-bottom:4px;display:flex;align-items:center;gap:10px}
+  h2 .idx{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:9px;
+    background:linear-gradient(135deg,#4f46e5,#7c3aed);color:#fff;font-size:15px;font-weight:800;flex:0 0 auto}
+  h2 .sub{font-size:13px;font-weight:500;color:var(--sub);margin-left:2px}
+  .lead{color:var(--sub);font-size:14px;margin:10px 0 16px}
+  .ov-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .ov-card{border-left:4px solid var(--indigo);background:#f5f6ff;border-radius:10px;padding:14px 16px}
+  .ov-card h3{font-size:15px;font-weight:700;margin-bottom:6px;color:var(--blue)}
+  .ov-card p{font-size:13.5px;color:#374151}
+  @media(max-width:780px){.ov-grid{grid-template-columns:1fr}}
+  .news-cat{margin-bottom:18px}
+  .news-cat h3{font-size:15.5px;font-weight:700;color:var(--purple);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+  .news-cat h3::before{content:"";width:8px;height:8px;border-radius:2px;background:linear-gradient(135deg,#4f46e5,#7c3aed)}
+  .news-item{background:#fafafe;border:1px solid var(--line);border-radius:10px;padding:11px 14px;margin-bottom:9px;font-size:14px}
+  .news-item b{color:var(--ink)}
+  .news-item .src{color:var(--sub);font-size:12.5px;margin-top:4px}
+  .news-item .num{display:inline-block;background:var(--indigo);color:#fff;font-size:11px;font-weight:700;border-radius:6px;padding:1px 7px;margin-right:7px;vertical-align:middle}
+  .vtab-bar{display:flex;gap:8px;flex-wrap:nowrap;overflow-x:auto;padding:4px 2px 12px;border-bottom:1px solid var(--line);margin-bottom:18px}
+  .vtab{flex:0 0 auto;border:1px solid var(--indigo);background:#fff;color:var(--indigo);font-weight:700;
+    font-size:13px;padding:8px 14px;border-radius:10px;cursor:pointer;transition:.15s;white-space:nowrap}
+  .vtab:hover{background:#eef0ff}
+  .vtab.active{background:linear-gradient(135deg,#4f46e5 0%,#7c3aed 100%);color:#fff;border-color:transparent;box-shadow:0 4px 12px rgba(124,58,237,.32)}
+  .vpanel{display:none}
+  .vpanel.active{display:block}
+  .cat-head{background:linear-gradient(135deg,#eef0ff,#f5f0ff);border-left:5px solid var(--purple);
+    border-radius:12px;padding:14px 18px;margin-bottom:16px}
+  .cat-head h3{font-size:17px;font-weight:800;color:var(--blue)}
+  .cat-head .cap{font-size:13px;color:var(--sub);margin-top:4px}
+  .vp-card{border:1px solid var(--line);border-radius:12px;padding:15px 18px;margin-bottom:13px;background:#fff}
+  .vp-card .vno{display:inline-block;font-size:12px;font-weight:800;color:#fff;background:var(--indigo);border-radius:6px;padding:1px 8px;margin-right:8px}
+  .vp-card h4{font-size:15.5px;font-weight:750;display:inline;color:var(--ink)}
+  .vp-card .log{margin-top:8px;font-size:14px;color:#374151}
+  .vp-card .who{margin-top:8px;font-size:12.5px;color:var(--purple);font-weight:600}
+  .cd-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .cd-box{border-radius:12px;padding:16px 18px}
+  .cd-box.cons{background:#eefaf3;border:1px solid #c8e6d2}
+  .cd-box.div{background:#fff5f2;border:1px solid #f3cfc4}
+  .cd-box h3{font-size:15px;font-weight:800;margin-bottom:10px}
+  .cd-box.cons h3{color:#15803d}.cd-box.div h3{color:#c2410c}
+  .cd-box li{font-size:13.5px;margin:0 0 9px 16px}
+  @media(max-width:780px){.cd-grid{grid-template-columns:1fr}}
+  .att{font-size:13px;color:#374151}
+  .att table{width:100%;border-collapse:collapse;font-size:12.8px;margin-top:8px}
+  .att th,.att td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+  .att th{background:#f3f4f8;font-weight:700;color:var(--blue)}
+  .att .ok{color:var(--green);font-weight:700}
+  .att .miss{color:var(--red);font-weight:700}
+  .note{background:#fffaf0;border:1px solid #f3e0b5;border-radius:10px;padding:10px 14px;font-size:12.8px;color:#7a5a00;margin-top:12px}
+  .warn{background:#fff5f2;border:1px solid #f3cfc4;border-radius:10px;padding:12px 16px;font-size:13.5px;color:#9a3412}
+  .foot{text-align:center;color:var(--sub);font-size:12px;margin-top:24px}
+  .up{color:var(--up);font-weight:700}.down{color:var(--down);font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="banner">
+    <span class="tag">每日市场大V观点整理 · 自动生成</span>
+    <h1>昨日市场大V观点整理</h1>
+    <div class="date">2026-10-21（周三） · 数据来源：全市场共性观点解读（新闻热点解读本期未到达）</div>
+    <div class="kpis">
+      <div class="kpi"><div class="num">119%</div><div class="cap">法国公共债务/GDP·赤字5.4%超红线</div></div>
+      <div class="kpi"><div class="num">3700万吨</div><div class="cap">欧洲关停化工产能·占总产能9%</div></div>
+      <div class="kpi"><div class="num">+51%</div><div class="cap">中国前8月化工行业利润同比</div></div>
+      <div class="kpi"><div class="num">18只</div><div class="cap">首批主动ETF获批·增量百亿级</div></div>
+      <div class="kpi"><div class="num">10/24</div><div class="cap">mRNA肿瘤疫苗III期数据公布</div></div>
+    </div>
+  </div>
+
+  <!-- ① 昨日概览 -->
+  <section>
+    <h2><span class="idx">①</span>昨日概览<span class="sub">2026-10-21 周三大市</span></h2>
+    <p class="lead">当日市场核心矛盾：<b>流动性预期抢跑与政策纠偏的博弈</b>——央行研究将政策利率换锚至隔夜回购，被机构交易成「变相降息」，债市抢跑至 30 年国债期货破 118，但央行官媒置顶「不是降息」并传将抬升资金利率、严打炒作，短期债市波动加大。权益端主要矛盾仍在<b>筹码结构</b>：保险三季度权益亏损后可能成为反弹的边际卖盘，汇金只做尾盘托底、不承担增量资金角色，首批 18 只主动 ETF 增量百亿级且基准偏宽基与红利质量，救不了科技。外部变量是<b>欧洲财政负反馈推升全球融资成本</b>，结构上则给中国化工带来供给收缩下的利润修复。</p>
+    <div class="ov-grid">
+      <div class="ov-card"><h3>流动性：抢跑后遇纠偏</h3><p>政策利率换锚隔夜被视作变相降息，叠加隔夜逆回购与国库现金管理投放，长端利率快速下行；但央行明确否认降息、债市行为被定性为炒作，政策博弈风险上升。</p></div>
+      <div class="ov-card"><h3>筹码：托底不等于增量资金</h3><p>保险权益高 beta、三季度亏损后倾向卖出；汇金尾盘雨露均沾托底 ETF 但避免承担增量角色以防套利。A 股杀的是估值而非业绩，业绩好反而因机构拥挤成为卖出理由。</p></div>
+      <div class="ov-card"><h3>结构：欧洲供给出清的受益链</h3><p>欧盟能源成本上升推动 2022—2025 年关停 3700 万吨化工产能（占 9%），化工价格指数由 3930 升至 5682，中国前 8 月化工利润同比 +51%，供给出清逻辑清晰。</p></div>
+      <div class="ov-card"><h3>纪律：行业轮动与仓位边界</h3><p>31 个申万一级行业近一年月度冠军换手率 100%，追冠军平均倒亏；单赛道仓位建议不超 15%、止损控制在本金 1%—2%，先求不败再求胜。</p></div>
+    </div>
+  </section>
+
+  <!-- ② 新闻要点 -->
+  <section>
+    <h2><span class="idx">②</span>新闻要点<span class="sub">全市场新闻热点解读 · 本期缺失</span></h2>
+    <div class="warn">
+      <b>本期新闻线暂缺。</b>上游 <b>cronjob@sogood360.com</b> 自 2026-10-19 起停发「全市场新闻热点解读」邮件，
+      本日 163 邮箱仅收到「全市场共性观点解读」一封。为保证日报连续性，本期按「仅观点」模式发布，
+      观点线完整可用；新闻线待上游恢复后自动合流补回。
+    </div>
+  </section>
+
+  <!-- ③ 大V观点（按品类分组 · Tab切换） -->
+  <section>
+    <h2><span class="idx">③</span>大V观点<span class="sub">按品类分组 · 共 9 条</span></h2>
+    <p class="lead">以下观点来自「全市场共性观点解读」附件，按当日核心矛盾归类至 5 个品类，点击标签切换查看（默认展开第 1 类）。</p>
+
+    <div class="vtab-bar" id="vtab-bar">
+      <button type="button" class="vtab" data-tab="vp-A">A 海外财政与利率外溢 1</button>
+      <button type="button" class="vtab" data-tab="vp-B">B 政策与流动性：抢跑与纠偏 3</button>
+      <button type="button" class="vtab" data-tab="vp-C">C 行业格局与供给收缩 2</button>
+      <button type="button" class="vtab" data-tab="vp-D">D 配置纪律与资产比较 2</button>
+      <button type="button" class="vtab" data-tab="vp-E">E 主题催化 1</button>
+    </div>
+
+    <!-- A -->
+    <div class="vpanel" id="vp-A">
+      <div class="cat-head">
+        <h3>A 海外财政与利率外溢</h3>
+        <div class="cap">欧洲主权债务与福利刚性形成「利率上行—借新还旧—财政空间收缩」的负反馈，全球融资成本变贵，构成外部利率环境的新变量。</div>
+      </div>
+      <div class="vp-card">
+        <span class="vno">01</span><h4>欧洲主权债务与福利刚性正在形成「利率上行—借新还旧—财政空间收缩」的负反馈，全球融资成本变贵</h4>
+        <div class="log">法国公共债务/GDP 约 119%、赤字率 5.4% 超欧盟红线，福利体系刚性使削减开支困难；10 年期与 30 年期法国国债收益率一度破 5% 和 5.5%，法德利差达 2011 年欧债危机以来最宽。旧债以零利率发行、新债按 5% 置换，利息支出由 700 多亿欧元升至 900 多亿欧元，接近两年国防预算；通胀不下来欧央行不敢降息，法国陷入借新还旧死循环，英国、日本、美国的债务利息也在上升。</div>
+        <div class="who">公众号：Mask的小酒馆</div>
+      </div>
+    </div>
+
+    <!-- B -->
+    <div class="vpanel" id="vp-B">
+      <div class="cat-head">
+        <h3>B 政策与流动性：抢跑与纠偏</h3>
+        <div class="cap">政策利率换锚被机构交易成「变相降息」，债市抢跑后遭央行纠偏；同时主动 ETF 救市增量有限，汇金只托底不增量，筹码结构主导短期。</div>
+      </div>
+      <div class="vp-card">
+        <span class="vno">02</span><h4>政策利率换锚至隔夜回购被机构交易成「变相降息」，债市抢跑后遭遇央行纠偏，短期债市政策博弈风险上升</h4>
+        <div class="log">央行研究将公开市场主要操作品种期限切换为隔夜，隔夜逆回购利率低于 7 天期，被机构视为变相降息；叠加隔夜逆回购与国库现金管理投放，流动性预期推动 30 年国债期货破 118、长端信用债利率下行。但央行官媒强调这不是降息，债市行为被定性为炒作，市场传闻央行可能抬升资金利率并严打，债市短期波动加大。</div>
+        <div class="who">公众号：小白读财经 · 吐槽吖</div>
+      </div>
+      <div class="vp-card">
+        <span class="vno">03</span><h4>首批主动 ETF 的救市增量有限且业绩基准偏宽基、红利质量，难以解救科技被套筹码</h4>
+        <div class="log">首批 18 只主动 ETF 获批，合计最多带来百亿级增量；部分基金经理没有主动管理经验，公募严查风格漂移，主动 ETF 大概率做成指增 ETF。业绩比较基准大部分是宽基、少部分是红利质量类指数，因此政策资金更偏向低波宽基与红利质量，科技被套等待解救的预期可能落空。</div>
+        <div class="who">公众号：大橘养基桶</div>
+      </div>
+      <div class="vp-card">
+        <span class="vno">04</span><h4>保险权益投资收益具有高 beta，三季度权益下跌导致利润承压并可能成为反弹的边际卖盘；汇金只托底不增量，筹码结构主导短期</h4>
+        <div class="log">研报用中证 800 与保险股票投资收益做回归，测算三季度权益下跌使保险股票投资大亏，扣除刚性负债成本后利润承压；但保险入市主要在 2025 年上半年，长期仍盈利，只是回吐浮盈。laoduo 进一步指出保险季度亏损后只想卖出，汇金尾盘雨露均沾托底 ETF 但不承担增量资金角色以避免套利；A 股主要矛盾在筹码结构，杀的是估值而非业绩，业绩好因机构重仓拥挤，反弹反而成为保险跑路的理由。</div>
+        <div class="who">公众号：吐槽吖 · laoduo</div>
+      </div>
+    </div>
+
+    <!-- C -->
+    <div class="vpanel" id="vp-C">
+      <div class="cat-head">
+        <h3>C 行业格局与供给收缩</h3>
+        <div class="cap">欧洲能源成本挤出化工产能，全球供给收缩推升化工价格、中国化工利润修复；行业层面月度冠军无黏性，追冠军反而倒亏。</div>
+      </div>
+      <div class="vp-card">
+        <span class="vno">05</span><h4>欧洲能源成本高企正挤出化工产能，全球化工供给收缩并推升化工价格，中国化工利润出现修复</h4>
+        <div class="log">能源是化工成本大头，欧盟能源涨价多掏约 1000 亿欧元；2022—2025 年欧洲关停 3700 万吨化工产能、占总产能 9%，年度投资减半，开工率从长期 81% 降至 74%，关停后重启至少需三年。供给收缩推动化工价格指数从年初 3930 点升至 10 月上旬 5682 点，中国前 8 个月化工行业利润同比增 51%。</div>
+        <div class="who">公众号：Mask的小酒馆</div>
+      </div>
+      <div class="vp-card">
+        <span class="vno">06</span><h4>月度行业冠军几乎没有黏性，追上月冠军平均倒亏；行业基赚钱的关键不是押最强行业，而是待在高波动行业里熬住回撤</h4>
+        <div class="log">统计 31 个申万一级行业近一年月度涨跌幅，12 个月里月度冠军 11 次交接全部换人、换手率 100%，唯一惯性在塔尖 3 名且只在趋势中段出现；追上月冠军不但没有动量，反而平均倒亏。真正能赚钱的特征是待在高波动行业里熬住回撤；科技细分行业之间分散风险效果差，暴涨后波动率变大意味着筹码变乱、成为短线投机标的。</div>
+        <div class="who">公众号：硬核姬老板</div>
+      </div>
+    </div>
+
+    <!-- D -->
+    <div class="vpanel" id="vp-D">
+      <div class="cat-head">
+        <h3>D 配置纪律与资产比较</h3>
+        <div class="cap">海外市场长期并非一直上涨，追海外需警惕规则、税收额度与估值风险；需区分渗透率驱动的消费成长股与资本开支驱动的科技周期股。</div>
+      </div>
+      <div class="vp-card">
+        <span class="vno">07</span><h4>海外市场长期并非一直上涨，追海外需警惕交易规则、税收额度与估值风险；中国资产估值和制度改善使其相对更具性价比</h4>
+        <div class="log">标普 500 在 2000—2010 年十年总体下跌，日经 225 在 1990—2011 年最大跌幅超 70%，海外市场也有长期熊市；投资者追捧海外多是追涨，存在交易规则、市场环境、税收额度、估值偏高等风险。中国优质资产历史回报尚可，国九条等改善底层逻辑，沪深 300 约 13 倍、红利低波 8.88 倍、创成长 27.36 倍，横向纵向估值有优势。</div>
+        <div class="who">公众号：复利无声</div>
+      </div>
+      <div class="vp-card">
+        <span class="vno">08</span><h4>需区分渗透率驱动的消费成长股与资本开支驱动的科技周期股，科技周期股不能盲目死扛；投资应先求不败，单赛道仓位与止损要有纪律</h4>
+        <div class="log">比亚迪属于渗透率驱动的消费成长，行业渗透尚有空间时回调多是情绪扰动；光模块属于资本开支驱动的科技周期，大厂资本开支收缩叠加产能扩张会引发戴维斯双杀，上游工艺护城河浅、价格战会使利润快速崩塌。抖音大 V 把两类资产混同并满仓死扛；投资应先求不败，单赛道仓位不超 15%、尽量 10% 以内，止损控制在本金 1%—2%，通过分散和概率优势避免单次失败终结投资生涯。</div>
+        <div class="who">公众号：网叔点财</div>
+      </div>
+    </div>
+
+    <!-- E -->
+    <div class="vpanel" id="vp-E">
+      <div class="cat-head">
+        <h3>E 主题催化</h3>
+        <div class="cap">10 月 24 日 mRNA 肿瘤疫苗 III 期数据公布，若成功将打开 mRNA 从传染病疫苗向肿瘤治疗拓展的空间。</div>
+      </div>
+      <div class="vp-card">
+        <span class="vno">09</span><h4>mRNA 肿瘤疫苗 III 期数据或成为生物制品板块催化，若成功将打开 mRNA 从传染病疫苗向肿瘤治疗拓展的空间</h4>
+        <div class="log">默沙东与 Moderna 将于 10 月 24 日公布个体化 mRNA 肿瘤疫苗联合帕博利珠单抗治疗高危黑色素瘤的 III 期数据，样本量从 IIb 期 157 例扩大至 1137 例；若延续此前约 50% 的复发风险降幅，将为 mRNA 技术从传染病疫苗向肿瘤治疗拓展提供关键临床验证。A 股对应疫苗 ETF 及相关成分股，若数据满意可能带来主题炒作；但全球科技财报季与议息前，抄底科技仍需谨慎。</div>
+        <div class="who">公众号：laoduo</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ④ 分歧与共识 -->
+  <section>
+    <h2><span class="idx">④</span>共识与分歧<span class="sub">来自当日共性观点归纳</span></h2>
+    <div class="cd-grid">
+      <div class="cd-box cons">
+        <h3>共识</h3>
+        <ul>
+          <li>政策利率换锚的宽松效果取决于央行实际投放，官方已明确「不是降息」，债市抢跑面临纠偏风险。</li>
+          <li>A 股短期主要矛盾是筹码结构而非业绩，保险潜在卖盘与汇金只托底不增量决定了反弹的脆弱性。</li>
+          <li>欧洲能源成本挤出化工产能是全球性的供给收缩，中国化工利润修复具备中期逻辑。</li>
+          <li>行业月度冠军没有黏性，赚钱的关键是待在高波动行业里熬住回撤，而非追逐上月最强。</li>
+        </ul>
+      </div>
+      <div class="cd-box div">
+        <h3>分歧</h3>
+        <ul>
+          <li><b>降息预期是否成立：</b>小白读财经认为隔夜换锚可带来变相降息效果但取决于实际投放；吐槽吖认为市场把隔夜逆回购与国库现金管理当作撒币，存在挨板子风险。</li>
+          <li><b>主动 ETF 能否救市：</b>大橘养基桶认为百亿级增量有限、基准偏宽基与红利质量，救不了科技；泽平宏观则将主动 ETF 视为新一轮稳增长与增量资金安排的一部分。</li>
+          <li><b>科技该不该抄底：</b>laoduo 提示财报季与议息前抄底科技仍需谨慎、应等右侧；网叔点财则从资产属性区分消费成长与科技周期，认为科技周期在资本开支拐点下易双杀。</li>
+          <li><b>海外还是中国：</b>复利无声认为中国资产估值与制度改善更具性价比、追海外需警惕规则与估值风险；laoduo 关注美股巨头创新高与 mRNA 主题的 A 股映射机会。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑤ 原始附件清单 -->
+  <section>
+    <h2><span class="idx">⑤</span>原始附件清单<span class="sub">邮件接收日期：2026-10-22</span></h2>
+    <div class="att">
+      <table>
+        <tr><th>附件</th><th>文件名日期</th><th>状态</th></tr>
+        <tr><td>全市场共性观点解读</td><td>20261021</td><td class="ok">已解析（26,294 字符）</td></tr>
+        <tr><td>全市场新闻热点解读</td><td>未到达</td><td class="miss">未到达（上游自 10-19 停发）</td></tr>
+      </table>
+      <div class="note">
+        <b>本期为「仅观点」降级版本。</b>上游自 2026-10-19 起停发「全市场新闻热点解读」，本日仅收到共性观点一封，新闻线暂缺。
+        <br><b>剔除篇目（非直接投资市场内容，未进入报告）：</b><br>
+        · 泽平宏观《2026 AI科技与未来产业论坛——全球财富汇10月深圳站》（文章22）—— 活动宣传<br>
+        · 泽平宏观《1月美西站——AI智驭浪潮：2027 CES &amp; 硅谷前沿科技探索之旅》（文章23）—— 活动宣传<br>
+        注：其余 22 篇均为直接投资市场相关内容，已纳入报告（观点 9 条）。银行螺丝钉《牛熊市各阶段，有啥特点，如何判断？》《市场下跌时，我们该怎么做？》等投教类篇目已并入配置纪律论述，不单列核心观点。
+      </div>
+      <p style="margin-top:12px;font-size:12.5px;color:var(--sub)">邮件接收日期：2026-10-22｜发件人：cronjob@sogood360.com｜本报告市场日期按「邮件日期前一天」规则取 2026-10-21（周三）。</p>
+    </div>
+  </section>
+
+  <div class="foot">本报告由自动化任务每日生成 · 数据来源为公开自媒体观点聚合，仅供研究参考，不构成投资建议</div>
+
+</div>
+
+
+<noscript><style>.vpanel{display:block!important}.vtab-bar{display:none}</style></noscript>
+<script>
+(function(){
+  var bar=document.getElementById('vtab-bar');
+  if(!bar)return;
+  var tabs=bar.querySelectorAll('.vtab');
+  function activate(id){
+    tabs.forEach(function(t){t.classList.toggle('active', t.getAttribute('data-tab')===id);});
+    document.querySelectorAll('.vpanel').forEach(function(p){p.classList.toggle('active', p.id===id);});
+    try{localStorage.setItem('md-vtab-active', id);}catch(e){}
+  }
+  tabs.forEach(function(t){
+    t.addEventListener('click', function(){activate(t.getAttribute('data-tab'));});
+  });
+  var saved=null;
+  try{saved=localStorage.getItem('md-vtab-active');}catch(e){}
+  var valid=saved && document.getElementById(saved);
+  activate(valid?saved:tabs[0].getAttribute('data-tab'));
+})();
+</script>
+</body>
+</html>

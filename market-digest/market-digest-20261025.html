@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>昨日市场大V观点整理 · 2026-10-24</title>
+<style>
+  :root{
+    --blue:#1e3a8a; --indigo:#4f46e5; --purple:#7c3aed;
+    --ink:#1f2937; --sub:#6b7280; --line:#e5e7eb;
+    --bg:#f7f8fb; --card:#ffffff; --red:#dc2626; --green:#16a34a;
+    --up:#dc2626; --down:#16a34a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.7;font-size:15px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:960px;margin:0 auto;padding:0 18px 64px}
+  .banner{background:linear-gradient(135deg,#1e3a8a 0%,#4f46e5 55%,#7c3aed 100%);
+    border-radius:24px;padding:34px 32px;color:#fff;margin:22px 0 26px;box-shadow:0 12px 30px rgba(79,70,229,.22)}
+  .banner .tag{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);
+    padding:3px 12px;border-radius:999px;font-size:12.5px;letter-spacing:.5px;margin-bottom:14px}
+  .banner h1{font-size:30px;font-weight:800;letter-spacing:1px;margin-bottom:10px}
+  .banner .date{font-size:14px;opacity:.92}
+  .kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:22px}
+  .kpi{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);border-radius:14px;padding:12px 10px;text-align:center}
+  .kpi .num{font-size:21px;font-weight:800;line-height:1.2}
+  .kpi .cap{font-size:11.5px;opacity:.9;margin-top:4px}
+  @media(max-width:780px){.kpis{grid-template-columns:repeat(2,1fr)}.banner h1{font-size:23px}.banner{padding:26px 20px}.kpi .num{font-size:18px}}
+  section{background:var(--card);border-radius:18px;padding:24px 26px;margin-bottom:20px;box-shadow:0 3px 12px rgba(17,24,39,.05);border:1px solid var(--line)}
+  h2{font-size:21px;font-weight:800;margin-bottom:4px;display:flex;align-items:center;gap:10px}
+  h2 .idx{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:9px;
+    background:linear-gradient(135deg,#4f46e5,#7c3aed);color:#fff;font-size:15px;font-weight:800;flex:0 0 auto}
+  h2 .sub{font-size:13px;font-weight:500;color:var(--sub);margin-left:2px}
+  .lead{color:var(--sub);font-size:14px;margin:10px 0 16px}
+  .ov-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .ov-card{border-left:4px solid var(--indigo);background:#f5f6ff;border-radius:10px;padding:14px 16px}
+  .ov-card h3{font-size:15px;font-weight:700;margin-bottom:6px;color:var(--blue)}
+  .ov-card p{font-size:13.5px;color:#374151}
+  @media(max-width:780px){.ov-grid{grid-template-columns:1fr}}
+  .news-cat{margin-bottom:18px}
+  .news-cat h3{font-size:15.5px;font-weight:700;color:var(--purple);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+  .news-cat h3::before{content:"";width:8px;height:8px;border-radius:2px;background:linear-gradient(135deg,#4f46e5,#7c3aed)}
+  .news-item{background:#fafafe;border:1px solid var(--line);border-radius:10px;padding:11px 14px;margin-bottom:9px;font-size:14px}
+  .news-item b{color:var(--ink)}
+  .news-item .src{color:var(--sub);font-size:12.5px;margin-top:4px}
+  .news-item .num{display:inline-block;background:var(--indigo);color:#fff;font-size:11px;font-weight:700;border-radius:6px;padding:1px 7px;margin-right:7px;vertical-align:middle}
+  .vtab-bar{display:flex;gap:8px;flex-wrap:nowrap;overflow-x:auto;padding:4px 2px 12px;border-bottom:1px solid var(--line);margin-bottom:18px}
+  .vtab{flex:0 0 auto;border:1px solid var(--indigo);background:#fff;color:var(--indigo);font-weight:700;
+    font-size:13px;padding:8px 14px;border-radius:10px;cursor:pointer;transition:.15s;white-space:nowrap}
+  .vtab:hover{background:#eef0ff}
+  .vtab.active{background:linear-gradient(135deg,#4f46e5 0%,#7c3aed 100%);color:#fff;border-color:transparent;box-shadow:0 4px 12px rgba(124,58,237,.32)}
+  .vpanel{display:none}
+  .vpanel.active{display:block}
+  .cat-head{background:linear-gradient(135deg,#eef0ff,#f5f0ff);border-left:5px solid var(--purple);
+    border-radius:12px;padding:14px 18px;margin-bottom:16px}
+  .cat-head h3{font-size:17px;font-weight:800;color:var(--blue)}
+  .cat-head .cap{font-size:13px;color:var(--sub);margin-top:4px}
+  .vp-card{border:1px solid var(--line);border-radius:12px;padding:15px 18px;margin-bottom:13px;background:#fff}
+  .vp-card .vno{display:inline-block;font-size:12px;font-weight:800;color:#fff;background:var(--indigo);border-radius:6px;padding:1px 8px;margin-right:8px}
+  .vp-card h4{font-size:15.5px;font-weight:750;display:inline;color:var(--ink)}
+  .vp-card .log{margin-top:8px;font-size:14px;color:#374151}
+  .vp-card .who{margin-top:8px;font-size:12.5px;color:var(--purple);font-weight:600}
+  .cd-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .cd-box{border-radius:12px;padding:16px 18px}
+  .cd-box.cons{background:#eefaf3;border:1px solid #c8e6d2}
+  .cd-box.div{background:#fff5f2;border:1px solid #f3cfc4}
+  .cd-box h3{font-size:15px;font-weight:800;margin-bottom:10px}
+  .cd-box.cons h3{color:#15803d}.cd-box.div h3{color:#c2410c}
+  .cd-box li{font-size:13.5px;margin:0 0 9px 16px}
+  @media(max-width:780px){.cd-grid{grid-template-columns:1fr}}
+  .att{font-size:13px;color:#374151}
+  .att table{width:100%;border-collapse:collapse;font-size:12.8px;margin-top:8px}
+  .att th,.att td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+  .att th{background:#f3f4f8;font-weight:700;color:var(--blue)}
+  .att .ok{color:var(--green);font-weight:700}
+  .att .miss{color:var(--red);font-weight:700}
+  .note{background:#fffaf0;border:1px solid #f3e0b5;border-radius:10px;padding:10px 14px;font-size:12.8px;color:#7a5a00;margin-top:12px}
+  .warn{background:#fff5f2;border:1px solid #f3cfc4;border-radius:10px;padding:12px 16px;font-size:13.5px;color:#9a3412}
+  .foot{text-align:center;color:var(--sub);font-size:12px;margin-top:24px}
+  .up{color:var(--up);font-weight:700}.down{color:var(--down);font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="banner">
+    <span class="tag">每日市场大V观点整理 · 自动生成</span>
+    <h1>昨日市场大V观点整理</h1>
+    <div class="date">2026-10-24（星期六） · 数据来源：全市场共性观点解读（新闻热点解读本期未到达）</div>
+    <div class="kpis">
+      <div class="kpi"><div class="num">44%–60%</div><div class="cap">宽基定投最大回撤·定投非万能</div></div>
+      <div class="kpi"><div class="num">AI多轮周期</div><div class="cap">持续资本开支·产业趋势≠股价单边牛</div></div>
+      <div class="kpi"><div class="num">动量·筹码</div><div class="cap">A股特定阶段宏观无效·短期定价主导</div></div>
+      <div class="kpi"><div class="num">1.2万元</div><div class="cap">个人养老金年度限额·扩容固收+攻守分层</div></div>
+      <div class="kpi"><div class="num">35→20元</div><div class="cap">星巴克价格中枢下移·高端溢价难维持</div></div>
+    </div>
+  </div>
+
+  <!-- ① 昨日概览 -->
+  <section>
+    <h2><span class="idx">①</span>昨日概览<span class="sub">2026-10-24 星期六大市</span></h2>
+    <p class="lead">当日市场核心矛盾：<b>「长期有效」与「过程可承受」的错位</b>——本期大V观点高度集中在投资方法论的再校准：宽基长期定投年化并不高、最大回撤可达 44%—60%，「定投万能论」被证伪，定投只是纪律工具而非收益保证，需叠加估值、止盈与资产切换；稳市机制「对结果负责却不负责过程体验」，高回撤对普通投资者可能不可承受。<b>对科技与 AI 的认知也回归理性</b>：AI 有持续增量成本与高资本需求，将经历多轮繁荣与萧条，产业趋势不等于 AI 股单边走牛；A 股特定阶段宏观解释力下降，短期由动量与筹码结构主导，长期仍应尊重周期——科技承压时债券或更顺势。配置端，个人养老金扩容固收+ 打开「权益进攻+固收防守」分层组合，高端消费则在价格战中重构护城河。</p>
+    <div class="ov-grid">
+      <div class="ov-card"><h3>方法论：定投边界与回撤纪律</h3><p>宽基定投年化不高、回撤 44%—60%，定投是纪律工具非收益保证；需叠加估值止盈与资产切换，策略须匹配回撤承受能力与资金期限。</p></div>
+      <div class="ov-card"><h3>科技认知：AI 产业≠AI 股</h3><p>AI 有持续增量成本、资本需求高，将经历多轮繁荣与萧条；产业突破与股价走牛不是同一件事，不能线性外推为持续牛市。</p></div>
+      <div class="ov-card"><h3>结构：动量筹码主导短期</h3><p>A 股特定阶段宏观解释力下降，动量与筹码结构主导短期定价；长期周期才是真趋势，科技承压时债券或更顺势。</p></div>
+      <div class="ov-card"><h3>配置：养老金扩容与消费重构</h3><p>个人养老金扩容固收+ 形成攻守分层组合，税优价值与个税税率相关；高端消费价格中枢下移，护城河转向标准化与商务场景。</p></div>
+    </div>
+  </section>
+
+  <!-- ② 新闻要点 -->
+  <section>
+    <h2><span class="idx">②</span>新闻要点<span class="sub">全市场新闻热点解读 · 本期缺失</span></h2>
+    <div class="warn">
+      <b>本期新闻线暂缺。</b>上游 <b>cronjob@sogood360.com</b> 自 2026-10-19 起停发「全市场新闻热点解读」邮件，
+      本日 163 邮箱仅收到「全市场共性观点解读」一封。为保证日报连续性，本期按「仅观点」模式发布，
+      观点线完整可用；新闻线待上游恢复后自动合流补回。
+    </div>
+  </section>
+
+  <!-- ③ 大V观点（按品类分组 · Tab切换） -->
+  <section>
+    <h2><span class="idx">③</span>大V观点<span class="sub">按品类分组 · 共 6 条</span></h2>
+    <p class="lead">以下观点来自「全市场共性观点解读」附件，按当日核心矛盾归类至 5 个品类，点击标签切换查看（默认展开第 1 类）。</p>
+
+    <div class="vtab-bar" id="vtab-bar">
+      <button type="button" class="vtab" data-tab="vp-A">A 投资方法论与回撤纪律 2</button>
+      <button type="button" class="vtab" data-tab="vp-B">B AI 产业认知与技术经济特征 1</button>
+      <button type="button" class="vtab" data-tab="vp-C">C 宏观周期与定价结构 1</button>
+      <button type="button" class="vtab" data-tab="vp-D">D 个人养老金与分层资产配置 1</button>
+      <button type="button" class="vtab" data-tab="vp-E">E 高端消费品牌护城河观察 1</button>
+    </div>
+
+    <!-- A -->
+    <div class="vpanel" id="vp-A">
+      <div class="cat-head">
+        <h3>A 投资方法论与回撤纪律</h3>
+        <div class="cap">定投是高波动市场的纪律工具而非收益保证，需叠加估值、止盈与资产切换；稳市机制对结果负责却不对过程体验负责，策略必须匹配回撤承受能力。</div>
+      </div>
+      <div class="vp-card">
+        <span class="vno">01</span><h4>定投是新手入门工具，但不能被神化为高波动市场最优解；宽基长期定投收益有限、回撤巨大，成熟策略需叠加估值、止盈和资产切换</h4>
+        <div class="log">政信三公子用十年定投宽基 ETF 的低年化与高最大回撤（44%—60%）说明「定投万能论」不成立，高波动市场更应尊重估值、动量与筹码结构，做波段或低估买入高估卖出、债市切换；银行螺丝钉认可定投适合新手小额起步、摊低成本、减轻心理压力，但其养老账户策略也强调熊市低估定投、牛市高估止盈、用固收+承接过渡。两者共同指向：定投是纪律工具，不是收益保证。</div>
+        <div class="who">公众号：政信三公子 · 银行螺丝钉</div>
+      </div>
+      <div class="vp-card">
+        <span class="vno">02</span><h4>稳市机制与长期定投可对最终结果负责，但不负责过程体验；高回撤过程对普通投资者可能不可承受，策略须匹配回撤承受能力</h4>
+        <div class="log">文章指出稳市机制最终可能有效，但 A500 跌破两年前 924 点、宽基定投最大回撤高达 44%—60%，专业投资者都会焦虑失眠，普通散户更难承受。因此「结果负责」不等于「过程可承受」，投资策略不能只看长期终点，还要评估中途回撤、心理压力和资金期限是否匹配。</div>
+        <div class="who">公众号：政信三公子</div>
+      </div>
+    </div>
+
+    <!-- B -->
+    <div class="vpanel" id="vp-B">
+      <div class="cat-head">
+        <h3>B AI 产业认知与技术经济特征</h3>
+        <div class="cap">AI 会改变经济，但其技术经济特征不同于互联网「一次投入、长期摊销」；持续增量成本与高资本需求意味着 AI 更可能多轮繁荣与萧条，产业趋势不等于股价单边走牛。</div>
+      </div>
+      <div class="vp-card">
+        <span class="vno">03</span><h4>AI 产业发展≠AI 股单边走牛；持续增量成本与高资本需求使 AI 更可能经历多轮繁荣与萧条，不能用互联网「一次投入长期摊销」的旧框架理解</h4>
+        <div class="log">引用沃什「道路非常颠簸」和李录「AI 始终有增量成本、会经历巨大繁荣与萧条周期」的观点，指出 AI 产业突破与 AI 股价走牛不是同一件事；持续资本开支和财务纪律会制造周期波动，技术认识、市场结构与资本需求均不确定，不能把 AI 产业趋势线性外推为 AI 股持续牛市。</div>
+        <div class="who">公众号：政信三公子</div>
+      </div>
+    </div>
+
+    <!-- C -->
+    <div class="vpanel" id="vp-C">
+      <div class="cat-head">
+        <h3>C 宏观周期与定价结构</h3>
+        <div class="cap">A 股在特定阶段宏观基本面解释力下降，短期由动量与筹码结构主导定价；长期应尊重周期而非迷信科技叙事，科技承压时债券可能更顺势。</div>
+      </div>
+      <div class="vp-card">
+        <span class="vno">04</span><h4>A 股特定阶段宏观解释力下降，动量与筹码结构主导短期定价；长期尊重周期而非迷信科技叙事，科技承压时债券或更顺势</h4>
+        <div class="log">文章认为「相信宏观大趋势」在 A 股特定阶段可能无效，因为短期有效的是动量和筹码结构；真正的宏观大趋势是周期，科技只是周期中的反作用力。当科技反作用力面临考验时，应顺势而为配置债券，而不是把科技趋势当作唯一宏观趋势。</div>
+        <div class="who">公众号：政信三公子</div>
+      </div>
+    </div>
+
+    <!-- D -->
+    <div class="vpanel" id="vp-D">
+      <div class="cat-head">
+        <h3>D 个人养老金与分层资产配置</h3>
+        <div class="cap">个人养老金账户扩容「固收+」后，养老投资从单一权益指数扩展为「权益指数进攻+固收+防守」的分层组合；但账户税优价值与个税税率高度相关，并非所有人都适合。</div>
+      </div>
+      <div class="vp-card">
+        <span class="vno">05</span><h4>个人养老金扩容固收+ 后形成「权益指数进攻+固收+防守」分层组合，但税优价值与个税税率高度相关、并非人人适用</h4>
+        <div class="log">个人养老金账户每年限额 12000 元，主要优势是个税递延，个税税率≥10% 或月税前收入约 15000 元以上人群更划算；第三批扩容后账户内有了二级债基、偏债混合等固收+，可与养老指数基金形成攻守搭配。策略上熊市低估定投 A 系列与红利指数、牛市高估止盈、固收+ 作为过渡承接。</div>
+        <div class="who">公众号：银行螺丝钉</div>
+      </div>
+    </div>
+
+    <!-- E -->
+    <div class="vpanel" id="vp-E">
+      <div class="cat-head">
+        <h3>E 高端消费品牌护城河观察</h3>
+        <div class="cap">高端消费品牌在平价竞争与优惠券策略下价格中枢下移，纯高端溢价难维持；品牌护城河转向标准化出品、商务场景与客群体验。</div>
+      </div>
+      <div class="vp-card">
+        <span class="vno">06</span><h4>高端消费品牌价格中枢下移、纯高端溢价难维持；护城河转向标准化出品、商务场景与客群体验，价格战会反噬门店空间与商务需求</h4>
+        <div class="log">星巴克从早期 35 元一杯的高端商务符号，逐步被 10 次卡、优惠券、线上活动和东航会员等价格歧视策略拉低到 20 元出头，反映经营压力变大；低价咖啡品牌竞争激烈，同时灵活就业人员占用门店空间会影响商务客群。星巴克仍具标准化、出品稳定和商务接待符号优势，但品牌必须在大众化与商务场景之间重新平衡。</div>
+        <div class="who">公众号：民工看市</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ④ 分歧与共识 -->
+  <section>
+    <h2><span class="idx">④</span>共识与分歧<span class="sub">来自当日共性观点归纳</span></h2>
+    <div class="cd-grid">
+      <div class="cd-box cons">
+        <h3>共识</h3>
+        <ul>
+          <li>定投是纪律工具而非收益保证，需叠加估值、止盈与资产切换，不能神化为高波动市场的最优解。</li>
+          <li>AI 产业发展与 AI 股价走牛不是同一件事，持续资本开支使 AI 更可能多轮繁荣与萧条，而非单边牛市。</li>
+          <li>A 股特定阶段宏观基本面解释力下降，短期由动量与筹码结构主导定价，长期仍应尊重周期。</li>
+          <li>个人养老金扩容固收+ 后形成「权益进攻+固收防守」分层组合，但税优价值取决于个税税率，并非人人适用。</li>
+          <li>高端消费在平价竞争下价格中枢下移，纯高端溢价难维持，护城河转向标准化出品与商务场景体验。</li>
+        </ul>
+      </div>
+      <div class="cd-box div">
+        <h3>分歧</h3>
+        <ul>
+          <li><b>定投是否有效：</b>政信三公子强调高波动下定投回撤不可承受、应做波段与低估买高估卖；银行螺丝钉则肯定定投适合新手摊低成本、是执行纪律的工具——对定投作为策略的「适用性」存在视角差异。</li>
+          <li><b>科技承压配债还是守权益：</b>政信三公子认为科技是周期反作用力、承压时债券更顺势；养老金与宽基定投派仍以指数/红利为长期底仓——两者在「科技叙事受考验时的战术节奏」上有分歧。</li>
+          <li><b>AI 股判断：</b>本期对 AI 偏谨慎（多轮繁荣萧条、不能线性外推），但市场是否仍有「AI 股单边」乐观派未在本期出现，属单边谨慎、暂无对立观点。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑤ 原始附件清单 -->
+  <section>
+    <h2><span class="idx">⑤</span>原始附件清单<span class="sub">邮件接收日期：2026-10-25</span></h2>
+    <div class="att">
+      <table>
+        <tr><th>附件</th><th>文件名日期</th><th>状态</th></tr>
+        <tr><td>全市场共性观点解读</td><td>20261025</td><td class="ok">已解析（13,812 字符）</td></tr>
+        <tr><td>全市场新闻热点解读</td><td>未到达</td><td class="miss">未到达（上游自 10-19 停发）</td></tr>
+      </table>
+      <div class="note">
+        <b>本期为「仅观点」降级版本。</b>上游自 2026-10-19 起停发「全市场新闻热点解读」，本日 163 邮箱仅收到「全市场共性观点解读」一封（邮件头 Date：2026-10-25 10:11 UTC），新闻线暂缺。<br>
+        <br><b>剔除/合并说明：</b><br>
+        · 文章1与文章2（政信三公子《别问赚了亏了，悟了！》）标题、公众号、日期相同、内容高度重复，已合并分析，不重复计为两条观点。<br>
+        · 文章4（银行螺丝钉《国家队赚钱，谁亏了钱？》）所述「国家队与主动基金追涨杀跌」核心表述与前 6 天已有观点高度重合，按附件说明未作为新增共性观点展开。<br>
+        · 本期附件 6 篇均为直接投资市场相关内容（投资方法论 / 养老金配置 / 消费行业观察），无泛理财、反诈、保险销售、活动宣传、时评等非市场内容，故无其他剔除篇目。
+      </div>
+      <p style="margin-top:12px;font-size:12.5px;color:var(--sub)">邮件接收日期：2026-10-25｜发件人：cronjob@sogood360.com｜本报告市场日期按「邮件日期前一天」规则取 2026-10-24（星期六）。</p>
+    </div>
+  </section>
+
+  <div class="foot">本报告由自动化任务每日生成 · 数据来源为公开自媒体观点聚合，仅供研究参考，不构成投资建议</div>
+
+</div>
+
+
+<noscript><style>.vpanel{display:block!important}.vtab-bar{display:none}</style></noscript>
+<script>
+(function(){
+  var bar=document.getElementById('vtab-bar');
+  if(!bar)return;
+  var tabs=bar.querySelectorAll('.vtab');
+  function activate(id){
+    tabs.forEach(function(t){t.classList.toggle('active', t.getAttribute('data-tab')===id);});
+    document.querySelectorAll('.vpanel').forEach(function(p){p.classList.toggle('active', p.id===id);});
+    try{localStorage.setItem('md-vtab-active', id);}catch(e){}
+  }
+  tabs.forEach(function(t){
+    t.addEventListener('click', function(){activate(t.getAttribute('data-tab'));});
+  });
+  var saved=null;
+  try{saved=localStorage.getItem('md-vtab-active');}catch(e){}
+  var valid=saved && document.getElementById(saved);
+  activate(valid?saved:tabs[0].getAttribute('data-tab'));
+})();
+</script>
+</body>
+</html>

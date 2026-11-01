@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>昨日市场大V观点整理 · 2026-10-30</title>
+<style>
+  :root{
+    --blue:#1e3a8a; --indigo:#4f46e5; --purple:#7c3aed;
+    --ink:#1f2937; --sub:#6b7280; --line:#e5e7eb;
+    --bg:#f7f8fb; --card:#ffffff; --red:#dc2626; --green:#16a34a;
+    --up:#dc2626; --down:#16a34a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.7;font-size:15px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:960px;margin:0 auto;padding:0 18px 64px}
+  .banner{background:linear-gradient(135deg,#1e3a8a 0%,#4f46e5 55%,#7c3aed 100%);
+    border-radius:24px;padding:34px 32px;color:#fff;margin:22px 0 26px;box-shadow:0 12px 30px rgba(79,70,229,.22)}
+  .banner .tag{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);
+    padding:3px 12px;border-radius:999px;font-size:12.5px;letter-spacing:.5px;margin-bottom:14px}
+  .banner h1{font-size:30px;font-weight:800;letter-spacing:1px;margin-bottom:10px}
+  .banner .date{font-size:14px;opacity:.92}
+  .kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:22px}
+  .kpi{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);border-radius:14px;padding:12px 10px;text-align:center}
+  .kpi .num{font-size:21px;font-weight:800;line-height:1.2}
+  .kpi .cap{font-size:11.5px;opacity:.9;margin-top:4px}
+  @media(max-width:780px){.kpis{grid-template-columns:repeat(2,1fr)}.banner h1{font-size:23px}.banner{padding:26px 20px}.kpi .num{font-size:18px}}
+  section{background:var(--card);border-radius:18px;padding:24px 26px;margin-bottom:20px;box-shadow:0 3px 12px rgba(17,24,39,.05);border:1px solid var(--line)}
+  h2{font-size:21px;font-weight:800;margin-bottom:4px;display:flex;align-items:center;gap:10px}
+  h2 .idx{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:9px;
+    background:linear-gradient(135deg,#4f46e5,#7c3aed);color:#fff;font-size:15px;font-weight:800;flex:0 0 auto}
+  h2 .sub{font-size:13px;font-weight:500;color:var(--sub);margin-left:2px}
+  .lead{color:var(--sub);font-size:14px;margin:10px 0 16px}
+  .ov-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .ov-card{border-left:4px solid var(--indigo);background:#f5f6ff;border-radius:10px;padding:14px 16px}
+  .ov-card h3{font-size:15px;font-weight:700;margin-bottom:6px;color:var(--blue)}
+  .ov-card p{font-size:13.5px;color:#374151}
+  @media(max-width:780px){.ov-grid{grid-template-columns:1fr}}
+  .news-cat{margin-bottom:18px}
+  .news-cat h3{font-size:15.5px;font-weight:700;color:var(--purple);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+  .news-cat h3::before{content:"";width:8px;height:8px;border-radius:2px;background:linear-gradient(135deg,#4f46e5,#7c3aed)}
+  .news-item{background:#fafafe;border:1px solid var(--line);border-radius:10px;padding:11px 14px;margin-bottom:9px;font-size:14px}
+  .news-item b{color:var(--ink)}
+  .news-item .src{color:var(--sub);font-size:12.5px;margin-top:4px}
+  .news-item .num{display:inline-block;background:var(--indigo);color:#fff;font-size:11px;font-weight:700;border-radius:6px;padding:1px 7px;margin-right:7px;vertical-align:middle}
+  .vtab-bar{display:flex;gap:8px;flex-wrap:nowrap;overflow-x:auto;padding:4px 2px 12px;border-bottom:1px solid var(--line);margin-bottom:18px}
+  .vtab{flex:0 0 auto;border:1px solid var(--indigo);background:#fff;color:var(--indigo);font-weight:700;
+    font-size:13px;padding:8px 14px;border-radius:10px;cursor:pointer;transition:.15s;white-space:nowrap}
+  .vtab:hover{background:#eef0ff}
+  .vtab.active{background:linear-gradient(135deg,#4f46e5 0%,#7c3aed 100%);color:#fff;border-color:transparent;box-shadow:0 4px 12px rgba(124,58,237,.32)}
+  .vpanel{display:none}
+  .vpanel.active{display:block}
+  .cat-head{background:linear-gradient(135deg,#eef0ff,#f5f0ff);border-left:5px solid var(--purple);
+    border-radius:12px;padding:14px 18px;margin-bottom:16px}
+  .cat-head h3{font-size:17px;font-weight:800;color:var(--blue)}
+  .cat-head .cap{font-size:13px;color:var(--sub);margin-top:4px}
+  .vp-card{border:1px solid var(--line);border-radius:12px;padding:15px 18px;margin-bottom:13px;background:#fff}
+  .vp-card .vno{display:inline-block;font-size:12px;font-weight:800;color:#fff;background:var(--indigo);border-radius:6px;padding:1px 8px;margin-right:8px}
+  .vp-card h4{font-size:15.5px;font-weight:750;display:inline;color:var(--ink)}
+  .vp-card .log{margin-top:8px;font-size:14px;color:#374151}
+  .vp-card .who{margin-top:8px;font-size:12.5px;color:var(--purple);font-weight:600}
+  .cd-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .cd-box{border-radius:12px;padding:16px 18px}
+  .cd-box.cons{background:#eefaf3;border:1px solid #c8e6d2}
+  .cd-box.div{background:#fff5f2;border:1px solid #f3cfc4}
+  .cd-box h3{font-size:15px;font-weight:800;margin-bottom:10px}
+  .cd-box.cons h3{color:#15803d}.cd-box.div h3{color:#c2410c}
+  .cd-box li{font-size:13.5px;margin:0 0 9px 16px}
+  @media(max-width:780px){.cd-grid{grid-template-columns:1fr}}
+  .att{font-size:13px;color:#374151}
+  .att table{width:100%;border-collapse:collapse;font-size:12.8px;margin-top:8px}
+  .att th,.att td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+  .att th{background:#f3f4f8;font-weight:700;color:var(--blue)}
+  .att .ok{color:var(--green);font-weight:700}
+  .att .miss{color:var(--red);font-weight:700}
+  .note{background:#fffaf0;border:1px solid #f3e0b5;border-radius:10px;padding:10px 14px;font-size:12.8px;color:#7a5a00;margin-top:12px}
+  .warn{background:#fff5f2;border:1px solid #f3cfc4;border-radius:10px;padding:12px 16px;font-size:13.5px;color:#9a3412}
+  .foot{text-align:center;color:var(--sub);font-size:12px;margin-top:24px}
+  .up{color:var(--up);font-weight:700}.down{color:var(--down);font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="banner">
+    <span class="tag">每日市场大V观点整理 · 自动生成</span>
+    <h1>昨日市场大V观点整理</h1>
+    <div class="date">2026-10-30（周五） · 数据来源：全市场共性观点解读（新闻热点解读本期未到达）</div>
+    <div class="kpis">
+      <div class="kpi"><div class="num">4大云厂3家</div><div class="cap">自由现金流转负·AI脆弱性暴露</div></div>
+      <div class="kpi"><div class="num">-42.4%</div><div class="cap">创业板最大回撤·距极值-69.7%</div></div>
+      <div class="kpi"><div class="num">2.3-2.4万亿</div><div class="cap">两融余额·从3万亿回落·杠杆待出清</div></div>
+      <div class="kpi"><div class="num">约4300亿</div><div class="cap">稳市宽基两段投入·非无限兜底</div></div>
+      <div class="kpi"><div class="num">7</div><div class="cap">恐贪指数·极度恐慌区</div></div>
+    </div>
+  </div>
+
+  <!-- ① 昨日概览 -->
+  <section>
+    <h2><span class="idx">①</span>昨日概览<span class="sub">2026-10-30 周五大市</span></h2>
+    <p class="lead">当日市场核心矛盾：<b>系统性流动性踩踏下的「科技退潮 + 股债双杀 + 两融去杠杆」</b>——美股财报雷（谷歌自由现金流 -90.7 亿美元、英特尔单日跌 30%）与 A 股 AI 硬件业绩 miss（泰国洪水致交付延后）叠加，AI 叙事从「算力永远不够」切换到「算账看 ROI」，云厂商自由现金流转负、融资扩产与循环交易暴露脆弱性，市场先杀估值；与此同时，<b>固收+ 赎回使债基 ETF 成「流动性提款机」、卖股又卖债造成股债同杀</b>，两融从 3 万亿回落至 2.3—2.4 万亿、仍有杠杆风险待释放。结构上看，<b>红利/价值风格在低波动下显现防御属性、资金涌入避险</b>，医药与铜等低位/资源方向浮现逆向逻辑，但极端恐慌（恐贪 7、估值温度 4.9 星）不等于精准底部；稳市宽基虽两段合计投入约 4300 亿，却有成本线与考核属性、并非无条件兜底。</p>
+    <div class="ov-grid">
+      <div class="ov-card"><h3>科技：AI 进入资本开支回报验证期</h3><p>谷歌、Meta、亚马逊自由现金流转负或加速融资扩产，股东投模型公司再买云算力的循环交易被点名；A 股 AI 硬件业绩 miss 多源于泰国洪水交付节奏而非需求消失，PCB 龙头 Q3 净利同比 -50% 显示内部分化。</p></div>
+      <div class="ov-card"><h3>流动性：股债双杀与两融去杠杆</h3><p>固收+/理财赎回使城投债、30 年国债、科创债 ETF 被优先抛售、股债同杀；两融从 3 万亿回落至 2.3—2.4 万亿，仍有 3000—4000 亿杠杆风险待释放，出清未完成前不宜急抄底。</p></div>
+      <div class="ov-card"><h3>防御：红利价值的低波动属性</h3><p>今日资金涌入价值红利避险、消费等指数逆势上涨，印证红利收益来自盈利+股息、防御属性来自低波动与稳定现金流，而非高弹性进攻工具。</p></div>
+      <div class="ov-card"><h3>逆向：医药与资源的低位信号</h3><p>医药因信心/流动性折价而非基本面恶化、极端情绪下可逆向；铜价上涨核心是库存与安全溢价而非 AI 需求、不宜追高位；稳市宽基有成本线、非无限兜底。</p></div>
+    </div>
+  </section>
+
+  <!-- ② 新闻要点 -->
+  <section>
+    <h2><span class="idx">②</span>新闻要点<span class="sub">全市场新闻热点解读 · 本期缺失</span></h2>
+    <div class="warn">
+      <b>本期新闻线暂缺。</b>上游 <b>cronjob@sogood360.com</b> 自 2026-10-19 起停发「全市场新闻热点解读」邮件，
+      本日 163 邮箱仅收到「全市场共性观点解读」一封（邮件日期 20261031）。为保证日报连续性，本期按「仅观点」模式发布，
+      观点线完整可用；新闻线待上游恢复后自动合流补回。
+    </div>
+  </section>
+
+  <!-- ③ 大V观点（按品类分组 · Tab切换） -->
+  <section>
+    <h2><span class="idx">③</span>大V观点<span class="sub">按品类分组 · 共 8 条</span></h2>
+    <p class="lead">以下观点来自「全市场共性观点解读」附件（邮件日期 20261031），按当日核心矛盾归类至 5 个品类，点击标签切换查看（默认展开第 1 类）。</p>
+
+    <div class="vtab-bar" id="vtab-bar">
+      <button type="button" class="vtab" data-tab="vp-A">A 科技成长与AI资本开支退潮 2</button>
+      <button type="button" class="vtab" data-tab="vp-B">B 市场急跌机理与资金面（股债双杀·两融去杠杆） 2</button>
+      <button type="button" class="vtab" data-tab="vp-C">C 红利低波与稳健配置方法论 1</button>
+      <button type="button" class="vtab" data-tab="vp-D">D 医药与商品资源·低位逆向布局 2</button>
+      <button type="button" class="vtab" data-tab="vp-E">E 稳市资金行为与救市逻辑 1</button>
+    </div>
+
+    <!-- A -->
+    <div class="vpanel" id="vp-A">
+      <div class="cat-head">
+        <h3>A 科技成长与AI资本开支退潮</h3>
+        <div class="cap">当日核心矛盾：AI 叙事从「算力永远不够」切换到「算账看 ROI」——云厂商自由现金流转负、融资扩产与循环交易暴露脆弱性，A 股 AI 硬件业绩 miss 由海外产能（泰国洪水）与交付节奏引发，市场先杀估值而非等需求证伪。</div>
+      </div>
+      <div class="vp-card">
+        <span class="vno">01</span><h4>AI 基建脆弱性：从「回报率担忧」具体化为「融资结构与循环交易风险」</h4>
+        <div class="log">云厂商自由现金流恶化后靠发债、融资扩产，股东投模型公司再回头买云算力形成循环收入；四大云厂已有三家自由现金流转负（谷歌融资、亚马逊发债、Meta 融资），一旦增长放缓体系非常脆弱。市场因此先杀估值，而不是等需求证伪；AI 能力质变尚未转化为七巨头外的生产率与增收，估值先承压。</div>
+        <div class="who">公众号：价值发现者 · 金道人识财 · 搬砖小组 · 硬核姬老板 · laoduo</div>
+      </div>
+      <div class="vp-card">
+        <span class="vno">02</span><h4>A 股 AI 硬件业绩 miss 多源于海外产能（泰国洪水）与交付节奏，而非需求消失</h4>
+        <div class="log">新易盛、胜宏、沪电等泰国工厂受洪水影响，交付从 9 月底延至 10 月初致 Q3 营收 miss，但公司称全年目标不变、Q4 环比增长；同时某 PCB 龙头 Q3 净利同比大跌 50%，显示科技股内部业绩分化剧烈。财报季对「不可验证的全年指引」不给耐心，先按风险定价。</div>
+        <div class="who">公众号：laoduo · 金道人识财</div>
+      </div>
+    </div>
+
+    <!-- B -->
+    <div class="vpanel" id="vp-B">
+      <div class="cat-head">
+        <h3>B 市场急跌机理与资金面（股债双杀·两融去杠杆）</h3>
+        <div class="cap">系统性流动性踩踏：权益下跌触发固收+/理财赎回，机构优先抛售流动性好的债基 ETF，卖股又卖债造成股债同杀；成长端两融杠杆仍集中，出清未完成前不宜急抄底。</div>
+      </div>
+      <div class="vp-card">
+        <span class="vno">03</span><h4>抄底成长指数先做回撤空间与仓位压力测试：创业板最大回撤 -42.4%、历史极值 -69.7%</h4>
+        <div class="log">创业板当前最大回撤 -42.4%、历史最大回撤 -69.7%；若从当前一次性买入到历史极值，本金亏约 47.4% 接近腰斩；PE 锚定基准情形浮亏约 -7% 至 -20%，盈利恶化时指数可能越跌越贵、越跌越贵。两融从 3 万亿回落至 2.3—2.4 万亿、仍有 3000—4000 亿杠杆风险待释放，杠杆爆仓会放大成长股跌幅，出清未完成前不急重仓；应分批低频、等大跌买，「跌得多」不是买入理由。</div>
+        <div class="who">公众号：民工看市 · laoduo · 银行螺丝钉</div>
+      </div>
+      <div class="vp-card">
+        <span class="vno">04</span><h4>固收+赎回使工具化债基 ETF 成「流动性提款机」，股债同杀</h4>
+        <div class="log">权益下跌引发固收+/理财赎回，机构为应对赎回优先卖出流动性好的城投债 ETF、30 年国债 ETF、科创债 ETF，同时卖股卖债，造成股债同杀；城投债 ETF 一根阴线吞掉近两月收益、30 年国债 ETF 跌超 1%。央行隔夜逆回购 1.25% 与 BNSF 切断负反馈，但债市企稳仍取决于赎回何时结束；赎回结束后利率逢高配置仍是高胜率生意。</div>
+        <div class="who">公众号：政信三公子 · 硬核姬老板 · 吐槽吖 · 搬砖小组</div>
+      </div>
+    </div>
+
+    <!-- C -->
+    <div class="vpanel" id="vp-C">
+      <div class="cat-head">
+        <h3>C 红利低波与稳健配置方法论</h3>
+        <div class="cap">红利不是短线波段品种：收益来自盈利增长与股息分红、需时间积累；成分多为成熟运营商/银行/油化/电力，格局稳定、分红稳、波动小，防御属性来自低波动而非进攻弹性。</div>
+      </div>
+      <div class="vp-card">
+        <span class="vno">05</span><h4>红利指数不适合做短线：收益来源决定其「慢牛」属性，低估买入、长期持股收息</h4>
+        <div class="log">红利本身波动弹性不大，收益很大程度来自上市公司盈利增长和股息分红，两部分都需要经营与时间；红利成分成熟、盈利波动小、分红稳定，适合长期投资规划——一句话「低估买入，持股收息」。今日资金涌入价值红利避险、消费等指数逆势上涨较多，进一步印证其防御属性来自低波动和稳定现金流，而非高弹性进攻工具；用短线思路做红利容易错配收益来源与持有周期。</div>
+        <div class="who">公众号：银行螺丝钉</div>
+      </div>
+    </div>
+
+    <!-- D -->
+    <div class="vpanel" id="vp-D">
+      <div class="cat-head">
+        <h3>D 医药与商品资源·低位逆向布局</h3>
+        <div class="cap">低位方向的逆向逻辑：医药下跌更像「信心与流动性折价」而非基本面恶化；铜价上涨核心是「可流通库存」与「安全溢价」而非 AI/新能源终端需求——两者都不宜在历史高点追涨，而应按估值与极端情绪信号逆向。</div>
+      </div>
+      <div class="vp-card">
+        <span class="vno">06</span><h4>医药下跌更像「信心与流动性折价」而非基本面恶化，极端恐慌可按长期逆向布局</h4>
+        <div class="log">美股医药生物在礼来带领下创新高，A 股港股医药却跌；中国创新药 BD 交易创纪录、龙头业绩亮眼、恒生生物科技 PE 近 10 年 10.56% 分位、申万医药 PB 近 10 年 10.59% 分位，基本面与估值都不是问题，更多是信心问题。估值温度 23.56、恐贪 7、股债性价比 16 的极端恐慌区可按长期逆向思路加仓；科技大跌下部分基金经理已把重仓从电子新能源调向公用事业、煤炭、银行、医药。但短期仍可能继续杀估值、风格切换未确认。</div>
+        <div class="who">公众号：价值发现者 · 懒猫的丰收日 · Mask的小酒馆</div>
+      </div>
+      <div class="vp-card">
+        <span class="vno">07</span><h4>铜价上涨核心是「可流通库存」与「安全溢价」，而非 AI/新能源终端需求</h4>
+        <div class="log">高盛数据显示今年中国多买精铜主要因少用废铜、终端需求并未更旺，全球总供需甚至小幅过剩；但美国关税悬而未决使贸易商把铜运往美国（美国增 82.6 万吨、欧洲减 3.9 万吨、中国仅增 1.2 万吨），中美合计锁住全球约 71% 地上库存，自由流动库存降至 1984 年来最低；废铜发票严查使再生铜杆 1—9 月少产 66 万吨、工厂转买精铜。长期有供给约束支持看涨，但短期若美国明确不加税，价差回吐与旧铜供应增加会带来回调，不宜在历史高点追期货或高位铜主题基金，矿企是相对确定赢家。</div>
+        <div class="who">公众号：Mask的小酒馆</div>
+      </div>
+    </div>
+
+    <!-- E -->
+    <div class="vpanel" id="vp-E">
+      <div class="cat-head">
+        <h3>E 稳市资金行为与救市逻辑</h3>
+        <div class="cap">稳市宽基并非简单「无限兜底」：有成本线、换平台行为与考核盈利属性；国家队买卖与估值星级同步，跟随需看其成本与行为而非简单抄底。</div>
+      </div>
+      <div class="vp-card">
+        <span class="vno">08</span><h4>稳市宽基并非「无限子弹」：有成本线、换平台与考核盈利属性</h4>
+        <div class="log">7 月与国庆后两段投入合计约 4300 亿（上证 50ETF -1.9%、沪深 300ETF -6.9%、创业板 ETF -20.7%、科创 50ETF -24.4%），稳市资金浮亏小于散户是因可持续摊低成本；10 月宽基 ETF 流入超 2000 亿，但双创连续多日无异常放量、或下移平台继续阻击（「打不过就往下换个平台继续阻击」）。国家队买卖与估值星级高度同步（低估买、高估少买甚至卖），有互换便利、股票回购增持再贷款与再贷款后盾；大橘养基桶提示「允许发生」说明原稳市逻辑有被打破风险，需警惕杠杆爆破与银行理财不可控赎回。</div>
+        <div class="who">公众号：政信三公子 · 大橘养基桶 · 银行螺丝钉</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ④ 分歧与共识 -->
+  <section>
+    <h2><span class="idx">④</span>共识与分歧<span class="sub">来自当日共性观点归纳</span></h2>
+    <div class="cd-grid">
+      <div class="cd-box cons">
+        <h3>共识</h3>
+        <ul>
+          <li>本轮下跌是系统性流动性踩踏（股债双杀、AI 退潮、两融去杠杆）而非单一基本面恶化，抄底需先测算回撤空间、等杠杆出清。</li>
+          <li>AI 进入资本开支回报验证期，云厂商自由现金流转负、融资扩产与循环交易暴露脆弱性，市场先杀估值而非等需求证伪。</li>
+          <li>红利/价值风格在低波动与稳定现金流下显现防御属性，资金涌入避险；普通投资者长期结果由资产配置与再平衡决定。</li>
+          <li>极端恐慌指标（恐贪 7、估值温度 4.9 星、股债性价比 16）提供风险收益比改善信号，医药等低位方向可按逆向思路布局，但不等于精准底部。</li>
+          <li>稳市宽基有成本线与考核盈利属性、非无限兜底，跟随救市资金要看其成本与平台行为，而非简单抄底。</li>
+        </ul>
+      </div>
+      <div class="cd-box div">
+        <h3>分歧</h3>
+        <ul>
+          <li><b>医药是否到了逆向买点：</b>价值发现者、Mask 认为基本面与估值均在历史低位、极端恐慌可贪婪；但均承认短期仍可能继续杀估值、风格切换未确认，懒猫仅观察到部分基金经理调仓至医药而非下结论。</li>
+          <li><b>铜价能否追高：</b>Mask 认为长期供给约束支持看涨，但短期关税与库存回吐风险大、矿企优于铜主题基金；与「AI/新能源驱动铜长牛」的流行叙事相左。</li>
+          <li><b>科技能否抄底：</b>laoduo 强调「跌得多不是买入理由」、等自然出清；民工看市、银行螺丝钉则用回撤与 PE 测算给出分批低频的纪律性方案，而非完全回避。</li>
+          <li><b>稳市资金能否托底：</b>政信三公子拆解其成本线与换平台行为、认为仍在阻击；大橘养基桶提示「允许发生」说明原稳市逻辑有被打破风险、警惕杠杆爆破与理财赎回失控。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑤ 原始附件清单 -->
+  <section>
+    <h2><span class="idx">⑤</span>原始附件清单<span class="sub">邮件接收日期：20261031</span></h2>
+    <div class="att">
+      <table>
+        <tr><th>附件</th><th>文件名日期</th><th>状态</th></tr>
+        <tr><td>全市场共性观点解读</td><td>20261031</td><td class="ok">已解析（36,255 字节）</td></tr>
+        <tr><td>全市场新闻热点解读</td><td>未到达</td><td class="miss">未到达（上游自 10-19 停发）</td></tr>
+      </table>
+      <div class="note">
+        <b>本期为「仅观点」降级版本。</b>上游自 2026-10-19 起停发「全市场新闻热点解读」，本日（邮件日期 20261031）仅收到共性观点一封，新闻线暂缺。
+        <br><b>剔除篇目（非直接投资市场内容，未进入报告）：</b><br>
+        · 懒人养基《投资这么多年，最难修的一门课》（文章2）—— 泛理财投教/提及「稳健安盈固收+投顾组合」产品，属泛理财类，其「投资修养」思想已由银行螺丝钉红利/估值论述覆盖，不单列核心观点。<br>
+        · 政信三公子《最好的时机》（文章3 与 文章4 同号同题不同篇）—— 文章3 讲债市赎回并入观点04，文章4 讲稳市宽基成本线并入观点08，均市场相关已纳入。<br>
+        其余 19 篇（文章1、3—22，缺14/21）均为直接投资市场相关内容（AI/科技、股债双杀、两融、红利、医药、铜、稳市宽基、指数估值、国家队等），已纳入报告（观点 8 条，分 5 品类）。
+      </div>
+      <p style="margin-top:12px;font-size:12.5px;color:var(--sub)">邮件接收日期：20261031｜发件人：cronjob@sogood360.com｜本报告市场日期按「邮件日期前一天」规则取 2026-10-30（周五）。</p>
+    </div>
+  </section>
+
+  <div class="foot">本报告由自动化任务每日生成 · 数据来源为公开自媒体观点聚合，仅供研究参考，不构成投资建议</div>
+
+</div>
+
+
+<noscript><style>.vpanel{display:block!important}.vtab-bar{display:none}</style></noscript>
+<script>
+(function(){
+  var bar=document.getElementById('vtab-bar');
+  if(!bar)return;
+  var tabs=bar.querySelectorAll('.vtab');
+  function activate(id){
+    tabs.forEach(function(t){t.classList.toggle('active', t.getAttribute('data-tab')===id);});
+    document.querySelectorAll('.vpanel').forEach(function(p){p.classList.toggle('active', p.id===id);});
+    try{localStorage.setItem('md-vtab-active', id);}catch(e){}
+  }
+  tabs.forEach(function(t){
+    t.addEventListener('click', function(){activate(t.getAttribute('data-tab'));});
+  });
+  var saved=null;
+  try{saved=localStorage.getItem('md-vtab-active');}catch(e){}
+  var valid=saved && document.getElementById(saved);
+  activate(valid?saved:tabs[0].getAttribute('data-tab'));
+})();
+</script>
+</body>
+</html>

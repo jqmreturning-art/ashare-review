@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>昨日市场大V观点整理 · 2026-10-31</title>
+<style>
+  :root{
+    --blue:#1e3a8a; --indigo:#4f46e5; --purple:#7c3aed;
+    --ink:#1f2937; --sub:#6b7280; --line:#e5e7eb;
+    --bg:#f7f8fb; --card:#ffffff; --red:#dc2626; --green:#16a34a;
+    --up:#dc2626; --down:#16a34a;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.7;font-size:15px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:960px;margin:0 auto;padding:0 18px 64px}
+  .banner{background:linear-gradient(135deg,#1e3a8a 0%,#4f46e5 55%,#7c3aed 100%);
+    border-radius:24px;padding:34px 32px;color:#fff;margin:22px 0 26px;box-shadow:0 12px 30px rgba(79,70,229,.22)}
+  .banner .tag{display:inline-block;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);
+    padding:3px 12px;border-radius:999px;font-size:12.5px;letter-spacing:.5px;margin-bottom:14px}
+  .banner h1{font-size:30px;font-weight:800;letter-spacing:1px;margin-bottom:10px}
+  .banner .date{font-size:14px;opacity:.92}
+  .kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:22px}
+  .kpi{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);border-radius:14px;padding:12px 10px;text-align:center}
+  .kpi .num{font-size:21px;font-weight:800;line-height:1.2}
+  .kpi .cap{font-size:11.5px;opacity:.9;margin-top:4px}
+  @media(max-width:780px){.kpis{grid-template-columns:repeat(2,1fr)}.banner h1{font-size:23px}.banner{padding:26px 20px}.kpi .num{font-size:18px}}
+  section{background:var(--card);border-radius:18px;padding:24px 26px;margin-bottom:20px;box-shadow:0 3px 12px rgba(17,24,39,.05);border:1px solid var(--line)}
+  h2{font-size:21px;font-weight:800;margin-bottom:4px;display:flex;align-items:center;gap:10px}
+  h2 .idx{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:9px;
+    background:linear-gradient(135deg,#4f46e5,#7c3aed);color:#fff;font-size:15px;font-weight:800;flex:0 0 auto}
+  h2 .sub{font-size:13px;font-weight:500;color:var(--sub);margin-left:2px}
+  .lead{color:var(--sub);font-size:14px;margin:10px 0 16px}
+  .ov-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .ov-card{border-left:4px solid var(--indigo);background:#f5f6ff;border-radius:10px;padding:14px 16px}
+  .ov-card h3{font-size:15px;font-weight:700;margin-bottom:6px;color:var(--blue)}
+  .ov-card p{font-size:13.5px;color:#374151}
+  @media(max-width:780px){.ov-grid{grid-template-columns:1fr}}
+  .news-cat{margin-bottom:18px}
+  .news-cat h3{font-size:15.5px;font-weight:700;color:var(--purple);margin-bottom:8px;display:flex;align-items:center;gap:8px}
+  .news-cat h3::before{content:"";width:8px;height:8px;border-radius:2px;background:linear-gradient(135deg,#4f46e5,#7c3aed)}
+  .news-item{background:#fafafe;border:1px solid var(--line);border-radius:10px;padding:11px 14px;margin-bottom:9px;font-size:14px}
+  .news-item b{color:var(--ink)}
+  .news-item .src{color:var(--sub);font-size:12.5px;margin-top:4px}
+  .news-item .num{display:inline-block;background:var(--indigo);color:#fff;font-size:11px;font-weight:700;border-radius:6px;padding:1px 7px;margin-right:7px;vertical-align:middle}
+  .vtab-bar{display:flex;gap:8px;flex-wrap:nowrap;overflow-x:auto;padding:4px 2px 12px;border-bottom:1px solid var(--line);margin-bottom:18px}
+  .vtab{flex:0 0 auto;border:1px solid var(--indigo);background:#fff;color:var(--indigo);font-weight:700;
+    font-size:13px;padding:8px 14px;border-radius:10px;cursor:pointer;transition:.15s;white-space:nowrap}
+  .vtab:hover{background:#eef0ff}
+  .vtab.active{background:linear-gradient(135deg,#4f46e5 0%,#7c3aed 100%);color:#fff;border-color:transparent;box-shadow:0 4px 12px rgba(124,58,237,.32)}
+  .vpanel{display:none}
+  .vpanel.active{display:block}
+  .cat-head{background:linear-gradient(135deg,#eef0ff,#f5f0ff);border-left:5px solid var(--purple);
+    border-radius:12px;padding:14px 18px;margin-bottom:16px}
+  .cat-head h3{font-size:17px;font-weight:800;color:var(--blue)}
+  .cat-head .cap{font-size:13px;color:var(--sub);margin-top:4px}
+  .vp-card{border:1px solid var(--line);border-radius:12px;padding:15px 18px;margin-bottom:13px;background:#fff}
+  .vp-card .vno{display:inline-block;font-size:12px;font-weight:800;color:#fff;background:var(--indigo);border-radius:6px;padding:1px 8px;margin-right:8px}
+  .vp-card h4{font-size:15.5px;font-weight:750;display:inline;color:var(--ink)}
+  .vp-card .log{margin-top:8px;font-size:14px;color:#374151}
+  .vp-card .who{margin-top:8px;font-size:12.5px;color:var(--purple);font-weight:600}
+  .cd-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .cd-box{border-radius:12px;padding:16px 18px}
+  .cd-box.cons{background:#eefaf3;border:1px solid #c8e6d2}
+  .cd-box.div{background:#fff5f2;border:1px solid #f3cfc4}
+  .cd-box h3{font-size:15px;font-weight:800;margin-bottom:10px}
+  .cd-box.cons h3{color:#15803d}.cd-box.div h3{color:#c2410c}
+  .cd-box li{font-size:13.5px;margin:0 0 9px 16px}
+  @media(max-width:780px){.cd-grid{grid-template-columns:1fr}}
+  .att{font-size:13px;color:#374151}
+  .att table{width:100%;border-collapse:collapse;font-size:12.8px;margin-top:8px}
+  .att th,.att td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}
+  .att th{background:#f3f4f8;font-weight:700;color:var(--blue)}
+  .att .ok{color:var(--green);font-weight:700}
+  .att .miss{color:var(--red);font-weight:700}
+  .note{background:#fffaf0;border:1px solid #f3e0b5;border-radius:10px;padding:10px 14px;font-size:12.8px;color:#7a5a00;margin-top:12px}
+  .warn{background:#fff5f2;border:1px solid #f3cfc4;border-radius:10px;padding:12px 16px;font-size:13.5px;color:#9a3412}
+  .foot{text-align:center;color:var(--sub);font-size:12px;margin-top:24px}
+  .up{color:var(--up);font-weight:700}.down{color:var(--down);font-weight:700}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="banner">
+    <span class="tag">每日市场大V观点整理 · 自动生成</span>
+    <h1>昨日市场大V观点整理</h1>
+    <div class="date">2026-10-31（周六） · 数据来源：全市场共性观点解读（新闻热点解读本期未到达）</div>
+    <div class="kpis">
+      <div class="kpi"><div class="num">PMI 结构分化</div><div class="cap">总量回落·高技术装备↑</div></div>
+      <div class="kpi"><div class="num">40万亿$</div><div class="cap">美债破顶·货币化不可逆</div></div>
+      <div class="kpi"><div class="num">商品超级周期</div><div class="cap">铜/油/粮/黄金共振</div></div>
+      <div class="kpi"><div class="num">黄金占储备27%</div><div class="cap">超美债22%·储备重估</div></div>
+      <div class="kpi"><div class="num">红利低波</div><div class="cap">低利率自制固收+</div></div>
+    </div>
+  </div>
+
+  <!-- ① 昨日概览 -->
+  <section>
+    <h2><span class="idx">①</span>昨日概览<span class="sub">2026-10-31 周六大市</span></h2>
+    <p class="lead">当日（2026-10-31 周六）为周末休市窗口，本期观点以宏观结构、商品周期与资产配置方法论为主线：①制造业PMI总量回落但高技术/装备制造扩张，景气判断应从总量转向结构；②全球储备与货币信用重估，黄金等实物安全资产长期需求上升（央行购金占官方储备 27% 超美债 22%）；③资管机构对灵魂人物依赖强，核心人物离任或「弃子」行为削弱信任，普通投资者不宜迷信明星经理与机构背书；④市场具反身性与混沌特征、短期不可预测，定投与情绪管理是行为约束而非盈利保证；⑤低利率下可用指数基金自制「固收+」、红利低波/价值为先、中短债控波动。本期为「仅观点」降级版（上游自 10-19 停发新闻线），观点线完整可用。</p>
+    <div class="ov-grid">
+      <div class="ov-card"><h3>宏观：PMI 结构分化</h3><p>总量PMI回落反映传统需求偏弱，但高技术制造与装备制造仍在扩张，景气应看结构不看总量。</p></div>
+      <div class="ov-card"><h3>商品：超级周期与储备重估</h3><p>美债破 40 万亿、央行购金占官方储备 27% 超美债 22%，黄金等实物安全资产长期需求上升。</p></div>
+      <div class="ov-card"><h3>治理：机构信任风险</h3><p>核心人物离任/机构「弃子」削弱信任，勿迷信明星经理与机构背书，关注治理与利益一致性。</p></div>
+      <div class="ov-card"><h3>配置：方法论主导</h3><p>市场混沌不可预测，定投/情绪管理是行为纪律；低利率下自制红利低波固收+，目标在透明低费与波动匹配。</p></div>
+    </div>
+  </section>
+
+  <!-- ② 新闻要点 -->
+  <section>
+    <h2><span class="idx">②</span>新闻要点<span class="sub">全市场新闻热点解读 · 本期缺失</span></h2>
+    <div class="warn">
+      <b>本期新闻线暂缺。</b>上游 <b>cronjob@sogood360.com</b> 自 2026-10-19 起停发「全市场新闻热点解读」邮件，
+      本日 163 邮箱仅收到「全市场共性观点解读」一封（邮件日期 20261101）。为保证日报连续性，本期按「仅观点」模式发布，
+      观点线完整可用；新闻线待上游恢复后自动合流补回。
+    </div>
+  </section>
+
+  <!-- ③ 大V观点（按品类分组 · Tab切换） -->
+  <section>
+    <h2><span class="idx">③</span>大V观点<span class="sub">按品类分组 · 共 5 条</span></h2>
+    <p class="lead">以下观点来自「全市场共性观点解读」附件（邮件日期 20261101），按当日核心矛盾归类至 5 个品类，点击标签切换查看（默认展开第 1 类）。</p>
+
+    <div class="vtab-bar" id="vtab-bar">
+      <button type="button" class="vtab" data-tab="vp-A">A 宏观景气与制造结构 1</button>
+      <button type="button" class="vtab" data-tab="vp-B">B 商品超级周期与黄金储备重估 1</button>
+      <button type="button" class="vtab" data-tab="vp-C">C 资管信任与机构治理风险 1</button>
+      <button type="button" class="vtab" data-tab="vp-D">D 市场认知与行为纪律（混沌·定投·情绪） 1</button>
+      <button type="button" class="vtab" data-tab="vp-E">E 低利率与自制固收+配置 1</button>
+    </div>
+
+    <!-- A -->
+    <div class="vpanel" id="vp-A">
+      <div class="cat-head">
+        <h3>A 宏观景气与制造结构</h3>
+        <div class="cap">当日核心矛盾主线之一：总量PMI回落与传统需求偏弱并存，但高技术制造与装备制造仍在扩张，景气判断应从总量转向结构，关注结构性景气方向。</div>
+      </div>
+      <div class="vp-card">
+        <span class="vno">01</span><h4>制造业PMI总量回落、高技术装备扩张，景气判断从总量转向结构</h4>
+        <div class="log">制造业PMI整体回落反映传统需求偏弱，但高技术制造和装备制造PMI仍在扩张，说明产业升级、设备投资仍有韧性；单看总量PMI会低估结构性景气，应关注高技术、装备制造的结构性扩张机会，而非以总量下行为唯一结论。</div>
+        <div class="who">公众号：Mask的小酒馆</div>
+      </div>
+    </div>
+
+    <!-- B -->
+    <div class="vpanel" id="vp-B">
+      <div class="cat-head">
+        <h3>B 商品超级周期与黄金储备重估</h3>
+        <div class="cap">货币信用与全球储备结构正在重估：美债货币化不可逆、央行购金占比超美债，黄金等实物安全资产长期需求上升；短期金价受政策与获利了结扰动。</div>
+      </div>
+      <div class="vp-card">
+        <span class="vno">02</span><h4>全球储备与货币信用重估，黄金等实物安全资产长期需求上升</h4>
+        <div class="log">美国债务突破 40 万亿美元、利息支出超过国防开支，最终只能继续货币化；俄外储冻结后新兴市场更重视不可远程冻结的实物资产；黄金占全球官方储备 27%、超过美债 22%，且新兴国家黄金储备占比仍低，长期增持空间较大。短期金价仍受美联储政策预期、杠杆平仓和获利了结扰动，不改变央行增持与债务货币化的长期逻辑。</div>
+        <div class="who">公众号：Mask的小酒馆</div>
+      </div>
+    </div>
+
+    <!-- C -->
+    <div class="vpanel" id="vp-C">
+      <div class="cat-head">
+        <h3>C 资管信任与机构治理风险</h3>
+        <div class="cap">资管机构对灵魂人物和个人IP依赖强，核心人物离任或压力下「弃子」行为削弱信任；普通投资者不宜把明星经理或机构背书当信仰。</div>
+      </div>
+      <div class="vp-card">
+        <span class="vno">03</span><h4>对灵魂人物与机构背书不宜迷信，需关注治理稳定与利益一致性</h4>
+        <div class="log">小公募和券商资管留人难，核心基金经理（如姜诚）一旦离任会冲击机构品牌与主动权益信任；「令狐弃谷」隐喻提示，压力下机构可能优先保全核心利益、牺牲边缘参与者，普通投资者处于信息与地位弱势，需识别利益不一致与道德风险，不宜把明星基金经理或机构背书当信仰，应关注治理稳定、利益一致性与可替代性。</div>
+        <div class="who">公众号：硬核姬老板 · 民工看市</div>
+      </div>
+    </div>
+
+    <!-- D -->
+    <div class="vpanel" id="vp-D">
+      <div class="cat-head">
+        <h3>D 市场认知与行为纪律（混沌·定投·情绪）</h3>
+        <div class="cap">市场具反身性与混沌特征、短期不可预测；定投与情绪管理是降低择时依赖与情绪干扰的行为约束，而非盈利保证。</div>
+      </div>
+      <div class="vp-card">
+        <span class="vno">04</span><h4>市场具反身性与混沌特征，短期不可预测；定投与情绪管理是行为约束而非盈利保证</h4>
+        <div class="log">资本市场是比三体更复杂的混沌系统，人的预期和买卖会反向影响市场（反身性），专业机构也无法预测短期涨跌；定投的价值在于降低门槛、弱化「哪一天买」的猜测、分摊成本，但不等于无波动、不保证盈利；熊市中减少看账户频率、做好计划、经历完整牛熊形成正反馈，是为了让行为可持续，而不是短期收益预测工具。</div>
+        <div class="who">公众号：银行螺丝钉（文章2/5/6）</div>
+      </div>
+    </div>
+
+    <!-- E -->
+    <div class="vpanel" id="vp-E">
+      <div class="cat-head">
+        <h3>E 低利率与自制固收+配置</h3>
+        <div class="cap">低利率环境下可用指数基金自制「固收+」，权益端优先低估低波的红利/红利低波/价值、债券端用中短债或存款控波动，目标在透明低费与波动匹配。</div>
+      </div>
+      <div class="vp-card">
+        <span class="vno">05</span><h4>低利率下用指数基金自制「固收+」，红利低波/价值为先、中短债/存款控波动</h4>
+        <div class="log">固收+投资者风险承受较低，宽基和科技成长波动大，而红利、红利低波、价值类指数在低估阶段波动通常更小、更匹配固收+权益端；债券端用中短债基金、0-3年/1-3年国开债或政金债指数基金，若家庭资产多在存款也可用存款替代。通过设定股票比例、低估买入和股债再平衡，分红或止盈自然降低股票比例、大跌则加仓恢复比例；目标是透明、低费率与波动匹配，不是收益升级。</div>
+        <div class="who">公众号：银行螺丝钉</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ④ 分歧与共识 -->
+  <section>
+    <h2><span class="idx">④</span>共识与分歧<span class="sub">来自当日共性观点归纳</span></h2>
+    <div class="cd-grid">
+      <div class="cd-box cons">
+        <h3>共识</h3>
+        <ul>
+          <li>制造业景气应从总量转向结构，高技术/装备制造仍是结构性扩张方向，不宜以总量下行为唯一结论。</li>
+          <li>全球货币信用与储备结构重估，黄金等实物安全资产长期需求上升，央行购金是标志性趋势（占官方储备 27% 超美债 22%）。</li>
+          <li>资管机构对灵魂人物依赖强，普通投资者应降低对明星经理与机构背书的「信仰」、关注治理稳定与利益一致性。</li>
+          <li>市场具反身性与混沌特征、短期不可预测，定投与情绪管理是降低择时依赖的行为约束，而非盈利保证。</li>
+          <li>低利率下可用指数基金自制「固收+」、权益端优先低估低波的红利/价值、债券端用中短债或存款控波动，目标在透明低费与波动匹配。</li>
+        </ul>
+      </div>
+      <div class="cd-box div">
+        <h3>分歧</h3>
+        <ul>
+          <li><b>商品超级周期与黄金能否追高：</b>Mask 强调美债货币化与央行购金支撑长期逻辑，但短期金价受美联储政策、杠杆平仓与获利了结扰动，与「商品全面长牛」流行叙事存在节奏分歧。</li>
+          <li><b>明星基金经理（如姜诚）离任的影响边界：</b>硬核姬老板侧重灵魂人物离任冲击机构品牌与主动权益信任；民工看市侧重机构「弃子」的系统性道德风险，两者切入点不同、对冲击性质的定性有差异。</li>
+          <li><b>定投/情绪管理的边界：</b>银行螺丝钉视其为降低择时依赖的行为纪律，但明确不等于盈利保证；与「低位重仓逆向」的思路在仓位纪律上存在张力。</li>
+          <li><b>自制固收+的可行性：</b>红利低波确低波动、匹配固收+，但低估买入与股债再平衡仍依赖投资者纪律，对「无脑替代」的预期存在落差。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑤ 原始附件清单 -->
+  <section>
+    <h2><span class="idx">⑤</span>原始附件清单<span class="sub">邮件接收日期：20261101</span></h2>
+    <div class="att">
+      <table>
+        <tr><th>附件</th><th>文件名日期</th><th>状态</th></tr>
+        <tr><td>全市场共性观点解读</td><td>20261101</td><td class="ok">已解析（14,817 字节）</td></tr>
+        <tr><td>全市场新闻热点解读</td><td>未到达</td><td class="miss">未到达（上游自 10-19 停发）</td></tr>
+      </table>
+      <div class="note">
+        <b>本期为「仅观点」降级版本。</b>上游自 2026-10-19 起停发「全市场新闻热点解读」，本日（邮件日期 20261101）仅收到共性观点一封，新闻线暂缺。<br><br>
+        <b>剔除篇目（非直接投资市场内容，未进入报告）：</b>本期<b>无明确剔除篇目</b>——8 篇文章均含直接投资或基金行业相关观点。其中：<br>
+        · 文章4（硬核姬老板《姜诚也要离职了…》）、文章8（民工看市《令狐弃谷》）为基金行业/机构治理观察，含「勿迷信明星经理与机构背书」的投资者信任风险教育，予以保留（并入观点03）。<br>
+        · 其余 6 篇（文章1 制造业PMI、文章2/5/6 银行螺丝钉定投·混沌·情绪、文章3 商品超级周期、文章7 自制固收+）均为宏观、商品与资产配置方法论的直接投资相关内容，已纳入报告（观点 5 条，分 5 品类）。
+      </div>
+      <p style="margin-top:12px;font-size:12.5px;color:var(--sub)">邮件实际接收时间：2026-11-01 18:13（北京时间）｜发件人：cronjob@sogood360.com｜本报告市场日期按「邮件日期前一天」规则取 2026-10-31（周六）。</p>
+    </div>
+  </section>
+
+  <div class="foot">本报告由自动化任务每日生成 · 数据来源为公开自媒体观点聚合，仅供研究参考，不构成投资建议</div>
+
+</div>
+
+
+<noscript><style>.vpanel{display:block!important}.vtab-bar{display:none}</style></noscript>
+<script>
+(function(){
+  var bar=document.getElementById('vtab-bar');
+  if(!bar)return;
+  var tabs=bar.querySelectorAll('.vtab');
+  function activate(id){
+    tabs.forEach(function(t){t.classList.toggle('active', t.getAttribute('data-tab')===id);});
+    document.querySelectorAll('.vpanel').forEach(function(p){p.classList.toggle('active', p.id===id);});
+    try{localStorage.setItem('md-vtab-active', id);}catch(e){}
+  }
+  tabs.forEach(function(t){
+    t.addEventListener('click', function(){activate(t.getAttribute('data-tab'));});
+  });
+  var saved=null;
+  try{saved=localStorage.getItem('md-vtab-active');}catch(e){}
+  var valid=saved && document.getElementById(saved);
+  activate(valid?saved:tabs[0].getAttribute('data-tab'));
+})();
+</script>
+</body>
+</html>

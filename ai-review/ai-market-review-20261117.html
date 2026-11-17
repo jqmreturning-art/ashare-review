@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI产业链日度复盘 2026-11-17</title>
+<style>
+:root{
+  --red:#ff4757;--up:#ff4757;--green:#00d4aa;--dn:#00d4aa;--flat:#b9c0cc;
+  --bg:#f4f6fa;--card:#ffffff;--line:#e3e8f0;
+  --txt:#1f2937;--sub:#6b7280;--muted:#9ca3af;
+  --blue:#1d4ed8;--blue-l:#eef2ff;--purple:#6d28d9;--purple-l:#f5f3ff;
+  --amber:#d97706;--amber-l:#fef3c7;--green-l:#ecfdf5;--green-d:#059669;
+  --grad:linear-gradient(135deg,#1e3a8a,#4f46e5 60%,#7c3aed);
+  --radius:14px;--radius-s:10px;
+  --shadow:0 1px 3px rgba(16,24,40,.05);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--txt);line-height:1.6;padding-bottom:60px}
+.wrap{max-width:1000px;margin:0 auto;padding:0 20px}
+header{background:var(--grad);color:#fff;padding:32px 0 26px;border-radius:0 0 24px 24px}
+.hd-in{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px}
+.hd-tag{font-size:12px;letter-spacing:2px;opacity:.85;background:rgba(255,255,255,.15);display:inline-block;padding:4px 12px;border-radius:20px;margin-bottom:12px}
+h1{font-size:26px;font-weight:700;letter-spacing:1px}
+.hd-date{font-size:13px;opacity:.9;margin-top:6px}
+.temp-badge{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);border-radius:16px;padding:10px 20px;text-align:center;backdrop-filter:blur(4px)}
+.temp-num{font-size:32px;font-weight:700;line-height:1.1}
+.temp-lbl{font-size:12px;opacity:.9;margin-top:2px}
+section{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px;margin-top:18px;box-shadow:var(--shadow)}
+.sec-head{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.sec-ico{width:30px;height:30px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;color:#fff;flex-shrink:0;background:var(--grad)}
+h2{font-size:16px;font-weight:700}
+.sec-sub{font-size:12px;color:var(--sub);margin-left:auto}
+.verdict{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:6px}
+.vd-card{background:var(--blue-l);border:1px solid #c7d7fe;border-radius:12px;padding:14px 16px}
+.vd-card.purple{background:var(--purple-l);border-color:#ddd6fe}
+.vd-card.amber{background:var(--amber-l);border-color:#fde68a}
+.vd-t{font-size:13px;font-weight:700;color:#1e3a8a;margin-bottom:4px}
+.vd-card.purple .vd-t{color:var(--purple)}.vd-card.amber .vd-t{color:var(--amber)}
+.vd-d{font-size:13px;color:#374151;line-height:1.55}
+.temp-wrap{display:flex;align-items:center;gap:34px;flex-wrap:wrap}
+.temp-gauge{width:170px;height:170px;position:relative;flex-shrink:0}
+.temp-gauge svg{transform:rotate(-90deg)}
+.temp-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.temp-big{font-size:40px;font-weight:700;color:var(--red)}
+.temp-small{font-size:12px;color:var(--sub)}
+.temp-items{flex:1;min-width:280px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.ti{background:#f9fafb;border:1px solid var(--line);border-radius:10px;padding:10px 14px}
+.ti-t{font-size:12px;color:var(--sub)}
+.ti-v{font-size:15px;font-weight:600;margin-top:2px}
+.ti-v.up{color:var(--red)}.ti-v.dn{color:var(--green)}
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{font-size:12px;color:#5b6478;font-weight:700;background:#f5f6fa;text-align:left;padding:9px 10px;border-bottom:2px solid var(--line);white-space:nowrap}
+th.num{text-align:right}
+td{padding:10px;border-bottom:1px solid #f0f2f6;vertical-align:middle}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:#f8fafc}
+.up{color:var(--red)}.dn{color:var(--green)}
+.num{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+.rank{display:inline-flex;align-items:center;gap:6px}
+.rank i{width:22px;height:22px;border-radius:6px;display:inline-flex;align-items:center;justify-content:center;font-size:12px;font-style:normal;font-weight:600;background:var(--blue-l);color:#1e3a8a}
+.chip{display:inline-block;font-size:11px;padding:2px 8px;border-radius:12px;font-weight:500;white-space:nowrap}
+.chip.hw{background:var(--blue-l);color:#1e3a8a}
+.chip.sc{background:#fce7f3;color:#be185d}
+.chip.ap{background:var(--purple-l);color:var(--purple)}
+.chip.term{background:var(--green-l);color:var(--green-d)}
+.bar{height:7px;border-radius:4px;background:#eef1f6;overflow:hidden;min-width:70px}
+.bar-fill{height:100%;border-radius:4px;background:var(--red)}
+.bar-fill.dn{background:var(--green)}
+.flow-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.flow-item{background:#f9fafb;border:1px solid var(--line);border-radius:12px;padding:14px}
+.flow-name{font-size:13px;font-weight:600}
+.flow-val{font-size:18px;font-weight:700;margin-top:4px}
+.flow-sub{font-size:11px;color:var(--sub);margin-top:3px}
+.flow-note{font-size:12px;color:var(--muted);margin-top:14px;padding-top:12px;border-top:1px dashed var(--line)}
+.news{display:flex;gap:14px;padding:13px 0;border-bottom:1px solid #f0f2f6}
+.news:last-child{border-bottom:none}
+.news-badge{flex-shrink:0;width:44px;height:44px;border-radius:11px;background:var(--purple-l);color:var(--purple);display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:10px;font-weight:600;line-height:1.2}
+.news-badge b{font-size:14px}
+.news-t{font-size:14px;font-weight:600}
+.news-d{font-size:13px;color:#4b5563;margin-top:3px}
+.news-s{font-size:12px;color:var(--muted);margin-top:5px}
+.val-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.val-card{border:1px solid var(--line);border-radius:12px;padding:14px 16px;background:#f9fafb}
+.val-n{font-size:22px;font-weight:700}
+.val-n.hot{color:var(--amber)}
+.val-t{font-size:12px;color:var(--sub);margin-top:2px}
+.warn{background:var(--amber-l);border:1px solid #fde68a;border-radius:12px;padding:14px 18px;margin-top:16px;font-size:13px;color:#92400e}
+.warn b{color:#b45309}
+.outlook{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.ol-card{border:1px solid var(--line);border-radius:12px;padding:16px}
+.ol-card.focus{border-color:#bfdbfe;background:#eff6ff}
+.ol-card.risk{border-color:#fecaca;background:#fef2f2}
+.ol-t{font-size:14px;font-weight:600;margin-bottom:10px}
+.ol-card.focus .ol-t{color:var(--blue)}.ol-card.risk .ol-t{color:#dc2626}
+.ol-list{font-size:13px;color:#374151;padding-left:18px;line-height:1.9}
+footer{margin-top:24px;text-align:center;font-size:12px;color:var(--muted);padding:16px 0 0}
+.disc{background:#f9fafb;border:1px solid var(--line);border-radius:12px;padding:14px 20px;font-size:12px;color:var(--muted);margin-top:20px;line-height:1.8}
+.disc b{color:#6b7280}
+details.cat{background:#f9fafb;border:1px solid var(--line);border-radius:12px;margin-top:14px;overflow:hidden}
+details.cat>summary{cursor:pointer;padding:12px 16px;font-size:13px;font-weight:600;color:#1e3a8a;list-style:none;display:flex;align-items:center;gap:8px;user-select:none}
+details.cat>summary::before{content:"▸";transition:transform .2s;color:var(--blue);font-size:12px}
+details.cat[open]>summary::before{transform:rotate(90deg)}
+details.cat>summary::-webkit-details-marker{display:none}
+.cat-body{padding:0 16px 14px}
+.cat-group{margin-top:12px}
+.cat-group-t{font-size:12px;font-weight:600;color:var(--purple);margin-bottom:6px;padding:4px 10px;background:var(--purple-l);border-radius:8px;display:inline-block}
+.cat-group.blue .cat-group-t{color:#1e3a8a;background:var(--blue-l)}
+.cat-group.green .cat-group-t{color:var(--green-d);background:var(--green-l)}
+.cat-row{font-size:12.5px;color:#374151;line-height:1.75;padding-left:4px;margin-top:4px}
+.cat-row b{color:var(--txt)}
+.dl-btn{display:inline-flex;align-items:center;gap:6px;background:var(--grad);color:#fff;text-decoration:none;font-size:12px;font-weight:600;padding:9px 18px;border-radius:20px;margin-top:14px;border:none;cursor:pointer}
+.dl-btn:hover{opacity:.92}
+@media(max-width:760px){
+  .verdict,.flow-grid,.val-cards,.outlook{grid-template-columns:1fr}
+  .hd-in{flex-direction:column;align-items:flex-start}
+  .temp-items{grid-template-columns:1fr}
+  section{padding:20px 16px}
+}
+
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<div class="hd-in">
+<div>
+<span class="hd-tag">AI INDUSTRY REVIEW</span>
+<h1>AI产业链日度复盘</h1>
+<div class="hd-date">2026-11-17 星期二 · 收盘静态快照</div>
+</div>
+<div class="temp-badge">
+<div class="temp-num">40<span style="font-size:16px">°C</span></div>
+<div class="temp-lbl">产业链情绪温度 · 分化</div>
+</div>
+</div>
+</header>
+
+<section>
+<div class="sec-head"><div class="sec-ico">①</div><h2>今日结论</h2><div class="sec-sub">半导体链逆势 / 3赛道收红 / 龙头4涨6跌 / 硬件资金分化</div></div>
+<div class="verdict">
+<div class="vd-card hot"><div class="vd-t">半导体链逆势领涨 · 主力真金白银流入</div><div class="vd-d">AI产业链结构分化——17 赛道 3 涨 14 跌，半导体材料 +2.67% / 半导体设备 +2.19% / 半导体 +0.30% 逆势收红，集成电路制造 +5.82% / 光刻胶 +3.12% / 光刻机 +3.08% 领涨，AI语料 -5.38% / AIGC -4.58% 领跌；主力净流入半导体 +29.63 亿、半导体设备 +19.05 亿、半导体材料 +18.83 亿居行业前四，中芯概念 +41.82 亿/大基金持股 +28.23 亿居概念前列；龙头 4 涨 6 跌，中芯国际 +6.59% / 北方华创 +4.09% / 中微公司 +2.27% 逆势，新易盛 -4.08% / 海光信息 -3.93% / 中际旭创 -3.90% 走弱。</div></div>
+<div class="vd-card purple"><div class="vd-t">题材 · 连板冰点与高位退潮</div><div class="vd-d">盘面热度集中于半导体与少数人气标杆——华东重机 3连板（算力芯片·一字板·唯一晋级）、阳光照明 14天8板（商业航天·累计高度龙）、瀛通通讯 6天4板（端侧AI）、九阳股份盘中「地天板」；但连板高度降至3板、晋级率 9.09% 冰点、封板率 65%（20只封板未遂）、午后炸板（午盘42涨停→收盘37），高位人气股（襄阳轴承/青岛食品/澳洋健康/闽发铝业/百洋股份）3连跌停、传媒短剧崩跌（影视院线 -9.02%），连续第四日超4100只下跌，退潮与结构切换并存。</div></div>
+<div class="vd-card amber"><div class="vd-t">催化 · 半导体避风港 / 硬件未止血</div><div class="vd-d">资金主线内部显著分化——半导体材料与设备逆势获真金白银流入（有研新材单日净买入13.83亿、科创50 +0.62% 逆势翻红），但光模块/服务器延续大额净流出（CPO -34.2亿/服务器 -35.1亿/液冷 -21.0亿），5日累计流出均超百亿；中际旭创 -3.90%/新易盛 -4.08%/海光信息 -3.93% 走弱，需观察半导体主线资金能否持续、硬件端能否止血，警惕晋级率冰点与高位退潮下的容错率风险。</div></div>
+<details class="cat"><summary>展开三大催化分组</summary><div class="cat-body">
+<div class="cat-group"><span class="cat-group-t">海外映射（需求/供给硬支撑）</span><div class="cat-row">费城半导体近期分化、纳指震荡，A股算力硬件跟随走弱——光模块（CPO -1.59%/中际旭创 -3.90%/新易盛 -4.08%）、算力芯片（海光信息 -3.93%/AI算力芯片 -0.94%）同步回调，硬件端资金净流出（CPO -34.2亿/服务器 -35.1亿）；但半导体材料/设备走出独立行情（+2.67%/+2.19%），映射由全面杀跌转为「硬件弱、半导体强」的结构分化，关注海外科技对算力链的传导与半导体国产替代主线持续性。</div></div>
+<div class="cat-group blue"><span class="cat-group-t">国产 / 产业 / 政策</span><div class="cat-row"><b>半导体国产替代逆势领涨</b>——集成电路制造 +5.82%/半导体材料 +2.67%/半导体设备 +2.19%/光刻胶 +3.12%/光刻机 +3.08%，中芯国际 +6.59%/北方华创 +4.09%/中微公司 +2.27%，主力净流入半导体 +29.63 亿、中芯概念 +41.82 亿、大基金持股 +28.23 亿，有研新材净买入13.83亿；华东重机3连板（算力芯片·一字板）、瀛通通讯6天4板（端侧AI）为题材活口，国产替代与低位切换成普跌盘中的资金避风港。</div></div>
+<div class="cat-group green"><span class="cat-group-t">应用 / 数据要素 / 传媒</span><div class="cat-row">AI应用端同步走弱——AI语料 -5.38%/AIGC -4.58%/AI应用 -2.52%/AI智能体 -2.34%/人工智能大模型 -2.02% 普跌，仅半导体材料链逆势；传媒短剧加速退潮（其他数字媒体 -11.21%/影视动漫 -9.40%/影视院线 -9.02%/AI漫剧跌停），整体呈「半导体逆势、硬件应用普跌、传媒退潮」的分化格局，高低切换特征明显、赚钱效应高度集中。</div></div>
+</div></details>
+</div>
+</section>
+
+<section>
+<div class="sec-head"><div class="sec-ico">②</div><h2>产业链情绪温度</h2><div class="sec-sub">40°C · 分化</div></div>
+<div class="temp-wrap">
+<div class="temp-gauge"><svg width="170" height="170" viewBox="0 0 170 170" xmlns="http://www.w3.org/2000/svg">
+<defs><linearGradient id="tg" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#00d4aa"/><stop offset="50%" stop-color="#ffa502"/><stop offset="100%" stop-color="#ff4757"/>
+</linearGradient></defs>
+<circle cx="85" cy="85" r="72" fill="none" stroke="#eef0f5" stroke-width="14"/>
+<circle cx="85" cy="85" r="72" fill="none" stroke="url(#tg)" stroke-width="14" stroke-linecap="round" stroke-dasharray="452.4" stroke-dashoffset="271.4"/>
+</svg><div class="temp-center"><div class="temp-big">40°C</div><div class="temp-small">分化</div></div></div>
+<div class="temp-items">
+<div class="ti"><div class="ti-t">板块分化</div><div class="ti-v up">17 赛道 3 涨 14 跌——半导体材料 +2.67% / 半导体设备 +2.19% / 半导体 +0.30% 逆势收红，集成电路制造 +5.82% / 光刻胶 +3.12% / 光刻机 +3.08% 领涨；AI语料 -5.38% / AIGC -4.58% / AI应用 -2.52% / AI智能体 -2.34% 领跌</div></div><div class="ti"><div class="ti-t">资金动向</div><div class="ti-v dn">6 大核心主力净流入合计约 -82 亿——半导体 +29.6 亿逆势净流入，CPO -34.2 / 服务器 -35.1 / 液冷 -21.0 / PCB -20.4 / AI算力芯片 -1.3 亿净流出；5日合计约 -912 亿，硬件持续大额流出</div></div><div class="ti"><div class="ti-t">龙头分化</div><div class="ti-v up">核心龙头 4 涨 6 跌——中芯国际 +6.59% / 北方华创 +4.09% / 中微公司 +2.27% / 寒武纪 +0.76% 逆势收红，新易盛 -4.08% / 海光信息 -3.93% / 中际旭创 -3.90% / 沪电股份 -1.46% 走弱；半导体设备ETF +4.26% 逆势</div></div><div class="ti"><div class="ti-t">涨停线索</div><div class="ti-v dn">题材局部活口——商业航天（阳光照明14天8板）、端侧AI（瀛通通讯6天4板）、小家电（九阳股份地天板/长虹美菱2连板）、算力芯片（华东重机3连板·唯一晋级）；连板6只、封板率65%、晋级率9.09%冰点</div></div><div class="ti"><div class="ti-t">连板高度</div><div class="ti-v dn">晋级冰点·高度降至3板——华东重机3连板（算力芯片·一字板·唯一晋级），阳光照明14天8板/瀛通通讯6天4板为辨识度，封板率65%（20只封板未遂）、晋级率9.09%（上一交易日11只连板今1只晋级）、逾60股跌停，高位人气股3连跌停、午后炸板（午盘42→收盘37）</div></div><div class="ti"><div class="ti-t">趋势研判</div><div class="ti-v dn">17赛道3涨14跌、龙头4涨6跌、6核心主力净流入约-82亿，判定分化——半导体链逆势领涨且资金净流入（半导体+29.6亿），光模块/服务器仍大额流出（CPO-34.2/服务器-35.1亿）；20日涨跌幅CPO-22.26%/PCB-19.69% 深幅为负、半导体材料年内+31.45%/半导体设备+41.44% 强势，晋级率9.09%冰点、高位股3连跌停显示退潮延续</div></div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="sec-head"><div class="sec-ico">③</div><h2>细分赛道排行</h2><div class="sec-sub">17 赛道 · 算力硬件/半导体/模型应用/AI终端</div></div>
+<table><thead><tr><th>赛道</th><th>分类</th><th class="num">涨幅%</th><th class="num">成交额(亿)</th><th class="num">换手%</th><th class="num">10日%</th><th>强度</th></tr></thead><tbody>
+<tr><td>半导体材料</td><td><span class="chip sc">半导体</span></td>
+<td class="num up">+2.67%</td><td class="num">289</td>
+<td class="num">0.00</td><td class="num up">+9.96%</td>
+<td><span class="bar"><span class="bar-fill up" style="width:53%"></span></span></td></tr>
+<tr><td>半导体设备</td><td><span class="chip sc">半导体</span></td>
+<td class="num up">+2.19%</td><td class="num">411</td>
+<td class="num">0.00</td><td class="num up">+14.91%</td>
+<td><span class="bar"><span class="bar-fill up" style="width:44%"></span></span></td></tr>
+<tr><td>半导体（申万二级）</td><td><span class="chip sc">半导体</span></td>
+<td class="num up">+0.30%</td><td class="num">2208</td>
+<td class="num">0.00</td><td class="num up">+5.97%</td>
+<td><span class="bar"><span class="bar-fill up" style="width:6%"></span></span></td></tr>
+<tr><td>AIPC</td><td><span class="chip term">AI终端</span></td>
+<td class="num dn">-0.63%</td><td class="num">411</td>
+<td class="num">0.00</td><td class="num dn">+0.79%</td>
+<td><span class="bar"><span class="bar-fill dn" style="width:13%"></span></span></td></tr>
+<tr><td>AI 算力芯片</td><td><span class="chip hw">算力硬件</span></td>
+<td class="num dn">-0.94%</td><td class="num">469</td>
+<td class="num">0.00</td><td class="num dn">+4.31%</td>
+<td><span class="bar"><span class="bar-fill dn" style="width:19%"></span></span></td></tr>
+<tr><td>华为算力</td><td><span class="chip hw">算力硬件</span></td>
+<td class="num dn">-0.98%</td><td class="num">232</td>
+<td class="num">0.00</td><td class="num dn">-0.03%</td>
+<td><span class="bar"><span class="bar-fill dn" style="width:20%"></span></span></td></tr>
+<tr><td>AI 手机</td><td><span class="chip term">AI终端</span></td>
+<td class="num dn">-1.11%</td><td class="num">166</td>
+<td class="num">0.00</td><td class="num dn">+0.35%</td>
+<td><span class="bar"><span class="bar-fill dn" style="width:22%"></span></span></td></tr>
+<tr><td>数据中心</td><td><span class="chip hw">算力硬件</span></td>
+<td class="num dn">-1.45%</td><td class="num">1592</td>
+<td class="num">0.00</td><td class="num dn">-1.37%</td>
+<td><span class="bar"><span class="bar-fill dn" style="width:29%"></span></span></td></tr>
+<tr><td>PCB 概念</td><td><span class="chip hw">算力硬件</span></td>
+<td class="num dn">-1.46%</td><td class="num">1204</td>
+<td class="num">0.00</td><td class="num dn">-2.81%</td>
+<td><span class="bar"><span class="bar-fill dn" style="width:29%"></span></span></td></tr>
+<tr><td>液冷概念</td><td><span class="chip hw">算力硬件</span></td>
+<td class="num dn">-1.48%</td><td class="num">1059</td>
+<td class="num">0.00</td><td class="num dn">-0.73%</td>
+<td><span class="bar"><span class="bar-fill dn" style="width:30%"></span></span></td></tr>
+<tr><td>共封装光模块 CPO</td><td><span class="chip hw">算力硬件</span></td>
+<td class="num dn">-1.59%</td><td class="num">1541</td>
+<td class="num">0.00</td><td class="num dn">-1.72%</td>
+<td><span class="bar"><span class="bar-fill dn" style="width:32%"></span></span></td></tr>
+<tr><td>服务器</td><td><span class="chip hw">算力硬件</span></td>
+<td class="num dn">-1.63%</td><td class="num">1634</td>
+<td class="num">0.00</td><td class="num dn">-0.09%</td>
+<td><span class="bar"><span class="bar-fill dn" style="width:33%"></span></span></td></tr>
+<tr><td>人工智能大模型</td><td><span class="chip ap">模型应用</span></td>
+<td class="num dn">-2.02%</td><td class="num">2695</td>
+<td class="num">0.00</td><td class="num dn">-1.57%</td>
+<td><span class="bar"><span class="bar-fill dn" style="width:40%"></span></span></td></tr>
+<tr><td>AI 智能体</td><td><span class="chip ap">模型应用</span></td>
+<td class="num dn">-2.34%</td><td class="num">619</td>
+<td class="num">0.00</td><td class="num dn">-1.53%</td>
+<td><span class="bar"><span class="bar-fill dn" style="width:47%"></span></span></td></tr>
+<tr><td>AI 应用</td><td><span class="chip ap">模型应用</span></td>
+<td class="num dn">-2.52%</td><td class="num">1029</td>
+<td class="num">0.00</td><td class="num dn">-2.19%</td>
+<td><span class="bar"><span class="bar-fill dn" style="width:50%"></span></span></td></tr>
+<tr><td>AIGC</td><td><span class="chip ap">模型应用</span></td>
+<td class="num dn">-4.58%</td><td class="num">721</td>
+<td class="num">0.00</td><td class="num dn">-1.27%</td>
+<td><span class="bar"><span class="bar-fill dn" style="width:92%"></span></span></td></tr>
+<tr><td>AI 语料</td><td><span class="chip ap">模型应用</span></td>
+<td class="num dn">-5.38%</td><td class="num">262</td>
+<td class="num">0.00</td><td class="num dn">-1.59%</td>
+<td><span class="bar"><span class="bar-fill dn" style="width:100%"></span></span></td></tr>
+</tbody></table>
+<details class="cat"><summary>赛道分类口径说明</summary><div class="cat-body">
+<div class="cat-group blue"><span class="cat-group-t">算力硬件</span><div class="cat-row">AI 算力的物理基础设施：计算（AI算力芯片/服务器）· 互联（CPO光模块/PCB）· 散热供电（液冷）· 承载（数据中心/华为算力）。直接受益于 AI 资本开支，业绩兑现度最高。</div></div>
+<div class="cat-group"><span class="cat-group-t">半导体</span><div class="cat-row">AI 芯片的制造与上游：晶圆制造（半导体）· 设备（半导体设备）· 材料（半导体材料）。国产替代 + 景气周期双重属性。</div></div>
+<div class="cat-group purple"><span class="cat-group-t">模型应用</span><div class="cat-row">AI 软件与应用层：大模型 · AIGC · AI应用 · AI智能体 · AI语料。业绩兑现慢、主题属性强，与硬件端存在明显分化。</div></div>
+<div class="cat-group green"><span class="cat-group-t">AI终端</span><div class="cat-row">AI 落地的消费终端载体：AIPC · AI手机。由硬件迭代周期驱动，弹性随新品发布节奏波动。</div></div>
+<div class="cat-row" style="margin-top:10px"><b>六大核心赛道</b>（与 AI 算力主线关联度最高、当日成交额居前）：半导体、CPO光模块、PCB概念、服务器、AI算力芯片、液冷概念。</div>
+<div class="cat-row"><b>数据说明：</b>涨幅 / 成交额 / 10日涨幅 / PE / 年内来自东方财富公开接口（fetch_em.py，收盘静态快照；东财 push2/push2his 于 11/17 恢复可达，主力资金为真实净流入）；成交额单位为亿元，板块换手字段暂缺显示为0。17 个 AI 细分赛道为自建成分股等权指数。</div>
+</div></details>
+</section>
+
+<section>
+<div class="sec-head"><div class="sec-ico">④</div><h2>资金动向</h2><div class="sec-sub">6 大核心板块 + AI相关ETF（主力净流入）</div></div>
+<div class="flow-grid"><div class="flow-item"><div class="flow-name">半导体</div>
+<div class="flow-val up">+29.6 亿</div>
+<div class="flow-sub">20日累计 -108 亿</div></div>
+<div class="flow-item"><div class="flow-name">CPO光模块</div>
+<div class="flow-val dn">-34.2 亿</div>
+<div class="flow-sub">20日累计 -749 亿</div></div>
+<div class="flow-item"><div class="flow-name">PCB概念</div>
+<div class="flow-val dn">-20.4 亿</div>
+<div class="flow-sub">20日累计 -679 亿</div></div>
+<div class="flow-item"><div class="flow-name">服务器</div>
+<div class="flow-val dn">-35.1 亿</div>
+<div class="flow-sub">20日累计 -512 亿</div></div>
+<div class="flow-item"><div class="flow-name">AI算力芯片</div>
+<div class="flow-val dn">-1.3 亿</div>
+<div class="flow-sub">20日累计 +9 亿</div></div>
+<div class="flow-item"><div class="flow-name">液冷概念</div>
+<div class="flow-val dn">-21.0 亿</div>
+<div class="flow-sub">20日累计 -395 亿</div></div></div>
+<div class="flow-note"><b>解读：</b>注：东财 push2/push2his 于 11/17 恢复可达，6 大核心板块 net_flow 为真实主力净流入（亿元、含正负），net_5d/net_20d 可用——半导体 +29.6 亿（5日 -72.0 / 20日 -108.3）、CPO -34.2 亿（5日 -231.1 / 20日 -749.1）、PCB -20.4 亿（5日 -219.0 / 20日 -678.8）、服务器 -35.1 亿（5日 -239.9 / 20日 -511.8）、AI算力芯片 -1.3 亿（5日 -11.5 / 20日 +9.3）、液冷 -21.0 亿（5日 -138.9 / 20日 -395.1），当日合计约 -82 亿、5日合计约 -912 亿；半导体为唯一净流入方向（逆势大涨），光模块/服务器/液冷延续大额净流出，主线内部显著分化——半导体成避风港、硬件端尚未止血，需结合价格与板块强度综合研判。</div>
+<table><thead><tr><th>ETF</th><th class="num">现价</th><th class="num">涨幅%</th><th class="num">成交额(亿)</th><th class="num">换手%</th></tr></thead><tbody>
+<tr><td>创业板人工智能ETF华夏</td><td class="num">0.73</td><td class="num dn">-3.17%</td><td class="num">2.80</td><td class="num">21.21</td></tr>
+<tr><td>创业板人工智能ETF华宝</td><td class="num">0.78</td><td class="num dn">-2.76%</td><td class="num">10.15</td><td class="num">22.82</td></tr>
+<tr><td>半导体设备ETF广发</td><td class="num">0.76</td><td class="num up">+4.26%</td><td class="num">7.42</td><td class="num">8.13</td></tr>
+<tr><td>通信ETF华夏</td><td class="num">0.59</td><td class="num dn">-2.14%</td><td class="num">6.23</td><td class="num">5.76</td></tr>
+<tr><td>科创100ETF富国</td><td class="num">0.94</td><td class="num dn">-0.63%</td><td class="num">0.06</td><td class="num">1.50</td></tr>
+<tr><td>科创200ETF富国</td><td class="num">0.92</td><td class="num dn">-1.39%</td><td class="num">0.04</td><td class="num">4.16</td></tr>
+</tbody></table>
+</section>
+
+<section>
+<div class="sec-head"><div class="sec-ico">⑤</div><h2>龙头梯队</h2><div class="sec-sub">10 只核心龙头</div></div>
+<table><thead><tr><th>龙头</th><th class="num">现价</th><th class="num">涨幅%</th><th class="num">成交额(亿)</th><th class="num">PE(TTM)</th><th class="num">年内%</th><th>事件</th></tr></thead><tbody>
+<tr><td>中际旭创</td><td class="num">393.00</td>
+<td class="num dn">-3.90%</td><td class="num">204.7</td>
+<td class="num">15.6</td><td class="num dn">-26.65%</td><td style="font-size:15px">❄️</td></tr>
+<tr><td>寒武纪</td><td class="num">904.80</td>
+<td class="num up">+0.76%</td><td class="num">122.5</td>
+<td class="num">114.9</td><td class="num up">-0.94%</td><td style="font-size:15px"></td></tr>
+<tr><td>北方华创</td><td class="num">568.75</td>
+<td class="num up">+4.09%</td><td class="num">74.4</td>
+<td class="num">57.6</td><td class="num up">+27.61%</td><td style="font-size:15px">🔥</td></tr>
+<tr><td>中芯国际</td><td class="num">113.45</td>
+<td class="num up">+6.59%</td><td class="num">83.8</td>
+<td class="num">99.6</td><td class="num up">-0.83%</td><td style="font-size:15px">🔥</td></tr>
+<tr><td>工业富联</td><td class="num">35.90</td>
+<td class="num dn">-0.88%</td><td class="num">47.5</td>
+<td class="num">13.2</td><td class="num dn">-38.98%</td><td style="font-size:15px"></td></tr>
+<tr><td>新易盛</td><td class="num">160.00</td>
+<td class="num dn">-4.08%</td><td class="num">140.9</td>
+<td class="num">14.7</td><td class="num dn">-36.83%</td><td style="font-size:15px">❄️</td></tr>
+<tr><td>沪电股份</td><td class="num">72.90</td>
+<td class="num dn">-1.46%</td><td class="num">58.6</td>
+<td class="num">18.8</td><td class="num dn">+1.83%</td><td style="font-size:15px"></td></tr>
+<tr><td>海光信息</td><td class="num">182.54</td>
+<td class="num dn">-3.93%</td><td class="num">46.1</td>
+<td class="num">111.8</td><td class="num dn">-15.41%</td><td style="font-size:15px">❄️</td></tr>
+<tr><td>中微公司</td><td class="num">238.50</td>
+<td class="num up">+2.27%</td><td class="num">54.7</td>
+<td class="num">41.5</td><td class="num up">+35.80%</td><td style="font-size:15px"></td></tr>
+<tr><td>科大讯飞</td><td class="num">36.52</td>
+<td class="num dn">-0.60%</td><td class="num">5.8</td>
+<td class="num">3006.0</td><td class="num dn">-26.93%</td><td style="font-size:15px"></td></tr>
+</tbody></table>
+<div style="font-size:11.5px;color:var(--muted);margin-top:8px">事件列图例：🔥 当日大涨/利好或创新高信号 ｜ ❄️ 当日显著下跌/利空信号</div>
+</section>
+
+<section>
+<div class="sec-head"><div class="sec-ico">⑥</div><h2>产业催化</h2><div class="sec-sub">今日驱动新闻</div></div>
+<div class="news"><div class="news-badge"><b>1</b>催化</div>
+<div><div class="news-t">半导体材料与光刻胶逆势领涨·唯一主线</div><div class="news-d">11月17日全市场普跌下半导体链逆势——集成电路制造+5.82%（盛合晶微+14.15）、半导体材料+2.67%（有研新材+10.01）、半导体设备+2.19%（华海清科+7.18）、光刻胶+3.12%（西陇科学+10.01）、光刻机+3.08%（国林科技+19.96%），17赛道中半导体材料/设备/半导体3个收红</div><div class="news-s">资金真金白银流入半导体——主力净流入半导体+29.63亿、半导体设备+19.05亿、半导体材料+18.83亿、集成电路制造+18.08亿居行业前四，中芯概念+41.82亿/大基金持股+28.23亿/先进封装+27.25亿居概念净流入前三，有研新材单日净买入13.83亿元居首；科创50 +0.62% 由半导体权重带动逆势翻红</div></div></div>
+<div class="news"><div class="news-badge"><b>2</b>催化</div>
+<div><div class="news-t">连板高度降至3板·晋级率冰点9.09%</div><div class="news-d">财联社收盘口径——涨停37只（不含ST）、连板股总数6只、三连板及以上1只，上一交易日11只连板中仅华东重机晋级、晋级率9.09%，封板率65%（20只封板未遂），连板高度由4板降至3板</div><div class="news-s">华东重机3连板（算力芯片·一字涨停·唯一晋级·缺乏参与机会），为连板最高标；午后炸板显著（午盘42涨停/封板率86%→收盘37涨停/封板率65%），首板占比明显抬升，情绪退潮下的结构切换、非全面修复</div></div></div>
+<div class="news"><div class="news-badge"><b>3</b>催化</div>
+<div><div class="news-t">人气标杆活跃·九阳股份地天板</div><div class="news-d">弱势盘面人气标杆逆势——九阳股份盘中上演「地天板」，阳光照明放量反包走出14天8板（商业航天·累计高度龙），瀛通通讯6天4板（端侧AI），冰山冷热盘中一度触及涨停创历史新高；受九阳带动小家电局部异动，长虹美菱2连板</div><div class="news-s">辨识度个股逆势维持题材热度——商业航天（阳光照明14天8板）、端侧AI（瀛通通讯6天4板）、小家电（九阳股份地天板/长虹美菱2连板）为普跌盘中少数人气活口，但连板高度压缩、晋级率冰点，标杆效应难掩接力意愿脆弱</div></div></div>
+<div class="news"><div class="news-badge"><b>4</b>催化</div>
+<div><div class="news-t">高位股3连跌停·传媒短剧崩跌</div><div class="news-d">连续第四日超4100只下跌、逾60股跌停（脚本78只），襄阳轴承/青岛食品/澳洋健康/闽发铝业/百洋股份等前期高位人气股3连跌停；传媒短剧全线崩跌——其他数字媒体-11.21%/影视动漫-9.40%/影视院线-9.02%/文字媒体-8.67%/电视广播-8.13%</div><div class="news-s">高位补跌与题材退潮共振——前期高标连续3日跌停，AI漫剧（浙文影业/湖北广电/横店影视）跌停，资金从传媒短剧与高位人气股双向撤离，红盘率24%下容错率极低，高低切换加速</div></div></div>
+<div class="news"><div class="news-badge"><b>5</b>催化</div>
+<div><div class="news-t">光模块服务器资金持续流出·硬件未止血</div><div class="news-d">AI硬件与半导体走势背离——CPO-1.59%/服务器-1.63%/液冷-1.48%/PCB-1.46%，中际旭创-3.90%/新易盛-4.08%/海光信息-3.93%/沪电股份-1.46% 走弱；主力净流出CPO34.19亿/服务器35.06亿/液冷21.04亿/PCB20.36亿</div><div class="news-s">主线内部分化——半导体材料/设备逆势净流入，但光模块/服务器延续大额净流出（5日累计CPO-231亿/服务器-240亿/PCB-219亿），AI算力芯片微流出1.34亿但20日仍净流入9.27亿，硬件端尚未止血、半导体成唯一避风港</div></div></div>
+</section>
+
+<section>
+<div class="sec-head"><div class="sec-ico">⑦</div><h2>估值与拥挤度</h2><div class="sec-sub">核心板块 PE + 20日涨跌幅</div></div>
+<div class="val-cards"><div class="val-card"><div class="val-n hot">41.6x</div>
+<div class="val-t">半导体 · PE(TTM)</div>
+<div class="val-t" style="margin-top:6px">20日 -10.7%</div></div>
+<div class="val-card"><div class="val-n hot">23.8x</div>
+<div class="val-t">CPO光模块 · PE(TTM)</div>
+<div class="val-t" style="margin-top:6px">20日 -22.3%</div></div>
+<div class="val-card"><div class="val-n hot">26.6x</div>
+<div class="val-t">PCB概念 · PE(TTM)</div>
+<div class="val-t" style="margin-top:6px">20日 -19.7%</div></div>
+<div class="val-card"><div class="val-n hot">83.4x</div>
+<div class="val-t">AI算力芯片 · PE(TTM)</div>
+<div class="val-t" style="margin-top:6px">20日 -8.6%</div></div>
+<div class="val-card"><div class="val-n hot">22.0x</div>
+<div class="val-t">液冷概念 · PE(TTM)</div>
+<div class="val-t" style="margin-top:6px">20日 -11.8%</div></div>
+<div class="val-card"><div class="val-n hot">28.3x</div>
+<div class="val-t">服务器 · PE(TTM)</div>
+<div class="val-t" style="margin-top:6px">20日 -10.7%</div></div></div>
+<div class="warn"><b>拥挤度提示：6 大核心当日主力净流入合计约 -82 亿（半导体 +29.6 亿逆势净流入，CPO -34.2 / 服务器 -35.1 / 液冷 -21.0 / PCB -20.4 / AI算力芯片 -1.3 亿净流出），5日合计约 -912 亿、硬件持续流出；六张 PE 卡中半导体材料 146.7x、AI算力芯片 83.4x、半导体设备 74.1x、半导体 41.6x、服务器 28.3x、CPO 23.8x，估值分化——半导体材料/设备受逆势资金追捧估值偏高，CPO/服务器相对合理；20日维度 CPO -22.26% / PCB -19.69% / 液冷 -11.75% / 半导体 -10.67% / 半导体材料 -11.88% / 半导体设备 -13.04% 均为负，硬件近20日深幅调整；今日17赛道3涨14跌、半导体链逆势而光模块走弱，晋级率9.09%冰点、高位股3连跌停，关注半导体主线资金持续性与硬件端能否止血，回避追高低位补涨与盲目抄底硬件。</b></div>
+</section>
+
+<section>
+<div class="sec-head"><div class="sec-ico">⑧</div><h2>展望清单</h2><div class="sec-sub">关注 5 条 / 风险 5 条</div></div>
+<div class="outlook">
+<div class="ol-card focus"><div class="ol-t">关注</div><ol class="ol-list">
+<li>半导体主线持续性——集成电路制造+5.82%/半导体材料+2.67%/半导体设备+2.19%/光刻胶+3.12%，中芯国际+6.59%/北方华创+4.09%，主力净流入半导体+29.63亿，关注资金能否持续、科创50 +0.62% 翻红能否扩散</li>
+<li>光模块与硬件止血——CPO-1.59%/服务器-1.63%/液冷-1.48%，中际旭创-3.90%/新易盛-4.08%/海光信息-3.93%，主力净流出CPO-34.2亿/服务器-35.1亿，关注硬件全线回调后能否止跌、资金能否回流</li>
+<li>连板高度与晋级修复——华东重机3连板（算力芯片·一字板·唯一晋级），阳光照明14天8板/瀛通通讯6天4板，晋级率9.09%冰点、封板率65%，关注晋级能否自冰点修复、一字板缺乏参与机会下的接力意愿</li>
+<li>广度与跌停收敛——红盘率24%（1326涨/4119跌）、连续第四日超4100只下跌、逾60股跌停，高位人气股3连跌停，关注跌停潮能否收敛与情绪修复信号</li>
+<li>高低切换持续性——半导体（低位承接+资金流入）vs 传媒短剧（影视院线-9.02%退潮）vs 光模块（资金流出），成交1.47万亿小幅缩量，关注结构切换的持续性与量能配合</li>
+</ol></div>
+<div class="ol-card risk"><div class="ol-t">风险</div><ol class="ol-list">
+<li>晋级率冰点——9.09%（上一交易日11只连板仅华东重机1只晋级）、连板高度降至3板、20股封板未遂、午后炸板（午盘42→收盘37），接力意愿脆弱，非全面修复</li>
+<li>高位股3连跌停——襄阳轴承/青岛食品/澳洋健康/闽发铝业/百洋股份等前期高标连续3日跌停，逾60股跌停（脚本78只），短线亏钱效应显著</li>
+<li>硬件资金持续流出——CPO-34.2亿/服务器-35.1亿/液冷-21.0亿/PCB-20.4亿，5日累计流出均超百亿，20日CPO-22.26%/PCB-19.69%深幅为负，光模块尚未止血</li>
+<li>传媒短剧崩跌——其他数字媒体-11.21%/影视动漫-9.40%/影视院线-9.02%/文字媒体-8.67%，AI漫剧跌停，前期强势题材加速退潮，风格切换下追高风险大</li>
+<li>广度冰点与拥挤——红盘率24%、连续第四日超4100只下跌，半导体链单日大涨后估值偏高（半导体材料146.7x/AI算力芯片83.4x），警惕资金过度集中后的回撤与外部扰动</li>
+</ol></div>
+</div>
+</section>
+
+<div class="disc">
+<p><b>数据口径：</b>行情、K线与PE来自东方财富公开接口（fetch_em.py，收盘静态快照；东财 push2/push2his 于 11/17 恢复可达，主力资金为真实净流入、含正负，net_5d/net_20d 可用）；涨停/连板数据采用财联社收盘口径（午盘42涨停/连板7只/封板率86%已剔除）。PE 采用 PE(TTM)，年内采用年初至今涨跌幅；17 个 AI 细分赛道为自建成分股等权指数。</p>
+<p><b>非投资建议：</b>本报告为收盘数据复盘，仅供研究参考，不构成任何投资建议或买卖依据。市场有风险，决策需谨慎。</p>
+</div>
+</div>
+</body>
+</html>

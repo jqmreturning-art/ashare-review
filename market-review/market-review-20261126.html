@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>A股收盘主线与情绪复盘 2026-11-26</title>
+<style>
+:root{
+  --red:#ff4757;--up:#ff4757;--green:#00d4aa;--dn:#00d4aa;--flat:#b9c0cc;
+  --bg:#f4f6fa;--card:#ffffff;--line:#e3e8f0;
+  --txt:#1f2937;--sub:#6b7280;--muted:#9ca3af;
+  --blue:#1d4ed8;--blue-l:#eef2ff;--purple:#6d28d9;--purple-l:#f5f3ff;
+  --amber:#d97706;--amber-l:#fef3c7;--green-l:#ecfdf5;--green-d:#059669;
+  --grad:linear-gradient(135deg,#1e3a8a,#4f46e5 60%,#7c3aed);
+  --radius:14px;--radius-s:10px;
+  --shadow:0 1px 3px rgba(16,24,40,.05);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--txt);line-height:1.6;max-width:1000px;margin:0 auto;padding:0 20px 60px}
+/* 页头 banner（统一渐变）*/
+header{background:var(--grad);color:#fff;margin:0 -20px;padding:30px 24px 26px;border-radius:0 0 24px 24px;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px}
+.hd-tag{font-size:12px;letter-spacing:2px;opacity:.85;background:rgba(255,255,255,.15);display:inline-block;padding:4px 12px;border-radius:20px;margin-bottom:12px}
+header h1{font-size:26px;font-weight:700;letter-spacing:1px}
+header .date{font-size:13px;opacity:.9;margin-top:6px}
+.temp-badge{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.35);border-radius:16px;padding:10px 20px;text-align:center;backdrop-filter:blur(4px)}
+.temp-num{font-size:32px;font-weight:700;line-height:1.1}
+.temp-lbl{font-size:12px;opacity:.9;margin-top:2px}
+/* 定性 verdict（渐变蓝紫呼应 banner）*/
+.verdict{background:var(--grad);color:#fff;border-radius:var(--radius);padding:18px 22px;margin:18px 0 20px;text-align:center;box-shadow:var(--shadow)}
+.verdict .label{font-size:12px;color:rgba(255,255,255,.8);text-transform:uppercase;letter-spacing:1px}
+.verdict .text{font-size:18px;font-weight:700;margin-top:4px}
+.verdict .tag{display:inline-block;padding:2px 12px;border-radius:20px;font-size:13px;font-weight:600;margin-left:8px;background:rgba(255,255,255,.18);color:#fff;border:1px solid rgba(255,255,255,.4)}
+.tag-hot{background:#fee2e2;color:#dc2626}
+.tag-warn{background:var(--amber-l);color:#b45309}
+.section-title{font-size:14px;font-weight:700;color:var(--sub);margin:20px 0 10px;padding-left:8px;border-left:3px solid var(--blue)}
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:8px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px 12px;text-align:center;box-shadow:var(--shadow)}
+.kpi .val{font-size:28px;font-weight:800;line-height:1.2}
+.kpi .lbl{font-size:11px;color:var(--sub);margin-top:4px}
+.kpi .sub{font-size:10px;color:var(--sub);margin-top:2px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:8px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;box-shadow:var(--shadow)}
+.card h3{font-size:13px;font-weight:700;margin-bottom:12px;color:var(--txt)}
+.bar-row{display:flex;align-items:center;gap:8px;margin:6px 0;font-size:12px}
+.bar-row .name{width:90px;text-align:right;flex-shrink:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bar-row .bar-wrap{flex:1;height:18px;background:#f5f5f5;border-radius:4px;overflow:hidden;position:relative}
+.bar-fill{height:100%;border-radius:4px;transition:width .6s ease}
+.bar-fill.up{background:var(--red)}
+.bar-fill.dn{background:var(--green)}
+.bar-fill.flat{background:var(--flat)}
+.bar-row .pct{width:60px;font-size:11px;font-weight:600;flex-shrink:0}
+.pct.up{color:var(--red)}.pct.dn{color:var(--green)}.pct.flat{color:var(--sub)}
+.idx-row{display:flex;align-items:center;gap:8px;margin:8px 0;font-size:13px}
+.idx-row .idx-name{width:80px;font-weight:600}
+.idx-row .idx-price{width:80px;color:var(--sub);font-size:12px}
+.idx-row .bar-wrap{flex:1;height:22px;background:#f5f5f5;border-radius:4px;overflow:hidden;position:relative}
+.idx-row .bar-fill{display:flex;align-items:center;justify-content:flex-end;padding-right:6px;color:#fff;font-size:11px;font-weight:600}
+.idx-row .pct{width:60px;font-weight:700;font-size:12px}
+.sector-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.mini-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-s);padding:12px}
+.mini-card h4{font-size:12px;font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:4px}
+.mini-card .item{display:flex;justify-content:space-between;align-items:center;padding:4px 0;border-bottom:1px solid #f0f0f0;font-size:12px}
+.mini-card .item:last-child{border-bottom:none}
+.mini-card .item .nm{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mini-card .item .vl{font-weight:600;margin-left:8px;flex-shrink:0}
+.mini-card .item .lead{font-size:10px;color:var(--sub);margin-left:4px}
+.temp-section{display:grid;grid-template-columns:200px 1fr;gap:20px;align-items:center}
+.temp-gauge{position:relative;width:200px;height:120px;margin:0 auto}
+.temp-info{flex:1}
+.temp-info .temp-val{font-size:48px;font-weight:900;color:var(--red);line-height:1}
+.temp-info .temp-label{font-size:14px;font-weight:700;margin-top:4px}
+.temp-info .temp-trend{font-size:12px;color:var(--sub);margin-top:6px}
+.breadth-bar{display:flex;height:24px;border-radius:6px;overflow:hidden;margin:8px 0}
+.breadth-bar .seg-up{background:var(--red)}
+.breadth-bar .seg-flat{background:var(--flat)}
+.breadth-bar .seg-dn{background:var(--green)}
+.breadth-labels{display:flex;justify-content:space-between;font-size:11px;color:var(--sub)}
+.ladder{display:flex;flex-direction:column;gap:6px;padding:8px 0}
+.ladder-row{display:flex;align-items:center;gap:8px;font-size:12px}
+.ladder-row .lvl{width:60px;font-weight:700;text-align:center;padding:2px 6px;border-radius:4px;color:#fff;font-size:11px}
+.ladder-row .lvl-5{background:#dc2626}
+.ladder-row .lvl-4{background:#ea580c}
+.ladder-row .lvl-3{background:#f59e0b}
+.ladder-row .lvl-2{background:#10b981}
+.ladder-row .stocks{flex:1;display:flex;flex-wrap:wrap;gap:4px}
+.ladder-row .stock-tag{background:var(--blue-l);color:var(--blue);padding:2px 8px;border-radius:10px;font-size:11px}
+.ladder-row .stock-tag.hot{background:#fee2e2;color:#dc2626;font-weight:600}
+.judgment-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.j-card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:14px;box-shadow:var(--shadow);border-left:4px solid var(--blue)}
+.j-card.strong{border-left-color:var(--red)}
+.j-card.weak{border-left-color:var(--green)}
+.j-card.risk{border-left-color:var(--amber)}
+.j-card.alive{border-left-color:var(--green-d)}
+.j-card h4{font-size:13px;font-weight:700;margin-bottom:8px}
+.j-card .desc{font-size:12px;color:var(--sub);line-height:1.5}
+.j-card .tag{display:inline-block;padding:1px 8px;border-radius:10px;font-size:10px;font-weight:600;margin-top:6px}
+.observe{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px;box-shadow:var(--shadow);margin-top:8px}
+.observe ul{list-style:none;padding-left:0}
+.observe li{padding:6px 0;font-size:13px;border-bottom:1px solid #f5f5f5;display:flex;align-items:flex-start;gap:8px}
+.observe li:last-child{border-bottom:none}
+.observe li::before{content:"\\25B8";color:var(--blue);font-weight:700;flex-shrink:0}
+.footer{background:#f9fafb;border:1px solid var(--line);border-radius:12px;padding:14px 20px;font-size:12px;color:var(--muted);margin-top:20px;line-height:1.8;text-align:left}
+.footer p{margin:2px 0}
+.flow-val{color:var(--red);font-weight:600}
+@media(max-width:760px){
+  .kpi-row,.grid-2,.sector-grid,.judgment-grid{grid-template-columns:1fr}
+  .temp-section{grid-template-columns:1fr}
+  header{flex-direction:column;align-items:flex-start}
+}
+
+
+.idx-row .bar-wrap::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:1px;background:#cbd5e1}
+.idx-row .bar-fill.up{left:50%;justify-content:flex-start;border-radius:0 4px 4px 0}
+.idx-row .bar-fill.dn{right:50%;justify-content:flex-end;border-radius:4px 0 0 4px}
+
+</style>
+</head>
+<body>
+<header>
+<div>
+<span class="hd-tag">ASHARE MARKET REVIEW</span>
+<h1>A股收盘主线与情绪复盘</h1>
+<div class="date">2026-11-26 星期四 · 收盘静态快照</div>
+</div>
+<div class="temp-badge">
+<div class="temp-num">42<span style="font-size:16px">°C</span></div>
+<div class="temp-lbl">情绪温度 · 中性偏弱</div>
+</div>
+</header>
+
+<div class="verdict">
+<div class="label">今日定性</div>
+<div class="text">指数企稳分化·算力硬件修复·题材活跃·广度偏弱·晋级率冰点——三大指数结束昨日系统性杀跌转为企稳分化，上证3476.88 +0.01%基本平收、创业板指2189.82 +0.29%小幅收红、科创50 1169.99 -1.36%独跌，两市成交13258.46亿（约1.33万亿、较昨基本持平）、红盘率回升至32%（1766涨/3641跌，较昨10%修复）、涨停65只（财联社收盘口径，不含ST；脚本统计67只；封板率69%）、跌停骤降至9只；17赛道6涨11跌（华为算力+4.38%/PCB+3.78%/CPO+2.19%/AI语料+1.32%领涨，AI应用-3.09%/半导体设备-2.89%/大模型-2.46%/半导体-1.38%领跌）；龙头5涨5跌（中际旭创+5.18%/新易盛+4.26%/寒武纪+3.85%领涨，中微公司-6.52%/中芯国际-4.51%领跌）；水产题材爆发（水域改革+5.00%/水产品+4.78%、东方海洋24天12板）、PCB受全球电子协会紧缺警报催化全线走强、黄金概念+2.71%，封板率回升至69%、连板14只持平、晋级率骤降至9.68%（昨日连板板块31只→3只晋级，财联社连板分析专篇未取到、口径已注明）<span class="tag" style="background:#fef3c7;color:#b45309">中性偏弱</span></div></div>
+</div>
+
+<div class="section-title">一、情绪四指标</div>
+<div class="kpi-row">
+<div class="kpi"><div class="val">65</div><div class="lbl">涨停家数</div><div class="sub">财联社收盘口径（不含ST；脚本统计67只，较昨51只回升）</div></div>
+<div class="kpi"><div class="val">69%</div><div class="lbl">封板率</div><div class="sub">收盘口径（29只封板未遂，较昨63%回升）</div></div>
+<div class="kpi"><div class="val">14</div><div class="lbl">连板股总数</div><div class="sub">财联社收盘连板14只、与昨持平；克来机电5连板纯连板最高</div></div>
+<div class="kpi"><div class="val">9.68%</div><div class="lbl">连板晋级率</div><div class="sub">9.68%（昨日连板板块31只→3只晋级，专篇未取到已注明）</div></div>
+</div>
+
+<div class="section-title">二、情绪温度计与市场广度</div>
+<div class="card">
+<div class="temp-section">
+<div class="temp-gauge"><svg width="200" height="120" viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
+<defs><linearGradient id="gg" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0" stop-color="#00d4aa"/><stop offset="0.5" stop-color="#ffa502"/><stop offset="1" stop-color="#ff4757"/>
+</linearGradient></defs>
+<path d="M12,110 A88,88 0 0 1 188,110" fill="none" stroke="#eef0f5" stroke-width="14" stroke-linecap="round"/>
+<path d="M12,110 A88,88 0 0 1 188,110" fill="none" stroke="url(#gg)" stroke-width="14" stroke-linecap="round" stroke-dasharray="552.9" stroke-dashoffset="320.7"/>
+<line x1="100" y1="110" x2="78.1" y2="24.8" stroke="#1f2937" stroke-width="3" stroke-linecap="round"/>
+<circle cx="100" cy="110" r="6" fill="#1f2937"/>
+</svg></div>
+<div class="temp-info">
+<div class="temp-val">42°C</div>
+<div class="temp-label">中性偏弱 · 红盘32%、涨停65只、封板率69%、跌停9只，上证+0.01%/创业板+0.29%/科创50-1.36%（独跌），指数企稳分化、封板修复但晋级率冰点</div>
+<div class="temp-trend">连板股14只（与昨持平）、晋级率9.68%（昨日连板板块31只→3只晋级，财联社连板分析专篇未取到、口径已注明）、封板率69%（收盘，29股封板未遂、较昨63%回升）；广度偏弱但修复——红盘率32%（1766涨/3641跌/173平，较昨10%回升）、涨停65只（财联社收盘，不含ST；脚本统计67只）、跌停9只（较昨49只骤降）；指数企稳分化——上证3476.88 +0.01%（基本平收）/创业板指2189.82 +0.29%/科创50 1169.99 -1.36%（独跌），成交13258.46亿（约1.33万亿、较昨基本持平）；催化：全球电子协会PCB紧缺警报+ TrendForce预计2026全球AI服务器出货同比增28.3%，PCB+3.78%/CPO+2.19%/华为算力+4.38% 修复领涨，IEEE ISSCC 2027华为4篇论文入选催化先进封装；水产题材爆发（水域改革+5.00%/水产品+4.78%、东方海洋24天12板）、黄金概念+2.71%；17赛道6涨11跌、龙头5涨5跌（中际旭创+5.18%/新易盛+4.26%领涨，中微-6.52%/中芯国际-4.51%领跌）；半导体设备-2.89%/半导体-1.38%/AI应用-3.09%仍弱，晋级率9.68%骤降、纯连板最高仅克来机电5板，呈「指数企稳、封板修复、晋级冰点、结构分化」格局。</div>
+</div>
+</div>
+<div class="breadth-bar"></div>
+</div>
+</div>
+<div class="breadth-bar">
+<div class="seg-up" style="width:32%"></div>
+<div class="seg-flat" style="width:3.1%"></div>
+<div class="seg-dn" style="width:65%"></div>
+</div>
+<div class="breadth-labels"><span>红盘 1766 家（32%）</span><span>平 173</span><span>绿盘 3641 家（65%）</span></div>
+<div class="flow-val" style="margin-top:8px;font-size:12px">两市成交额 1.33 万亿元 · 跌停 9 家</div>
+</div>
+
+<div class="section-title">三、指数表现（双向）</div>
+<div class="card">
+<div class="idx-row">
+<span class="idx-name">上证指数</span>
+<span class="idx-price">3476.88</span>
+<div class="bar-wrap"><div class="bar-fill up" style="width:0.2%"></div></div>
+<span class="pct up">+0.01%</span>
+</div>
+<div class="idx-row">
+<span class="idx-name">创业板指</span>
+<span class="idx-price">2189.82</span>
+<div class="bar-wrap"><div class="bar-fill up" style="width:4.8%"></div></div>
+<span class="pct up">+0.29%</span>
+</div>
+<div class="idx-row">
+<span class="idx-name">科创50</span>
+<span class="idx-price">1169.99</span>
+<div class="bar-wrap"><div class="bar-fill dn" style="width:22.7%"></div></div>
+<span class="pct dn">-1.36%</span>
+</div>
+<div style="font-size:11px;color:var(--sub);margin-top:6px">注：0点居中，红（右）为涨、绿（左）为跌；上证 3476.88 +0.01%（基本平收） / 创业板指 2189.82 +0.29% / 科创50 1169.99 -1.36%（独跌），两市成交13258.46亿（约1.33万亿、较昨基本持平）、红盘率32%（1766涨/3641跌/173平）、涨停65只（财联社收盘，封板率69%）、跌停9只；全球电子协会发布PCB紧缺警报、TrendForce预计2026全球AI服务器出货同比增28.3%，PCB+3.78%/CPO+2.19%/华为算力+4.38% 修复领涨，半导体设备-2.89%/半导体-1.38%/AI应用-3.09%仍弱；17赛道6涨11跌、龙头5涨5跌（中际旭创+5.18%/新易盛+4.26%领涨、中微公司-6.52%领跌）；水产题材爆发（水域改革+5.00%/水产品+4.78%）、黄金概念+2.71%；涨停65只、封板率69%、晋级率9.68%、连板14只持平、克来机电5连板纯连板最高，晋级冰点、结构分化。</div></div>
+</div>
+
+<div class="section-title">四、板块强弱</div>
+<div class="sector-grid">
+<div class="mini-card"><h4>🔴 行业涨幅前四</h4><div class="item"><span class="nm">煤炭行业</span><span class="vl up">+2.47%</span></div><div class="item"><span class="nm">造纸行业</span><span class="vl up">+2.21%</span></div><div class="item"><span class="nm">陶瓷行业</span><span class="vl up">+1.73%</span></div><div class="item"><span class="nm">开发区</span><span class="vl up">+1.60%</span></div></div>
+<div class="mini-card"><h4>🟣 概念涨幅前四</h4><div class="item"><span class="nm">水域改革</span><span class="vl up">+5.00%</span></div><div class="item"><span class="nm">水产品</span><span class="vl up">+4.78%</span></div><div class="item"><span class="nm">黄金概念</span><span class="vl up">+2.71%</span></div><div class="item"><span class="nm">黄河三角</span><span class="vl up">+2.04%</span></div></div>
+<div class="mini-card"><h4>💰 概念成交额前四</h4><div class="item"><span class="nm">保险重仓</span><span class="vl">723.4亿<span class="lead">好当家(10.0)</span></span></div><div class="item"><span class="nm">基金重仓</span><span class="vl">698.6亿<span class="lead">金 螳 螂(10.05)</span></span></div><div class="item"><span class="nm">含H股</span><span class="vl">615.7亿<span class="lead">新华文轩(4.07)</span></span></div><div class="item"><span class="nm">融资融券</span><span class="vl">601.1亿<span class="lead">昊华能源(5.77)</span></span></div></div>
+<div class="mini-card"><h4>🟢 跌幅居前</h4><div class="item"><span class="nm">医疗器械</span><span class="vl dn">-2.43%</span></div><div class="item"><span class="nm">汽车制造</span><span class="vl dn">-1.44%</span></div><div class="item"><span class="nm">纺织机械</span><span class="vl dn">-1.25%</span></div><div class="item"><span class="nm">酒店旅游</span><span class="vl dn">-1.19%</span></div></div>
+</div>
+
+<div class="section-title">五、涨停梯队（财联社收盘口径）</div>
+<div class="card">
+<svg width="100%" viewBox="0 0 680 218" xmlns="http://www.w3.org/2000/svg">
+<rect x="20" y="16" width="92" height="22" rx="5" fill="#dc2626"/>
+<text x="66" y="32" fill="#fff" font-size="12" font-weight="700" text-anchor="middle">累计高度 东方海洋24天12板</text>
+<text x="124" y="32" fill="#1f2937" font-size="13">水产板块东方海洋24天12板、好当家11天7板，芯片盛剑科技8天7板/全筑股份8天6板</text>
+<rect x="20" y="52" width="92" height="22" rx="5" fill="#ea580c"/>
+<text x="66" y="68" fill="#fff" font-size="12" font-weight="700" text-anchor="middle">纯连板最高 克来机电5连板</text>
+<text x="124" y="68" fill="#1f2937" font-size="13">克来机电5连板(机器人)、杭州解百4连板(零售)、利君股份/金牛化工/天圣制药3连板</text>
+<rect x="20" y="88" width="92" height="22" rx="5" fill="#f59e0b"/>
+<text x="66" y="104" fill="#fff" font-size="12" font-weight="700" text-anchor="middle">连板总数 14只</text>
+<text x="124" y="104" fill="#1f2937" font-size="13">财联社收盘连板股总数14只、三连板及以上约6只、晋级率9.68%（昨日连板板块31只→3只晋级，专篇未取到、口径已注明）</text>
+<rect x="20" y="124" width="92" height="22" rx="5" fill="#10b981"/>
+<text x="66" y="140" fill="#fff" font-size="12" font-weight="700" text-anchor="middle">封板修复·广度偏弱</text>
+<text x="124" y="140" fill="#1f2937" font-size="13">涨停65只、封板率69%（29股封板未遂）、红盘32%、跌停9只、晋级率9.68%骤降</text>
+</svg>
+<div style="font-size:12px;color:var(--sub);margin-top:6px">涨停 65 家（财联社收盘口径，不含ST、退市股；脚本统计67家）/ 封板率 69%（29股封板未遂）/ 连板股 14 只 / 三连板及以上约 6 只 / 晋级率 9.68%（昨日连板板块31只→3只晋级）/ 跌停 9 家。数据来源：财联社收盘涨停分析核对，非午盘口径（午盘52涨停/连板10只/封板率68%已剔除）；连板梯队：水产板块东方海洋24天12板、好当家11天7板，芯片产业链盛剑科技8天7板、全筑股份8天6板，机器人克来机电5连板，零售杭州解百4连板，利君股份/金牛化工/天圣制药3连板；晋级率采用昨日连板板块口径（财联社连板股分析专篇当日未检索到，已注明，非编造）。较上一交易日（11/25：51涨停/封板率63%/连板14只/晋级率30%/跌停49只/红盘10%）涨停回升、封板率走高、连板数持平、晋级率骤降、跌停骤降，呈「封板修复、晋级冰点、高标为累计板」的分化形态。</div>
+</div>
+
+<div class="section-title">六、主线研判</div>
+</div>
+
+<div class="section-title">六、主线研判</div>
+<div class="judgment-grid">
+<div class="j-card strong"><h4>算力硬件修复·PCB/CPO/华为算力领涨·半导体仍弱</h4><div class="desc">①PCB紧缺警报——全球电子协会指出从上游玻纤布/树脂到下游成品电路板全产业链需求已超供应能力，PCB概念+3.78%领涨17赛道，崇达技术/骏亚科技/澳弘电子/贤丰控股涨停、金百泽20CM，高多层与高阶HDI结构性放量预期升温；②光模块修复——CPO+2.19%、中际旭创+5.18%/新易盛+4.26% 领涨龙头，苹果/海外算力链情绪回暖带动光通信估值修复；③水产与黄金题材——水域改革+5.00%/水产品+4.78% 居概念前二，东方海洋24天12板、好当家11天7板成累计高度龙，黄金概念+2.71%受美债收益率回落催化；④华为算力与先进封装——华为算力+4.38%，据《科创板日报》IEEE ISSCC 2027议程草案华为4篇论文入选（HBM内存/逻辑折叠旗舰SoC），先进封装盛合晶微涨超10%、快克智能/三佳科技涨停</div><span class="tag" style="background:#fee2e2;color:#dc2626">算力硬件修复·PCB/CPO/华为算力领涨·半导体仍弱</span></div><div class="j-card weak"><h4>指数企稳分化·上证创业板微红·科创独跌·广度偏弱</h4><div class="desc">①指数止跌企稳——上证+0.01%/创业板+0.29%微红，结束昨日全线杀跌，权重与成长分歧收敛；②科创独跌——科创50 -1.36%，半导体权重拖累（中芯国际-4.51%/寒武纪-3.85%以外科创芯片股走弱），与主板修复背离；③广度仍偏弱——红盘率32%（1766涨/3641跌）、绿盘65%，虽有修复但仍未回到普涨状态，赚钱效应集中于PCB/水产/黄金少数方向；④跌停骤降——跌停由昨49只降至9只，恐慌抛压明显缓解，封板率由63%升至69%，短线情绪边际企稳</div><span class="tag" style="background:#ecfdf5;color:#059669">指数企稳分化·上证创业板微红·科创独跌·广度偏弱</span></div><div class="j-card risk"><h4>晋级率骤降至9.68%·连板14只持平·高标为累计板·题材接力弱</h4><div class="desc">①晋级率冰点——晋级率由昨30%骤降至9.68%，昨日连板31只仅3只晋级，接力资金明显谨慎，连板梯队断层（5板1只/4板1只/3板约6只/2板约8只）；②高标为累计板——东方海洋24天12板、好当家11天7板等为多日累计涨停而非连续板，纯连板高度仅5板，高度持续性存疑；③封板未遂29只——尽管封板率升至69%，仍有29股封板未遂，盘中炸板显示分歧；④20日深负未改——6核心20日 CPO-22.69%/液冷-20.56%/PCB-18.24% 仍深负，AI算力芯片PE 116.9x/液冷88.8x高位，中期调整未见趋势逆转</div><span class="tag" style="background:#fef3c7;color:#b45309">晋级率骤降至9.68%·连板14只持平·高标为累计板·题材接力弱</span></div><div class="j-card alive"><h4>水产题材爆发·PCB紧缺催化·黄金走强·机器人活口</h4><div class="desc">①水产主线——水域改革+5.00%/水产品+4.78% 居概念涨幅前二，东方海洋24天12板、好当家11天7板、中水渔业涨停，题材高度与广度兼具；②PCB紧缺警报催化——金百泽20CM、崇达技术/骏亚科技/澳弘电子/贤丰控股涨停，配合先进封装（盛合晶微涨超10%、快克智能/三佳科技涨停）成科技端最强活口；③黄金走强——黄金概念+2.71%，盛达资源涨停、晓程科技/招金黄金/赤峰黄金涨超5%，美债收益率回落与美股反弹缓解贵金属抛压；④机器人活口——克来机电5连板为纯连板最高标，襄阳轴承6天3板、冰山冷热5天3板延续，但晋级率9.68%下接力需谨慎</div><span class="tag" style="background:#ecfdf5;color:#059669">水产题材爆发·PCB紧缺催化·黄金走强·机器人活口</span></div>
+</div>
+
+<div class="section-title">七、明日观察锚</div>
+<div class="observe">
+<ul>
+<li>指数企稳分化能否延续——上证3476.88（+0.01%基本平收）/创业板指2189.82（+0.29%）/科创50 1169.99（-1.36%独跌），成交13258.46亿（约1.33万亿、较昨基本持平）、红盘率32%（1766涨/3641跌）；较昨（11/25上证-2.03%/创业板-4.19%/科创50-5.12%、红盘10%、跌停49只）显著修复；关注主板企稳能否延续、科创50独跌能否收敛</li>
+<li>晋级率冰点与连板梯队——涨停65只（较昨51回升）、封板率69%（29股封板未遂、较昨63%回升）、晋级率9.68%（昨日连板板块31只→3只晋级，财联社专篇未取到已注明）、连板14只（与昨持平）、三连板及以上约6只；纯连板最高克来机电5板、杭州解百4板，高标多为「N天M板」累计形态（东方海洋24天12板/好当家11天7板/盛剑科技8天7板），关注晋级率能否回升、高度断层能否修复</li>
+<li>算力硬件修复与半导体分化——17赛道6涨11跌，华为算力+4.38%/PCB+3.78%/CPO+2.19%/AI语料+1.32% 领涨，AI应用-3.09%/半导体设备-2.89%/大模型-2.46%/半导体-1.38% 领跌；龙头5涨5跌（中际旭创+5.18%/新易盛+4.26%/寒武纪+3.85%领涨，中微-6.52%/中芯国际-4.51%领跌）；关注PCB紧缺警报与AI服务器出货预期催化下硬件修复能否延续、半导体链能否止跌</li>
+<li>水产/黄金题材与先进封装——水产概念水域改革+5.00%/水产品+4.78% 爆发（东方海洋24天12板/好当家11天7板/中水渔业涨停），黄金概念+2.71%（盛达资源涨停），IEEE ISSCC 2027华为4篇论文入选催化先进封装（盛合晶微涨超10%）；关注题材能否在晋级率冰点下延续、避免一日游</li>
+<li>广度修复与跌停骤降的持续性——红盘率32%（1766涨/3641跌/173平，较昨10%回升）、跌停骤降至9只（较昨49只），封板率69%；行业端煤炭+2.47%/造纸+2.21%/陶瓷+1.73% 领涨，医疗器械-2.43%/汽车制造-1.44% 领跌；关注广度能否进一步修复至普涨、赚钱效应能否从少数题材扩散</li>
+</div>
+
+<div class="footer">
+<p><b>数据口径：</b>行情、K线与全市场/板块数据来自新浪财经 + 腾讯自选股（fetch_sina_tx.py，收盘静态快照；东方财富 push2 自 2026-10-27 起服务侧封锁不可达，主力资金降为「成交额」口径、无正负，net_5d/net_20d 不可用）；涨停/封板率/连板数据采用<b>财联社收盘口径</b>（非午盘，午盘52涨停/连板10只/封板率68%已剔除；财联社连板股分析专篇当日未检索到，晋级率采用昨日连板板块口径9.68%、已注明）。17 个 AI 细分赛道为自建成分股等权指数。</p>
+<p><b>非投资建议：</b>本报告为收盘数据复盘，仅供研究参考，不构成任何投资建议或买卖依据。市场有风险，决策需谨慎。</p>
+</div>
+</body>
+</html>
